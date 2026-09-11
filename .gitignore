@@ -1,0 +1,36 @@
+# Node
+node_modules/
+.pnpm-store/
+
+# Next.js
+.next/
+out/
+dist/
+build/
+
+# Environment — DO NOT COMMIT secrets
+.env
+.env.local
+.env.*.local
+
+# Database
+app/prisma/dev.db
+app/prisma/dev.db-journal
+app/uploads/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Graphify output (large/generated)
+graphify-out/graph.html
+
+# Testing artifacts
+scratch/
