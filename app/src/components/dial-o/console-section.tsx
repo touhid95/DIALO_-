@@ -556,224 +556,216 @@ export function ConsoleSection() {
   // 1. Dashboard Content (Center: Stats + Radar + Search/Filter + Lead Cards)
   const renderDashboardContent = () => (
     <div className="space-y-6">
-      {/* Top Header Split: Radar in Corner + 2x2 Stat Tiles (Matching reference mockup) */}
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch">
-        {/* Left Corner: Small Compact Radar Chart */}
-        <div className="md:col-span-5 flex flex-col">
-          <RadarChart
-            metrics={activeRadarMetrics}
-            size="sm"
-            isHovered={Boolean(hoveredLeadId)}
-            title="Intelligence Radar"
-            subtitle={
-              hoveredLeadId
-                ? `${activeRadarLead?.name || "Hovered"} (${activeRadarLead?.score ?? 85}%)`
-                : (selectedLead?.name ? `${selectedLead.name} (${selectedLead.score}%)` : "Queue Benchmark")
-            }
-            theme={theme}
-            className="h-full justify-between shadow-sm"
-          />
-        </div>
-
-        {/* Right Corner: 2x2 Stat Metrics Grid */}
-        <div className="md:col-span-7 grid grid-cols-2 gap-2.5">
-          {/* Stat 1: Total Discovered */}
-          <div
-            className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${
-              isLight
-                ? "bg-white/90 border-slate-200 shadow-sm"
-                : "bg-[#0d0d0d]/80 border-white/10"
-            }`}
-          >
-            <span
-              className={`text-[10px] font-mono uppercase tracking-wider block ${
-                isLight ? "text-slate-500" : "text-neutral-400"
-              }`}
-            >
-              Total Discovered
-            </span>
-            <span
-              className={`text-2xl font-bold font-mono mt-1 block ${
-                isLight ? "text-slate-900" : "text-white"
-              }`}
-            >
-              {statCounts.totalDiscovered}
-            </span>
-          </div>
-
-          {/* Stat 2: High Match (70+) */}
-          <div
-            className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${
-              isLight
-                ? "bg-white/90 border-slate-200 shadow-sm"
-                : "bg-[#0d0d0d]/80 border-white/10"
-            }`}
-          >
-            <span
-              className={`text-[10px] font-mono uppercase tracking-wider block ${
-                isLight ? "text-slate-500" : "text-neutral-400"
-              }`}
-            >
-              High Match (70+)
-            </span>
-            <span className="text-2xl font-bold font-mono mt-1 block text-teal-600 dark:text-[#00FFFF]">
-              {statCounts.highMatch}
-            </span>
-          </div>
-
-          {/* Stat 3: Calls Placed */}
-          <div
-            className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${
-              isLight
-                ? "bg-white/90 border-slate-200 shadow-sm"
-                : "bg-[#0d0d0d]/80 border-white/10"
-            }`}
-          >
-            <span
-              className={`text-[10px] font-mono uppercase tracking-wider block ${
-                isLight ? "text-slate-500" : "text-neutral-400"
-              }`}
-            >
-              Calls Placed
-            </span>
-            <span className="text-2xl font-bold font-mono mt-1 block text-indigo-600 dark:text-purple-400">
-              {statCounts.callsPlaced}
-            </span>
-          </div>
-
-          {/* Stat 4: AI Verified */}
-          <div
-            className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${
-              isLight
-                ? "bg-white/90 border-slate-200 shadow-sm"
-                : "bg-[#0d0d0d]/80 border-white/10"
-            }`}
-          >
-            <span
-              className={`text-[10px] font-mono uppercase tracking-wider block ${
-                isLight ? "text-slate-500" : "text-neutral-400"
-              }`}
-            >
-              AI Verified
-            </span>
-            <span className="text-2xl font-bold font-mono mt-1 block text-emerald-600 dark:text-emerald-400">
-              {statCounts.aiVerified}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Lead Queue Header with Search & Filters */}
+      {/* Unified Compact Control Center: Radar + Stats + Queue Controls Side-by-Side */}
       <div
-        className={`p-4 rounded-3xl border space-y-3 ${
+        className={`p-3.5 sm:p-4 rounded-3xl border transition-all duration-300 ${
           isLight
-            ? "bg-white/90 border-slate-200 shadow-sm"
+            ? "bg-white/90 border-slate-200/90 shadow-sm"
             : "bg-[#0d0d0d]/80 border-white/10 backdrop-blur-xl"
         }`}
       >
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <h3
-              className={`text-sm font-bold tracking-tight ${
-                isLight ? "text-slate-900" : "text-white"
-              }`}
-            >
-              Verified Lead Queue
-            </h3>
-            <span
-              className={`text-[11px] font-mono px-2 py-0.5 rounded-full ${
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-center">
+          {/* Left Corner: Small Compact Radar Chart */}
+          <div className="md:col-span-5 flex items-center justify-center p-1">
+            <RadarChart
+              metrics={activeRadarMetrics}
+              size="sm"
+              variant="ghost"
+              isHovered={Boolean(hoveredLeadId)}
+              title="Intelligence Radar"
+              subtitle={
+                hoveredLeadId
+                  ? `${activeRadarLead?.name || "Hovered"} (${activeRadarLead?.score ?? 85}%)`
+                  : (selectedLead?.name ? `${selectedLead.name} (${selectedLead.score}%)` : "Queue Benchmark")
+              }
+              theme={theme}
+              className="w-full max-w-[210px] p-0"
+            />
+          </div>
+
+          {/* Right Column: Compact Stats + Queue Filters & Search */}
+          <div className="md:col-span-7 flex flex-col justify-between gap-2.5 p-1">
+            {/* 1. Compact 4-Stat Metric Row */}
+            <div className="grid grid-cols-4 gap-2">
+              <div
+                className={`p-2 rounded-2xl border text-center transition-all ${
+                  isLight ? "bg-slate-50/90 border-slate-200/80" : "bg-white/[0.03] border-white/[0.08]"
+                }`}
+              >
+                <span
+                  className={`text-[8.5px] font-mono uppercase tracking-wider block ${
+                    isLight ? "text-slate-500" : "text-neutral-400"
+                  }`}
+                >
+                  Total
+                </span>
+                <span
+                  className={`text-sm font-bold font-mono block mt-0.5 ${
+                    isLight ? "text-slate-900" : "text-white"
+                  }`}
+                >
+                  {statCounts.totalDiscovered}
+                </span>
+              </div>
+
+              <div
+                className={`p-2 rounded-2xl border text-center transition-all ${
+                  isLight ? "bg-teal-50/60 border-teal-200/80" : "bg-[#00FFFF]/5 border-[#00FFFF]/20"
+                }`}
+              >
+                <span
+                  className={`text-[8.5px] font-mono uppercase tracking-wider block ${
+                    isLight ? "text-teal-700" : "text-neutral-400"
+                  }`}
+                >
+                  Match 70+
+                </span>
+                <span className="text-sm font-bold font-mono block mt-0.5 text-teal-600 dark:text-[#00FFFF]">
+                  {statCounts.highMatch}
+                </span>
+              </div>
+
+              <div
+                className={`p-2 rounded-2xl border text-center transition-all ${
+                  isLight ? "bg-indigo-50/60 border-indigo-200/80" : "bg-purple-500/5 border-purple-500/20"
+                }`}
+              >
+                <span
+                  className={`text-[8.5px] font-mono uppercase tracking-wider block ${
+                    isLight ? "text-indigo-700" : "text-neutral-400"
+                  }`}
+                >
+                  Calls
+                </span>
+                <span className="text-sm font-bold font-mono block mt-0.5 text-indigo-600 dark:text-purple-400">
+                  {statCounts.callsPlaced}
+                </span>
+              </div>
+
+              <div
+                className={`p-2 rounded-2xl border text-center transition-all ${
+                  isLight ? "bg-emerald-50/60 border-emerald-200/80" : "bg-emerald-500/5 border-emerald-500/20"
+                }`}
+              >
+                <span
+                  className={`text-[8.5px] font-mono uppercase tracking-wider block ${
+                    isLight ? "text-emerald-700" : "text-neutral-400"
+                  }`}
+                >
+                  Verified
+                </span>
+                <span className="text-sm font-bold font-mono block mt-0.5 text-emerald-600 dark:text-emerald-400">
+                  {statCounts.aiVerified}
+                </span>
+              </div>
+            </div>
+
+            {/* 2. Queue Header & Filter Segmented Control */}
+            <div className="flex items-center justify-between gap-2 pt-0.5">
+              <div className="flex items-center gap-1.5 min-w-0">
+                <span
+                  className={`text-xs font-bold tracking-tight font-mono uppercase truncate ${
+                    isLight ? "text-slate-800" : "text-neutral-200"
+                  }`}
+                >
+                  Lead Queue
+                </span>
+                <span
+                  className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-semibold shrink-0 ${
+                    isLight
+                      ? "bg-slate-100 text-slate-600 border border-slate-200"
+                      : "bg-white/10 text-neutral-300 border border-white/10"
+                  }`}
+                >
+                  {filteredLeads.length} Available
+                </span>
+              </div>
+
+              {/* Segmented Filter Pills */}
+              <div
+                className={`flex p-0.5 rounded-full border text-[10.5px] shrink-0 ${
+                  isLight ? "bg-slate-100/90 border-slate-200" : "bg-black/60 border-white/10"
+                }`}
+              >
+                <button
+                  onClick={() => setFilterQual("ALL")}
+                  className={`px-2.5 py-0.5 rounded-full font-medium transition-all ${
+                    filterQual === "ALL"
+                      ? isLight
+                        ? "bg-white text-slate-900 shadow-sm font-semibold"
+                        : "bg-white/20 text-white font-semibold"
+                      : isLight
+                      ? "text-slate-500 hover:text-slate-900"
+                      : "text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  All
+                </button>
+                <button
+                  onClick={() => setFilterQual("TIER_A")}
+                  className={`px-2.5 py-0.5 rounded-full font-medium transition-all ${
+                    filterQual === "TIER_A"
+                      ? isLight
+                        ? "bg-teal-600 text-white shadow-sm font-semibold"
+                        : "bg-[#00FFFF] text-black font-bold"
+                      : isLight
+                      ? "text-slate-500 hover:text-slate-900"
+                      : "text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  Tier A
+                </button>
+                <button
+                  onClick={() => setFilterQual("VERIFIED")}
+                  className={`px-2.5 py-0.5 rounded-full font-medium transition-all ${
+                    filterQual === "VERIFIED"
+                      ? isLight
+                        ? "bg-emerald-600 text-white shadow-sm font-semibold"
+                        : "bg-emerald-500 text-black font-bold"
+                      : isLight
+                      ? "text-slate-500 hover:text-slate-900"
+                      : "text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  Verified
+                </button>
+              </div>
+            </div>
+
+            {/* 3. Compact Search Bar Input */}
+            <div
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border transition-all ${
                 isLight
-                  ? "bg-slate-100 text-slate-700"
-                  : "bg-white/10 text-neutral-300"
+                  ? "bg-slate-50/90 border-slate-200/90 focus-within:border-teal-500 focus-within:bg-white"
+                  : "bg-black/50 border-white/10 focus-within:border-[#00FFFF]/50"
               }`}
             >
-              {filteredLeads.length} Available
-            </span>
+              <Search
+                className={`w-3.5 h-3.5 shrink-0 ${
+                  isLight ? "text-slate-400" : "text-neutral-500"
+                }`}
+              />
+              <input
+                type="text"
+                placeholder="Filter queue by name, sector, metro..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className={`w-full bg-transparent text-xs focus:outline-none ${
+                  isLight
+                    ? "text-slate-900 placeholder:text-slate-400"
+                    : "text-white placeholder:text-neutral-500"
+                }`}
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="text-xs opacity-60 hover:opacity-100 p-0.5"
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              )}
+            </div>
           </div>
-
-          {/* Filter Pills */}
-          <div
-            className={`flex p-1 rounded-full border text-xs ${
-              isLight
-                ? "bg-slate-100 border-slate-200"
-                : "bg-black/60 border-white/10"
-            }`}
-          >
-            <button
-              onClick={() => setFilterQual("ALL")}
-              className={`px-3 py-1 rounded-full font-medium transition-all ${
-                filterQual === "ALL"
-                  ? isLight
-                    ? "bg-white text-slate-900 shadow-sm"
-                    : "bg-white/20 text-white"
-                  : isLight
-                  ? "text-slate-500"
-                  : "text-neutral-400"
-              }`}
-            >
-              All
-            </button>
-            <button
-              onClick={() => setFilterQual("TIER_A")}
-              className={`px-3 py-1 rounded-full font-medium transition-all ${
-                filterQual === "TIER_A"
-                  ? isLight
-                    ? "bg-teal-600 text-white shadow-sm"
-                    : "bg-[#00FFFF] text-black font-bold"
-                  : isLight
-                  ? "text-slate-500"
-                  : "text-neutral-400"
-              }`}
-            >
-              Tier A
-            </button>
-            <button
-              onClick={() => setFilterQual("VERIFIED")}
-              className={`px-3 py-1 rounded-full font-medium transition-all ${
-                filterQual === "VERIFIED"
-                  ? isLight
-                    ? "bg-emerald-600 text-white shadow-sm"
-                    : "bg-emerald-500 text-black font-bold"
-                  : isLight
-                  ? "text-slate-500"
-                  : "text-neutral-400"
-              }`}
-            >
-              Verified
-            </button>
-          </div>
-        </div>
-
-        {/* Search Bar Input */}
-        <div
-          className={`flex items-center gap-2 px-3 py-2 rounded-2xl border ${
-            isLight
-              ? "bg-slate-50 border-slate-200"
-              : "bg-black/50 border-white/10"
-          }`}
-        >
-          <Search
-            className={`w-4 h-4 ${
-              isLight ? "text-slate-400" : "text-neutral-500"
-            }`}
-          />
-          <input
-            type="text"
-            placeholder="Search by company name, category, or metro location..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className={`w-full bg-transparent text-xs focus:outline-none ${
-              isLight ? "text-slate-900" : "text-white"
-            }`}
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery("")}
-              className="text-xs opacity-60 hover:opacity-100"
-            >
-              <X className="w-3.5 h-3.5" />
-            </button>
-          )}
         </div>
       </div>
 

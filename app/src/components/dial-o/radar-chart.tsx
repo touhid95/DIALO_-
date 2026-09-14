@@ -18,6 +18,7 @@ interface RadarChartProps {
   isHovered?: boolean;
   size?: "sm" | "md";
   theme?: "dark" | "light";
+  variant?: "card" | "ghost";
   className?: string;
 }
 
@@ -45,6 +46,7 @@ export function RadarChart({
   isHovered = false,
   size = "sm",
   theme = "dark",
+  variant = "card",
   className = "",
 }: RadarChartProps) {
   const isLight = theme === "light";
@@ -102,7 +104,9 @@ export function RadarChart({
   return (
     <div
       className={`relative flex flex-col items-center justify-center p-3 rounded-2xl transition-all duration-300 ${
-        isLight
+        variant === "ghost"
+          ? ""
+          : isLight
           ? "bg-white/85 border border-slate-200/80 shadow-sm"
           : "bg-black/40 border border-white/[0.08] backdrop-blur-md"
       } ${className}`}
