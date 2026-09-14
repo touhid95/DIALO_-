@@ -20,6 +20,7 @@ interface TcpaTimelineProps {
   slots?: ScheduledLeadSlot[];
   selectedLeadId?: string | null;
   onSelectLead?: (leadId: string) => void;
+  onHoverLead?: (leadId: string | null) => void;
   onTriggerCall?: (leadId: string) => void;
   theme?: "dark" | "light";
   className?: string;
@@ -29,7 +30,7 @@ const DEFAULT_SLOTS: ScheduledLeadSlot[] = [
   {
     id: "slot-1",
     time: "09:30 AM",
-    leadId: "lead-1",
+    leadId: "lead-austin-1",
     businessName: "Austin Smile Center",
     category: "Cosmetic & General Dentistry",
     phone: "+1 (512) 555-1001",
@@ -45,7 +46,7 @@ const DEFAULT_SLOTS: ScheduledLeadSlot[] = [
   {
     id: "slot-2",
     time: "10:30 AM",
-    leadId: "lead-2",
+    leadId: "lead-austin-2",
     businessName: "Lone Star Emergency Dental",
     category: "Emergency Dental Clinic",
     phone: "+1 (512) 555-1007",
@@ -60,11 +61,11 @@ const DEFAULT_SLOTS: ScheduledLeadSlot[] = [
   {
     id: "slot-3",
     time: "11:30 AM",
-    leadId: "lead-3",
-    businessName: "Capital Metro Pediatric Care",
-    category: "Pediatric Specialized Health",
-    phone: "+1 (512) 555-1014",
-    timezone: "CST (UTC-6)",
+    leadId: "lead-mockup-1",
+    businessName: "Scholar's IT Limited",
+    category: "Educational Institution",
+    phone: "01707-172825",
+    timezone: "BST (UTC+6)",
     status: "SCHEDULED",
     avatars: [
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=faces",
@@ -75,11 +76,11 @@ const DEFAULT_SLOTS: ScheduledLeadSlot[] = [
   {
     id: "slot-4",
     time: "01:00 PM",
-    leadId: "lead-4",
-    businessName: "Texas Hill Country Implant Clinic",
-    category: "Oral Surgery & Implants",
-    phone: "+1 (512) 555-1022",
-    timezone: "CST (UTC-6)",
+    leadId: "lead-mockup-2",
+    businessName: "Board of Education, Dhaka",
+    category: "Public Education Entity",
+    phone: "029660015",
+    timezone: "BST (UTC+6)",
     status: "SCHEDULED",
     avatars: [
       "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=64&h=64&fit=crop&crop=faces",
@@ -94,6 +95,7 @@ export function TcpaTimeline({
   slots = DEFAULT_SLOTS,
   selectedLeadId,
   onSelectLead,
+  onHoverLead,
   onTriggerCall,
   theme = "dark",
   className = "",
@@ -195,6 +197,8 @@ export function TcpaTimeline({
               {/* iOS Squircle Schedule Card */}
               <div
                 onClick={() => onSelectLead && onSelectLead(slot.leadId)}
+                onMouseEnter={() => onHoverLead && onHoverLead(slot.leadId)}
+                onMouseLeave={() => onHoverLead && onHoverLead(null)}
                 className={`flex-1 p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer ${getCardStyle(
                   slot.tintColor,
                   isSelected

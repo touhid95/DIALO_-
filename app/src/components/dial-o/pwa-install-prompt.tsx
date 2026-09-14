@@ -73,7 +73,7 @@ export function PwaInstallPrompt({ theme = "dark", className = "" }: PwaInstallP
   return (
     <aside
       aria-label="PWA Installation Notice"
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-sm rounded-2xl p-3 border shadow-xl transition-all duration-300 backdrop-blur-xl ${
+      className={`fixed bottom-20 lg:bottom-6 right-4 lg:right-8 z-50 w-[92%] max-w-sm rounded-2xl p-3 border shadow-xl transition-all duration-300 backdrop-blur-xl animate-in slide-in-from-bottom-5 ${
         isLight
           ? "bg-white/95 border-slate-200/90 text-slate-800 shadow-slate-900/10"
           : "bg-black/85 border-white/15 text-neutral-200 shadow-black/80"

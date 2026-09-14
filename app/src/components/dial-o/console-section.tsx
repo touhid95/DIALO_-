@@ -299,6 +299,7 @@ export function ConsoleSection() {
   const [leads, setLeads] = useState<LeadItem[]>(INITIAL_LEADS);
   const [callLogs, setCallLogs] = useState<CallLogItem[]>(INITIAL_CALL_LOGS);
   const [selectedLeadId, setSelectedLeadId] = useState<string | null>("lead-mockup-1");
+  const [hoveredLeadId, setHoveredLeadId] = useState<string | null>(null);
 
   // UI Filters & Search
   const [searchQuery, setSearchQuery] = useState("");
@@ -328,20 +329,29 @@ export function ConsoleSection() {
     return leads.find((l) => l.id === selectedLeadId) || leads[0];
   }, [leads, selectedLeadId]);
 
-  // Compute 5-axis Radar Metrics for the selected lead
-  const selectedRadarMetrics = useMemo<RadarMetrics>(() => {
-    if (!selectedLead) {
+  // Active lead for Radar Chart (prioritizes hovered lead for live feedback, falls back to selected lead)
+  const activeRadarLead = useMemo(() => {
+    if (hoveredLeadId) {
+      const found = leads.find((l) => l.id === hoveredLeadId);
+      if (found) return found;
+    }
+    return selectedLead;
+  }, [hoveredLeadId, leads, selectedLead]);
+
+  // Compute 5-axis Radar Metrics for the active radar lead (hovered or selected)
+  const activeRadarMetrics = useMemo<RadarMetrics>(() => {
+    if (!activeRadarLead) {
       return { match: 85, intent: 80, verify: 75, reach: 80, quality: 82 };
     }
-    const b = selectedLead.scoreBreakdown;
+    const b = activeRadarLead.scoreBreakdown;
     return {
       match: Math.round((b.icpFit / 25) * 100),
       intent: Math.round((b.intent / 20) * 100),
-      verify: selectedLead.status === "VERIFIED OPPORTUNITY" ? 95 : Math.round((b.painSignal / 25) * 85),
+      verify: activeRadarLead.status === "VERIFIED OPPORTUNITY" ? 95 : Math.round((b.painSignal / 25) * 85),
       reach: Math.round((b.contactability / 5) * 100),
       quality: Math.round((b.businessQuality / 15) * 100),
     };
-  }, [selectedLead]);
+  }, [activeRadarLead]);
 
   // Dynamic campaign stat counts
   const statCounts = useMemo(() => {
@@ -546,100 +556,112 @@ export function ConsoleSection() {
   // 1. Dashboard Content (Center: Stats + Radar + Search/Filter + Lead Cards)
   const renderDashboardContent = () => (
     <div className="space-y-6">
-      {/* Top Stat Metrics Grid (4 iOS Squircle Tiles matching mockup) */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        {/* Stat 1: Total Discovered */}
-        <div
-          className={`p-3.5 rounded-2xl border transition-all ${
-            isLight
-              ? "bg-white/90 border-slate-200 shadow-sm"
-              : "bg-[#0d0d0d]/80 border-white/10"
-          }`}
-        >
-          <span
-            className={`text-[10px] font-mono uppercase tracking-wider block ${
-              isLight ? "text-slate-500" : "text-neutral-400"
-            }`}
-          >
-            Total Discovered
-          </span>
-          <span
-            className={`text-2xl font-bold font-mono mt-1 block ${
-              isLight ? "text-slate-900" : "text-white"
-            }`}
-          >
-            {statCounts.totalDiscovered}
-          </span>
+      {/* Top Header Split: Radar in Corner + 2x2 Stat Tiles (Matching reference mockup) */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-stretch">
+        {/* Left Corner: Small Compact Radar Chart */}
+        <div className="md:col-span-5 flex flex-col">
+          <RadarChart
+            metrics={activeRadarMetrics}
+            size="sm"
+            isHovered={Boolean(hoveredLeadId)}
+            title="Intelligence Radar"
+            subtitle={
+              hoveredLeadId
+                ? `${activeRadarLead?.name || "Hovered"} (${activeRadarLead?.score ?? 85}%)`
+                : (selectedLead?.name ? `${selectedLead.name} (${selectedLead.score}%)` : "Queue Benchmark")
+            }
+            theme={theme}
+            className="h-full justify-between shadow-sm"
+          />
         </div>
 
-        {/* Stat 2: High Match (70+) */}
-        <div
-          className={`p-3.5 rounded-2xl border transition-all ${
-            isLight
-              ? "bg-white/90 border-slate-200 shadow-sm"
-              : "bg-[#0d0d0d]/80 border-white/10"
-          }`}
-        >
-          <span
-            className={`text-[10px] font-mono uppercase tracking-wider block ${
-              isLight ? "text-slate-500" : "text-neutral-400"
+        {/* Right Corner: 2x2 Stat Metrics Grid */}
+        <div className="md:col-span-7 grid grid-cols-2 gap-2.5">
+          {/* Stat 1: Total Discovered */}
+          <div
+            className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${
+              isLight
+                ? "bg-white/90 border-slate-200 shadow-sm"
+                : "bg-[#0d0d0d]/80 border-white/10"
             }`}
           >
-            High Match (70+)
-          </span>
-          <span className="text-2xl font-bold font-mono mt-1 block text-teal-600 dark:text-[#00FFFF]">
-            {statCounts.highMatch}
-          </span>
-        </div>
+            <span
+              className={`text-[10px] font-mono uppercase tracking-wider block ${
+                isLight ? "text-slate-500" : "text-neutral-400"
+              }`}
+            >
+              Total Discovered
+            </span>
+            <span
+              className={`text-2xl font-bold font-mono mt-1 block ${
+                isLight ? "text-slate-900" : "text-white"
+              }`}
+            >
+              {statCounts.totalDiscovered}
+            </span>
+          </div>
 
-        {/* Stat 3: Calls Placed */}
-        <div
-          className={`p-3.5 rounded-2xl border transition-all ${
-            isLight
-              ? "bg-white/90 border-slate-200 shadow-sm"
-              : "bg-[#0d0d0d]/80 border-white/10"
-          }`}
-        >
-          <span
-            className={`text-[10px] font-mono uppercase tracking-wider block ${
-              isLight ? "text-slate-500" : "text-neutral-400"
+          {/* Stat 2: High Match (70+) */}
+          <div
+            className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${
+              isLight
+                ? "bg-white/90 border-slate-200 shadow-sm"
+                : "bg-[#0d0d0d]/80 border-white/10"
             }`}
           >
-            Calls Placed
-          </span>
-          <span className="text-2xl font-bold font-mono mt-1 block text-indigo-600 dark:text-purple-400">
-            {statCounts.callsPlaced}
-          </span>
-        </div>
+            <span
+              className={`text-[10px] font-mono uppercase tracking-wider block ${
+                isLight ? "text-slate-500" : "text-neutral-400"
+              }`}
+            >
+              High Match (70+)
+            </span>
+            <span className="text-2xl font-bold font-mono mt-1 block text-teal-600 dark:text-[#00FFFF]">
+              {statCounts.highMatch}
+            </span>
+          </div>
 
-        {/* Stat 4: AI Verified */}
-        <div
-          className={`p-3.5 rounded-2xl border transition-all ${
-            isLight
-              ? "bg-white/90 border-slate-200 shadow-sm"
-              : "bg-[#0d0d0d]/80 border-white/10"
-          }`}
-        >
-          <span
-            className={`text-[10px] font-mono uppercase tracking-wider block ${
-              isLight ? "text-slate-500" : "text-neutral-400"
+          {/* Stat 3: Calls Placed */}
+          <div
+            className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${
+              isLight
+                ? "bg-white/90 border-slate-200 shadow-sm"
+                : "bg-[#0d0d0d]/80 border-white/10"
             }`}
           >
-            AI Verified
-          </span>
-          <span className="text-2xl font-bold font-mono mt-1 block text-emerald-600 dark:text-emerald-400">
-            {statCounts.aiVerified}
-          </span>
+            <span
+              className={`text-[10px] font-mono uppercase tracking-wider block ${
+                isLight ? "text-slate-500" : "text-neutral-400"
+              }`}
+            >
+              Calls Placed
+            </span>
+            <span className="text-2xl font-bold font-mono mt-1 block text-indigo-600 dark:text-purple-400">
+              {statCounts.callsPlaced}
+            </span>
+          </div>
+
+          {/* Stat 4: AI Verified */}
+          <div
+            className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${
+              isLight
+                ? "bg-white/90 border-slate-200 shadow-sm"
+                : "bg-[#0d0d0d]/80 border-white/10"
+            }`}
+          >
+            <span
+              className={`text-[10px] font-mono uppercase tracking-wider block ${
+                isLight ? "text-slate-500" : "text-neutral-400"
+              }`}
+            >
+              AI Verified
+            </span>
+            <span className="text-2xl font-bold font-mono mt-1 block text-emerald-600 dark:text-emerald-400">
+              {statCounts.aiVerified}
+            </span>
+          </div>
         </div>
       </div>
-
-      {/* Interactive 5-Dimension Radar Chart */}
-      <RadarChart
-        metrics={selectedRadarMetrics}
-        title="Multi-Factor Intelligence Radar"
-        subtitle={selectedLead?.name ? `${selectedLead.name} (${selectedLead.score}%)` : "Queue Benchmark"}
-        theme={theme}
-      />
 
       {/* Lead Queue Header with Search & Filters */}
       <div
@@ -759,6 +781,7 @@ export function ConsoleSection() {
       <div className="space-y-3.5">
         {filteredLeads.map((lead) => {
           const isSelected = selectedLeadId === lead.id;
+          const isHovered = hoveredLeadId === lead.id;
 
           return (
             <div
@@ -767,13 +790,19 @@ export function ConsoleSection() {
                 setSelectedLeadId(lead.id);
                 setIsDetailDrawerOpen(true);
               }}
+              onMouseEnter={() => setHoveredLeadId(lead.id)}
+              onMouseLeave={() => setHoveredLeadId(null)}
               className={`p-4 rounded-3xl border transition-all duration-200 cursor-pointer ${
                 isLight
                   ? isSelected
                     ? "bg-white border-teal-500 ring-2 ring-teal-500/20 shadow-md"
+                    : isHovered
+                    ? "bg-white border-teal-400 shadow-md translate-y-[-1px]"
                     : "bg-white/95 border-slate-200/90 hover:border-slate-300 shadow-sm"
                   : isSelected
                   ? "bg-[#141414] border-[#00FFFF] ring-1 ring-[#00FFFF]/40 shadow-xl shadow-[#00FFFF]/5"
+                  : isHovered
+                  ? "bg-[#161616] border-[#00FFFF]/70 shadow-lg shadow-[#00FFFF]/10 translate-y-[-1px]"
                   : "bg-[#0d0d0d]/80 border-white/10 hover:border-white/20"
               }`}
             >
@@ -983,7 +1012,9 @@ export function ConsoleSection() {
             {callLogs.map((c) => (
               <tr
                 key={c.id}
-                className={`transition-colors ${
+                onMouseEnter={() => setHoveredLeadId(c.leadId)}
+                onMouseLeave={() => setHoveredLeadId(null)}
+                className={`transition-colors cursor-pointer ${
                   isLight ? "hover:bg-slate-50" : "hover:bg-white/[0.02]"
                 }`}
               >
@@ -1176,6 +1207,7 @@ export function ConsoleSection() {
                   setSelectedLeadId(id);
                   setIsDetailDrawerOpen(true);
                 }}
+                onHoverLead={setHoveredLeadId}
                 onTriggerCall={(id) => {
                   const target = leads.find((l) => l.id === id);
                   if (target) setActiveCallModalLead(target);
@@ -1258,6 +1290,7 @@ export function ConsoleSection() {
                       setSelectedLeadId(id);
                       setIsDetailDrawerOpen(true);
                     }}
+                    onHoverLead={setHoveredLeadId}
                     onTriggerCall={(id) => {
                       const target = leads.find((l) => l.id === id);
                       if (target) setActiveCallModalLead(target);
@@ -1333,6 +1366,7 @@ export function ConsoleSection() {
                   setSelectedLeadId(id);
                   setIsDetailDrawerOpen(true);
                 }}
+                onHoverLead={setHoveredLeadId}
                 onTriggerCall={(id) => {
                   const target = leads.find((l) => l.id === id);
                   if (target) setActiveCallModalLead(target);
