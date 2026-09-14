@@ -283,13 +283,13 @@ export function RadarChart({
               dy={dy}
               className={`${
                 isSm ? "text-[8.5px]" : "text-[11px]"
-              } font-medium font-mono select-none ${
+              } font-sf-light select-none ${
                 isLight ? "fill-slate-600" : "fill-neutral-300"
               }`}
             >
               {axis.label}{" "}
               <tspan
-                className={`font-bold ${
+                className={`font-sf-bold ${
                   isLight ? "fill-teal-700" : "fill-[#00FFFF]"
                 }`}
               >
@@ -301,7 +301,7 @@ export function RadarChart({
       </svg>
 
       {/* Subtle Bottom Status Indicator */}
-      <div className="mt-1 flex items-center justify-center gap-1.5 text-[9px] font-mono select-none">
+      <div className="mt-1 flex items-center justify-center gap-1.5 text-[9px] select-none">
         <span
           className={`inline-block w-1.5 h-1.5 rounded-full transition-colors ${
             isHovered
@@ -312,15 +312,15 @@ export function RadarChart({
           }`}
         />
         <span
-          className={
+          className={`interactive-weight ${
             isHovered
               ? isLight
-                ? "text-teal-700 font-semibold"
-                : "text-[#00FFFF] font-semibold"
+                ? "text-teal-700 font-sf-bold"
+                : "text-[#00FFFF] font-sf-bold"
               : isLight
-              ? "text-slate-400"
-              : "text-neutral-500"
-          }
+              ? "text-slate-400 font-sf-thin"
+              : "text-neutral-500 font-sf-thin"
+          }`}
         >
           {isHovered ? "Live Fit Comparison" : "Hover lead to preview"}
         </span>

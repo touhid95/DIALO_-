@@ -147,14 +147,14 @@ export function TcpaTimeline({
       <div className="flex items-center justify-between mb-4 px-1">
         <div>
           <h3
-            className={`text-sm font-semibold tracking-tight ${
+            className={`text-sm font-sf-bold tracking-tight ${
               isLight ? "text-slate-900" : "text-white"
             }`}
           >
             Call Queue
           </h3>
           <p
-            className={`text-[11px] font-mono flex items-center gap-1 mt-0.5 ${
+            className={`text-[11px] font-sf-light flex items-center gap-1 mt-0.5 ${
               isLight ? "text-slate-500" : "text-neutral-400"
             }`}
           >
@@ -163,7 +163,7 @@ export function TcpaTimeline({
           </p>
         </div>
         <span
-          className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-semibold ${
+          className={`text-[10px] px-2 py-0.5 rounded-full font-sf-bold ${
             isLight
               ? "bg-teal-50 text-teal-700 border border-teal-200"
               : "bg-[#00FFFF]/10 text-[#00FFFF] border border-[#00FFFF]/30"
@@ -183,13 +183,15 @@ export function TcpaTimeline({
               {/* Left Timestamp */}
               <div className="w-16 shrink-0 pt-2 text-right">
                 <span
-                  className={`text-[11px] font-mono font-medium block leading-none ${
-                    isLight ? "text-slate-500" : "text-neutral-400"
+                  className={`text-[11px] block leading-none interactive-weight ${
+                    isSelected
+                      ? "font-sf-bold text-teal-600 dark:text-[#00FFFF]"
+                      : "font-sf-light text-slate-500 dark:text-neutral-400 group-hover:font-sf-bold"
                   }`}
                 >
                   {slot.time}
                 </span>
-                <span className="text-[9px] font-mono text-emerald-500 font-semibold block mt-1">
+                <span className="text-[9px] font-sf-bold text-emerald-500 block mt-1">
                   Open
                 </span>
               </div>
@@ -238,8 +240,10 @@ export function TcpaTimeline({
 
                 {/* Business Title & Details */}
                 <h4
-                  className={`text-xs font-semibold tracking-tight line-clamp-1 ${
-                    isLight ? "text-slate-900" : "text-white"
+                  className={`text-xs tracking-tight line-clamp-1 interactive-weight ${
+                    isSelected
+                      ? isLight ? "font-sf-bold text-slate-900" : "font-sf-bold text-white"
+                      : isLight ? "font-sf-light text-slate-800 group-hover:font-sf-bold" : "font-sf-light text-neutral-200 group-hover:font-sf-bold"
                   }`}
                 >
                   {slot.businessName}
@@ -247,24 +251,22 @@ export function TcpaTimeline({
 
                 <div className="flex items-center justify-between mt-1.5 pt-1.5 border-t border-black/5 dark:border-white/5 text-[10px]">
                   <span
-                    className={`font-mono truncate max-w-[130px] ${
+                    className={`truncate max-w-[130px] interactive-weight ${
+                      isSelected ? "font-sf-light" : "font-sf-thin group-hover:font-sf-light"
+                    } ${
                       isLight ? "text-slate-600" : "text-neutral-400"
                     }`}
                   >
                     {slot.category}
                   </span>
                   {slot.status === "VERIFIED" ? (
-                    <span className="flex items-center gap-1 font-mono font-semibold text-emerald-600 dark:text-emerald-400">
+                    <span className="flex items-center gap-1 font-sf-bold text-emerald-600 dark:text-emerald-400">
                       <CheckCircle2 className="w-3 h-3" />
                       Verified
                     </span>
                   ) : (
-                    <span
-                      className={`font-mono ${
-                        isLight ? "text-slate-500" : "text-neutral-400"
-                      }`}
-                    >
-                      {slot.timezone.split(" ")[0]}
+                    <span className="font-sf-light text-neutral-500">
+                      {slot.timezone}
                     </span>
                   )}
                 </div>
@@ -277,7 +279,7 @@ export function TcpaTimeline({
       {/* Bottom Footer Note */}
       <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/10 flex items-center justify-between px-1">
         <span
-          className={`text-[10px] font-mono ${
+          className={`text-[10px] font-sf-thin ${
             isLight ? "text-slate-500" : "text-neutral-400"
           }`}
         >
@@ -286,7 +288,7 @@ export function TcpaTimeline({
         <div className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span
-            className={`text-[10px] font-mono font-medium ${
+            className={`text-[10px] font-sf-bold ${
               isLight ? "text-slate-700" : "text-neutral-300"
             }`}
           >

@@ -43,6 +43,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display" />
+      </head>
       <body className="font-sans antialiased bg-black text-white selection:bg-[#00FFFF] selection:text-black">
         <Providers>{children}</Providers>
       </body>

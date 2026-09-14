@@ -593,14 +593,14 @@ export function ConsoleSection() {
                 }`}
               >
                 <span
-                  className={`text-[8.5px] font-mono uppercase tracking-wider block ${
+                  className={`text-[8.5px] font-sf-light uppercase tracking-wider block ${
                     isLight ? "text-slate-500" : "text-neutral-400"
                   }`}
                 >
                   Total
                 </span>
                 <span
-                  className={`text-sm font-bold font-mono block mt-0.5 ${
+                  className={`text-sm font-sf-bold block mt-0.5 ${
                     isLight ? "text-slate-900" : "text-white"
                   }`}
                 >
@@ -614,13 +614,13 @@ export function ConsoleSection() {
                 }`}
               >
                 <span
-                  className={`text-[8.5px] font-mono uppercase tracking-wider block ${
+                  className={`text-[8.5px] font-sf-light uppercase tracking-wider block ${
                     isLight ? "text-teal-700" : "text-neutral-400"
                   }`}
                 >
                   Match 70+
                 </span>
-                <span className="text-sm font-bold font-mono block mt-0.5 text-teal-600 dark:text-[#00FFFF]">
+                <span className="text-sm font-sf-bold block mt-0.5 text-teal-600 dark:text-[#00FFFF]">
                   {statCounts.highMatch}
                 </span>
               </div>
@@ -631,13 +631,13 @@ export function ConsoleSection() {
                 }`}
               >
                 <span
-                  className={`text-[8.5px] font-mono uppercase tracking-wider block ${
+                  className={`text-[8.5px] font-sf-light uppercase tracking-wider block ${
                     isLight ? "text-indigo-700" : "text-neutral-400"
                   }`}
                 >
                   Calls
                 </span>
-                <span className="text-sm font-bold font-mono block mt-0.5 text-indigo-600 dark:text-purple-400">
+                <span className="text-sm font-sf-bold block mt-0.5 text-indigo-600 dark:text-purple-400">
                   {statCounts.callsPlaced}
                 </span>
               </div>
@@ -648,13 +648,13 @@ export function ConsoleSection() {
                 }`}
               >
                 <span
-                  className={`text-[8.5px] font-mono uppercase tracking-wider block ${
+                  className={`text-[8.5px] font-sf-light uppercase tracking-wider block ${
                     isLight ? "text-emerald-700" : "text-neutral-400"
                   }`}
                 >
                   Verified
                 </span>
-                <span className="text-sm font-bold font-mono block mt-0.5 text-emerald-600 dark:text-emerald-400">
+                <span className="text-sm font-sf-bold block mt-0.5 text-emerald-600 dark:text-emerald-400">
                   {statCounts.aiVerified}
                 </span>
               </div>
@@ -664,14 +664,14 @@ export function ConsoleSection() {
             <div className="flex items-center justify-between gap-2 pt-0.5">
               <div className="flex items-center gap-1.5 min-w-0">
                 <span
-                  className={`text-xs font-bold tracking-tight font-mono uppercase truncate ${
+                  className={`text-xs font-sf-bold tracking-tight uppercase truncate ${
                     isLight ? "text-slate-800" : "text-neutral-200"
                   }`}
                 >
                   Lead Queue
                 </span>
                 <span
-                  className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-semibold shrink-0 ${
+                  className={`text-[10px] font-sf-light px-2 py-0.5 rounded-full shrink-0 ${
                     isLight
                       ? "bg-slate-100 text-slate-600 border border-slate-200"
                       : "bg-white/10 text-neutral-300 border border-white/10"
@@ -689,42 +689,42 @@ export function ConsoleSection() {
               >
                 <button
                   onClick={() => setFilterQual("ALL")}
-                  className={`px-2.5 py-0.5 rounded-full font-medium transition-all ${
+                  className={`px-2.5 py-0.5 rounded-full transition-all interactive-weight ${
                     filterQual === "ALL"
                       ? isLight
-                        ? "bg-white text-slate-900 shadow-sm font-semibold"
-                        : "bg-white/20 text-white font-semibold"
+                        ? "bg-white text-slate-900 shadow-sm font-sf-bold"
+                        : "bg-white/20 text-white font-sf-bold"
                       : isLight
-                      ? "text-slate-500 hover:text-slate-900"
-                      : "text-neutral-400 hover:text-white"
+                      ? "text-slate-500 hover:text-slate-900 font-sf-light"
+                      : "text-neutral-400 hover:text-white font-sf-light"
                   }`}
                 >
                   All
                 </button>
                 <button
                   onClick={() => setFilterQual("TIER_A")}
-                  className={`px-2.5 py-0.5 rounded-full font-medium transition-all ${
+                  className={`px-2.5 py-0.5 rounded-full transition-all interactive-weight ${
                     filterQual === "TIER_A"
                       ? isLight
-                        ? "bg-teal-600 text-white shadow-sm font-semibold"
-                        : "bg-[#00FFFF] text-black font-bold"
+                        ? "bg-teal-600 text-white shadow-sm font-sf-bold"
+                        : "bg-[#00FFFF] text-black font-sf-bold"
                       : isLight
-                      ? "text-slate-500 hover:text-slate-900"
-                      : "text-neutral-400 hover:text-white"
+                      ? "text-slate-500 hover:text-slate-900 font-sf-light"
+                      : "text-neutral-400 hover:text-white font-sf-light"
                   }`}
                 >
                   Tier A
                 </button>
                 <button
                   onClick={() => setFilterQual("VERIFIED")}
-                  className={`px-2.5 py-0.5 rounded-full font-medium transition-all ${
+                  className={`px-2.5 py-0.5 rounded-full transition-all interactive-weight ${
                     filterQual === "VERIFIED"
                       ? isLight
-                        ? "bg-emerald-600 text-white shadow-sm font-semibold"
-                        : "bg-emerald-500 text-black font-bold"
+                        ? "bg-emerald-600 text-white shadow-sm font-sf-bold"
+                        : "bg-emerald-500 text-black font-sf-bold"
                       : isLight
-                      ? "text-slate-500 hover:text-slate-900"
-                      : "text-neutral-400 hover:text-white"
+                      ? "text-slate-500 hover:text-slate-900 font-sf-light"
+                      : "text-neutral-400 hover:text-white font-sf-light"
                   }`}
                 >
                   Verified
@@ -801,7 +801,7 @@ export function ConsoleSection() {
               <div className="flex items-start gap-3.5">
                 {/* Left Badge: Circular/Squircle Match Badge (Matching Reference Mockup) */}
                 <div
-                  className={`w-14 h-14 shrink-0 rounded-2xl border flex flex-col items-center justify-center p-1 font-mono transition-colors ${
+                  className={`w-14 h-14 shrink-0 rounded-2xl border flex flex-col items-center justify-center p-1 transition-colors ${
                     lead.score >= 90
                       ? isLight
                         ? "bg-teal-50 text-teal-700 border-teal-300"
@@ -811,9 +811,9 @@ export function ConsoleSection() {
                       : "bg-white/5 text-neutral-300 border-white/10"
                   }`}
                 >
-                  <span className="text-sm font-black leading-none">{lead.score}</span>
-                  <span className="text-[8px] font-bold tracking-tighter uppercase mt-0.5">MATCH</span>
-                  <span className="text-[8px] font-semibold text-teal-600 dark:text-[#00FFFF]">
+                  <span className="text-sm font-sf-bold leading-none">{lead.score}</span>
+                  <span className="text-[8px] font-sf-light tracking-tighter uppercase mt-0.5">MATCH</span>
+                  <span className="text-[8px] font-sf-bold text-teal-600 dark:text-[#00FFFF]">
                     {lead.tier || "Tier A"}
                   </span>
                 </div>
@@ -824,15 +824,19 @@ export function ConsoleSection() {
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
                     <div className="flex items-center gap-2 truncate">
                       <h4
-                        className={`text-sm font-bold tracking-tight truncate ${
-                          isLight ? "text-slate-900" : "text-white"
+                        className={`text-sm tracking-tight truncate interactive-weight ${
+                          isSelected || isHovered
+                            ? isLight ? "font-sf-bold text-slate-900" : "font-sf-bold text-white"
+                            : isLight ? "font-sf-light text-slate-800" : "font-sf-light text-neutral-200"
                         }`}
                       >
                         {lead.name}
                       </h4>
-                      {/* Badges from Mockup */}
+                      {/* Badges from Mockup with dynamic weight transition */}
                       <span
-                        className={`text-[9px] font-mono px-1.5 py-0.5 rounded border ${
+                        className={`text-[9px] px-1.5 py-0.5 rounded border interactive-weight ${
+                          isHovered ? "font-sf-light" : "font-sf-thin"
+                        } ${
                           isLight
                             ? "bg-slate-100 text-slate-600 border-slate-200"
                             : "bg-white/10 text-neutral-300 border-white/10"
@@ -841,7 +845,9 @@ export function ConsoleSection() {
                         Discovered
                       </span>
                       <span
-                        className={`text-[9px] font-mono px-1.5 py-0.5 rounded border ${
+                        className={`text-[9px] px-1.5 py-0.5 rounded border interactive-weight ${
+                          isHovered ? "font-sf-light" : "font-sf-thin"
+                        } ${
                           isLight
                             ? "bg-slate-100 text-slate-600 border-slate-200"
                             : "bg-white/10 text-neutral-300 border-white/10"
@@ -854,8 +860,10 @@ export function ConsoleSection() {
                     {/* Right Action Buttons */}
                     <div className="flex items-center gap-2 shrink-0">
                       <span
-                        className={`text-[10px] font-mono ${
-                          isLight ? "text-slate-500" : "text-neutral-400"
+                        className={`text-[10px] interactive-weight ${
+                          isHovered
+                            ? isLight ? "font-sf-light text-slate-700" : "font-sf-light text-neutral-300"
+                            : isLight ? "font-sf-thin text-slate-400" : "font-sf-thin text-neutral-500"
                         }`}
                       >
                         {lead.lastCallTime || "2h ago"}
@@ -865,7 +873,7 @@ export function ConsoleSection() {
                           e.stopPropagation();
                           window.open(`mailto:contact@${lead.name.toLowerCase().replace(/[^a-z0-9]/g, "")}.com`, "_blank");
                         }}
-                        className={`px-2.5 py-1 rounded-full text-[11px] font-medium border flex items-center gap-1 transition-all ${
+                        className={`px-2.5 py-1 rounded-full text-[11px] font-sf-light border flex items-center gap-1 transition-all ${
                           isLight
                             ? "bg-slate-50 text-slate-700 border-slate-300 hover:bg-slate-100"
                             : "bg-white/5 text-neutral-200 border-white/10 hover:bg-white/10"
@@ -879,10 +887,10 @@ export function ConsoleSection() {
                           e.stopPropagation();
                           setActiveCallModalLead(lead);
                         }}
-                        className={`px-3 py-1 rounded-full text-[11px] font-semibold flex items-center gap-1 transition-all shadow-sm active:scale-95 ${
+                        className={`px-3 py-1 rounded-full text-[11px] font-sf-bold flex items-center gap-1 transition-all shadow-sm active:scale-95 ${
                           isLight
                             ? "bg-indigo-600 text-white hover:bg-indigo-700"
-                            : "bg-[#00FFFF] text-black hover:bg-[#00FFFF]/80 font-bold"
+                            : "bg-[#00FFFF] text-black hover:bg-[#00FFFF]/80"
                         }`}
                       >
                         <Phone className="w-3 h-3" />
@@ -893,7 +901,9 @@ export function ConsoleSection() {
 
                   {/* Metadata Row: Category, Location, Phone, Accuracy Chip */}
                   <div
-                    className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-xs mb-2 ${
+                    className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-xs mb-2 interactive-weight ${
+                      isHovered ? "font-sf-light" : "font-sf-thin"
+                    } ${
                       isLight ? "text-slate-600" : "text-neutral-400"
                     }`}
                   >
@@ -905,14 +915,14 @@ export function ConsoleSection() {
                       <MapPin className="w-3 h-3 opacity-60" />
                       {lead.location}
                     </span>
-                    <span className="flex items-center gap-1 font-mono">
+                    <span className="flex items-center gap-1">
                       <Phone className="w-3 h-3 opacity-60" />
                       {lead.phone}
                     </span>
 
                     {/* Accuracy / Confidence Pill (Matching Mockup '95% Acc.') */}
                     <span
-                      className={`inline-flex items-center gap-1 font-mono text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                      className={`inline-flex items-center gap-1 text-[10px] font-sf-bold px-2 py-0.5 rounded-full border ${
                         isLight
                           ? "bg-emerald-50 text-emerald-700 border-emerald-300"
                           : "bg-emerald-500/10 text-emerald-400 border-emerald-500/30"
@@ -925,13 +935,13 @@ export function ConsoleSection() {
 
                   {/* Hypothesis Snippet Preview */}
                   <div
-                    className={`p-2 rounded-xl text-xs leading-relaxed border ${
+                    className={`p-2 rounded-xl text-xs font-sf-light leading-relaxed border ${
                       isLight
                         ? "bg-slate-50/70 border-slate-200/70 text-slate-700"
                         : "bg-white/[0.02] border-white/5 text-neutral-300"
                     }`}
                   >
-                    <span className="font-semibold text-indigo-600 dark:text-cyan-400 mr-1">
+                    <span className="font-sf-bold text-indigo-600 dark:text-cyan-400 mr-1">
                       Hypothesis:
                     </span>
                     {lead.hypothesis}
