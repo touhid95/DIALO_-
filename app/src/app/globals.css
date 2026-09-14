@@ -64,26 +64,6 @@ body {
   background: #94a3b8;
 }
 
-/* ─── Dashboard Layout ──────────────────────────────────────── */
-
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: 20fr 50fr 30fr;
-  height: calc(100vh - 56px);
-  overflow: hidden;
-}
-
-@media (max-width: 1024px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ─── Panel ─────────────────────────────────────────────────── */
 
@@ -394,3 +374,210 @@ body {
 .chat-message.assistant p {
   margin: 4px 0;
 }
+
+/* ════════════════════════════════════════════════════════════
+   DIAL O — OFFICIAL DESIGN SYSTEM & TOKENS
+   Primary palette: Black, White, Cyan, Yellow, Orange
+   Dominant typography: HK Modular
+   ════════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'HK Modular';
+  src: url('/fonts/modular.woff2') format('woff2'),
+       url('/fonts/modular.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-cyan: #00FFFF;
+  --color-yellow: #EFCD5E;
+  --color-orange: #FF751F;
+  --color-sand: #F7EAD8;
+  --color-sand-dark: #EAD3B8;
+
+  --color-surface-dark: #0A0A0A;
+  --color-surface-panel: #000000;
+  --color-surface-border: #1F1F1F;
+  --color-surface-border-subtle: #141414;
+
+  --font-modular: 'HK Modular', monospace, -apple-system, sans-serif;
+}
+
+/* ═══ Typography Utilities ═══════════════════════════════════ */
+
+.font-modular {
+  font-family: var(--font-modular);
+}
+
+.tracking-wider-editorial {
+  letter-spacing: 0.18em;
+}
+
+.tracking-widest-editorial {
+  letter-spacing: 0.28em;
+}
+
+/* ═══ Technical Grid Patterns ════════════════════════════════ */
+
+.dial-grid-subtle {
+  background-size: 36px 36px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+.dial-grid-cyan {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+.dial-grid-orange {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
+/* ═══ Terminal Containers ════════════════════════════════════ */
+
+.terminal-box {
+  background: #000000;
+  border: 1px solid #1A1A1A;
+  position: relative;
+}
+
+.terminal-header-label {
+  font-family: var(--font-modular);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ═══ Buttons & CTAs ═════════════════════════════════════════ */
+
+.btn-dial-explore {
+  background-color: var(--color-yellow);
+  color: #000000;
+  font-family: var(--font-modular);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  padding: 10px 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(239, 205, 94, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.btn-dial-explore:hover {
+  transform: scale(1.06);
+  background-color: #F8DA76;
+  box-shadow: 0 6px 24px rgba(239, 205, 94, 0.4);
+}
+
+.btn-dial-explore:active {
+  transform: scale(0.98);
+}
+
+/* ═══ Page 3 Step Cards (Hover Inversion) ═════════════════════ */
+
+.step-card-orange {
+  background-color: var(--color-orange);
+  color: #000000;
+  border: 2px solid #000000;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+  cursor: pointer;
+}
+
+.step-card-orange:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
+  transform: scale(1.03);
+}
+
+.step-card-orange:hover .step-badge {
+  background-color: var(--color-orange);
+  color: #000000;
+}
+
+/* ═══ Animations & Keyframes ══════════════════════════════════ */
+
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-float-subtle {
+  animation: floatSubtle 4s ease-in-out infinite;
+}
+
+@keyframes pulseLive {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.pulse-indicator {
+  animation: pulseLive 2s ease-in-out infinite;
+}
+
+/* ═══ Audio Waveform Simulation ═══════════════════════════════ */
+
+@keyframes soundWave {
+  0%, 100% {
+    height: 6px;
+  }
+  50% {
+    height: 28px;
+  }
+}
+
+.waveform-bar {
+  width: 4px;
+  background-color: #00FFFF;
+  border-radius: 2px;
+  animation: soundWave 1.2s ease-in-out infinite;
+}
+
+/* ═══ Console Custom Panels (Modest & Eye-friendly) ═══════════ */
+
+.console-container {
+  background-color: #0B0F17;
+}
+
+.console-panel-card {
+  background-color: #121620;
+  color: #FFFFFF;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.console-panel-header {
+  font-family: var(--font-modular);
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+

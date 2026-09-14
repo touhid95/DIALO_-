@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# runtime outputs from the extraction engine
+enrichment_requests.jsonl
+targets_filtered.csv
+phones_resolved.csv
+phones_resolved.jsonl
+webhook_raw.jsonl

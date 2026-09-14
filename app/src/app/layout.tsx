@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LeadIntel — AI Lead Intelligence & CALL-E Platform",
+  title: "DIAL O — Autonomous Lead Intelligence & CALL-E Voice Copilot",
   description:
-    "AI-powered lead research, evidence-based scoring, and phone qualification through CALL-E.",
+    "Autonomous lead discovery, multimodal criteria ingestion, evidence-based qualification, and live CALL-E voice calls.",
 };
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="font-sans antialiased bg-white text-slate-900">
+      <body className="font-sans antialiased bg-black text-white selection:bg-[#00FFFF] selection:text-black">
         <Providers>{children}</Providers>
       </body>
     </html>

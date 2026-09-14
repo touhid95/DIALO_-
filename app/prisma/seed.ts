@@ -97,7 +97,7 @@ async function main() {
     {
       name: "Austin Smile Center",
       phone: "+15125551001",
-      website: "https://austinsmilecenter.example.com",
+      website: "https://austindentalspa.com",
       location: "Austin, TX (Downtown)",
       category: "Cosmetic & General Dentistry",
       score: 88,
@@ -152,7 +152,7 @@ async function main() {
     {
       name: "Capital City Dental Care",
       phone: "+15125551002",
-      website: "https://capitalcitydental.example.com",
+      website: "https://rosedental.com",
       location: "Austin, TX (South Congress)",
       category: "Family Dentistry",
       score: 84,
@@ -201,7 +201,7 @@ async function main() {
     {
       name: "Lakeway Family Dentistry",
       phone: "+15125551003",
-      website: "https://lakewayfamily.example.com",
+      website: "https://swdentalatx.com",
       location: "Lakeway, TX",
       category: "Family Dentistry",
       score: 76,
@@ -236,7 +236,7 @@ async function main() {
     {
       name: "Round Rock Modern Smiles",
       phone: "+15125551004",
-      website: "https://roundrockdental.example.com",
+      website: "https://belterradentalatx.com",
       location: "Round Rock, TX",
       category: "Orthodontics & Implants",
       score: 72,
@@ -265,7 +265,7 @@ async function main() {
     {
       name: "Barton Springs Dental Group",
       phone: "+15125551005",
-      website: "https://bartonspringsdental.example.com",
+      website: "https://bartoncreekdental.com",
       location: "Austin, TX (Zilker)",
       category: "Cosmetic Dentistry",
       score: 64,
@@ -294,7 +294,7 @@ async function main() {
     {
       name: "North Austin Pediatric Dental",
       phone: "+15125551006",
-      website: "https://northaustinpediatric.example.com",
+      website: "https://domainpediatricdental.com",
       location: "Austin, TX (Domain)",
       category: "Pediatric Dentistry",
       score: 58,
@@ -323,7 +323,7 @@ async function main() {
     {
       name: "Lone Star Emergency Dentistry",
       phone: "+15125551007",
-      website: "https://lonestaremergency.example.com",
+      website: "https://lonestardentalcare.com",
       location: "Austin, TX (North Loop)",
       category: "Emergency Dental",
       score: 91,

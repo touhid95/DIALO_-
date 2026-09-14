@@ -57,11 +57,8 @@ export async function POST(request: NextRequest) {
       extractedText = buffer.toString("utf-8");
     } else if (ext === "pdf" || file.type === "application/pdf") {
       try {
-        const pdfModule = await import("pdf-parse");
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const pdfParse = (pdfModule as any).default || pdfModule;
-        const result = await pdfParse(buffer);
-        extractedText = result.text;
+        const { extractPdfText } = await import("@/lib/pdf");
+        extractedText = await extractPdfText(buffer);
       } catch (e) {
         console.error("PDF parsing error:", e);
         extractedText = "[PDF parsing failed — text extraction unavailable]";

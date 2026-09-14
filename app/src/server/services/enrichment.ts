@@ -9,7 +9,7 @@ import { delay } from "@/lib/utils";
 
 const ENRICHMENT_DATA: Record<string, LeadEnrichment & { evidenceItems: EvidenceItem[] }> = {
   "Austin Smile Center": {
-    website: "https://austinsmilecenter.example.com",
+    website: "https://austindentalspa.com",
     description: "Established dental practice in central Austin serving families since 2008. General and cosmetic dentistry.",
     services: ["General Dentistry", "Cosmetic Dentistry", "Teeth Whitening", "Dental Implants"],
     hours: "Mon-Fri 8AM-5PM, Sat 9AM-1PM",
@@ -27,7 +27,7 @@ const ENRICHMENT_DATA: Record<string, LeadEnrichment & { evidenceItems: Evidence
     ],
   },
   "Capital City Dental": {
-    website: "https://capitalcitydental.example.com",
+    website: "https://rosedental.com",
     description: "Multi-location dental group in Austin with focus on comprehensive care.",
     services: ["General Dentistry", "Orthodontics", "Pediatric Dentistry", "Oral Surgery"],
     hours: "Mon-Fri 7AM-6PM",
@@ -43,7 +43,7 @@ const ENRICHMENT_DATA: Record<string, LeadEnrichment & { evidenceItems: Evidence
     ],
   },
   "Lakeway Family Dentistry": {
-    website: "https://lakewayfamily.example.com",
+    website: "https://swdentalatx.com",
     description: "Family-oriented dental practice in Lakeway serving the Lake Travis area.",
     services: ["Family Dentistry", "Preventive Care", "Children's Dentistry"],
     hours: "Mon-Thu 8AM-5PM, Fri 8AM-2PM",
@@ -60,7 +60,7 @@ const ENRICHMENT_DATA: Record<string, LeadEnrichment & { evidenceItems: Evidence
     ],
   },
   "Round Rock Dental Care": {
-    website: "https://roundrockdental.example.com",
+    website: "https://belterradentalatx.com",
     description: "Full-service dental practice in Round Rock with emergency services.",
     services: ["General Dentistry", "Emergency Dental", "Root Canal", "Crowns"],
     hours: "Mon-Fri 8AM-6PM, Sat 9AM-3PM",
@@ -77,7 +77,7 @@ const ENRICHMENT_DATA: Record<string, LeadEnrichment & { evidenceItems: Evidence
     ],
   },
   "Cedar Park Smiles": {
-    website: "https://cedarparksmiles.example.com",
+    website: "https://cedarparkdental.com",
     description: "Cosmetic and general dentistry in Cedar Park.",
     services: ["Cosmetic Dentistry", "Veneers", "General Dentistry"],
     hours: "Mon-Fri 9AM-5PM",
@@ -92,7 +92,7 @@ const ENRICHMENT_DATA: Record<string, LeadEnrichment & { evidenceItems: Evidence
     ],
   },
   "Pflugerville Dental Associates": {
-    website: "https://pflugervilledental.example.com",
+    website: "https://pflugervilledentalcare.com",
     description: "Large dental group practice serving Pflugerville and surrounding areas.",
     services: ["General Dentistry", "Periodontics", "Endodontics", "Dental Implants"],
     hours: "Mon-Fri 7AM-7PM, Sat 8AM-4PM",
@@ -109,7 +109,7 @@ const ENRICHMENT_DATA: Record<string, LeadEnrichment & { evidenceItems: Evidence
     ],
   },
   "South Austin Dental Group": {
-    website: "https://southaustindental.example.com",
+    website: "https://southaustindentalassociates.com",
     description: "Multi-practitioner dental group in South Austin.",
     services: ["General Dentistry", "Cosmetic Dentistry", "Orthodontics"],
     hours: "Mon-Fri 8AM-6PM",
@@ -125,7 +125,7 @@ const ENRICHMENT_DATA: Record<string, LeadEnrichment & { evidenceItems: Evidence
     ],
   },
   "Westlake Dental Studio": {
-    website: "https://westlakedental.example.com",
+    website: "https://westlakedentalcare.com",
     description: "Boutique dental studio in West Lake Hills focused on aesthetic dentistry.",
     services: ["Aesthetic Dentistry", "Smile Makeovers", "Porcelain Veneers", "Teeth Whitening"],
     hours: "Mon-Thu 9AM-5PM",
@@ -142,7 +142,7 @@ const ENRICHMENT_DATA: Record<string, LeadEnrichment & { evidenceItems: Evidence
     ],
   },
   "Bee Cave Orthodontics & Dental": {
-    website: "https://beecaveortho.example.com",
+    website: "https://beecavedental.com",
     description: "Combined orthodontics and general dental practice in Bee Cave.",
     services: ["Orthodontics", "Braces", "Invisalign", "General Dentistry"],
     hours: "Mon-Fri 8AM-5PM",
@@ -157,7 +157,7 @@ const ENRICHMENT_DATA: Record<string, LeadEnrichment & { evidenceItems: Evidence
     ],
   },
   "Dripping Springs Dental": {
-    website: "https://drippingspringsdental.example.com",
+    website: "https://drippingspringsdentalcare.com",
     description: "Community dental practice in the growing Dripping Springs area.",
     services: ["General Dentistry", "Family Dentistry", "Preventive Care"],
     hours: "Mon-Fri 8AM-5PM",
@@ -173,7 +173,7 @@ const ENRICHMENT_DATA: Record<string, LeadEnrichment & { evidenceItems: Evidence
     ],
   },
   "Mueller Dental Health": {
-    website: "https://muellerdental.example.com",
+    website: "https://muellerdentalstudio.com",
     description: "Modern dental practice in the Mueller development in Austin.",
     services: ["General Dentistry", "Preventive Care", "Emergency Dental"],
     hours: "Mon-Sat 7AM-7PM",
@@ -203,8 +203,25 @@ const DEFAULT_ENRICHMENT: LeadEnrichment & { evidenceItems: EvidenceItem[] } = {
   ],
 };
 
+export const LEAD_ENRICHMENT_DORMANT = true;
+
 export class SyntheticEnrichmentProvider implements LeadEnrichmentProvider {
   async enrich(lead: RawLead): Promise<LeadEnrichment> {
+    if (LEAD_ENRICHMENT_DORMANT) {
+      // Lead enrichment is dormant — bypass delay and leave lead contact data unpolluted for MCP layer
+      return {
+        website: lead.website || "",
+        description: `Lead record for ${lead.name} (enrichment dormant; stored in MCP layer)`,
+        services: [],
+        hours: "",
+        reviewSignals: [],
+        technologyIndicators: [],
+        decisionMaker: lead.decisionMaker,
+        decisionMakerTitle: "",
+        employeeCount: lead.employeeCount,
+      };
+    }
+
     await delay(800); // Simulate enrichment processing
 
     const data = ENRICHMENT_DATA[lead.name] || DEFAULT_ENRICHMENT;

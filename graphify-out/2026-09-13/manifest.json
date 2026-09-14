@@ -1,0 +1,2750 @@
+{
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/examples/01_fetcher_session.py": {
+    "mtime": 1789214489.5921707,
+    "seen": 1789215287.0526776,
+    "ast_hash": "2585c28a5211932efd4919b922abfa6b",
+    "semantic_hash": "2585c28a5211932efd4919b922abfa6b"
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/examples/02_dynamic_session.py": {
+    "mtime": 1789214489.6061766,
+    "seen": 1789215287.0526865,
+    "ast_hash": "717191dd16e60168d3a0a22a749f6110",
+    "semantic_hash": "717191dd16e60168d3a0a22a749f6110"
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/examples/03_stealthy_session.py": {
+    "mtime": 1789214489.6182902,
+    "seen": 1789215287.0526893,
+    "ast_hash": "fe56139952d55a03a62f05a506afc63e",
+    "semantic_hash": "fe56139952d55a03a62f05a506afc63e"
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/examples/04_spider.py": {
+    "mtime": 1789214489.6312995,
+    "seen": 1789215287.0526912,
+    "ast_hash": "188165f0cff5c3cc628bc79659765e04",
+    "semantic_hash": "188165f0cff5c3cc628bc79659765e04"
+  },
+  "Scrapling-main/Scrapling-main/benchmarks.py": {
+    "mtime": 1789214489.2583086,
+    "seen": 1789215287.052693,
+    "ast_hash": "405ca16bff773fe90fbc05cda6d29a64",
+    "semantic_hash": "405ca16bff773fe90fbc05cda6d29a64"
+  },
+  "Scrapling-main/Scrapling-main/cleanup.py": {
+    "mtime": 1789214489.2783122,
+    "seen": 1789215287.0526948,
+    "ast_hash": "4debdf0f52308340e13bbb8209ca8b0f",
+    "semantic_hash": "4debdf0f52308340e13bbb8209ca8b0f"
+  },
+  "Scrapling-main/Scrapling-main/pyproject.toml": {
+    "mtime": 1789214489.2873085,
+    "seen": 1789215287.0526965,
+    "ast_hash": "d1337c7a38e655322ad821433c477332",
+    "semantic_hash": "d1337c7a38e655322ad821433c477332"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/__init__.py": {
+    "mtime": 1789216316.5396762,
+    "seen": 1789237531.2191775,
+    "ast_hash": "59a13b0f676ab02bd972ec8661c53b4a",
+    "semantic_hash": "59a13b0f676ab02bd972ec8661c53b4a"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/cli.py": {
+    "mtime": 1789214490.8503883,
+    "seen": 1789215287.0526996,
+    "ast_hash": "b6a7c58c9b2263a4581e2c4eed911167",
+    "semantic_hash": "b6a7c58c9b2263a4581e2c4eed911167"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/__init__.py": {
+    "mtime": 1789214490.8943858,
+    "seen": 1789215287.052701,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/_shell_signatures.py": {
+    "mtime": 1789214490.905387,
+    "seen": 1789215287.0527022,
+    "ast_hash": "9f781c5b60a9e2338c7aa78e3c2063ed",
+    "semantic_hash": "9f781c5b60a9e2338c7aa78e3c2063ed"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/_types.py": {
+    "mtime": 1789214490.9209757,
+    "seen": 1789215287.052704,
+    "ast_hash": "7a9274435c06e2d3c2f3162db39beb94",
+    "semantic_hash": "7a9274435c06e2d3c2f3162db39beb94"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/ai.py": {
+    "mtime": 1789214490.93704,
+    "seen": 1789215287.0527053,
+    "ast_hash": "5465504cba6547b7f5c588122213a027",
+    "semantic_hash": "5465504cba6547b7f5c588122213a027"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/custom_types.py": {
+    "mtime": 1789214490.9500308,
+    "seen": 1789215287.0527067,
+    "ast_hash": "66ae26adff13691957a28a4be488eae6",
+    "semantic_hash": "66ae26adff13691957a28a4be488eae6"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/mixins.py": {
+    "mtime": 1789214490.9610853,
+    "seen": 1789215287.0527086,
+    "ast_hash": "180930aa43c30c7ca3d97893d45c1222",
+    "semantic_hash": "180930aa43c30c7ca3d97893d45c1222"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/shell.py": {
+    "mtime": 1789214490.9732082,
+    "seen": 1789215287.0527103,
+    "ast_hash": "965b4c2860f61f64de9b64f58b193db2",
+    "semantic_hash": "965b4c2860f61f64de9b64f58b193db2"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/storage.py": {
+    "mtime": 1789214490.9842055,
+    "seen": 1789215287.0527122,
+    "ast_hash": "b541421e8092b516ab9731bb7c99aa21",
+    "semantic_hash": "b541421e8092b516ab9731bb7c99aa21"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/translator.py": {
+    "mtime": 1789214490.995207,
+    "seen": 1789215287.0527139,
+    "ast_hash": "3c92a2f82e123734b651fe748b41b943",
+    "semantic_hash": "3c92a2f82e123734b651fe748b41b943"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/utils/__init__.py": {
+    "mtime": 1789214491.0122092,
+    "seen": 1789215287.0527153,
+    "ast_hash": "e6d1a2e0ae0a484de28c3650d39716e9",
+    "semantic_hash": "e6d1a2e0ae0a484de28c3650d39716e9"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/utils/_shell.py": {
+    "mtime": 1789214491.0242121,
+    "seen": 1789215287.0527167,
+    "ast_hash": "b05f16316cfa1b8437f9e5a09b39b70c",
+    "semantic_hash": "b05f16316cfa1b8437f9e5a09b39b70c"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/core/utils/_utils.py": {
+    "mtime": 1789214491.034212,
+    "seen": 1789215287.0527182,
+    "ast_hash": "6886e04bb8875fb91c12317f06f35d70",
+    "semantic_hash": "6886e04bb8875fb91c12317f06f35d70"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/__init__.py": {
+    "mtime": 1789214491.0537324,
+    "seen": 1789215287.0527196,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/_browsers/__init__.py": {
+    "mtime": 1789214491.097732,
+    "seen": 1789215287.0527225,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/_browsers/_base.py": {
+    "mtime": 1789214491.1117394,
+    "seen": 1789215287.0527241,
+    "ast_hash": "6910d14b654e609e6d8104e23728fab4",
+    "semantic_hash": "6910d14b654e609e6d8104e23728fab4"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/_browsers/_config_tools.py": {
+    "mtime": 1789214491.1247444,
+    "seen": 1789215287.0527258,
+    "ast_hash": "76b0de331dae35340a9b42e9b082d2fb",
+    "semantic_hash": "76b0de331dae35340a9b42e9b082d2fb"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/_browsers/_controllers.py": {
+    "mtime": 1789214491.136889,
+    "seen": 1789215287.0527275,
+    "ast_hash": "e9bb851fed7a8c53f4234543b543b9c2",
+    "semantic_hash": "e9bb851fed7a8c53f4234543b543b9c2"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/_browsers/_page.py": {
+    "mtime": 1789214491.1514108,
+    "seen": 1789215287.0527291,
+    "ast_hash": "09dc7c33ccf9a6d69b45efc0db352eca",
+    "semantic_hash": "09dc7c33ccf9a6d69b45efc0db352eca"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/_browsers/_stealth.py": {
+    "mtime": 1789214491.165414,
+    "seen": 1789215287.0527308,
+    "ast_hash": "0a5bc36ba4e272f7d67359cc06d30b46",
+    "semantic_hash": "0a5bc36ba4e272f7d67359cc06d30b46"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/_browsers/_types.py": {
+    "mtime": 1789214491.1814077,
+    "seen": 1789215287.052732,
+    "ast_hash": "99c0bb1de39153a0b84c266b3e792ac0",
+    "semantic_hash": "99c0bb1de39153a0b84c266b3e792ac0"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/_browsers/_validators.py": {
+    "mtime": 1789214491.194407,
+    "seen": 1789215287.0527334,
+    "ast_hash": "d98d5f38fa215ac5c043ddeade06cf65",
+    "semantic_hash": "d98d5f38fa215ac5c043ddeade06cf65"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/constants.py": {
+    "mtime": 1789214491.064734,
+    "seen": 1789215287.052735,
+    "ast_hash": "7eda52cfe07fbc5268f5fe9e83e06e0e",
+    "semantic_hash": "7eda52cfe07fbc5268f5fe9e83e06e0e"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/static.py": {
+    "mtime": 1789214491.0767322,
+    "seen": 1789215287.0527368,
+    "ast_hash": "8e52249e69f885a01eb803df1b3188a0",
+    "semantic_hash": "8e52249e69f885a01eb803df1b3188a0"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/toolbelt/__init__.py": {
+    "mtime": 1789214491.21653,
+    "seen": 1789215287.052738,
+    "ast_hash": "e04dafea148d2fcaa5ebcd98c3314915",
+    "semantic_hash": "e04dafea148d2fcaa5ebcd98c3314915"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/toolbelt/ad_domains.py": {
+    "mtime": 1789214491.230645,
+    "seen": 1789215287.0527396,
+    "ast_hash": "ecbc2a5777ffb752db73d4146b002f27",
+    "semantic_hash": "ecbc2a5777ffb752db73d4146b002f27"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/toolbelt/convertor.py": {
+    "mtime": 1789214491.2438672,
+    "seen": 1789215287.052741,
+    "ast_hash": "1ed05514cd1b0006e0cceb937e16ed45",
+    "semantic_hash": "1ed05514cd1b0006e0cceb937e16ed45"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/toolbelt/custom.py": {
+    "mtime": 1789214491.256869,
+    "seen": 1789215287.0527425,
+    "ast_hash": "e4a109737c91112a564273427ff2cdd3",
+    "semantic_hash": "e4a109737c91112a564273427ff2cdd3"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/toolbelt/fingerprints.py": {
+    "mtime": 1789214491.2698696,
+    "seen": 1789215287.052744,
+    "ast_hash": "eab0740076c2bf32a5352ec7289dcc9b",
+    "semantic_hash": "eab0740076c2bf32a5352ec7289dcc9b"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/toolbelt/navigation.py": {
+    "mtime": 1789214491.2808688,
+    "seen": 1789215287.052745,
+    "ast_hash": "7273677fcc107a00cca434774bfb6fcf",
+    "semantic_hash": "7273677fcc107a00cca434774bfb6fcf"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/engines/toolbelt/proxy_rotation.py": {
+    "mtime": 1789214491.2928684,
+    "seen": 1789215287.0527465,
+    "ast_hash": "608a3eef1e75922fa37a4d144e959fc5",
+    "semantic_hash": "608a3eef1e75922fa37a4d144e959fc5"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/fetchers/__init__.py": {
+    "mtime": 1789214491.3118696,
+    "seen": 1789215287.052748,
+    "ast_hash": "4d1cadea1acd5b6653edca70e78ede0a",
+    "semantic_hash": "4d1cadea1acd5b6653edca70e78ede0a"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/fetchers/chrome.py": {
+    "mtime": 1789214491.3228738,
+    "seen": 1789215287.0527496,
+    "ast_hash": "2e5f2844c86a3526db68c0b784000e07",
+    "semantic_hash": "2e5f2844c86a3526db68c0b784000e07"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/fetchers/requests.py": {
+    "mtime": 1789214491.3358755,
+    "seen": 1789215287.052751,
+    "ast_hash": "7bdd7a381f1c4417482d7a01d42e2204",
+    "semantic_hash": "7bdd7a381f1c4417482d7a01d42e2204"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/fetchers/stealth_chrome.py": {
+    "mtime": 1789214491.3492472,
+    "seen": 1789215287.0527525,
+    "ast_hash": "7a4d17a7629d92f6774ee56599832833",
+    "semantic_hash": "7a4d17a7629d92f6774ee56599832833"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/integrations/__init__.py": {
+    "mtime": 1789214491.369244,
+    "seen": 1789215287.052755,
+    "ast_hash": "1889b6b179ec7fbfa0c004d9c8398ba4",
+    "semantic_hash": "1889b6b179ec7fbfa0c004d9c8398ba4"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/integrations/scrapy.py": {
+    "mtime": 1789214491.3832433,
+    "seen": 1789215287.0527565,
+    "ast_hash": "93cac18018372b76462ed79675260114",
+    "semantic_hash": "93cac18018372b76462ed79675260114"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/parser.py": {
+    "mtime": 1789214490.8643878,
+    "seen": 1789215287.052758,
+    "ast_hash": "4de322b598394fce6de069bb22a6e886",
+    "semantic_hash": "4de322b598394fce6de069bb22a6e886"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/__init__.py": {
+    "mtime": 1789214491.407249,
+    "seen": 1789215287.0527594,
+    "ast_hash": "b65bebb04c609699208262c391cbc05c",
+    "semantic_hash": "b65bebb04c609699208262c391cbc05c"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/cache.py": {
+    "mtime": 1789214491.4214141,
+    "seen": 1789215287.0527606,
+    "ast_hash": "946f683ed7733b6e8fcb7438fca2e9be",
+    "semantic_hash": "946f683ed7733b6e8fcb7438fca2e9be"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/checkpoint.py": {
+    "mtime": 1789214491.434537,
+    "seen": 1789215287.0527623,
+    "ast_hash": "eceb89a94fc5b338752169d115a85458",
+    "semantic_hash": "eceb89a94fc5b338752169d115a85458"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/engine.py": {
+    "mtime": 1789214491.4462843,
+    "seen": 1789215287.052764,
+    "ast_hash": "40f3e0ba10d2bd94e3aa2aa8ce7eb6a5",
+    "semantic_hash": "40f3e0ba10d2bd94e3aa2aa8ce7eb6a5"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/links.py": {
+    "mtime": 1789214491.4588053,
+    "seen": 1789215287.0527654,
+    "ast_hash": "555dabadaf60f52e037524504837268b",
+    "semantic_hash": "555dabadaf60f52e037524504837268b"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/request.py": {
+    "mtime": 1789214491.4698331,
+    "seen": 1789215287.052767,
+    "ast_hash": "7af3529c0b798777ddf2bd962cd49346",
+    "semantic_hash": "7af3529c0b798777ddf2bd962cd49346"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/result.py": {
+    "mtime": 1789214491.4834242,
+    "seen": 1789215287.0527687,
+    "ast_hash": "916cfabdce0a3ba5d4101ff752223db0",
+    "semantic_hash": "916cfabdce0a3ba5d4101ff752223db0"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/robotstxt.py": {
+    "mtime": 1789214491.4964323,
+    "seen": 1789215287.0527706,
+    "ast_hash": "12f8a108cd3c2680d6185f6624bf0af6",
+    "semantic_hash": "12f8a108cd3c2680d6185f6624bf0af6"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/scheduler.py": {
+    "mtime": 1789214491.511658,
+    "seen": 1789215287.0527723,
+    "ast_hash": "5a761dce2c94c23da52bbec4e4b8ae14",
+    "semantic_hash": "5a761dce2c94c23da52bbec4e4b8ae14"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/session.py": {
+    "mtime": 1789214491.5241773,
+    "seen": 1789215287.0527744,
+    "ast_hash": "24ceb6936b46360462587986de035768",
+    "semantic_hash": "24ceb6936b46360462587986de035768"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/spider.py": {
+    "mtime": 1789214491.5376966,
+    "seen": 1789215287.0527759,
+    "ast_hash": "1f9216e470b01d004c5b2f0b86f2fe16",
+    "semantic_hash": "1f9216e470b01d004c5b2f0b86f2fe16"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/templates/__init__.py": {
+    "mtime": 1789214491.5724149,
+    "seen": 1789215287.0527778,
+    "ast_hash": "37f500288e7b98f64854889acb872f87",
+    "semantic_hash": "37f500288e7b98f64854889acb872f87"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/templates/_utils.py": {
+    "mtime": 1789214491.5844147,
+    "seen": 1789215287.052779,
+    "ast_hash": "dab7fe8cc1a7598ba4d073f74b17ae38",
+    "semantic_hash": "dab7fe8cc1a7598ba4d073f74b17ae38"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/templates/crawler.py": {
+    "mtime": 1789214491.5974267,
+    "seen": 1789215287.0527806,
+    "ast_hash": "9db5c6f6b00c2220b0e2e1008edb2962",
+    "semantic_hash": "9db5c6f6b00c2220b0e2e1008edb2962"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/templates/feed.py": {
+    "mtime": 1789214491.6109526,
+    "seen": 1789215287.0527818,
+    "ast_hash": "d9d3014433d25fb3c19d3c43f40cd5a7",
+    "semantic_hash": "d9d3014433d25fb3c19d3c43f40cd5a7"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/templates/shopify.py": {
+    "mtime": 1789214491.6239595,
+    "seen": 1789215287.052783,
+    "ast_hash": "9bbf4f2aebb11fd1ea68ef6b2887e431",
+    "semantic_hash": "9bbf4f2aebb11fd1ea68ef6b2887e431"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/templates/site_to_markdown.py": {
+    "mtime": 1789214491.6369832,
+    "seen": 1789215287.0527847,
+    "ast_hash": "bb18a53c860d675989f8c4521cc9d6c0",
+    "semantic_hash": "bb18a53c860d675989f8c4521cc9d6c0"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/templates/sitemap.py": {
+    "mtime": 1789214491.652992,
+    "seen": 1789215287.052786,
+    "ast_hash": "8861e2fd91c02c22d333e1c277e2d1aa",
+    "semantic_hash": "8861e2fd91c02c22d333e1c277e2d1aa"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/spiders/throttle.py": {
+    "mtime": 1789214491.5507007,
+    "seen": 1789215287.0527878,
+    "ast_hash": "31675bf1da099449be2721b30254e3a6",
+    "semantic_hash": "31675bf1da099449be2721b30254e3a6"
+  },
+  "Scrapling-main/Scrapling-main/server.json": {
+    "mtime": 1789214489.332318,
+    "seen": 1789215287.0527892,
+    "ast_hash": "3dae65b94d058cd7f4aea215717100af",
+    "semantic_hash": "3dae65b94d058cd7f4aea215717100af"
+  },
+  "Scrapling-main/Scrapling-main/tests/__init__.py": {
+    "mtime": 1789214491.6719954,
+    "seen": 1789215287.0527909,
+    "ast_hash": "51e054c123b2b5d72d6200fd47ab06a5",
+    "semantic_hash": "51e054c123b2b5d72d6200fd47ab06a5"
+  },
+  "Scrapling-main/Scrapling-main/tests/ai/__init__.py": {
+    "mtime": 1789214491.6989956,
+    "seen": 1789215287.0527925,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Scrapling-main/Scrapling-main/tests/ai/test_ai_mcp.py": {
+    "mtime": 1789214491.7150006,
+    "seen": 1789215287.0527942,
+    "ast_hash": "ca25634ed2f709b4680039823de8d196",
+    "semantic_hash": "ca25634ed2f709b4680039823de8d196"
+  },
+  "Scrapling-main/Scrapling-main/tests/cli/__init__.py": {
+    "mtime": 1789214491.736735,
+    "seen": 1789215287.0527964,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Scrapling-main/Scrapling-main/tests/cli/test_cli.py": {
+    "mtime": 1789214491.750473,
+    "seen": 1789215287.0527983,
+    "ast_hash": "f2f5e06d585d9de1993afa681390d2ca",
+    "semantic_hash": "f2f5e06d585d9de1993afa681390d2ca"
+  },
+  "Scrapling-main/Scrapling-main/tests/cli/test_shell_functionality.py": {
+    "mtime": 1789214491.7614713,
+    "seen": 1789215287.0527995,
+    "ast_hash": "bda54939b48c9dd9c2446a98701daacb",
+    "semantic_hash": "bda54939b48c9dd9c2446a98701daacb"
+  },
+  "Scrapling-main/Scrapling-main/tests/core/__init__.py": {
+    "mtime": 1789214491.7824728,
+    "seen": 1789215287.0528011,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Scrapling-main/Scrapling-main/tests/core/test_shell_core.py": {
+    "mtime": 1789214491.7944717,
+    "seen": 1789215287.0528026,
+    "ast_hash": "915797acc72c31b71028a62aba341ca8",
+    "semantic_hash": "915797acc72c31b71028a62aba341ca8"
+  },
+  "Scrapling-main/Scrapling-main/tests/core/test_storage_core.py": {
+    "mtime": 1789214491.806473,
+    "seen": 1789215287.052804,
+    "ast_hash": "03ead10c549e5f18c93a3f0fe701ce9f",
+    "semantic_hash": "03ead10c549e5f18c93a3f0fe701ce9f"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/__init__.py": {
+    "mtime": 1789214491.827487,
+    "seen": 1789215287.0528057,
+    "ast_hash": "3685bd0617378892f45499b4c08c21cd",
+    "semantic_hash": "3685bd0617378892f45499b4c08c21cd"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/async/__init__.py": {
+    "mtime": 1789214491.9988668,
+    "seen": 1789215287.052807,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/async/test_dynamic.py": {
+    "mtime": 1789214492.0108669,
+    "seen": 1789215287.0528088,
+    "ast_hash": "2989af7b74e814ad69ae6016c620e44c",
+    "semantic_hash": "2989af7b74e814ad69ae6016c620e44c"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/async/test_dynamic_session.py": {
+    "mtime": 1789214492.0218678,
+    "seen": 1789215287.0528104,
+    "ast_hash": "09bcfab8aad62b1c5ea739c7231332e5",
+    "semantic_hash": "09bcfab8aad62b1c5ea739c7231332e5"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/async/test_requests.py": {
+    "mtime": 1789214492.032882,
+    "seen": 1789215287.0528119,
+    "ast_hash": "69e8bcbca6b115b89424248545c1e198",
+    "semantic_hash": "69e8bcbca6b115b89424248545c1e198"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/async/test_requests_session.py": {
+    "mtime": 1789214492.0444002,
+    "seen": 1789215287.0528133,
+    "ast_hash": "abd238397a6a4e57aec58e07b14e04ae",
+    "semantic_hash": "abd238397a6a4e57aec58e07b14e04ae"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/async/test_stealth.py": {
+    "mtime": 1789214492.0584004,
+    "seen": 1789215287.0528145,
+    "ast_hash": "3c850ae9c6172f1c09e9d023f00dca83",
+    "semantic_hash": "3c850ae9c6172f1c09e9d023f00dca83"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/async/test_stealth_session.py": {
+    "mtime": 1789214492.0694,
+    "seen": 1789215287.052816,
+    "ast_hash": "34b2eaf29566fce37b4f2e83f3c2ae18",
+    "semantic_hash": "34b2eaf29566fce37b4f2e83f3c2ae18"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/sync/__init__.py": {
+    "mtime": 1789214492.087401,
+    "seen": 1789215287.0528173,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/sync/test_dynamic.py": {
+    "mtime": 1789214492.0994017,
+    "seen": 1789215287.0528188,
+    "ast_hash": "a83a0416e9faf432253e19795720e6df",
+    "semantic_hash": "a83a0416e9faf432253e19795720e6df"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/sync/test_requests.py": {
+    "mtime": 1789214492.112401,
+    "seen": 1789215287.0528202,
+    "ast_hash": "0c8ca1cd04535f8d685ce9a6ab318a4c",
+    "semantic_hash": "0c8ca1cd04535f8d685ce9a6ab318a4c"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/sync/test_requests_session.py": {
+    "mtime": 1789214492.1244075,
+    "seen": 1789215287.0528238,
+    "ast_hash": "ea2136832a5028e5b50992ad2762643e",
+    "semantic_hash": "ea2136832a5028e5b50992ad2762643e"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/sync/test_stealth_session.py": {
+    "mtime": 1789214492.136914,
+    "seen": 1789215287.0528255,
+    "ast_hash": "b9e91e2c1fd39a82da9e31bd92c7af47",
+    "semantic_hash": "b9e91e2c1fd39a82da9e31bd92c7af47"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_base.py": {
+    "mtime": 1789214491.8420093,
+    "seen": 1789215287.0528266,
+    "ast_hash": "5d9f594b359f53facfd5d88d9ca5bbd8",
+    "semantic_hash": "5d9f594b359f53facfd5d88d9ca5bbd8"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_cloudflare_solver.py": {
+    "mtime": 1789214491.855004,
+    "seen": 1789215287.0528278,
+    "ast_hash": "19dc2d9e13765db55752c39fe95a4195",
+    "semantic_hash": "19dc2d9e13765db55752c39fe95a4195"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_constants.py": {
+    "mtime": 1789214491.8670068,
+    "seen": 1789215287.0528293,
+    "ast_hash": "64bd608d084bae1b491209ce3d3c2a71",
+    "semantic_hash": "64bd608d084bae1b491209ce3d3c2a71"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_impersonate_list.py": {
+    "mtime": 1789214491.8790047,
+    "seen": 1789215287.0528302,
+    "ast_hash": "cb6ed9665e74fc85a0ce4f68cd903378",
+    "semantic_hash": "cb6ed9665e74fc85a0ce4f68cd903378"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_merge_request_args.py": {
+    "mtime": 1789214491.8920085,
+    "seen": 1789215287.0528314,
+    "ast_hash": "ff5bd42cfa5bcaa6bca5a9fbcd927fef",
+    "semantic_hash": "ff5bd42cfa5bcaa6bca5a9fbcd927fef"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_page_reuse.py": {
+    "mtime": 1789214491.9041827,
+    "seen": 1789215287.052833,
+    "ast_hash": "54b2bb5c5d06011ec438daa4f2c759c9",
+    "semantic_hash": "54b2bb5c5d06011ec438daa4f2c759c9"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_pages.py": {
+    "mtime": 1789214491.9164782,
+    "seen": 1789215287.0528347,
+    "ast_hash": "77a5cb657e02dc0678599f4fbd2ae31b",
+    "semantic_hash": "77a5cb657e02dc0678599f4fbd2ae31b"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_proxy_rotation.py": {
+    "mtime": 1789214491.9307318,
+    "seen": 1789215287.0528362,
+    "ast_hash": "8ba3fb50d68e098570cae8f9459c94bc",
+    "semantic_hash": "8ba3fb50d68e098570cae8f9459c94bc"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_response_handling.py": {
+    "mtime": 1789214491.9438677,
+    "seen": 1789215287.0528374,
+    "ast_hash": "e968f158c022506a05637a79ba227ae3",
+    "semantic_hash": "e968f158c022506a05637a79ba227ae3"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_response_markdown.py": {
+    "mtime": 1789214491.9578674,
+    "seen": 1789215287.0528388,
+    "ast_hash": "e0878625a081baecd4969bc78f7bdb82",
+    "semantic_hash": "e0878625a081baecd4969bc78f7bdb82"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_utils.py": {
+    "mtime": 1789214491.9708664,
+    "seen": 1789215287.0528405,
+    "ast_hash": "ed3e9d65565f9e4260187fb10dbb0de0",
+    "semantic_hash": "ed3e9d65565f9e4260187fb10dbb0de0"
+  },
+  "Scrapling-main/Scrapling-main/tests/fetchers/test_validator.py": {
+    "mtime": 1789214491.9818687,
+    "seen": 1789215287.0528414,
+    "ast_hash": "1c53c2e04667f93be1dc2ddc941fdcd7",
+    "semantic_hash": "1c53c2e04667f93be1dc2ddc941fdcd7"
+  },
+  "Scrapling-main/Scrapling-main/tests/integrations/__init__.py": {
+    "mtime": 1789214492.1574366,
+    "seen": 1789215287.052843,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Scrapling-main/Scrapling-main/tests/integrations/test_scrapy.py": {
+    "mtime": 1789214492.169428,
+    "seen": 1789215287.0528443,
+    "ast_hash": "3bfa6e9dddce7356d9db556e387dee62",
+    "semantic_hash": "3bfa6e9dddce7356d9db556e387dee62"
+  },
+  "Scrapling-main/Scrapling-main/tests/parser/__init__.py": {
+    "mtime": 1789214492.1874287,
+    "seen": 1789215287.0528462,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Scrapling-main/Scrapling-main/tests/parser/test_adaptive.py": {
+    "mtime": 1789214492.1984365,
+    "seen": 1789215287.052848,
+    "ast_hash": "7af69403c38556317d23380b74c27678",
+    "semantic_hash": "7af69403c38556317d23380b74c27678"
+  },
+  "Scrapling-main/Scrapling-main/tests/parser/test_ancestor_navigation.py": {
+    "mtime": 1789214492.209946,
+    "seen": 1789215287.052849,
+    "ast_hash": "120663934c4809080e06d5573027e07c",
+    "semantic_hash": "120663934c4809080e06d5573027e07c"
+  },
+  "Scrapling-main/Scrapling-main/tests/parser/test_attributes_handler.py": {
+    "mtime": 1789214492.221655,
+    "seen": 1789215287.0528505,
+    "ast_hash": "04cd202db00a737dd9db8b5eb8b39b9c",
+    "semantic_hash": "04cd202db00a737dd9db8b5eb8b39b9c"
+  },
+  "Scrapling-main/Scrapling-main/tests/parser/test_find_similar_advanced.py": {
+    "mtime": 1789214492.2346625,
+    "seen": 1789215287.0528522,
+    "ast_hash": "771cf6984c5a656d81a71b1d7beed8ae",
+    "semantic_hash": "771cf6984c5a656d81a71b1d7beed8ae"
+  },
+  "Scrapling-main/Scrapling-main/tests/parser/test_general.py": {
+    "mtime": 1789214492.2451842,
+    "seen": 1789215287.0528536,
+    "ast_hash": "21e4283dfb3a28d940ebc0d748226378",
+    "semantic_hash": "21e4283dfb3a28d940ebc0d748226378"
+  },
+  "Scrapling-main/Scrapling-main/tests/parser/test_parser_advanced.py": {
+    "mtime": 1789214492.2591786,
+    "seen": 1789215287.0528553,
+    "ast_hash": "83601afb9728f79e701098c383694188",
+    "semantic_hash": "83601afb9728f79e701098c383694188"
+  },
+  "Scrapling-main/Scrapling-main/tests/parser/test_selectors_filter.py": {
+    "mtime": 1789214492.2741785,
+    "seen": 1789215287.0528567,
+    "ast_hash": "f25b736d1d30c8b6e368272afedd42c7",
+    "semantic_hash": "f25b736d1d30c8b6e368272afedd42c7"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/__init__.py": {
+    "mtime": 1789214492.2971787,
+    "seen": 1789215287.0528586,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_cache.py": {
+    "mtime": 1789214492.3101797,
+    "seen": 1789215287.05286,
+    "ast_hash": "ce7e786e83ca559b1d43bc8f89d77b25",
+    "semantic_hash": "ce7e786e83ca559b1d43bc8f89d77b25"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_checkpoint.py": {
+    "mtime": 1789214492.3241866,
+    "seen": 1789215287.0528617,
+    "ast_hash": "d966c9121f19a9ce9a11a6d5c511dda7",
+    "semantic_hash": "d966c9121f19a9ce9a11a6d5c511dda7"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_engine.py": {
+    "mtime": 1789214492.3397088,
+    "seen": 1789215287.052863,
+    "ast_hash": "c150aee2aeed261da364f3e60f885f1c",
+    "semantic_hash": "c150aee2aeed261da364f3e60f885f1c"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_feed.py": {
+    "mtime": 1789214492.3557105,
+    "seen": 1789215287.0528643,
+    "ast_hash": "5fa5f12f6fe3d52fdb5cd8538135ed9e",
+    "semantic_hash": "5fa5f12f6fe3d52fdb5cd8538135ed9e"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_force_stop_checkpoint.py": {
+    "mtime": 1789214492.371707,
+    "seen": 1789215287.0528657,
+    "ast_hash": "7de2dd49e321f25796858ad3f9b4d3af",
+    "semantic_hash": "7de2dd49e321f25796858ad3f9b4d3af"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_links.py": {
+    "mtime": 1789214492.3847086,
+    "seen": 1789215287.0528674,
+    "ast_hash": "cdfe7492e75eda0bbc928a2dcd7615f7",
+    "semantic_hash": "cdfe7492e75eda0bbc928a2dcd7615f7"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_request.py": {
+    "mtime": 1789214492.397709,
+    "seen": 1789215287.0528688,
+    "ast_hash": "22bd1f0741052bb45997c30a496764ff",
+    "semantic_hash": "22bd1f0741052bb45997c30a496764ff"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_result.py": {
+    "mtime": 1789214492.413903,
+    "seen": 1789215287.0528705,
+    "ast_hash": "676ea30858dbaf6c785dc9797c4c7370",
+    "semantic_hash": "676ea30858dbaf6c785dc9797c4c7370"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_robotstxt.py": {
+    "mtime": 1789214492.428776,
+    "seen": 1789215287.0528715,
+    "ast_hash": "53df6f9ddc713ea0bb97933f8206bf6e",
+    "semantic_hash": "53df6f9ddc713ea0bb97933f8206bf6e"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_scheduler.py": {
+    "mtime": 1789214492.4451666,
+    "seen": 1789215287.0528731,
+    "ast_hash": "0cb25dace3d4c499dd92254cb4e66235",
+    "semantic_hash": "0cb25dace3d4c499dd92254cb4e66235"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_session.py": {
+    "mtime": 1789214492.459682,
+    "seen": 1789215287.0528746,
+    "ast_hash": "c8a57a6f3f151dcbac3718d92729f29d",
+    "semantic_hash": "c8a57a6f3f151dcbac3718d92729f29d"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_shopify.py": {
+    "mtime": 1789214492.4721992,
+    "seen": 1789215287.052876,
+    "ast_hash": "bdca794bc3e20f2a0d8e2028c6c98841",
+    "semantic_hash": "bdca794bc3e20f2a0d8e2028c6c98841"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_site_to_markdown.py": {
+    "mtime": 1789214492.4857209,
+    "seen": 1789215287.0528777,
+    "ast_hash": "4623eb53b55a2e1729b28c0b2b4d6f96",
+    "semantic_hash": "4623eb53b55a2e1729b28c0b2b4d6f96"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_sitemap.py": {
+    "mtime": 1789214492.4997225,
+    "seen": 1789215287.0528789,
+    "ast_hash": "2408bad1669561ce33f69d0de1aba7d7",
+    "semantic_hash": "2408bad1669561ce33f69d0de1aba7d7"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_spider.py": {
+    "mtime": 1789214492.5146387,
+    "seen": 1789215287.0528803,
+    "ast_hash": "96b2ff26eefdf7b9df1f23ca96770e27",
+    "semantic_hash": "96b2ff26eefdf7b9df1f23ca96770e27"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_templates.py": {
+    "mtime": 1789214492.5301213,
+    "seen": 1789215287.0528822,
+    "ast_hash": "fbf991703f850fc8590e84e646ba4eb2",
+    "semantic_hash": "fbf991703f850fc8590e84e646ba4eb2"
+  },
+  "Scrapling-main/Scrapling-main/tests/spiders/test_throttle.py": {
+    "mtime": 1789214492.5441847,
+    "seen": 1789215287.0528836,
+    "ast_hash": "9a829ad43271b59e91472095bc939635",
+    "semantic_hash": "9a829ad43271b59e91472095bc939635"
+  },
+  "app/eslint.config.mjs": {
+    "mtime": 1789152496.8257625,
+    "seen": 1789215287.0528898,
+    "ast_hash": "6c4307ffa009658f5c97f5629094c0c2",
+    "semantic_hash": "6c4307ffa009658f5c97f5629094c0c2"
+  },
+  "app/next.config.ts": {
+    "mtime": 1789174522.312014,
+    "seen": 1789215287.0528915,
+    "ast_hash": "af03482a01d5fddf0bc71f26d17f158c",
+    "semantic_hash": "af03482a01d5fddf0bc71f26d17f158c"
+  },
+  "app/package.json": {
+    "mtime": 1789175823.0189755,
+    "seen": 1789215287.0528932,
+    "ast_hash": "bee2a41a9981d5b7d0e704332de0414e",
+    "semantic_hash": "bee2a41a9981d5b7d0e704332de0414e"
+  },
+  "app/postcss.config.mjs": {
+    "mtime": 1789152496.8317614,
+    "seen": 1789215287.052894,
+    "ast_hash": "481fac0fdecd70e1821cc30b86030c1a",
+    "semantic_hash": "481fac0fdecd70e1821cc30b86030c1a"
+  },
+  "app/prisma/seed.ts": {
+    "mtime": 1789152496.8337617,
+    "seen": 1789215287.052896,
+    "ast_hash": "c50e538a261571bef9816070d6645005",
+    "semantic_hash": "c50e538a261571bef9816070d6645005"
+  },
+  "app/scripts/qa-real-world-calle.ts": {
+    "mtime": 1789170557.271431,
+    "seen": 1789215287.0528975,
+    "ast_hash": "dfee41b27361d8eca7713fee3822a9fa",
+    "semantic_hash": "dfee41b27361d8eca7713fee3822a9fa"
+  },
+  "app/scripts/simulate-and-test.ts": {
+    "mtime": 1789152513.3459733,
+    "seen": 1789215287.0528994,
+    "ast_hash": "7b56c9b97dd94fc5b31f32eae5c9c242",
+    "semantic_hash": "7b56c9b97dd94fc5b31f32eae5c9c242"
+  },
+  "app/scripts/test-bing.ts": {
+    "mtime": 1789175737.064268,
+    "seen": 1789215287.0529006,
+    "ast_hash": "73888ae43465775c3ac842e336fadf17",
+    "semantic_hash": "73888ae43465775c3ac842e336fadf17"
+  },
+  "app/scripts/test-engines.ts": {
+    "mtime": 1789175790.7164083,
+    "seen": 1789215287.0529025,
+    "ast_hash": "56aa944f4f38be9d333e529e062fde4f",
+    "semantic_hash": "56aa944f4f38be9d333e529e062fde4f"
+  },
+  "app/scripts/test-live-scraper.ts": {
+    "mtime": 1789174247.8264391,
+    "seen": 1789215287.0529037,
+    "ast_hash": "e7cb7741ee9a431c8155259c288c6a6a",
+    "semantic_hash": "e7cb7741ee9a431c8155259c288c6a6a"
+  },
+  "app/scripts/test-mcp-pipeline.ts": {
+    "mtime": 1789170159.9046438,
+    "seen": 1789215287.0529048,
+    "ast_hash": "65c5666e60c277131c2aed14934bf306",
+    "semantic_hash": "65c5666e60c277131c2aed14934bf306"
+  },
+  "app/scripts/test-nominatim.ts": {
+    "mtime": 1789175579.7078545,
+    "seen": 1789215287.0529065,
+    "ast_hash": "eb800e85c2286a710c0101516fec2a77",
+    "semantic_hash": "eb800e85c2286a710c0101516fec2a77"
+  },
+  "app/scripts/test-real-chrome.ts": {
+    "mtime": 1789175403.3502176,
+    "seen": 1789215287.052908,
+    "ast_hash": "365c92781b406d6ecd3b132a1cb48dab",
+    "semantic_hash": "365c92781b406d6ecd3b132a1cb48dab"
+  },
+  "app/scripts/test-real-web.ts": {
+    "mtime": 1789175108.9987094,
+    "seen": 1789215287.0529096,
+    "ast_hash": "a408828fa1a366bfefde0dfd81a75d6a",
+    "semantic_hash": "a408828fa1a366bfefde0dfd81a75d6a"
+  },
+  "app/scripts/test-stealth.ts": {
+    "mtime": 1789175828.1668007,
+    "seen": 1789215287.052911,
+    "ast_hash": "f8980b48392d9477dc4cd48d0e563260",
+    "semantic_hash": "f8980b48392d9477dc4cd48d0e563260"
+  },
+  "app/scripts/test-web-scrape.js": {
+    "mtime": 1789171747.700661,
+    "seen": 1789215287.0529127,
+    "ast_hash": "6413310ee51986e644198707091dd10f",
+    "semantic_hash": "6413310ee51986e644198707091dd10f"
+  },
+  "app/src/app/api/calls/[id]/route.ts": {
+    "mtime": 1789152496.8403695,
+    "seen": 1789215287.0529141,
+    "ast_hash": "1d8505b1586f2a6d5e7670ee5a81c9c8",
+    "semantic_hash": "1d8505b1586f2a6d5e7670ee5a81c9c8"
+  },
+  "app/src/app/api/calls/route.ts": {
+    "mtime": 1789152496.8413715,
+    "seen": 1789215287.0529175,
+    "ast_hash": "47af339314aa4d67b3ba4ea2640bab50",
+    "semantic_hash": "47af339314aa4d67b3ba4ea2640bab50"
+  },
+  "app/src/app/api/chat/route.ts": {
+    "mtime": 1789160190.2027402,
+    "seen": 1789215287.0529191,
+    "ast_hash": "7877f63f8e74cdaa71d2266f3dacd34a",
+    "semantic_hash": "7877f63f8e74cdaa71d2266f3dacd34a"
+  },
+  "app/src/app/api/chatbot/webhook/[channel]/route.ts": {
+    "mtime": 1789156289.221086,
+    "seen": 1789215287.0529206,
+    "ast_hash": "c7994027c49e282a1f350be84d844b6a",
+    "semantic_hash": "c7994027c49e282a1f350be84d844b6a"
+  },
+  "app/src/app/api/documents/route.ts": {
+    "mtime": 1789156902.7889452,
+    "seen": 1789215287.0529222,
+    "ast_hash": "862e407a23f7f5c1d57919a7998e27c4",
+    "semantic_hash": "862e407a23f7f5c1d57919a7998e27c4"
+  },
+  "app/src/app/api/events/stream/route.ts": {
+    "mtime": 1789152496.8443718,
+    "seen": 1789215287.052924,
+    "ast_hash": "0925c8a2b7713be998e9f993f85fa767",
+    "semantic_hash": "0925c8a2b7713be998e9f993f85fa767"
+  },
+  "app/src/app/api/leads/[id]/call/route.ts": {
+    "mtime": 1789152496.8453712,
+    "seen": 1789215287.0529256,
+    "ast_hash": "716920ed25f749db2f9999c3a9b48900",
+    "semantic_hash": "716920ed25f749db2f9999c3a9b48900"
+  },
+  "app/src/app/api/leads/route.ts": {
+    "mtime": 1789242025.2486138,
+    "seen": 1789242121.0681458,
+    "ast_hash": "6ebae1fd77cf98ac8e2d4fe8be80f957",
+    "semantic_hash": "6ebae1fd77cf98ac8e2d4fe8be80f957"
+  },
+  "app/src/app/api/mcp/dispatch-calls/route.ts": {
+    "mtime": 1789170074.8823316,
+    "seen": 1789215287.052929,
+    "ast_hash": "78f5dfc2662feaf08e8bb140a47383f6",
+    "semantic_hash": "78f5dfc2662feaf08e8bb140a47383f6"
+  },
+  "app/src/app/api/mcp/leads/route.ts": {
+    "mtime": 1789170069.8847296,
+    "seen": 1789215287.0529304,
+    "ast_hash": "24b08cf021e6301d9aedf03f9f148dfb",
+    "semantic_hash": "24b08cf021e6301d9aedf03f9f148dfb"
+  },
+  "app/src/app/api/mcp/logs/route.ts": {
+    "mtime": 1789171772.6174085,
+    "seen": 1789215287.0529318,
+    "ast_hash": "b37187e6ad0526df0554b40bd4101439",
+    "semantic_hash": "b37187e6ad0526df0554b40bd4101439"
+  },
+  "app/src/app/api/mcp/run/route.ts": {
+    "mtime": 1789241934.0479672,
+    "seen": 1789242121.0681598,
+    "ast_hash": "1b56e0a78f8ffe83a80c29cbc5b1be1f",
+    "semantic_hash": "1b56e0a78f8ffe83a80c29cbc5b1be1f"
+  },
+  "app/src/app/api/mcp/status/[jobId]/route.ts": {
+    "mtime": 1789170063.8635883,
+    "seen": 1789215287.0529346,
+    "ast_hash": "3f6051912a32c1c20a1c7097a28728f9",
+    "semantic_hash": "3f6051912a32c1c20a1c7097a28728f9"
+  },
+  "app/src/app/api/mcp/submit-results/route.ts": {
+    "mtime": 1789170059.146811,
+    "seen": 1789215287.052936,
+    "ast_hash": "d7131db470af53ca04890e46c3bb6c8c",
+    "semantic_hash": "d7131db470af53ca04890e46c3bb6c8c"
+  },
+  "app/src/app/api/mcp/upload-leads/route.ts": {
+    "mtime": 1789170051.9362075,
+    "seen": 1789215287.0529377,
+    "ast_hash": "654badb0b92698485fbf4430b0153b5d",
+    "semantic_hash": "654badb0b92698485fbf4430b0153b5d"
+  },
+  "app/src/app/api/scraper-config/route.ts": {
+    "mtime": 1789245386.4104383,
+    "seen": 1789245937.6116195,
+    "ast_hash": "14b05d82b5a839f471e964c69e324fab",
+    "semantic_hash": "14b05d82b5a839f471e964c69e324fab"
+  },
+  "app/src/app/api/session-log/[sessionId]/route.ts": {
+    "mtime": 1789156269.6991918,
+    "seen": 1789215287.0529408,
+    "ast_hash": "3e8e2fc757b3994c5334c972dfd3769e",
+    "semantic_hash": "3e8e2fc757b3994c5334c972dfd3769e"
+  },
+  "app/src/app/api/tasks/[id]/events/route.ts": {
+    "mtime": 1789152496.848369,
+    "seen": 1789215287.0529423,
+    "ast_hash": "a41ec340c362bda811986d07a8dcc6f5",
+    "semantic_hash": "a41ec340c362bda811986d07a8dcc6f5"
+  },
+  "app/src/app/api/tasks/[id]/leads/route.ts": {
+    "mtime": 1789152496.848369,
+    "seen": 1789215287.0529437,
+    "ast_hash": "c6d66f39b1df42dc533437268d04a2cd",
+    "semantic_hash": "c6d66f39b1df42dc533437268d04a2cd"
+  },
+  "app/src/app/api/tasks/[id]/route.ts": {
+    "mtime": 1789152496.8493707,
+    "seen": 1789215287.0529451,
+    "ast_hash": "f35844650d575d55de8442c3dd1e7e76",
+    "semantic_hash": "f35844650d575d55de8442c3dd1e7e76"
+  },
+  "app/src/app/api/tasks/route.ts": {
+    "mtime": 1789152496.8493707,
+    "seen": 1789215287.0529468,
+    "ast_hash": "6fc136024a7f6ce9b2ad432a7bbba9d2",
+    "semantic_hash": "6fc136024a7f6ce9b2ad432a7bbba9d2"
+  },
+  "app/src/app/layout.tsx": {
+    "mtime": 1789152513.3479729,
+    "seen": 1789215287.0529482,
+    "ast_hash": "46418aeec390469b58fdedd0201a77d2",
+    "semantic_hash": "46418aeec390469b58fdedd0201a77d2"
+  },
+  "app/src/app/page.tsx": {
+    "mtime": 1789152513.3489783,
+    "seen": 1789215287.05295,
+    "ast_hash": "88644433f6d1a531e9b19e5527ed4101",
+    "semantic_hash": "88644433f6d1a531e9b19e5527ed4101"
+  },
+  "app/src/components/calls/call-log-panel.tsx": {
+    "mtime": 1789152513.3499777,
+    "seen": 1789215287.0529518,
+    "ast_hash": "391bfc6eb8f43867e07889cbe1175ce7",
+    "semantic_hash": "391bfc6eb8f43867e07889cbe1175ce7"
+  },
+  "app/src/components/chat/chat-panel.tsx": {
+    "mtime": 1789245481.3923836,
+    "seen": 1789245937.6116505,
+    "ast_hash": "27caa70ecc8f6b246ccba6a5ba2adf33",
+    "semantic_hash": "27caa70ecc8f6b246ccba6a5ba2adf33"
+  },
+  "app/src/components/dashboard/header.tsx": {
+    "mtime": 1789172110.3808744,
+    "seen": 1789215287.0529547,
+    "ast_hash": "09b99ef3e7ae3a7586618d47ad88816d",
+    "semantic_hash": "09b99ef3e7ae3a7586618d47ad88816d"
+  },
+  "app/src/components/leads/lead-dashboard-panel.tsx": {
+    "mtime": 1789242046.2759955,
+    "seen": 1789242121.0682094,
+    "ast_hash": "53f6971b2b21fc100bc399f870698b0e",
+    "semantic_hash": "53f6971b2b21fc100bc399f870698b0e"
+  },
+  "app/src/components/mcp/mcp-log-modal.tsx": {
+    "mtime": 1789174326.825062,
+    "seen": 1789215287.0529613,
+    "ast_hash": "c104238c5dec7d17076158e760f01b56",
+    "semantic_hash": "c104238c5dec7d17076158e760f01b56"
+  },
+  "app/src/components/providers.tsx": {
+    "mtime": 1789152496.8573694,
+    "seen": 1789215287.0529625,
+    "ast_hash": "037dc698f1e7d31bcdbf711cd5484498",
+    "semantic_hash": "037dc698f1e7d31bcdbf711cd5484498"
+  },
+  "app/src/lib/db.ts": {
+    "mtime": 1789237479.1159348,
+    "seen": 1789237531.2197988,
+    "ast_hash": "b8f74f23bed76358d7c10ac5cfc6e410",
+    "semantic_hash": "b8f74f23bed76358d7c10ac5cfc6e410"
+  },
+  "app/src/lib/pdf.ts": {
+    "mtime": 1789158160.220944,
+    "seen": 1789215287.0529654,
+    "ast_hash": "e00c3550b7b6dab885a812719630e0e5",
+    "semantic_hash": "e00c3550b7b6dab885a812719630e0e5"
+  },
+  "app/src/lib/types.ts": {
+    "mtime": 1789152513.3529725,
+    "seen": 1789215287.0529668,
+    "ast_hash": "3ded7f147c464c964568f407907bf548",
+    "semantic_hash": "3ded7f147c464c964568f407907bf548"
+  },
+  "app/src/lib/utils.ts": {
+    "mtime": 1789152496.860372,
+    "seen": 1789215287.0529683,
+    "ast_hash": "efd1e5e99d8f16ed027b45d5d2df7aeb",
+    "semantic_hash": "efd1e5e99d8f16ed027b45d5d2df7aeb"
+  },
+  "app/src/server/chatbot/adapters/registry.ts": {
+    "mtime": 1789155918.0859356,
+    "seen": 1789215287.0529718,
+    "ast_hash": "924987d6ccf2290230125c817d34a9aa",
+    "semantic_hash": "924987d6ccf2290230125c817d34a9aa"
+  },
+  "app/src/server/chatbot/adapters/telegram-adapter.ts": {
+    "mtime": 1789155907.39695,
+    "seen": 1789215287.0529735,
+    "ast_hash": "9bfd6e86dcde36e3511fe47f9a72dacf",
+    "semantic_hash": "9bfd6e86dcde36e3511fe47f9a72dacf"
+  },
+  "app/src/server/chatbot/adapters/web-adapter.ts": {
+    "mtime": 1789155850.166317,
+    "seen": 1789215287.0529752,
+    "ast_hash": "ba5c9167703a9220929625c739d0c622",
+    "semantic_hash": "ba5c9167703a9220929625c739d0c622"
+  },
+  "app/src/server/chatbot/adapters/whatsapp-adapter.ts": {
+    "mtime": 1789155880.4089103,
+    "seen": 1789215287.0529761,
+    "ast_hash": "d52fc011d7c445c7a79f66567ce1494b",
+    "semantic_hash": "d52fc011d7c445c7a79f66567ce1494b"
+  },
+  "app/src/server/chatbot/grilling-engine.ts": {
+    "mtime": 1789159934.9760811,
+    "seen": 1789215287.052978,
+    "ast_hash": "d972fff56d226d00a08ff1ba0135dda2",
+    "semantic_hash": "d972fff56d226d00a08ff1ba0135dda2"
+  },
+  "app/src/server/chatbot/media-processor.ts": {
+    "mtime": 1789156894.338497,
+    "seen": 1789215287.0529792,
+    "ast_hash": "faa169c6f5792bb10e9a660bf921180f",
+    "semantic_hash": "faa169c6f5792bb10e9a660bf921180f"
+  },
+  "app/src/server/chatbot/output-formatter.ts": {
+    "mtime": 1789156043.110383,
+    "seen": 1789215287.0529804,
+    "ast_hash": "e16f4b80f10dc8977691531ff5807009",
+    "semantic_hash": "e16f4b80f10dc8977691531ff5807009"
+  },
+  "app/src/server/chatbot/rag/chunk-store.ts": {
+    "mtime": 1789157239.6637995,
+    "seen": 1789215287.0529823,
+    "ast_hash": "07434c00776b159e84c6bd7b06ff6e68",
+    "semantic_hash": "07434c00776b159e84c6bd7b06ff6e68"
+  },
+  "app/src/server/chatbot/session-logger.ts": {
+    "mtime": 1789156015.7282262,
+    "seen": 1789215287.0529838,
+    "ast_hash": "7ee3d11f937f68967e6ef5c603168c95",
+    "semantic_hash": "7ee3d11f937f68967e6ef5c603168c95"
+  },
+  "app/src/server/chatbot/types.ts": {
+    "mtime": 1789155828.8843992,
+    "seen": 1789215287.0529852,
+    "ast_hash": "32cc889ab6aee84ec9735c35acc210f8",
+    "semantic_hash": "32cc889ab6aee84ec9735c35acc210f8"
+  },
+  "app/src/server/mcp/calle-dispatcher.ts": {
+    "mtime": 1789170400.306939,
+    "seen": 1789215287.0529864,
+    "ast_hash": "2f9c480fb0d9fdc05b7cc506932b7e1c",
+    "semantic_hash": "2f9c480fb0d9fdc05b7cc506932b7e1c"
+  },
+  "app/src/server/mcp/crawlee-scraper.ts": {
+    "mtime": 1789245320.9787881,
+    "seen": 1789245937.6117358,
+    "ast_hash": "9662f052920c8a76cdab6f5bfbb2fc01",
+    "semantic_hash": "9662f052920c8a76cdab6f5bfbb2fc01"
+  },
+  "app/src/server/mcp/lead-importer.ts": {
+    "mtime": 1789169966.1454237,
+    "seen": 1789215287.0529892,
+    "ast_hash": "1d6c79d043655c96a6d13ae97245e1d4",
+    "semantic_hash": "1d6c79d043655c96a6d13ae97245e1d4"
+  },
+  "app/src/server/mcp/llm-phone-resolver.ts": {
+    "mtime": 1789169977.9332092,
+    "seen": 1789215287.0529912,
+    "ast_hash": "a19f13d436abd7b57bb485361b397fe2",
+    "semantic_hash": "a19f13d436abd7b57bb485361b397fe2"
+  },
+  "app/src/server/mcp/mcp-logger.ts": {
+    "mtime": 1789245667.5396776,
+    "seen": 1789245937.6117468,
+    "ast_hash": "395dfc9a3abd30ad240140e7551f72f0",
+    "semantic_hash": "395dfc9a3abd30ad240140e7551f72f0"
+  },
+  "app/src/server/mcp/mcp-orchestrator.ts": {
+    "mtime": 1789245340.019764,
+    "seen": 1789245937.6117506,
+    "ast_hash": "1e5d75c907496831b027e3cde5173628",
+    "semantic_hash": "1e5d75c907496831b027e3cde5173628"
+  },
+  "app/src/server/mcp/ml-scorer.ts": {
+    "mtime": 1789170027.1476707,
+    "seen": 1789215287.052996,
+    "ast_hash": "ae6f9f482cba70238ce175b4e90bff40",
+    "semantic_hash": "ae6f9f482cba70238ce175b4e90bff40"
+  },
+  "app/src/server/mcp/okf-markdown.ts": {
+    "mtime": 1789169956.9870553,
+    "seen": 1789215287.0529969,
+    "ast_hash": "da48e6d8d40455c68a59da25747fed34",
+    "semantic_hash": "da48e6d8d40455c68a59da25747fed34"
+  },
+  "app/src/server/mcp/okf-store.ts": {
+    "mtime": 1789241863.9928417,
+    "seen": 1789242121.0682878,
+    "ast_hash": "e7fc2495d3196bbd658a4eb31311c626",
+    "semantic_hash": "e7fc2495d3196bbd658a4eb31311c626"
+  },
+  "app/src/server/mcp/phone-verifier.ts": {
+    "mtime": 1789167189.2521572,
+    "seen": 1789215287.0529997,
+    "ast_hash": "2d6ed7e144dcf88e7d3809c10dcad1fc",
+    "semantic_hash": "2d6ed7e144dcf88e7d3809c10dcad1fc"
+  },
+  "app/src/server/mcp/search-adapter.ts": {
+    "mtime": 1789245305.376802,
+    "seen": 1789245937.6117682,
+    "ast_hash": "e4ba63647e12ff5f61ccadd85ec53d22",
+    "semantic_hash": "e4ba63647e12ff5f61ccadd85ec53d22"
+  },
+  "app/src/server/services/call-brief.ts": {
+    "mtime": 1789152496.8633723,
+    "seen": 1789215287.053003,
+    "ast_hash": "d4991a18de717be4cb206def7509f095",
+    "semantic_hash": "d4991a18de717be4cb206def7509f095"
+  },
+  "app/src/server/services/discovery.ts": {
+    "mtime": 1789152513.3539767,
+    "seen": 1789215287.053004,
+    "ast_hash": "0281123eb4656525421639c14ecf15e6",
+    "semantic_hash": "0281123eb4656525421639c14ecf15e6"
+  },
+  "app/src/server/services/enrichment.ts": {
+    "mtime": 1789152513.354974,
+    "seen": 1789215287.0530052,
+    "ast_hash": "2dea9d98e32571d0c3083d2d3d9306a4",
+    "semantic_hash": "2dea9d98e32571d0c3083d2d3d9306a4"
+  },
+  "app/src/server/services/event-bus.ts": {
+    "mtime": 1789152496.8643706,
+    "seen": 1789215287.053007,
+    "ast_hash": "24a727c004249418d1672a4e474b6f48",
+    "semantic_hash": "24a727c004249418d1672a4e474b6f48"
+  },
+  "app/src/server/services/openrouter.ts": {
+    "mtime": 1789243272.2445545,
+    "seen": 1789243481.6537375,
+    "ast_hash": "c85425c3ca41ada47839d3d70c1da50e",
+    "semantic_hash": "c85425c3ca41ada47839d3d70c1da50e"
+  },
+  "app/src/server/services/orchestrator.ts": {
+    "mtime": 1789152513.3569741,
+    "seen": 1789215287.0530102,
+    "ast_hash": "1b1f00e17c71bf6889affb518ccacad3",
+    "semantic_hash": "1b1f00e17c71bf6889affb518ccacad3"
+  },
+  "app/src/server/services/phone-agent.ts": {
+    "mtime": 1789152496.8663697,
+    "seen": 1789215287.0530117,
+    "ast_hash": "8299845db4de12d75917ee29926ff341",
+    "semantic_hash": "8299845db4de12d75917ee29926ff341"
+  },
+  "app/src/server/services/planner.ts": {
+    "mtime": 1789152513.3579712,
+    "seen": 1789215287.053013,
+    "ast_hash": "013b5048dd7c505e1a9755d06080665e",
+    "semantic_hash": "013b5048dd7c505e1a9755d06080665e"
+  },
+  "app/src/server/services/scoring.ts": {
+    "mtime": 1789152496.8673706,
+    "seen": 1789215287.0530148,
+    "ast_hash": "41b6c89431b2bf7aaccb8390e75d1b37",
+    "semantic_hash": "41b6c89431b2bf7aaccb8390e75d1b37"
+  },
+  "app/src/server/services/synthesis.ts": {
+    "mtime": 1789152496.8683715,
+    "seen": 1789215287.0530164,
+    "ast_hash": "4d161fbbcb83bfc62fd4d07dcf468b4d",
+    "semantic_hash": "4d161fbbcb83bfc62fd4d07dcf468b4d"
+  },
+  "app/src/types/calle.d.ts": {
+    "mtime": 1789169927.1008322,
+    "seen": 1789215287.0530176,
+    "ast_hash": "ae368a28ba5f9a2001a3d011c45c6f97",
+    "semantic_hash": "ae368a28ba5f9a2001a3d011c45c6f97"
+  },
+  "app/tsconfig.json": {
+    "mtime": 1789152496.8743794,
+    "seen": 1789215287.053021,
+    "ast_hash": "eeac5c8a00585c97f61b5e765e9f51b5",
+    "semantic_hash": "eeac5c8a00585c97f61b5e765e9f51b5"
+  },
+  "scripts/test-live-scraper.ts": {
+    "mtime": 1789172450.3923168,
+    "seen": 1789215287.0530226,
+    "ast_hash": "bd6c486ef81a601f21378b58d122e57b",
+    "semantic_hash": "bd6c486ef81a601f21378b58d122e57b"
+  },
+  "Scrapling-main/Scrapling-main/scrapling/websearch.py": {
+    "mtime": 1789217080.6508772,
+    "seen": 1789237531.2193928,
+    "ast_hash": "af758b8c78ff09b7014e529b84b587d5",
+    "semantic_hash": "af758b8c78ff09b7014e529b84b587d5"
+  },
+  "Scrapling-main/Scrapling-main/tests/parser/test_websearch.py": {
+    "mtime": 1789216551.6418211,
+    "seen": 1789237531.219551,
+    "ast_hash": "5691918e25baa28fcd518d4fdc7b79d8",
+    "semantic_hash": "5691918e25baa28fcd518d4fdc7b79d8"
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1789215684.3169453,
+    "seen": 1789217170.690913,
+    "ast_hash": "2e0947fd53e33d13db442de0c06b9f4c",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1789215688.853394,
+    "seen": 1789217170.6909153,
+    "ast_hash": "9e0a17b5705a4f7a3545ff79c4b794ef",
+    "semantic_hash": ""
+  },
+  "GEMINI.md": {
+    "mtime": 1789215695.769148,
+    "seen": 1789217170.6909165,
+    "ast_hash": "fcb1a6f6dcd7df5361f8b8eeb23763bf",
+    "semantic_hash": ""
+  },
+  "MASTER_PROMPT.md": {
+    "mtime": 1789152496.8207605,
+    "seen": 1789217170.6909182,
+    "ast_hash": "a1dcf80463bfd690d8162f0086ac7c50",
+    "semantic_hash": ""
+  },
+  "RFP.md": {
+    "mtime": 1789152496.8217597,
+    "seen": 1789217170.6909196,
+    "ast_hash": "ab93e3b1e0e34d9272b006e96dfd01e0",
+    "semantic_hash": ""
+  },
+  "SRS.md": {
+    "mtime": 1789152496.8227596,
+    "seen": 1789217170.6909213,
+    "ast_hash": "632aa9c428617d94d11c16e2e95dd181",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.bandit.yml": {
+    "mtime": 1789214489.0803235,
+    "seen": 1789217170.6909227,
+    "ast_hash": "04f2ab1745408783e928acb09e2f9e28",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.github/FUNDING.yml": {
+    "mtime": 1789214489.3875802,
+    "seen": 1789217170.690924,
+    "ast_hash": "10a88e9b7f13f68fcfd7eb8dcd6da7ed",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.github/ISSUE_TEMPLATE/01-bug_report.yml": {
+    "mtime": 1789214489.415022,
+    "seen": 1789217170.6909256,
+    "ast_hash": "726d08e40f52f9364d5af1a9b1113b73",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.github/ISSUE_TEMPLATE/02-feature_request.yml": {
+    "mtime": 1789214489.4263377,
+    "seen": 1789217170.690927,
+    "ast_hash": "89152a5b5f8e4af090e4cd9ea2efa9bb",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.github/ISSUE_TEMPLATE/03-other.yml": {
+    "mtime": 1789214489.4374325,
+    "seen": 1789217170.6909285,
+    "ast_hash": "09da4c897e36ed531427dd9c102461ef",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.github/ISSUE_TEMPLATE/04-docs_issue.yml": {
+    "mtime": 1789214489.4484863,
+    "seen": 1789217170.69093,
+    "ast_hash": "2fd7335ad6ad5472a0851b1ced02fca7",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.github/ISSUE_TEMPLATE/config.yml": {
+    "mtime": 1789214489.4592905,
+    "seen": 1789217170.690931,
+    "ast_hash": "98d4e51db8e235269a75592a8c84e852",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.github/PULL_REQUEST_TEMPLATE.md": {
+    "mtime": 1789214489.3975205,
+    "seen": 1789217170.6909328,
+    "ast_hash": "f772aadea538c754ffa3bec06ff22ef2",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.github/workflows/code-quality.yml": {
+    "mtime": 1789214489.4782083,
+    "seen": 1789217170.690934,
+    "ast_hash": "965cf1eb6256d25a18fd760f00e5c3e2",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.github/workflows/docker-build.yml": {
+    "mtime": 1789214489.4913447,
+    "seen": 1789217170.6909359,
+    "ast_hash": "6e4066b4646fc14b2e7a37475b22a1cc",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.github/workflows/release-and-publish.yml": {
+    "mtime": 1789214489.5012655,
+    "seen": 1789217170.690937,
+    "ast_hash": "88cb9072909b4feb41044550640a0eb2",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.github/workflows/tests.yml": {
+    "mtime": 1789214489.5108545,
+    "seen": 1789217170.6909385,
+    "ast_hash": "2d00d4c23d971df845e19eee668818f3",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.pre-commit-config.yaml": {
+    "mtime": 1789214489.1387663,
+    "seen": 1789217170.6909394,
+    "ast_hash": "b1e48ec75ebd33138b2a2e90d8e3ca95",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/.readthedocs.yaml": {
+    "mtime": 1789214489.157767,
+    "seen": 1789217170.6909409,
+    "ast_hash": "06e33760d27d1c68851a4fe97dfabd24",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/AI_POLICY.md": {
+    "mtime": 1789214489.1677637,
+    "seen": 1789217170.6909423,
+    "ast_hash": "83ba2da0492ad888b7b6f8ac8c18ea0d",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/CHANGELOG.md": {
+    "mtime": 1789214489.1767693,
+    "seen": 1789217170.6909435,
+    "ast_hash": "79b67b0fc266ba4d1d0b87bc7efb21ca",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/CODE_OF_CONDUCT.md": {
+    "mtime": 1789214489.1857655,
+    "seen": 1789217170.6909447,
+    "ast_hash": "98763d50794a5ab14cddf420986ab15b",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/CONTRIBUTING.md": {
+    "mtime": 1789214489.1947653,
+    "seen": 1789217170.6909463,
+    "ast_hash": "c6fc4767817806e475dca110705e5518",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/README.md": {
+    "mtime": 1789214489.2343104,
+    "seen": 1789217170.6909478,
+    "ast_hash": "519c9f551e2968560a4286860d177a15",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/ROADMAP.md": {
+    "mtime": 1789214489.2423103,
+    "seen": 1789217170.6909492,
+    "ast_hash": "be45deb6883a0772fcb2e41ad69a4cbf",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/README.md": {
+    "mtime": 1789214489.5273902,
+    "seen": 1789217170.6909504,
+    "ast_hash": "dc7ee5fa8daf260dfa3f00aef2c9187d",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/LICENSE.txt": {
+    "mtime": 1789214489.5610144,
+    "seen": 1789217170.6909516,
+    "ast_hash": "70fe42e7b73c94bcb8819d988e31a30a",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/SKILL.md": {
+    "mtime": 1789214489.573553,
+    "seen": 1789217170.6909533,
+    "ast_hash": "ceca319d9d1d2b1b59465305f8754fc6",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/examples/README.md": {
+    "mtime": 1789214489.6398225,
+    "seen": 1789217170.6909544,
+    "ast_hash": "1457eaef9c21ac24e8220be9fce482b5",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/building-rag-systems.md": {
+    "mtime": 1789214489.656821,
+    "seen": 1789217170.6909559,
+    "ast_hash": "f41d5d6d1bcd6a0d4aababfc4bf3ae5e",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/fetching/choosing.md": {
+    "mtime": 1789214489.6878235,
+    "seen": 1789217170.6909573,
+    "ast_hash": "2570ad260b2b9440f7dfd38d3f28ce13",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/fetching/dynamic.md": {
+    "mtime": 1789214489.696821,
+    "seen": 1789217170.6909585,
+    "ast_hash": "f67d8e2c466b3c9f458dc91da72661e2",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/fetching/static.md": {
+    "mtime": 1789214489.7058306,
+    "seen": 1789217170.6909597,
+    "ast_hash": "693dc42dabeaa9c3d828e6eea5ce2765",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/fetching/stealthy.md": {
+    "mtime": 1789214489.7153432,
+    "seen": 1789217170.6909614,
+    "ast_hash": "4739b26491184d7848358934528f1e82",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/integrations/scrapy.md": {
+    "mtime": 1789214489.7360036,
+    "seen": 1789217170.6909628,
+    "ast_hash": "2222cd1e8449d6fbf3519b0452504a55",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/mcp-server.md": {
+    "mtime": 1789214489.6648233,
+    "seen": 1789217170.6909637,
+    "ast_hash": "5cf6c00a912f945a64521990e3220729",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/migrating_from_beautifulsoup.md": {
+    "mtime": 1789214489.67282,
+    "seen": 1789217170.6909652,
+    "ast_hash": "25f7eb35f0464dab6d6bdee76fae43f1",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/parsing/adaptive.md": {
+    "mtime": 1789214489.754701,
+    "seen": 1789217170.6909666,
+    "ast_hash": "1bea6e9de25296d5942e420c9fd61521",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/parsing/main_classes.md": {
+    "mtime": 1789214489.7636995,
+    "seen": 1789217170.690968,
+    "ast_hash": "4ae3b792b40ef0fc0cb7d6a418789a9f",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/parsing/selection.md": {
+    "mtime": 1789214489.7707014,
+    "seen": 1789217170.6909692,
+    "ast_hash": "e3f117e9192df9fd71899a5c8c7e1e17",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/spiders/advanced.md": {
+    "mtime": 1789214489.7887018,
+    "seen": 1789217170.6909707,
+    "ast_hash": "d33a227e7d102772545997f82fd6bb28",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/spiders/architecture.md": {
+    "mtime": 1789214489.7977004,
+    "seen": 1789217170.6909719,
+    "ast_hash": "b505cd992735bbe08846ae734f7041f1",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/spiders/generic-templates.md": {
+    "mtime": 1789214489.8077059,
+    "seen": 1789217170.6909733,
+    "ast_hash": "367da9f124da763f688fe8bf894fcdfd",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/spiders/getting-started.md": {
+    "mtime": 1789214489.816702,
+    "seen": 1789217170.6909745,
+    "ast_hash": "54d4fa3ce93138257911b6e564027c1a",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/spiders/platform-templates.md": {
+    "mtime": 1789214489.8267162,
+    "seen": 1789217170.6909757,
+    "ast_hash": "3e4561f2fbcc8dc517c795e3ff264418",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/spiders/proxy-blocking.md": {
+    "mtime": 1789214489.8362474,
+    "seen": 1789217170.690977,
+    "ast_hash": "a83eeb09c409c9ee0bdde1d8f418db38",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/spiders/requests-responses.md": {
+    "mtime": 1789214489.8442373,
+    "seen": 1789217170.6909785,
+    "ast_hash": "92cd4eea71ae60075734b32ab7391041",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/agent-skill/Scrapling-Skill/references/spiders/sessions.md": {
+    "mtime": 1789214489.8522394,
+    "seen": 1789217170.69098,
+    "ast_hash": "19b6ec331b8e7ffd693c33a1f51b3d0d",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/README_AR.md": {
+    "mtime": 1789214489.8672364,
+    "seen": 1789217170.6909811,
+    "ast_hash": "19ad7784edc8ac929fcbca5532f9cd63",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/README_CN.md": {
+    "mtime": 1789214489.8752375,
+    "seen": 1789217170.6909823,
+    "ast_hash": "9f5bd05884304845042b2386d22640e4",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/README_DE.md": {
+    "mtime": 1789214489.8822367,
+    "seen": 1789217170.690984,
+    "ast_hash": "884f428fd236b0bdab7054b66e46de1e",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/README_ES.md": {
+    "mtime": 1789214489.8902464,
+    "seen": 1789217170.6909852,
+    "ast_hash": "402a78314a30bdadd7e15cab03b50f55",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/README_FR.md": {
+    "mtime": 1789214489.8972387,
+    "seen": 1789217170.6909866,
+    "ast_hash": "24fcf0f6e44db43f84bd6e79d2db84a8",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/README_JP.md": {
+    "mtime": 1789214489.906235,
+    "seen": 1789217170.690988,
+    "ast_hash": "a7ad9aafa4e4d58983d469556ba30db9",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/README_KR.md": {
+    "mtime": 1789214489.9161556,
+    "seen": 1789217170.6909897,
+    "ast_hash": "b3568cbf8fd17d681de3309c33893a4b",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/README_PT_BR.md": {
+    "mtime": 1789214489.9251041,
+    "seen": 1789217170.6909916,
+    "ast_hash": "eef760714d0a240195318608818b40a0",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/README_RU.md": {
+    "mtime": 1789214489.9349718,
+    "seen": 1789217170.690993,
+    "ast_hash": "f85a81276628ad6b6a4fee543b897af6",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/ai/agent-skill.md": {
+    "mtime": 1789214490.0198326,
+    "seen": 1789217170.6909947,
+    "ast_hash": "16df6e79cebf995afeba2c00ef8908f9",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/ai/building-rag-systems.md": {
+    "mtime": 1789214490.0268252,
+    "seen": 1789217170.6909962,
+    "ast_hash": "78ae481d04a29979b8f2f031be20067b",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/ai/mcp-server.md": {
+    "mtime": 1789214490.034336,
+    "seen": 1789217170.6909976,
+    "ast_hash": "4d4724748d532a960fe050788a6657ba",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/api-reference/custom-types.md": {
+    "mtime": 1789214490.0483458,
+    "seen": 1789217170.690999,
+    "ast_hash": "5c7c1edc2eb832d76f992b7f38f61bbb",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/api-reference/fetchers.md": {
+    "mtime": 1789214490.0553453,
+    "seen": 1789217170.6910002,
+    "ast_hash": "1e18b45154a73181c4474ee19e990c7a",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/api-reference/mcp-server.md": {
+    "mtime": 1789214490.062345,
+    "seen": 1789217170.6910021,
+    "ast_hash": "b1f486b7ebdfc171b84c7be19caa2052",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/api-reference/proxy-rotation.md": {
+    "mtime": 1789214490.0703475,
+    "seen": 1789217170.6910033,
+    "ast_hash": "cca365fc52229c76bb59333f8299eade",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/api-reference/response.md": {
+    "mtime": 1789214490.0773458,
+    "seen": 1789217170.691005,
+    "ast_hash": "2e1b8fec8760c2cf96dc18c8ccf2fc88",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/api-reference/selector.md": {
+    "mtime": 1789214490.0863464,
+    "seen": 1789217170.6910062,
+    "ast_hash": "fe3dba92a42c8513a64f125cab37bbd7",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/api-reference/spiders.md": {
+    "mtime": 1789214490.0953476,
+    "seen": 1789217170.6910074,
+    "ast_hash": "e4bfb21d6775e58841b5ea114bdd16c3",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/benchmarks.md": {
+    "mtime": 1789214489.9449232,
+    "seen": 1789217170.6910088,
+    "ast_hash": "de1f0cf79a24a4a07f65ab9875b818a0",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/cli/extract-commands.md": {
+    "mtime": 1789214490.2668767,
+    "seen": 1789217170.6910102,
+    "ast_hash": "917151e48b47050316dbd4b2d57773f2",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/cli/interactive-shell.md": {
+    "mtime": 1789214490.2768686,
+    "seen": 1789217170.6910117,
+    "ast_hash": "ba1ebccc66f601190cc19ae484c00615",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/cli/overview.md": {
+    "mtime": 1789214490.2848704,
+    "seen": 1789217170.6910133,
+    "ast_hash": "e7451752708460bbadeaa22cf1fdb486",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/development/adaptive_storage_system.md": {
+    "mtime": 1789214490.299869,
+    "seen": 1789217170.691015,
+    "ast_hash": "087999ec4450b3d350e17867cc1bf28b",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/development/scrapling_custom_types.md": {
+    "mtime": 1789214490.30787,
+    "seen": 1789217170.6910164,
+    "ast_hash": "88bd6b892c35afe546dc198cb50794c3",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/donate.md": {
+    "mtime": 1789214489.970773,
+    "seen": 1789217170.6910179,
+    "ast_hash": "f66da99832066e5097868f116f3cbfbb",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/fetching/choosing.md": {
+    "mtime": 1789214490.3238747,
+    "seen": 1789217170.6910195,
+    "ast_hash": "34962dceb92b6ff4dec813981deb4f7e",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/fetching/dynamic.md": {
+    "mtime": 1789214490.3308735,
+    "seen": 1789217170.6910207,
+    "ast_hash": "5f606490528238c6be2d91e8e50586b5",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/fetching/static.md": {
+    "mtime": 1789214490.3394,
+    "seen": 1789217170.6910224,
+    "ast_hash": "52d1d27243dbfe2b52fc9b9c1de95dad",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/fetching/stealthy.md": {
+    "mtime": 1789214490.3484035,
+    "seen": 1789217170.6910236,
+    "ast_hash": "f7a047fa99180c2ee089149d2f2ee18f",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/index.md": {
+    "mtime": 1789214489.9832945,
+    "seen": 1789217170.6910255,
+    "ast_hash": "0287bf5b0ec19830fc177afcabce51a4",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/integrations/scrapy.md": {
+    "mtime": 1789214490.364399,
+    "seen": 1789217170.6910267,
+    "ast_hash": "6d1e486c9d7a62623a9ab54ee8322f19",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/overrides/main.html": {
+    "mtime": 1789214490.3824008,
+    "seen": 1789217170.691028,
+    "ast_hash": "fb65036e4647a16d6ad75b74db7c11ae",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/overview.md": {
+    "mtime": 1789214489.995813,
+    "seen": 1789217170.6910586,
+    "ast_hash": "1506c98780462d253a15cf17f77e3e01",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/parsing/adaptive.md": {
+    "mtime": 1789214490.4044003,
+    "seen": 1789217170.69106,
+    "ast_hash": "27d926ff6e901465384d8d78ede33955",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/parsing/main_classes.md": {
+    "mtime": 1789214490.4130063,
+    "seen": 1789217170.6910613,
+    "ast_hash": "3263288da4e5377c6b1d860ed489e258",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/parsing/selection.md": {
+    "mtime": 1789214490.4218597,
+    "seen": 1789217170.6910627,
+    "ast_hash": "c660f4aa93c863ba333ba8df6a1da762",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/requirements.txt": {
+    "mtime": 1789214490.006813,
+    "seen": 1789217170.6910641,
+    "ast_hash": "a4b04043b8696359b5581853d91400cc",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/spiders/advanced.md": {
+    "mtime": 1789214490.4399154,
+    "seen": 1789217170.6910655,
+    "ast_hash": "8f08a469900b14609e96d5d7d9a656c9",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/spiders/architecture.md": {
+    "mtime": 1789214490.4478748,
+    "seen": 1789217170.691067,
+    "ast_hash": "6ffecce4df20a1182d0c6079a99aa88e",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/spiders/generic-templates.md": {
+    "mtime": 1789214490.4564695,
+    "seen": 1789217170.6910682,
+    "ast_hash": "fc6b1c4b5cdc5f06e6fba98438a511e8",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/spiders/getting-started.md": {
+    "mtime": 1789214490.4655385,
+    "seen": 1789217170.6910696,
+    "ast_hash": "1b82eabd3d7438c0dff06307ca53e6aa",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/spiders/platform-templates.md": {
+    "mtime": 1789214490.4757144,
+    "seen": 1789217170.691071,
+    "ast_hash": "3e4561f2fbcc8dc517c795e3ff264418",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/spiders/proxy-blocking.md": {
+    "mtime": 1789214490.485425,
+    "seen": 1789217170.6910722,
+    "ast_hash": "ae52c09b2cc685302d34a3c85a5a3f56",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/spiders/requests-responses.md": {
+    "mtime": 1789214490.4937375,
+    "seen": 1789217170.691074,
+    "ast_hash": "498389facdcd2c36f4db2701c460ea22",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/spiders/sessions.md": {
+    "mtime": 1789214490.5033104,
+    "seen": 1789217170.691075,
+    "ast_hash": "5ed62dae1ccca5e39ecf815fef11a4a8",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/tutorials/migrating_from_beautifulsoup.md": {
+    "mtime": 1789214490.5518863,
+    "seen": 1789217170.6910765,
+    "ast_hash": "950728e69736ae420e1cdfa6f2c8c360",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/tutorials/replacing_ai.md": {
+    "mtime": 1789214490.5607116,
+    "seen": 1789217170.6910777,
+    "ast_hash": "514ad00837d707660fe896a5f1be8177",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/tests/requirements.txt": {
+    "mtime": 1789214491.6819935,
+    "seen": 1789217170.6910791,
+    "ast_hash": "79ae0b97a361e9f53fda80b9eee33366",
+    "semantic_hash": ""
+  },
+  "TECHNICAL_ARCHITECTURE.md": {
+    "mtime": 1789152496.8227596,
+    "seen": 1789217170.69108,
+    "ast_hash": "5cd2b3b9b00c7950ee116a1d9a44d621",
+    "semantic_hash": ""
+  },
+  "app/AGENTS.md": {
+    "mtime": 1789152496.8247607,
+    "seen": 1789217170.6910818,
+    "ast_hash": "3ad29ed1c7e1970f724e872fcffc4909",
+    "semantic_hash": ""
+  },
+  "app/CLAUDE.md": {
+    "mtime": 1789152496.8247607,
+    "seen": 1789217170.6910827,
+    "ast_hash": "771faa62feb60b7de901a397aebb29b0",
+    "semantic_hash": ""
+  },
+  "app/README.md": {
+    "mtime": 1789152496.8257625,
+    "seen": 1789217170.6910844,
+    "ast_hash": "9162add00befbcdb432430f405c4ad8d",
+    "semantic_hash": ""
+  },
+  "app/data/okf/0a9b315b-e361-4144-9f53-60b85fbc2a00_austin_care_medical_group.md": {
+    "mtime": 1789172896.092039,
+    "seen": 1789217170.6910853,
+    "ast_hash": "0bf4555468c183b70087fdb8ff8de38e",
+    "semantic_hash": ""
+  },
+  "app/data/okf/181c92ca-e164-4b80-82a3-3928b400709d_austin_care_medical_group.md": {
+    "mtime": 1789172155.3364935,
+    "seen": 1789217170.6910868,
+    "ast_hash": "3285cdbd437daec64dcbcd0747381311",
+    "semantic_hash": ""
+  },
+  "app/data/okf/21a5c352-6f29-4e8f-980a-2a9db677e4e8_horizon_b2b_saas___tech_specialists.md": {
+    "mtime": 1789173622.6047938,
+    "seen": 1789217170.6910882,
+    "ast_hash": "83af6057369661bce9138c19a1c8ad30",
+    "semantic_hash": ""
+  },
+  "app/data/okf/21a5c352-6f29-4e8f-980a-2a9db677e4e8_horizon_commercial_real_estate_specialists.md": {
+    "mtime": 1789173189.5110202,
+    "seen": 1789217170.6910894,
+    "ast_hash": "fa4d5a6f59191ccad280801209934065",
+    "semantic_hash": ""
+  },
+  "app/data/okf/21a5c352-6f29-4e8f-980a-2a9db677e4e8_horizon_dental_specialists.md": {
+    "mtime": 1789173611.3602445,
+    "seen": 1789217170.6910906,
+    "ast_hash": "e8b21b6fdc0e0e867bbf6447481b1921",
+    "semantic_hash": ""
+  },
+  "app/data/okf/2a13469f-b07f-4c18-8011-e7ebc1bf292c_summit_health___dental_center.md": {
+    "mtime": 1789172896.1125548,
+    "seen": 1789217170.691092,
+    "ast_hash": "f68d7359445cbd2051ab8dbee5b10a09",
+    "semantic_hash": ""
+  },
+  "app/data/okf/2e83e61a-8675-4dc0-b523-10915b270d79_lakeway_spine___orthopedics.md": {
+    "mtime": 1789170575.124857,
+    "seen": 1789217170.6910932,
+    "ast_hash": "1c90b757a8c0499339ce6c7869714bf2",
+    "semantic_hash": ""
+  },
+  "app/data/okf/2fd42f76-c85e-4242-96c9-80b0e77908d4_horizon_dental_specialists.md": {
+    "mtime": 1789172155.3468919,
+    "seen": 1789217170.6910946,
+    "ast_hash": "cc3b99a42fc94a7d3c4d01946613ebee",
+    "semantic_hash": ""
+  },
+  "app/data/okf/321efbc4-f67b-4f3c-b401-6e2342ebb898_barton_creek_dental_associates.md": {
+    "mtime": 1789172896.124411,
+    "seen": 1789217170.6910958,
+    "ast_hash": "e728bd1e2ac7eb84aab097075dd12e0e",
+    "semantic_hash": ""
+  },
+  "app/data/okf/331b261e-a113-4457-9516-560358822d0c_summit_health___b2b_center.md": {
+    "mtime": 1789173626.0204148,
+    "seen": 1789217170.691097,
+    "ast_hash": "b838e5c22a54d96f5d43a63fb3ec4798",
+    "semantic_hash": ""
+  },
+  "app/data/okf/331b261e-a113-4457-9516-560358822d0c_summit_health___commercial_center.md": {
+    "mtime": 1789173194.3198237,
+    "seen": 1789217170.6910985,
+    "ast_hash": "8eec30f65449b6a624295b67b18066a9",
+    "semantic_hash": ""
+  },
+  "app/data/okf/331b261e-a113-4457-9516-560358822d0c_summit_health___dental_center.md": {
+    "mtime": 1789173614.0067108,
+    "seen": 1789217170.6910996,
+    "ast_hash": "3f1822e7fa67a185ccb68c9dbb28d5e0",
+    "semantic_hash": ""
+  },
+  "app/data/okf/3b826f1d-5720-4407-a634-f20d3b5b9d2a_capital_metro_dental___healthcare_clinics.md": {
+    "mtime": 1789172465.7867749,
+    "seen": 1789217170.691101,
+    "ast_hash": "39b0c55d8c2392d8fc786747e85cedba",
+    "semantic_hash": ""
+  },
+  "app/data/okf/3f3b2b22-95f7-4472-bac0-3e417db79ff8_barton_creek_dental_associates.md": {
+    "mtime": 1789172465.7783864,
+    "seen": 1789217170.6911025,
+    "ast_hash": "4c0058968d11f2c8a1898be2157b29c6",
+    "semantic_hash": ""
+  },
+  "app/data/okf/42b3d2b1-232e-4018-913e-e1139e83c150_info_b2b_tech.md": {
+    "mtime": 1789214204.583969,
+    "seen": 1789217170.6911035,
+    "ast_hash": "58ca75aab14a4cac25f7e602b5ad0e02",
+    "semantic_hash": ""
+  },
+  "app/data/okf/4a0a7d6b-d01e-4e23-bca9-6a951f739d04_barton_creek_dental_associates.md": {
+    "mtime": 1789172155.3667653,
+    "seen": 1789217170.6911051,
+    "ast_hash": "3e0404a89588f390cf4ab1a738c8d6a8",
+    "semantic_hash": ""
+  },
+  "app/data/okf/534935f0-cf8a-4d37-9467-cc3e6efb5a5b_barton_creek_dental_associates.md": {
+    "mtime": 1789174704.9589353,
+    "seen": 1789217170.6911063,
+    "ast_hash": "0b2a78ae0bc822857226eb5a77fd86e4",
+    "semantic_hash": ""
+  },
+  "app/data/okf/534935f0-cf8a-4d37-9467-cc3e6efb5a5b_barton_creek_general_business_associates.md": {
+    "mtime": 1789176202.4337003,
+    "seen": 1789217170.6911077,
+    "ast_hash": "5770b4eb944cd5e12ac8fe17e3da5036",
+    "semantic_hash": ""
+  },
+  "app/data/okf/550c350d-2008-4437-bc6f-e703932f566e_summit_dental___healthcare_center.md": {
+    "mtime": 1789174704.948209,
+    "seen": 1789217170.6911092,
+    "ast_hash": "dee5c48782087483f08a93b57a199bb2",
+    "semantic_hash": ""
+  },
+  "app/data/okf/550c350d-2008-4437-bc6f-e703932f566e_summit_general_business___healthcare_center.md": {
+    "mtime": 1789176202.423127,
+    "seen": 1789217170.6911104,
+    "ast_hash": "27a1a96f9bee05990176273a3374de47",
+    "semantic_hash": ""
+  },
+  "app/data/okf/550c350d-2008-4437-bc6f-e703932f566e_summit_health___dental_center.md": {
+    "mtime": 1789174758.566469,
+    "seen": 1789217170.6911116,
+    "ast_hash": "c38c6fca7590632044796780ce9288f0",
+    "semantic_hash": ""
+  },
+  "app/data/okf/550c350d-2008-4437-bc6f-e703932f566e_summit_health___general_center.md": {
+    "mtime": 1789176206.4963207,
+    "seen": 1789217170.691113,
+    "ast_hash": "7f87c3047ecbc26d6a3a40ca5b0d832c",
+    "semantic_hash": ""
+  },
+  "app/data/okf/598418d9-19d0-4e82-95e4-dfb51bbcd424_austin_smile_center.md": {
+    "mtime": 1789170571.4072096,
+    "seen": 1789217170.691114,
+    "ast_hash": "0f2d40351e70403aa0d32491c45a9a06",
+    "semantic_hash": ""
+  },
+  "app/data/okf/64691b1a-78ef-440d-a4d2-bf31b565db6a_capital_metro_dental.md": {
+    "mtime": 1789174682.9687717,
+    "seen": 1789217170.6911156,
+    "ast_hash": "e06a2ff3010b8dc2a26fd640d546bfdb",
+    "semantic_hash": ""
+  },
+  "app/data/okf/64691b1a-78ef-440d-a4d2-bf31b565db6a_capital_metro_dental___healthcare_clinics.md": {
+    "mtime": 1789174758.5787683,
+    "seen": 1789217170.6911168,
+    "ast_hash": "9af845f9d9f1f861fa2fc913d58a5c40",
+    "semantic_hash": ""
+  },
+  "app/data/okf/64691b1a-78ef-440d-a4d2-bf31b565db6a_capital_metro_dental_group.md": {
+    "mtime": 1789174704.9364796,
+    "seen": 1789217170.6911182,
+    "ast_hash": "c893968273c44a7d07bfda16ca176bf1",
+    "semantic_hash": ""
+  },
+  "app/data/okf/64691b1a-78ef-440d-a4d2-bf31b565db6a_capital_metro_general_business.md": {
+    "mtime": 1789176206.5063767,
+    "seen": 1789217170.6911197,
+    "ast_hash": "aee4889278818bf46dea230ae7971cb1",
+    "semantic_hash": ""
+  },
+  "app/data/okf/64691b1a-78ef-440d-a4d2-bf31b565db6a_capital_metro_general_business_group.md": {
+    "mtime": 1789176202.4107428,
+    "seen": 1789217170.691125,
+    "ast_hash": "b75fe8eab4cd60194dcf42c4205967c6",
+    "semantic_hash": ""
+  },
+  "app/data/okf/6f55ebd0-df76-4d3f-87c4-9125bad7d6d3_barton_creek_healthcare.md": {
+    "mtime": 1789170183.9455276,
+    "seen": 1789217170.6911263,
+    "ast_hash": "6769d9661222a69a145a928aae37f258",
+    "semantic_hash": ""
+  },
+  "app/data/okf/7beb527a-7851-4977-88a3-d25bcedb6dd7_horizon_dental_specialists.md": {
+    "mtime": 1789174446.7762904,
+    "seen": 1789217170.6911278,
+    "ast_hash": "0a24a9fb96e111a5a56d5d0490a8d332",
+    "semantic_hash": ""
+  },
+  "app/data/okf/8547485e-08c8-40e4-8ff1-ffd9735a1083_pflugerville_dental_care.md": {
+    "mtime": 1789170572.6494305,
+    "seen": 1789217170.691129,
+    "ast_hash": "353666dfa7d895aba676f904f24c8ff5",
+    "semantic_hash": ""
+  },
+  "app/data/okf/9e6c32a6-b617-4d2d-b2f0-a5558ce48a15_capital_metro_dental___healthcare_clinics.md": {
+    "mtime": 1789174446.7954414,
+    "seen": 1789217170.6911304,
+    "ast_hash": "17033956444140ea3848bce1f143efd8",
+    "semantic_hash": ""
+  },
+  "app/data/okf/9e6c32a6-b617-4d2d-b2f0-a5558ce48a15_capital_metro_dental_group.md": {
+    "mtime": 1789174446.7446141,
+    "seen": 1789217170.6911314,
+    "ast_hash": "10064a8316251f12c948abd16f2bbfde",
+    "semantic_hash": ""
+  },
+  "app/data/okf/a292995b-c489-4069-a677-9ebc8ff2195b_austin_premier_dental_clinic.md": {
+    "mtime": 1789174446.7248013,
+    "seen": 1789217170.6911333,
+    "ast_hash": "7a1d1e792085f7b8e8d75d8073e6c203",
+    "semantic_hash": ""
+  },
+  "app/data/okf/a596a1bf-1985-4cac-a5f1-ad1ed1199f27_austin_care_medical_group.md": {
+    "mtime": 1789173622.593872,
+    "seen": 1789217170.6911345,
+    "ast_hash": "530ec81c2746d6e05c640604be192f85",
+    "semantic_hash": ""
+  },
+  "app/data/okf/a596a1bf-1985-4cac-a5f1-ad1ed1199f27_nationwide__us__care_medical_group.md": {
+    "mtime": 1789173611.3257432,
+    "seen": 1789217170.6911356,
+    "ast_hash": "32ae7db6eb82412f5c8093a55d56ffbb",
+    "semantic_hash": ""
+  },
+  "app/data/okf/ac182762-6f56-4741-afb3-553adc052ffc_horizon_dental_specialists.md": {
+    "mtime": 1789174704.9731274,
+    "seen": 1789217170.6911373,
+    "ast_hash": "b54fa5031ba58b9be04fa35536929e1b",
+    "semantic_hash": ""
+  },
+  "app/data/okf/ac182762-6f56-4741-afb3-553adc052ffc_horizon_general_business_specialists.md": {
+    "mtime": 1789176202.4444818,
+    "seen": 1789217170.6911387,
+    "ast_hash": "39ab445fa9bf62229d308650e83a8568",
+    "semantic_hash": ""
+  },
+  "app/data/okf/ad90dc07-07a9-4940-bc16-2540276af06b_capital_metro_b2b_saas___tech.md": {
+    "mtime": 1789173626.0477905,
+    "seen": 1789217170.6911402,
+    "ast_hash": "1a0895d8efc5f0c59eb622ea59c612b0",
+    "semantic_hash": ""
+  },
+  "app/data/okf/ad90dc07-07a9-4940-bc16-2540276af06b_capital_metro_commercial_real_estate.md": {
+    "mtime": 1789173194.354257,
+    "seen": 1789217170.6911414,
+    "ast_hash": "68007a5c74e674058c9cbcdcf1c13593",
+    "semantic_hash": ""
+  },
+  "app/data/okf/ad90dc07-07a9-4940-bc16-2540276af06b_capital_metro_dental___healthcare_clinics.md": {
+    "mtime": 1789173614.0301073,
+    "seen": 1789217170.6911426,
+    "ast_hash": "ec2faef8449ab383f734e749bf6924d8",
+    "semantic_hash": ""
+  },
+  "app/data/okf/b1d373fb-f204-43b8-807d-65c39726125c_barton_creek_b2b_saas___tech_associates.md": {
+    "mtime": 1789173626.0350852,
+    "seen": 1789217170.691144,
+    "ast_hash": "aa59d395329bcfa21028303db7044050",
+    "semantic_hash": ""
+  },
+  "app/data/okf/b1d373fb-f204-43b8-807d-65c39726125c_barton_creek_commercial_real_estate_associates.md": {
+    "mtime": 1789173194.330181,
+    "seen": 1789217170.6911452,
+    "ast_hash": "96da0db93b60b6c54a4103f36be0d4b3",
+    "semantic_hash": ""
+  },
+  "app/data/okf/b1d373fb-f204-43b8-807d-65c39726125c_barton_creek_dental_associates.md": {
+    "mtime": 1789173614.017465,
+    "seen": 1789217170.6911466,
+    "ast_hash": "86f36cc8f8d331ab22856106a9cb8335",
+    "semantic_hash": ""
+  },
+  "app/data/okf/b2cd9d97-0c71-41ce-b972-da6d7687d422_summit_dental___healthcare_center.md": {
+    "mtime": 1789174446.7551434,
+    "seen": 1789217170.6911478,
+    "ast_hash": "2a30ce0f8021d9ebe751f10b9393992d",
+    "semantic_hash": ""
+  },
+  "app/data/okf/b2cd9d97-0c71-41ce-b972-da6d7687d422_summit_health___dental_center.md": {
+    "mtime": 1789174446.7876778,
+    "seen": 1789217170.691149,
+    "ast_hash": "f12732cb648696ce5feca1a8c65f9607",
+    "semantic_hash": ""
+  },
+  "app/data/okf/beadf99e-71cf-45f0-aac1-355d277a535f_b_2b___saas_lead_generation.md": {
+    "mtime": 1789214204.570785,
+    "seen": 1789217170.6911504,
+    "ast_hash": "7f62491b19fa618d7a505fe23431a84b",
+    "semantic_hash": ""
+  },
+  "app/data/okf/d5a5b7ca-18e3-48e5-994d-2feffe6482c6_summit_health___dental_center.md": {
+    "mtime": 1789172155.3567514,
+    "seen": 1789217170.6911519,
+    "ast_hash": "6142cc7eb4dfc584c0afe123c98f3265",
+    "semantic_hash": ""
+  },
+  "app/data/okf/da1116e5-a4ec-481a-b2c8-b687df89cf0e_capital_metro_dental___healthcare_clinics.md": {
+    "mtime": 1789172155.3782494,
+    "seen": 1789217170.6911535,
+    "ast_hash": "6405cef4e86fab3104aab5ccc9c20996",
+    "semantic_hash": ""
+  },
+  "app/data/okf/df9392a3-a2e7-40ee-a68a-ac44c228a33f_capital_metro_dental___healthcare_clinics.md": {
+    "mtime": 1789172896.131989,
+    "seen": 1789217170.691155,
+    "ast_hash": "653453493d9c8f1cef9e341175a01f88",
+    "semantic_hash": ""
+  },
+  "app/data/okf/dfe93b00-7626-489e-a70a-8a755e0b05b2_barton_springs_medical_group.md": {
+    "mtime": 1789170573.8843768,
+    "seen": 1789217170.6911561,
+    "ast_hash": "fa17a595ae9b34bf5447af05b02a4de6",
+    "semantic_hash": ""
+  },
+  "app/data/okf/e1141116-ee14-4d6a-8b66-50c6f0bb9674_horizon_dental_specialists.md": {
+    "mtime": 1789172896.1013167,
+    "seen": 1789217170.6911576,
+    "ast_hash": "38d7156325ad3f768c02dfad7bfe2dee",
+    "semantic_hash": ""
+  },
+  "app/data/okf/e345420e-ed99-4f78-897c-f50954a7d901_barton_creek_dental_associates.md": {
+    "mtime": 1789174446.7674294,
+    "seen": 1789217170.691159,
+    "ast_hash": "d38b891c22cd11264b5bc3c847cb2782",
+    "semantic_hash": ""
+  },
+  "app/data/okf/f735fdeb-abe5-43f8-b95d-01330a4d24b0_horizon_dental_specialists.md": {
+    "mtime": 1789172465.7601979,
+    "seen": 1789217170.691161,
+    "ast_hash": "0e0e7cd9ea2b74f57a052056c5b452ad",
+    "semantic_hash": ""
+  },
+  "app/data/okf/f86770e1-d68a-4249-a8c9-e329dfcc65bb_capitol_smiles_dental.md": {
+    "mtime": 1789170184.9596708,
+    "seen": 1789217170.6911623,
+    "ast_hash": "c24638c240a59daa363ec21b17103e85",
+    "semantic_hash": ""
+  },
+  "app/data/okf/f9cf3412-3c04-46a7-89e8-2cc485047ae4_austin_care_medical_group.md": {
+    "mtime": 1789172465.7504156,
+    "seen": 1789217170.6911635,
+    "ast_hash": "cf41224a0d6ad0de21a98f0b16e031ed",
+    "semantic_hash": ""
+  },
+  "app/data/okf/fa0db70e-2b1c-485b-a1a8-899023d859e8_summit_health___dental_center.md": {
+    "mtime": 1789172465.770565,
+    "seen": 1789217170.6911652,
+    "ast_hash": "f6509badada53b6d475168c15d6af92e",
+    "semantic_hash": ""
+  },
+  "app/data/okf/fbdd7e89-8a4b-4e59-8bf0-45a391d33d40_austin_premier_dental_clinic.md": {
+    "mtime": 1789174704.9265282,
+    "seen": 1789217170.6911669,
+    "ast_hash": "4d51ab375b5a1cb3b921ed616d0a239c",
+    "semantic_hash": ""
+  },
+  "app/data/okf/fbdd7e89-8a4b-4e59-8bf0-45a391d33d40_bangladesh_premier_general_business_clinic.md": {
+    "mtime": 1789176202.4001288,
+    "seen": 1789217170.6911683,
+    "ast_hash": "c94a75c9d14bda871696af1d29cd340f",
+    "semantic_hash": ""
+  },
+  "app/pnpm-workspace.yaml": {
+    "mtime": 1789152513.3449745,
+    "seen": 1789217170.6911697,
+    "ast_hash": "7eea502933fe6b3bbd7e889b870badac",
+    "semantic_hash": ""
+  },
+  "app/prisma/sessions/session_31465554-d650-4a56-b515-e3709b16f683.md": {
+    "mtime": 1789159324.5061517,
+    "seen": 1789217170.6911712,
+    "ast_hash": "7c04106c84fae52990fb3a3da74ec462",
+    "semantic_hash": ""
+  },
+  "app/prisma/sessions/session_8f55a8d3-ee05-4dd2-bfa0-74a9f81096c7.md": {
+    "mtime": 1789157417.0407135,
+    "seen": 1789217170.6911726,
+    "ast_hash": "7f7fc183d07bd513074027e1c12e925d",
+    "semantic_hash": ""
+  },
+  "app/prisma/sessions/session_c18de1cf-1261-41d8-b561-922b2a33b13e.md": {
+    "mtime": 1789216193.086054,
+    "seen": 1789217170.6911738,
+    "ast_hash": "77e96646cb0b4c2f7b31da111b315627",
+    "semantic_hash": ""
+  },
+  "app/prisma/sessions/session_e4568c76-8bbf-4490-9d80-ddbad0181653.md": {
+    "mtime": 1789171257.1304095,
+    "seen": 1789217170.6911755,
+    "ast_hash": "59eadf1a8b82ed0164e9509460aae37f",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/assets/cover_dark.png": {
+    "mtime": 1789214490.1143456,
+    "seen": 1789217170.6911767,
+    "ast_hash": "5db35a078553388de6a18542a80688e0",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/assets/cover_dark.svg": {
+    "mtime": 1789214490.1283526,
+    "seen": 1789217170.6911786,
+    "ast_hash": "caa9d8ab06e7e4f3f93e68133a0b93db",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/assets/cover_light.png": {
+    "mtime": 1789214490.1468723,
+    "seen": 1789217170.6911798,
+    "ast_hash": "18995c8ab8afa210b4d26c8d6e8c7ba4",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/assets/cover_light.svg": {
+    "mtime": 1789214490.1598728,
+    "seen": 1789217170.6911814,
+    "ast_hash": "3da1dc067cf5606107bd7ccddf6e511b",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/assets/logo.png": {
+    "mtime": 1789214490.1888719,
+    "seen": 1789217170.6911829,
+    "ast_hash": "248c9eadb172fd4472044e5b30f7e990",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/assets/main_cover.png": {
+    "mtime": 1789214490.2068872,
+    "seen": 1789217170.6911843,
+    "ast_hash": "2525fae7a00f7e4238cee9f6aa5f3926",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/assets/scrapling_shell_curl.png": {
+    "mtime": 1789214490.2243512,
+    "seen": 1789217170.691186,
+    "ast_hash": "886257fd1ffcad9c1d40fd0c66f44420",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/assets/spider_architecture.png": {
+    "mtime": 1789214490.2378714,
+    "seen": 1789217170.6911871,
+    "ast_hash": "1018023a81a8ba29d71b6590a8d69897",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/docs/assets/star-history.png": {
+    "mtime": 1789214490.250872,
+    "seen": 1789217170.6911888,
+    "ast_hash": "aa2f4b0dc00bc7a84c3903b0c8f08311",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/BirdProxies.jpg": {
+    "mtime": 1789214490.580373,
+    "seen": 1789217170.6911905,
+    "ast_hash": "7af244ed50bfdb398da8bbb06a02aa8d",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/DataImpulse.png": {
+    "mtime": 1789214490.598381,
+    "seen": 1789217170.691192,
+    "ast_hash": "3c9d0e6310459d0c56c6541bde67185f",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/HyperSolutions.png": {
+    "mtime": 1789214490.6088898,
+    "seen": 1789217170.691193,
+    "ast_hash": "37d452d3d29e9f7ca62e65d32c3f5f99",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/NodeMaven.jpg": {
+    "mtime": 1789214490.62051,
+    "seen": 1789217170.6911945,
+    "ast_hash": "2c4f84bc0c1e09e9d71a6caa5ab880b1",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/ProxyEmpire.png": {
+    "mtime": 1789214490.6335127,
+    "seen": 1789217170.6911962,
+    "ast_hash": "e22be457f4e38026e84b33fb9a2a9016",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/SerpApi.png": {
+    "mtime": 1789214490.645033,
+    "seen": 1789217170.6911974,
+    "ast_hash": "5c64a8e7d8f5ab52acde6fbb58729a71",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/SwiftProxy.png": {
+    "mtime": 1789214490.6560316,
+    "seen": 1789217170.691199,
+    "ast_hash": "aea40132f2bb4bc09cbe9f7b61e9c412",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/TWSC.png": {
+    "mtime": 1789214490.6690319,
+    "seen": 1789217170.6912003,
+    "ast_hash": "2a0a55e90413fac482455d4cb7dfd623",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/TikHub.jpg": {
+    "mtime": 1789214490.6830337,
+    "seen": 1789217170.6912017,
+    "ast_hash": "c3e69635b465987fabc5307276762c49",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/cloro.jpg": {
+    "mtime": 1789214490.6951864,
+    "seen": 1789217170.691203,
+    "ast_hash": "2c56c22253ebf9d741751a4297dd1b44",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/coldproxy.png": {
+    "mtime": 1789214490.709198,
+    "seen": 1789217170.6912045,
+    "ast_hash": "9563095e3d3cf110d7368e3e8bad48c3",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/decodo.png": {
+    "mtime": 1789214490.7217307,
+    "seen": 1789217170.691206,
+    "ast_hash": "2ed01da1cc6f329a90d31a73757eb848",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/evomi.png": {
+    "mtime": 1789214490.7340107,
+    "seen": 1789217170.6912074,
+    "ast_hash": "7fa2b47caf309245d974062f9cd5a8e1",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/niuproxy.png": {
+    "mtime": 1789214490.7441158,
+    "seen": 1789217170.6912086,
+    "ast_hash": "a828163860673d7fefebf008a65ff17f",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/novada.jpg": {
+    "mtime": 1789214490.7571156,
+    "seen": 1789217170.6912103,
+    "ast_hash": "2c845d423b48c128bed279f490db7f06",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/petrosky.png": {
+    "mtime": 1789214490.768113,
+    "seen": 1789217170.6912115,
+    "ast_hash": "6716c1e3393c24ae7986268434813620",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/proxidize.png": {
+    "mtime": 1789214490.7801151,
+    "seen": 1789217170.6912131,
+    "ast_hash": "9eaf56bff5157f5955f4854a6c96cdba",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/proxiware.png": {
+    "mtime": 1789214490.793115,
+    "seen": 1789217170.6912146,
+    "ast_hash": "bc0643bf5224981c41e037f61132654f",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/voidmob.png": {
+    "mtime": 1789214490.8041136,
+    "seen": 1789217170.6912158,
+    "ast_hash": "d9fffcb9872848fa2830d9ec72855250",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Scrapling-main/images/webshare.png": {
+    "mtime": 1789214490.8171158,
+    "seen": 1789217170.6912174,
+    "ast_hash": "37bec0dca10b497a3693fc81727d438b",
+    "semantic_hash": ""
+  },
+  "app/public/file.svg": {
+    "mtime": 1789152496.834359,
+    "seen": 1789217170.6912186,
+    "ast_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71",
+    "semantic_hash": ""
+  },
+  "app/public/globe.svg": {
+    "mtime": 1789152496.834359,
+    "seen": 1789217170.69122,
+    "ast_hash": "2aaafa6a49b6563925fe440891e32717",
+    "semantic_hash": ""
+  },
+  "app/public/next.svg": {
+    "mtime": 1789152496.8353724,
+    "seen": 1789217170.6912212,
+    "ast_hash": "8e061864f388b47f33a1c3780831193e",
+    "semantic_hash": ""
+  },
+  "app/public/vercel.svg": {
+    "mtime": 1789152496.8353724,
+    "seen": 1789217170.6912227,
+    "ast_hash": "c0af2f507b369b085b35ef4bbe3bcf1e",
+    "semantic_hash": ""
+  },
+  "app/public/window.svg": {
+    "mtime": 1789152496.83637,
+    "seen": 1789217170.6912243,
+    "ast_hash": "a2760511c65806022ad20adf74370ff3",
+    "semantic_hash": ""
+  },
+  "Scrapling-main/Apollo_api_testing/apollo_client.py": {
+    "mtime": 1789226979.7646148,
+    "seen": 1789237531.2190928,
+    "ast_hash": "d322f84dac70eb7ee6b7624e39ee7e42",
+    "semantic_hash": "d322f84dac70eb7ee6b7624e39ee7e42"
+  },
+  "Scrapling-main/Apollo_api_testing/cli.py": {
+    "mtime": 1789227264.1807635,
+    "seen": 1789237531.2191017,
+    "ast_hash": "13bd5b829490dd5b10cf17c2c5d6a3d9",
+    "semantic_hash": "13bd5b829490dd5b10cf17c2c5d6a3d9"
+  },
+  "Scrapling-main/Apollo_api_testing/cli_dispatch.py": {
+    "mtime": 1789227273.238378,
+    "seen": 1789237531.219105,
+    "ast_hash": "45448d66baaa355fcf67e88cde9e056a",
+    "semantic_hash": "45448d66baaa355fcf67e88cde9e056a"
+  },
+  "Scrapling-main/Apollo_api_testing/config.py": {
+    "mtime": 1789226973.2443635,
+    "seen": 1789237531.2191074,
+    "ast_hash": "660c8bf17a20d943fdbded726ea1ca1a",
+    "semantic_hash": "660c8bf17a20d943fdbded726ea1ca1a"
+  },
+  "Scrapling-main/Apollo_api_testing/endpoints.py": {
+    "mtime": 1789226963.4247022,
+    "seen": 1789237531.2191093,
+    "ast_hash": "db1cdaabff5cb742ed0f8b1744bb51b2",
+    "semantic_hash": "db1cdaabff5cb742ed0f8b1744bb51b2"
+  },
+  "Scrapling-main/Apollo_api_testing/lookup.py": {
+    "mtime": 1789227003.7855568,
+    "seen": 1789237531.219111,
+    "ast_hash": "22df8c34de6dfd3740cc799350fb5f4a",
+    "semantic_hash": "22df8c34de6dfd3740cc799350fb5f4a"
+  },
+  "Scrapling-main/Apollo_api_testing/monitor.py": {
+    "mtime": 1789227275.8113437,
+    "seen": 1789237531.2191126,
+    "ast_hash": "425c3b55037f252ce24f6df47449f491",
+    "semantic_hash": "425c3b55037f252ce24f6df47449f491"
+  },
+  "Scrapling-main/Apollo_api_testing/store.py": {
+    "mtime": 1789226991.091031,
+    "seen": 1789237531.2191148,
+    "ast_hash": "bb197f71bacce73fcd6f4fe2f2336947",
+    "semantic_hash": "bb197f71bacce73fcd6f4fe2f2336947"
+  },
+  "Scrapling-main/Apollo_api_testing/tests/conftest.py": {
+    "mtime": 1789227117.7692778,
+    "seen": 1789237531.2191167,
+    "ast_hash": "5976f80eb28ffede554650c1cc37f262",
+    "semantic_hash": "5976f80eb28ffede554650c1cc37f262"
+  },
+  "Scrapling-main/Apollo_api_testing/tests/test_apollo_client.py": {
+    "mtime": 1789227176.0854373,
+    "seen": 1789237531.2191186,
+    "ast_hash": "d0237ebc8ccf3f8a626256b663fd4558",
+    "semantic_hash": "d0237ebc8ccf3f8a626256b663fd4558"
+  },
+  "Scrapling-main/Apollo_api_testing/tests/test_lookup.py": {
+    "mtime": 1789227230.7681582,
+    "seen": 1789237531.21912,
+    "ast_hash": "121eb142db261deae5ebf36fb997bae0",
+    "semantic_hash": "121eb142db261deae5ebf36fb997bae0"
+  },
+  "Scrapling-main/Apollo_api_testing/tests/test_monitor.py": {
+    "mtime": 1789227160.429739,
+    "seen": 1789237531.2191222,
+    "ast_hash": "7665589b29261df0fd7cd9354654a2f9",
+    "semantic_hash": "7665589b29261df0fd7cd9354654a2f9"
+  },
+  "Scrapling-main/Apollo_api_testing/tests/test_store.py": {
+    "mtime": 1789227179.9795392,
+    "seen": 1789237531.2191248,
+    "ast_hash": "e1cc15dd0e3b9fb6d2427df6a55cd142",
+    "semantic_hash": "e1cc15dd0e3b9fb6d2427df6a55cd142"
+  },
+  "Scrapling-main/Apollo_api_testing/tests/test_trigger.py": {
+    "mtime": 1789227152.8090465,
+    "seen": 1789237531.219127,
+    "ast_hash": "cba8a77bfe7e38f3851433dd1bb94320",
+    "semantic_hash": "cba8a77bfe7e38f3851433dd1bb94320"
+  },
+  "Scrapling-main/Apollo_api_testing/tests/test_webhook_receiver.py": {
+    "mtime": 1789227195.9274323,
+    "seen": 1789237531.2191296,
+    "ast_hash": "8a67008ab8f1f52e5e0d704e618e705d",
+    "semantic_hash": "8a67008ab8f1f52e5e0d704e618e705d"
+  },
+  "Scrapling-main/Apollo_api_testing/trigger.py": {
+    "mtime": 1789227276.7043476,
+    "seen": 1789237531.2191317,
+    "ast_hash": "2c490fe97fdf875d5d333469dbf92a25",
+    "semantic_hash": "2c490fe97fdf875d5d333469dbf92a25"
+  },
+  "Scrapling-main/Apollo_api_testing/webhook_receiver.py": {
+    "mtime": 1789227273.172806,
+    "seen": 1789237531.2191334,
+    "ast_hash": "9495acb9c1fd677c9874d4a3c300e463",
+    "semantic_hash": "9495acb9c1fd677c9874d4a3c300e463"
+  },
+  "Scrapling-main/api_testing/apollo_pipeline.py": {
+    "mtime": 1789226473.5327644,
+    "seen": 1789237531.2196143,
+    "ast_hash": "08b0e4c2ea8e79dd7ac64779ebd99776",
+    "semantic_hash": "08b0e4c2ea8e79dd7ac64779ebd99776"
+  },
+  "Scrapling-main/api_testing/webhook_receiver.py": {
+    "mtime": 1789223894.8020031,
+    "seen": 1789237531.219616,
+    "ast_hash": "665790d4331d4a539db79e008b08a530",
+    "semantic_hash": "665790d4331d4a539db79e008b08a530"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/apollo_client.py": {
+    "mtime": 1789228056.7241948,
+    "seen": 1789237531.2196183,
+    "ast_hash": "6ba2bf1f81a0bf2a1802bd6494c17eaa",
+    "semantic_hash": "6ba2bf1f81a0bf2a1802bd6494c17eaa"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/cli.py": {
+    "mtime": 1789228056.7413416,
+    "seen": 1789237531.2196212,
+    "ast_hash": "13bd5b829490dd5b10cf17c2c5d6a3d9",
+    "semantic_hash": "13bd5b829490dd5b10cf17c2c5d6a3d9"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/cli_dispatch.py": {
+    "mtime": 1789228056.7543526,
+    "seen": 1789237531.2196226,
+    "ast_hash": "45448d66baaa355fcf67e88cde9e056a",
+    "semantic_hash": "45448d66baaa355fcf67e88cde9e056a"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/config.py": {
+    "mtime": 1789228056.7688675,
+    "seen": 1789237531.2196252,
+    "ast_hash": "660c8bf17a20d943fdbded726ea1ca1a",
+    "semantic_hash": "660c8bf17a20d943fdbded726ea1ca1a"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/endpoints.py": {
+    "mtime": 1789228056.7828655,
+    "seen": 1789237531.219627,
+    "ast_hash": "db1cdaabff5cb742ed0f8b1744bb51b2",
+    "semantic_hash": "db1cdaabff5cb742ed0f8b1744bb51b2"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/lookup.py": {
+    "mtime": 1789228056.7978709,
+    "seen": 1789237531.21963,
+    "ast_hash": "22df8c34de6dfd3740cc799350fb5f4a",
+    "semantic_hash": "22df8c34de6dfd3740cc799350fb5f4a"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/monitor.py": {
+    "mtime": 1789228056.8108692,
+    "seen": 1789237531.2196321,
+    "ast_hash": "425c3b55037f252ce24f6df47449f491",
+    "semantic_hash": "425c3b55037f252ce24f6df47449f491"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/store.py": {
+    "mtime": 1789228056.8348663,
+    "seen": 1789237531.2196343,
+    "ast_hash": "949ed777b006a5376753613d5d6bb5a4",
+    "semantic_hash": "949ed777b006a5376753613d5d6bb5a4"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/test_apollo_client.py": {
+    "mtime": 1789228056.8478649,
+    "seen": 1789237531.2196364,
+    "ast_hash": "71d261901bc822954cff4d6ef3a3d894",
+    "semantic_hash": "71d261901bc822954cff4d6ef3a3d894"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/test_cli_discover_integration.py": {
+    "mtime": 1789228056.8608778,
+    "seen": 1789237531.219638,
+    "ast_hash": "2451a86b403ef6533f664c8517f0ce8d",
+    "semantic_hash": "2451a86b403ef6533f664c8517f0ce8d"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/test_cli_poll_integration.py": {
+    "mtime": 1789228056.8744023,
+    "seen": 1789237531.2196403,
+    "ast_hash": "59d76134b3ff42abbc77a1afbaf0d6d5",
+    "semantic_hash": "59d76134b3ff42abbc77a1afbaf0d6d5"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/test_lookup.py": {
+    "mtime": 1789228056.886399,
+    "seen": 1789237531.219642,
+    "ast_hash": "1b63408b9d0101b88a91b9d7ae8a9c25",
+    "semantic_hash": "1b63408b9d0101b88a91b9d7ae8a9c25"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/test_monitor.py": {
+    "mtime": 1789228056.899401,
+    "seen": 1789237531.219644,
+    "ast_hash": "8c9fbbe854d0faf139f5a8826a73f400",
+    "semantic_hash": "8c9fbbe854d0faf139f5a8826a73f400"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/test_store.py": {
+    "mtime": 1789228056.9103997,
+    "seen": 1789237531.219646,
+    "ast_hash": "1d72aae03ff7f1d5a16d04668d837b7b",
+    "semantic_hash": "1d72aae03ff7f1d5a16d04668d837b7b"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/test_trigger.py": {
+    "mtime": 1789228056.9230998,
+    "seen": 1789237531.219648,
+    "ast_hash": "154e7cadb061c4e599f53f80ae7b3e00",
+    "semantic_hash": "154e7cadb061c4e599f53f80ae7b3e00"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/test_webhook_receiver.py": {
+    "mtime": 1789228056.9350958,
+    "seen": 1789237531.21965,
+    "ast_hash": "f5e63d608c8ce9a390d4224e644f0091",
+    "semantic_hash": "f5e63d608c8ce9a390d4224e644f0091"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/trigger.py": {
+    "mtime": 1789228056.9464514,
+    "seen": 1789237531.2196517,
+    "ast_hash": "2c490fe97fdf875d5d333469dbf92a25",
+    "semantic_hash": "2c490fe97fdf875d5d333469dbf92a25"
+  },
+  "app/apollo_engine_fixed/apollo_engine_fixed/webhook_receiver.py": {
+    "mtime": 1789228056.9575388,
+    "seen": 1789237531.2196531,
+    "ast_hash": "8003246a495cba0a8ea9e6dd4eceba24",
+    "semantic_hash": "8003246a495cba0a8ea9e6dd4eceba24"
+  },
+  "app/src/server/db/schema-architecture.ts": {
+    "mtime": 1789242085.076248,
+    "seen": 1789242121.0682638,
+    "ast_hash": "0308780d26cc4f93b2c7bc07d62d0e65",
+    "semantic_hash": "0308780d26cc4f93b2c7bc07d62d0e65"
+  },
+  "app/src/app/api/discovery/extract-arrays/route.ts": {
+    "mtime": 1789243300.6251426,
+    "seen": 1789243481.6536224,
+    "ast_hash": "d477d34eaad21710e0a182943e459db3",
+    "semantic_hash": "d477d34eaad21710e0a182943e459db3"
+  },
+  "app/src/server/mcp/unified-schema.ts": {
+    "mtime": 1789245350.3764775,
+    "seen": 1789245937.6117713,
+    "ast_hash": "4d8e22e215636bb4da9273e2f362cd16",
+    "semantic_hash": "4d8e22e215636bb4da9273e2f362cd16"
+  },
+  "app/scripts/test-extract.ts": {
+    "mtime": 1789243425.3213093,
+    "seen": 1789243481.6535933,
+    "ast_hash": "7221fbf5e774e813c7ea237c5723c5bb",
+    "semantic_hash": "7221fbf5e774e813c7ea237c5723c5bb"
+  },
+  "app/scripts/test-unified-pipeline.ts": {
+    "mtime": 1789242308.6241024,
+    "seen": 1789243481.653609,
+    "ast_hash": "650961290dd83f0120ee3d7eeea95bc5",
+    "semantic_hash": "650961290dd83f0120ee3d7eeea95bc5"
+  },
+  "app/scripts/test-mcp-apollo-bridge.ts": {
+    "mtime": 1789245515.4122984,
+    "seen": 1789245937.6115222,
+    "ast_hash": "8368b4e205423bad03b48736ac512f73",
+    "semantic_hash": "8368b4e205423bad03b48736ac512f73"
+  },
+  "app/src/app/api/mcp/apollo-payload/route.ts": {
+    "mtime": 1789245391.396556,
+    "seen": 1789245937.6115904,
+    "ast_hash": "b617b846ed515c448ea4fc8354f9a8bd",
+    "semantic_hash": "b617b846ed515c448ea4fc8354f9a8bd"
+  },
+  "app/src/server/mcp/apollo-adapter.ts": {
+    "mtime": 1789245713.0723968,
+    "seen": 1789245937.6117287,
+    "ast_hash": "929a656570355dc59bb42723c5e778dc",
+    "semantic_hash": "929a656570355dc59bb42723c5e778dc"
+  }
+}

@@ -14,7 +14,7 @@ export async function GET(
     const url = new URL(request.url);
     
     // Query params for filtering
-    const sortBy = url.searchParams.get("sortBy") || "score";
+    const sortBy = url.searchParams.get("sortBy") || "createdAt";
     const sortOrder = url.searchParams.get("sortOrder") || "desc";
     const minScore = parseInt(url.searchParams.get("minScore") || "0");
     const status = url.searchParams.get("status");
@@ -44,7 +44,9 @@ export async function GET(
           take: 1,
         },
       },
-      orderBy: { [sortBy]: sortOrder },
+      orderBy: sortBy === "score"
+        ? [{ score: sortOrder as "asc" | "desc" }, { createdAt: "desc" }]
+        : [{ createdAt: sortOrder as "asc" | "desc" }, { score: "desc" }],
     });
 
     return NextResponse.json({

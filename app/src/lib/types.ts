@@ -67,6 +67,42 @@ export const QuestionnaireSchema = z.object({
 export type QuestionnaireItem = z.infer<typeof QuestionnaireItemSchema>;
 export type Questionnaire = z.infer<typeof QuestionnaireSchema>;
 
+// ─── Call-E Voice Call Context & Mid-Conversation Order ───────
+
+export interface CallContextScores {
+  callReadiness: number;
+  phoneAccuracy: number;
+  painIntensity: number;
+  icpFit: number;
+}
+
+export interface CallContextHooks {
+  hypothesis: string;
+  observedEvidence: string[];
+  openingHook: string;
+  qualifyingQuestions: string[];
+  objectionsToExpect: string[];
+}
+
+export interface CallContextBundle {
+  companyName: string;
+  phone: string;
+  phoneE164: string;
+  phoneSource: string;
+  decisionMaker: string;
+  decisionMakerTitle: string;
+  location: string;
+  timezone: string;
+  localTimeFormatted: string;
+  isWithinCallingHours: boolean;
+  callingWindowMessage: string;
+  scores: CallContextScores;
+  hooks: CallContextHooks;
+  calleTaskPrompt: string;
+  calleVariables: Record<string, unknown>;
+  orderResultSchema: Record<string, unknown>;
+}
+
 // ─── Raw Lead (from discovery) ──────────────────────────────
 
 export const RawLeadSchema = z.object({
@@ -80,6 +116,7 @@ export const RawLeadSchema = z.object({
   employeeCount: z.number().optional(),
   decisionMaker: z.string().optional(),
   metadata: z.record(z.string(), z.unknown()).optional(),
+  callContext: z.custom<CallContextBundle>().optional(),
 });
 
 export type RawLead = z.infer<typeof RawLeadSchema>;

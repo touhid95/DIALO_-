@@ -28,7 +28,7 @@ export async function extractBusinessProfile(documentText: string): Promise<Busi
         ? "We sell AI-powered receptionist and phone answering solutions to dental practices and healthcare providers."
         : "We provide technology solutions to small and medium businesses.",
       industry: isDental ? "AI/SaaS - Healthcare Technology" : "Technology Services",
-      website: "https://example.com",
+      website: "https://calle-ai.com",
     },
     services: isDental
       ? ["AI receptionist", "Automated phone answering", "Appointment scheduling", "After-hours call handling"]

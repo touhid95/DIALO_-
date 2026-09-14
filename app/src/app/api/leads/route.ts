@@ -1,5 +1,5 @@
 /**
- * GET /api/leads — Get all leads for the organization
+ * GET /api/leads — Get all leads for the organization with OKF intelligence
  */
 
 import { NextRequest, NextResponse } from "next/server";
@@ -10,10 +10,11 @@ const DEFAULT_ORG_ID = "00000000-0000-0000-0000-000000000001";
 export async function GET(request: NextRequest) {
   try {
     const url = new URL(request.url);
-    const sortBy = url.searchParams.get("sortBy") || "score";
+    const sortBy = url.searchParams.get("sortBy") || "createdAt";
     const sortOrder = url.searchParams.get("sortOrder") || "desc";
     const minScore = parseInt(url.searchParams.get("minScore") || "0");
     const qualification = url.searchParams.get("qualification");
+    const source = url.searchParams.get("source"); // "all" | "search" | "upload"
     const search = url.searchParams.get("search");
 
     const where: Record<string, unknown> = { organizationId: DEFAULT_ORG_ID };
@@ -21,9 +22,9 @@ export async function GET(request: NextRequest) {
     if (qualification && qualification !== "all") where.qualification = qualification;
     if (search) {
       where.OR = [
-        { name: { contains: search, mode: "insensitive" } },
-        { location: { contains: search, mode: "insensitive" } },
-        { category: { contains: search, mode: "insensitive" } },
+        { name: { contains: search } },
+        { location: { contains: search } },
+        { category: { contains: search } },
       ];
     }
 
@@ -37,15 +38,29 @@ export async function GET(request: NextRequest) {
           take: 1,
         },
       },
-      orderBy: sortBy === "score" ? { score: sortOrder as "asc" | "desc" } : { createdAt: sortOrder as "asc" | "desc" },
+      orderBy: sortBy === "score"
+        ? [{ score: sortOrder as "asc" | "desc" }, { createdAt: "desc" }]
+        : [{ createdAt: sortOrder as "asc" | "desc" }, { score: "desc" }],
     });
 
-    return NextResponse.json({
-      success: true,
-      data: leads.map((lead) => ({
+    const mappedLeads = leads.map((lead) => {
+      const profile = (lead.profileJson as Record<string, unknown>) || {};
+      const contact = (profile.contact as Record<string, unknown>) || {};
+      const scores = (profile.scores as Record<string, unknown>) || {};
+      const leadSource = (profile.source as string) || "search";
+
+      return {
         id: lead.id,
         name: lead.name,
         phone: lead.phone,
+        phoneE164: (contact.phoneE164 as string) || lead.phone,
+        phoneConfidence: typeof contact.phoneConfidence === "number" ? contact.phoneConfidence : (lead.phone ? 0.75 : 0),
+        phoneScore: typeof scores.phoneScore === "number" ? scores.phoneScore : (lead.phone ? 75 : 0),
+        email: (contact.email as string) || null,
+        emailConfidence: typeof contact.emailConfidence === "number" ? contact.emailConfidence : null,
+        emailScore: typeof scores.emailScore === "number" ? scores.emailScore : null,
+        source: leadSource,
+        callReadiness: typeof scores.callReadiness === "number" ? scores.callReadiness : lead.score,
         website: lead.website,
         location: lead.location,
         category: lead.category,
@@ -65,6 +80,8 @@ export async function GET(request: NextRequest) {
           confidence: e.confidence,
           observedAt: e.observedAt,
         })),
+        discoverySpec: profile.discoverySpec || null,
+        unifiedDiscoveryId: (profile.unifiedDiscoveryId as string) || null,
         latestCall: lead.calls[0]
           ? {
               id: lead.calls[0].id,
@@ -79,7 +96,17 @@ export async function GET(request: NextRequest) {
             }
           : null,
         createdAt: lead.createdAt,
-      })),
+      };
+    });
+
+    // Filter by source if requested
+    const filtered = source && source !== "all"
+      ? mappedLeads.filter((l) => l.source === source)
+      : mappedLeads;
+
+    return NextResponse.json({
+      success: true,
+      data: filtered,
     });
   } catch (error) {
     console.error("GET /api/leads error:", error);

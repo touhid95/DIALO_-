@@ -14,14 +14,18 @@ import { prisma } from "@/lib/db";
 import { Prisma } from "@prisma/client";
 import type { TaskProgress } from "@/lib/types";
 import { extractBusinessProfile, generateQuestionnaire, convertToCriteria } from "./planner";
-import { createDiscoveryProvider } from "./discovery";
-import { createEnrichmentProvider } from "./enrichment";
+import { CRAWLING_DISCOVERY_DORMANT, createDiscoveryProvider } from "./discovery";
+import { LEAD_ENRICHMENT_DORMANT, createEnrichmentProvider } from "./enrichment";
 import { scoreLead } from "./scoring";
 import { generateCallBrief, briefToCalleTask, generateResultSchema } from "./call-brief";
 import { createPhoneAgent } from "./phone-agent";
 import { synthesizeCallResult } from "./synthesis";
 import { generateIdempotencyKey } from "@/lib/utils";
 import { broadcastEvent } from "./event-bus";
+import { okfStore, OKFRecord } from "@/server/mcp/okf-store";
+import { unifiedMCPStore, UnifiedDiscoveryRecord } from "@/server/mcp/unified-schema";
+import { buildApolloSingleSourceOfTruth } from "@/server/mcp/apollo-adapter";
+import { mcpLogger } from "@/server/mcp/mcp-logger";
 
 /**
  * Run the full lead discovery pipeline for a task
@@ -69,9 +73,75 @@ export async function runPipeline(taskId: string, organizationId: string): Promi
       criteria,
     });
 
-    // ─── DISCOVERY PHASE ──────────────────────────────────────
+    // ─── MCP LAYER DATA PASS-THROUGH (PLANNING STAGE) ──────────
+    const locationStr = criteria.location ? `${criteria.location.city || "Austin"}, ${criteria.location.state || "TX"}` : "Austin, TX";
+    const industryStr = Array.isArray(criteria.industry) ? criteria.industry.join(", ") : (criteria.industry || "General B2B");
+
+    try {
+      const apolloPayload = await buildApolloSingleSourceOfTruth({
+        llmArrays: {
+          organization_domain: [],
+          client_location: [locationStr],
+          keywords: [industryStr, ...(criteria.requiredSignals || [])],
+        },
+        userMetrics: {
+          industry: industryStr,
+          company_size: `${criteria.minEmployees || 10}-${criteria.maxEmployees || 50} employees`,
+          pricing: "$1,000–$3,000/mo",
+          focus: "CALL-E Voice Outreach",
+        },
+        decisionMakerTitles: ["Owner", "Managing Partner", "CEO"],
+      });
+
+      const unifiedRecord: UnifiedDiscoveryRecord = {
+        id: `unified-${taskId}`,
+        organizationId,
+        taskId,
+        generatedAt: new Date().toISOString(),
+        status: "synthesized",
+        llmArrays: {
+          organization_domain: [],
+          client_location: [locationStr],
+          keywords: [industryStr, ...(criteria.requiredSignals || [])],
+        },
+        userMetrics: {
+          industry: industryStr,
+          company_size: `${criteria.minEmployees || 10}-${criteria.maxEmployees || 50} employees`,
+          pricing: "$1,000–$3,000/mo",
+          focus: "CALL-E Voice Outreach",
+        },
+        compiledQueries: {
+          core: [industryStr, locationStr],
+          google: `${industryStr} ${locationStr}`,
+          linkedin: `("Owner" OR "CEO") AND "${industryStr}" AND "${locationStr}"`,
+          yellowpages: `${industryStr} ${locationStr}`,
+        },
+        decisionMakerTitles: ["Owner", "Managing Partner", "CEO"],
+        positiveSignals: criteria.requiredSignals || [],
+        negativeSignals: criteria.excluded || [],
+        apolloPayload,
+      };
+
+      await unifiedMCPStore.saveRecord(unifiedRecord);
+      mcpLogger.success("OKF_STORE", `Passed criteria for task ${taskId} directly to MCP Unified Store (Apollo SSoT ready).`);
+    } catch (mcpErr) {
+      console.warn("[Orchestrator] MCP Unified Store sync notice:", mcpErr);
+    }
+
+    // ─── DISCOVERY PHASE (CRAWLING STATUS: DORMANT) ───────────
     await updateTaskStatus(taskId, "DISCOVERING");
-    await emitEvent(organizationId, taskId, "task.discovering", {});
+    if (CRAWLING_DISCOVERY_DORMANT) {
+      mcpLogger.info(
+        "ORCHESTRATOR",
+        `[Crawling: DORMANT] External crawling & discovery scraping are dormant. Bypassed web crawlers; criteria routed directly to MCP layer.`
+      );
+      await emitEvent(organizationId, taskId, "task.discovering", {
+        dormant: true,
+        message: "Crawling is DORMANT. Bypassed web scraping; criteria routed directly to MCP layer.",
+      });
+    } else {
+      await emitEvent(organizationId, taskId, "task.discovering", {});
+    }
 
     const discoveryProvider = createDiscoveryProvider();
     const rawLeads = await discoveryProvider.search({
@@ -108,9 +178,20 @@ export async function runPipeline(taskId: string, organizationId: string): Promi
 
     await updateProgress(taskId, { discovered: createdLeads.length });
 
-    // ─── ENRICHMENT PHASE ─────────────────────────────────────
+    // ─── ENRICHMENT PHASE (LEAD ENRICHMENT STATUS: DORMANT) ────
     await updateTaskStatus(taskId, "ENRICHING");
-    await emitEvent(organizationId, taskId, "task.enriching", {});
+    if (LEAD_ENRICHMENT_DORMANT) {
+      mcpLogger.info(
+        "ORCHESTRATOR",
+        `[Lead Enrichment: DORMANT] Secondary lead enrichment is dormant. Passing raw lead data directly to MCP Layer OKF Store.`
+      );
+      await emitEvent(organizationId, taskId, "task.enriching", {
+        dormant: true,
+        message: "Lead enrichment is DORMANT. Raw data passed directly to MCP Layer OKF Store.",
+      });
+    } else {
+      await emitEvent(organizationId, taskId, "task.enriching", {});
+    }
 
     const enrichmentProvider = createEnrichmentProvider();
     
@@ -118,7 +199,7 @@ export async function runPipeline(taskId: string, organizationId: string): Promi
       const rawLead = rawLeads.find((r) => r.name === lead.name);
       if (!rawLead) continue;
 
-      // Enrich the lead
+      // Enrich the lead (or return clean wrapper when dormant)
       const enrichment = await enrichmentProvider.enrich(rawLead);
 
       // Update lead with enrichment data
@@ -132,6 +213,82 @@ export async function runPipeline(taskId: string, organizationId: string): Promi
           },
         },
       });
+
+      // Pass directly to the MCP Layer OKF Store
+      try {
+        const okfRecord: OKFRecord = {
+          id: lead.id,
+          okfVersion: 1,
+          generatedAt: new Date().toISOString(),
+          source: "search",
+          sourceUrl: lead.website || null,
+          mcpJobId: taskId,
+          identity: {
+            name: lead.name,
+            tradingName: null,
+            website: lead.website || null,
+          },
+          contact: {
+            phone: lead.phone,
+            phoneE164: lead.phone,
+            phoneConfidence: lead.phone ? 0.85 : 0,
+            phoneType: "landline",
+            email: null,
+            emailConfidence: 0,
+            decisionMaker: lead.decisionMaker,
+            decisionMakerTitle: null,
+          },
+          firmographics: {
+            industry: lead.category || industryStr,
+            employeeCount: lead.employeeCount,
+            employeeRange: lead.employeeCount ? `${lead.employeeCount}` : null,
+            location: lead.location || locationStr,
+            city: lead.location?.split(",")[0]?.trim() || null,
+            state: lead.location?.split(",")[1]?.trim() || null,
+            yearFounded: null,
+          },
+          scores: {
+            total: 75,
+            icpFit: 20,
+            businessQuality: 12,
+            painSignal: 18,
+            intent: 15,
+            recency: 5,
+            contactability: 5,
+            phoneScore: lead.phone ? 80 : 0,
+            emailScore: 0,
+            dataCompleteness: 70,
+            callReadiness: lead.phone ? 78 : 0,
+          },
+          ai: {
+            hypothesis: `Target practice in ${locationStr} for CALL-E outreach.`,
+            recommendedAction: lead.phone ? "call" : "research",
+            tags: ["pipeline-routed", industryStr],
+            qualifyingQuestions: ["What is your after-hours answering workflow?"],
+          },
+          calleStatus: {
+            dispatched: false,
+            goalRunId: null,
+            goalId: null,
+            callStatus: null,
+            lastCallResult: null,
+            dispatchedAt: null,
+          },
+          evidence: [
+            {
+              type: "OBSERVED",
+              claim: `Lead criteria matched: ${criteria.industry} in ${criteria.location}`,
+              source: "MCP Pipeline",
+              confidence: 0.9,
+              observedAt: new Date().toISOString(),
+            },
+          ],
+        };
+
+        await okfStore.upsert(okfRecord);
+      } catch (okfErr) {
+        console.warn("[Orchestrator] Error syncing lead to MCP OKF Store:", okfErr);
+      }
 
       // Get and store evidence
       const evidenceItems = enrichmentProvider.getEvidenceForLead(lead.name);

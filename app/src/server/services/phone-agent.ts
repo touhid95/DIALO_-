@@ -8,6 +8,7 @@
 
 import type { PhoneAgent, CreateCallInput, PhoneCallResult, CallStructuredResult } from "@/lib/types";
 import { delay } from "@/lib/utils";
+import { CALL_E_CONFIG } from "@/server/config/api-config";
 
 // ─── Synthetic Results Data ─────────────────────────────────
 
@@ -111,6 +112,9 @@ export class SyntheticPhoneAgent implements PhoneAgent {
   }
 }
 
+import { callLeadWithCalle, buildCalleTaskPrompt, getCalleResultSchema } from "./calle-backend";
+export { callLeadWithCalle, buildCalleTaskPrompt, getCalleResultSchema };
+
 /**
  * CallePhoneAgent — real CALL-E SDK integration
  */
@@ -118,41 +122,34 @@ export class CallePhoneAgent implements PhoneAgent {
   private apiKey: string;
 
   constructor() {
-    this.apiKey = process.env.CALL_E_API_KEY || "";
-    if (!this.apiKey) {
+    this.apiKey = process.env.CALL_E_API_KEY || process.env.CALLE_API_KEY || CALL_E_CONFIG.apiKey;
+    if (!this.apiKey && (process.env.CALL_MODE || CALL_E_CONFIG.mode) === "live") {
       console.warn("CALL_E_API_KEY not set — CALL-E calls will fail");
     }
   }
 
   async createCall(input: CreateCallInput): Promise<PhoneCallResult> {
-    // Dynamic import to avoid issues when @call-e/calle isn't installed
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { CallE } = await (new Function('return import("@call-e/calle")')() as Promise<any>);
-      const client = new CallE({ apiKey: this.apiKey });
-
-      const created = await client.calls.create(
+      const leadName = (input.metadata?.leadName as string) || "Lead Prospect";
+      const leadResult = await callLeadWithCalle(
         {
-          task: input.task,
-          recipients: [
-            { phones: [input.phone] },
-          ],
-          resultSchema: input.resultSchema,
+          name: leadName,
+          phone: input.phone,
+          category: input.metadata?.category as string,
+          location: input.metadata?.location as string,
+          decisionMaker: input.metadata?.decisionMaker as string,
+          hypothesis: input.metadata?.hypothesis as string,
         },
-        { idempotencyKey: input.idempotencyKey }
+        {
+          apiKey: this.apiKey,
+        }
       );
 
-      // Wait for result (with timeout)
-      const completed = await client.calls.waitForResult(created.id, {
-        timeoutMs: 120_000,
-        intervalMs: 2_000,
-      });
-
       return {
-        id: completed.id,
-        status: "completed",
-        structuredResult: completed.result as CallStructuredResult | undefined,
-        duration: undefined, // CALL-E may not provide duration directly
+        id: leadResult.callId,
+        status: leadResult.status,
+        structuredResult: leadResult.structuredResult as CallStructuredResult | undefined,
+        duration: undefined,
       };
     } catch (error) {
       console.error("CALL-E call failed:", error);
@@ -166,8 +163,9 @@ export class CallePhoneAgent implements PhoneAgent {
   async getCall(id: string): Promise<PhoneCallResult> {
     try {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const { CallE } = await (new Function('return import("@call-e/calle")')() as Promise<any>);
-      const client = new CallE({ apiKey: this.apiKey });
+      const mod = await (new Function('return import("@call-e/calle")')() as Promise<any>);
+      const ClientClass = mod.CalleClient || mod.CallE;
+      const client = new ClientClass({ apiKey: this.apiKey });
 
       const call = await client.calls.get(id);
       return {
@@ -186,7 +184,7 @@ export class CallePhoneAgent implements PhoneAgent {
  * Factory: creates the appropriate phone agent based on CALL_MODE env var
  */
 export function createPhoneAgent(): PhoneAgent {
-  const mode = process.env.CALL_MODE || "synthetic";
+  const mode = process.env.CALL_MODE || CALL_E_CONFIG.mode;
 
   if (mode === "live") {
     console.log("📞 Using LIVE CALL-E phone agent");
