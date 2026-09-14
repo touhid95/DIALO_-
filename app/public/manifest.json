@@ -1,0 +1,36 @@
+{
+  "name": "DIAL-O — Autonomous Lead Intelligence & CALL-E Voice Copilot",
+  "short_name": "DIAL-O",
+  "description": "Autonomous lead discovery, multimodal criteria ingestion, evidence-based qualification, and live CALL-E voice agent telephony.",
+  "start_url": "/#console",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/images/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Call Queue",
+      "url": "/#console?tab=call_log",
+      "description": "View TCPA call queue and active voice logs"
+    },
+    {
+      "name": "Lead Intelligence",
+      "url": "/#console?tab=dashboard",
+      "description": "View multi-factor scored leads and radar metrics"
+    },
+    {
+      "name": "AI Copilot",
+      "url": "/#console?tab=chat",
+      "description": "Open Socratic intake and campaign rules"
+    }
+  ]
+}
