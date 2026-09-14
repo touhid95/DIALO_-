@@ -44,7 +44,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display" />
+        <link rel="preload" href="/fonts/sf-pro/sf-pro-display-300.woff" as="font" type="font/woff" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/sf-pro/sf-pro-display-700.woff" as="font" type="font/woff" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/sf-pro/sf-pro-display-100.woff" as="font" type="font/woff" crossOrigin="anonymous" />
       </head>
       <body className="font-sans antialiased bg-black text-white selection:bg-[#00FFFF] selection:text-black">
         <Providers>{children}</Providers>

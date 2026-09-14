@@ -1,5 +1,115 @@
-@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
 @import "tailwindcss";
+
+/* ─── Apple SF Pro: Genuine Fonts Extracted from SF-Pro.dmg ─── */
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display Ultralight'), local('SF Pro Display Thin'),
+       url('/fonts/sf-pro/sf-pro-display-100.woff') format('woff'),
+       url('/fonts/sf-pro/sf-pro-display-100.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display Light'),
+       url('/fonts/sf-pro/sf-pro-display-300.woff') format('woff'),
+       url('/fonts/sf-pro/sf-pro-display-300.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display Regular'),
+       url('/fonts/sf-pro/sf-pro-display-400.woff') format('woff'),
+       url('/fonts/sf-pro/sf-pro-display-400.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display Medium'),
+       url('/fonts/sf-pro/sf-pro-display-500.woff') format('woff'),
+       url('/fonts/sf-pro/sf-pro-display-500.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display Semibold'),
+       url('/fonts/sf-pro/sf-pro-display-600.woff') format('woff'),
+       url('/fonts/sf-pro/sf-pro-display-600.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display Bold'),
+       url('/fonts/sf-pro/sf-pro-display-700.woff') format('woff'),
+       url('/fonts/sf-pro/sf-pro-display-700.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: local('SF Pro Text Ultralight'), local('SF Pro Text Thin'),
+       url('/fonts/sf-pro/sf-pro-text-100.woff') format('woff'),
+       url('/fonts/sf-pro/sf-pro-text-100.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: local('SF Pro Text Light'),
+       url('/fonts/sf-pro/sf-pro-text-300.woff') format('woff'),
+       url('/fonts/sf-pro/sf-pro-text-300.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: local('SF Pro Text Regular'),
+       url('/fonts/sf-pro/sf-pro-text-400.woff') format('woff'),
+       url('/fonts/sf-pro/sf-pro-text-400.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: local('SF Pro Text Bold'),
+       url('/fonts/sf-pro/sf-pro-text-700.woff') format('woff'),
+       url('/fonts/sf-pro/sf-pro-text-700.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  src: local('SF Pro'),
+       url('/fonts/sf-pro/SF-Pro.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ─── Mandatory SF Pro & 100 / 300 / 700 Design System ──────────────── */
 
