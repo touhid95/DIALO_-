@@ -10,8 +10,6 @@ import {
   FileText,
   PhoneCall,
   Activity,
-  CheckCircle2,
-  LogIn,
   ArrowRight,
   ShieldCheck,
   Zap,
@@ -95,46 +93,46 @@ export function LovableHeroSection({
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-[#07090E] text-white flex flex-col justify-between overflow-hidden font-app selection:bg-[#00FFFF] selection:text-black">
+    <section className="relative w-full min-h-screen bg-[#FAF6EE] text-black flex flex-col justify-between overflow-hidden font-app selection:bg-[#FF751F] selection:text-white">
       
       {/* ══════════════════════════════════════════════════════════
-          LOVABLE-STYLE AMBIENT MESH GRADIENT AURA (DIAL-O PALETTE)
+          WARM LUXURY AMBIENT GLOW (DIAL-O SAND & ORANGE)
           ══════════════════════════════════════════════════════════ */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-[#FF751F]/15 via-[#00FFFF]/10 to-transparent blur-[140px] pointer-events-none rounded-full" />
-      <div className="absolute top-1/3 left-1/4 w-[420px] h-[420px] bg-gradient-to-br from-[#EFCD5E]/10 via-transparent to-transparent blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute top-1/2 right-1/4 w-[460px] h-[460px] bg-gradient-to-bl from-[#00FFFF]/10 via-transparent to-transparent blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-[#FF751F]/15 via-[#EFCD5E]/10 to-transparent blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#F7EAD8]/80 blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 right-1/4 w-[480px] h-[480px] bg-[#FF751F]/5 blur-[130px] pointer-events-none rounded-full" />
 
       {/* ══════════════════════════════════════════════════════════
-          TOP NAVIGATION (Lovable Minimalist Header)
+          TOP NAVIGATION (Floating Header with Rounded-Full Pills)
           ══════════════════════════════════════════════════════════ */}
-      <header className="relative z-30 w-full max-w-7xl mx-auto px-6 sm:px-10 py-5 flex items-center justify-between">
+      <header className="relative z-30 w-full max-w-7xl mx-auto px-6 sm:px-10 py-6 flex items-center justify-between">
         {/* Left: Brand Logo & Tag */}
         <div className="flex items-center gap-3">
           <DialOLogo size="md" variant="hero" />
-          <span className="hidden sm:inline-block px-2.5 py-0.5 rounded-full text-[11px] font-sf-thin text-neutral-400 border border-white/10 hover:border-white/20 uppercase tracking-widest transition-all">
+          <span className="hidden sm:inline-block px-3 py-1 rounded-full text-xs font-sf font-sf-thin text-neutral-600 bg-black/5 border border-black/10 uppercase tracking-widest transition-all">
             Autonomous Voice AI
           </span>
         </div>
 
         {/* Center: Navigation Links */}
-        <nav className="hidden md:flex items-center gap-7 text-xs font-sf-light text-neutral-300">
+        <nav className="hidden md:flex items-center gap-8 text-xs font-sf font-sf-light text-neutral-700">
           <a
             href="#about"
-            className="hover:text-white hover:font-sf-bold transition-all uppercase tracking-wider"
+            className="hover:text-black hover:font-sf-bold transition-all uppercase tracking-wider"
           >
             Architecture
           </a>
           <a
             href="#architecture"
-            className="hover:text-white hover:font-sf-bold transition-all uppercase tracking-wider"
+            className="hover:text-black hover:font-sf-bold transition-all uppercase tracking-wider"
           >
             System Pipeline
           </a>
           <a
             href="#auth-section"
-            className="hover:text-[#00FFFF] hover:font-sf-bold transition-all uppercase tracking-wider flex items-center gap-1"
+            className="hover:text-[#FF751F] hover:font-sf-bold transition-all uppercase tracking-wider flex items-center gap-1.5"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#00FFFF]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#FF751F]" />
             <span>CALL-E Voice</span>
           </a>
         </nav>
@@ -144,14 +142,14 @@ export function LovableHeroSection({
           <button
             id="btn-header-login"
             onClick={() => onOpenAuth("login")}
-            className="px-4 py-2 rounded-full text-xs font-sf-light hover:font-sf-bold text-neutral-300 hover:text-white border border-white/15 hover:border-white/30 transition-all cursor-pointer"
+            className="px-5 py-2.5 rounded-full text-xs font-sf font-sf-light hover:font-sf-bold text-neutral-800 hover:text-black border border-black/15 hover:border-black/30 hover:bg-black/5 transition-all cursor-pointer shadow-sm"
           >
             Log in
           </button>
           <button
             id="btn-header-signup"
             onClick={() => onOpenAuth("signup")}
-            className="px-4 py-2 rounded-full text-xs font-sf-bold text-black bg-white hover:bg-neutral-200 transition-all flex items-center gap-1.5 shadow-md active:scale-95 cursor-pointer"
+            className="px-5 py-2.5 rounded-full text-xs font-sf font-sf-bold text-white bg-black hover:bg-neutral-800 transition-all flex items-center gap-2 shadow-md active:scale-95 cursor-pointer"
           >
             <span>Get started</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -160,37 +158,37 @@ export function LovableHeroSection({
       </header>
 
       {/* ══════════════════════════════════════════════════════════
-          HERO CORE: HEADLINE & LOVABLE PROMPT/CHAT CAPSULE
+          HERO CORE: HEADLINE & FLOATING PROMPT CAPSULE
           ══════════════════════════════════════════════════════════ */}
-      <div className="relative z-20 w-full max-w-4xl mx-auto px-6 pt-12 pb-16 text-center flex flex-col items-center">
+      <div className="relative z-20 w-full max-w-4xl mx-auto px-6 pt-14 pb-20 text-center flex flex-col items-center">
         
         {/* Eyebrow Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-xs font-sf-light text-neutral-300 mb-6 backdrop-blur-md">
-          <span className="w-2 h-2 rounded-full bg-[#FF751F] animate-pulse" />
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-sf font-sf-bold text-neutral-800 mb-8 backdrop-blur-md">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#FF751F] breathing-glow-orange" />
           <span>Autonomous Lead Intelligence & Live CALL-E Telephony</span>
         </div>
 
-        {/* Main Headline (Lovable style: clean, confident, impactful) */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sf-bold tracking-tight text-white leading-[1.12] mb-5 max-w-3xl">
+        {/* Main Headline (Clean, monumental, editorial impact) */}
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-sf font-sf-bold tracking-tight text-black leading-[1.08] mb-6 max-w-3xl select-none">
           Build verified pipeline{" "}
-          <span className="bg-gradient-to-r from-[#EFCD5E] via-[#FF751F] to-[#00FFFF] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#FF751F] via-[#E85D04] to-black bg-clip-text text-transparent">
             before the phone rings
           </span>
           .
         </h1>
 
-        {/* Subtitle */}
-        <p className="text-base sm:text-lg text-neutral-400 font-sf-light max-w-2xl leading-relaxed mb-10">
+        {/* Subtitle with Generous Whitespace */}
+        <p className="text-base sm:text-xl text-neutral-600 font-sf font-sf-light max-w-2xl leading-relaxed mb-12">
           DIAL-O autonomously discovers decision-makers, extracts ICP qualification criteria from your business documents, and conducts real-time telephone verification with CALL-E.
         </p>
 
         {/* ══════════════════════════════════════════════════════════
-            LOVABLE CENTRAL PROMPT & CHAT INPUT BOX
+            FLOATING PROMPT & CHAT INPUT BOX (Rounded-[2rem] Obsidian)
             ══════════════════════════════════════════════════════════ */}
         <div className="w-full max-w-2xl relative">
           <form
             onSubmit={handleSubmit}
-            className="w-full bg-neutral-900/80 backdrop-blur-2xl border-2 border-white/15 hover:border-white/25 focus-within:border-[#FF751F]/80 rounded-3xl p-3 sm:p-4 shadow-2xl transition-all duration-300 text-left"
+            className="w-full bg-[#0A0D14] text-white rounded-[2rem] p-4 sm:p-5 shadow-2xl border-2 border-black/20 focus-within:border-[#FF751F] transition-all duration-300 editorial-island-dark text-left"
           >
             {/* Upper text input area */}
             <div className="flex items-start gap-2.5">
@@ -200,7 +198,7 @@ export function LovableHeroSection({
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 placeholder={ROTATING_PLACEHOLDERS[placeholderIndex]}
-                className="w-full bg-transparent text-white placeholder:text-neutral-500 font-sf-light text-sm sm:text-base focus:outline-none resize-none leading-relaxed"
+                className="w-full bg-transparent text-white placeholder:text-neutral-500 font-sf font-sf-light text-sm sm:text-base focus:outline-none resize-none leading-relaxed p-1"
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
                     e.preventDefault();
@@ -212,21 +210,21 @@ export function LovableHeroSection({
 
             {/* Attached file chip */}
             {selectedFile && (
-              <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-lg w-fit text-xs text-neutral-200 mt-2 font-sf-light">
+              <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-xl w-fit text-xs text-neutral-200 mt-2 font-sf font-sf-light">
                 <FileText className="w-3.5 h-3.5 text-[#00FFFF]" />
                 <span className="truncate max-w-[200px]">{selectedFile.name}</span>
                 <button
                   type="button"
                   onClick={() => setSelectedFile(null)}
-                  className="text-neutral-400 hover:text-white cursor-pointer ml-1"
+                  className="text-neutral-400 hover:text-white cursor-pointer ml-1 font-bold"
                 >
                   ×
                 </button>
               </div>
             )}
 
-            {/* Bottom Controls Bar (Lovable format: Attachment + Mode Picker + Submit Arrow) */}
-            <div className="flex items-center justify-between pt-3 border-t border-white/10 mt-2">
+            {/* Bottom Controls Bar */}
+            <div className="flex items-center justify-between pt-3 border-t border-white/10 mt-3">
               {/* Left actions: File upload + Mode Toggle */}
               <div className="flex items-center gap-2">
                 <input
@@ -240,7 +238,7 @@ export function LovableHeroSection({
                   type="button"
                   id="btn-hero-attach"
                   onClick={() => fileInputRef.current?.click()}
-                  className="p-2 rounded-xl bg-white/[0.05] hover:bg-white/10 border border-white/10 text-neutral-300 hover:text-white transition-all cursor-pointer flex items-center gap-1.5 text-xs font-sf-light"
+                  className="px-3.5 py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-white/10 text-neutral-300 hover:text-white transition-all cursor-pointer flex items-center gap-1.5 text-xs font-sf font-sf-light"
                   title="Attach Business Document or Deck"
                 >
                   <Paperclip className="w-3.5 h-3.5 text-[#EFCD5E]" />
@@ -255,7 +253,7 @@ export function LovableHeroSection({
                       prev === "discovery" ? "telephony" : "discovery"
                     )
                   }
-                  className="px-3 py-1.5 rounded-xl bg-white/[0.05] hover:bg-white/10 border border-white/10 text-xs font-sf-light text-neutral-300 hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
+                  className="px-3.5 py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-white/10 text-xs font-sf font-sf-light text-neutral-300 hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
                 >
                   <span
                     className={`w-2 h-2 rounded-full ${
@@ -276,7 +274,7 @@ export function LovableHeroSection({
                 <button
                   type="button"
                   onClick={() => alert("Voice input listening... Speak your lead criteria.")}
-                  className="p-2 rounded-xl text-neutral-400 hover:text-[#00FFFF] hover:bg-white/5 transition-all cursor-pointer"
+                  className="p-2 rounded-full text-neutral-400 hover:text-[#FF751F] hover:bg-white/10 transition-all cursor-pointer"
                   title="Voice Copilot Input"
                 >
                   <Mic className="w-4 h-4" />
@@ -286,7 +284,7 @@ export function LovableHeroSection({
                   type="submit"
                   id="btn-hero-submit"
                   disabled={isSubmitting}
-                  className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#FF751F] via-[#EFCD5E] to-[#00FFFF] text-black font-sf-bold flex items-center justify-center shadow-lg active:scale-90 transition-transform cursor-pointer disabled:opacity-50"
+                  className="w-10 h-10 rounded-full bg-[#FF751F] hover:bg-[#ff893b] text-black font-sf font-sf-bold flex items-center justify-center shadow-lg active:scale-90 transition-transform cursor-pointer disabled:opacity-50"
                   aria-label="Submit Prompt to DIAL-O"
                 >
                   {isSubmitting ? (
@@ -299,8 +297,8 @@ export function LovableHeroSection({
             </div>
           </form>
 
-          {/* Quick Prompt Suggestion Chips (Lovable-style interactive pills) */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
+          {/* Quick Prompt Suggestion Chips (Rounded-Full Luxury Sand/White Pills) */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 pt-6">
             {PROMPT_SUGGESTIONS.map((sug, idx) => {
               const Icon = sug.icon;
               return (
@@ -308,9 +306,9 @@ export function LovableHeroSection({
                   key={idx}
                   type="button"
                   onClick={() => handleChipClick(sug.text)}
-                  className="group px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.09] border border-white/10 hover:border-white/20 text-xs text-neutral-400 hover:text-white font-sf-light hover:font-sf-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
+                  className="group px-4 py-2 rounded-full bg-white/85 hover:bg-white border border-black/10 hover:border-black/25 text-xs text-neutral-700 hover:text-black font-sf font-sf-light hover:font-sf-bold transition-all flex items-center gap-2 cursor-pointer shadow-sm hover:scale-[1.02]"
                 >
-                  <Icon className="w-3 h-3 text-[#FF751F] group-hover:scale-110 transition-transform" />
+                  <Icon className="w-3.5 h-3.5 text-[#FF751F] group-hover:scale-110 transition-transform flex-shrink-0" />
                   <span className="truncate max-w-[280px] sm:max-w-none">{sug.text}</span>
                 </button>
               );
@@ -321,26 +319,26 @@ export function LovableHeroSection({
       </div>
 
       {/* ══════════════════════════════════════════════════════════
-          BOTTOM TRUST & METRICS STRIP (Lovable Proof Bar)
+          BOTTOM TRUST & METRICS STRIP (Rounded Island Proof Bar)
           ══════════════════════════════════════════════════════════ */}
-      <div className="relative z-20 w-full border-t border-white/10 bg-black/40 backdrop-blur-md py-4 px-6">
-        <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4 text-xs text-neutral-400 font-sf-light">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span className="text-white font-sf-bold">66 Discovered Leads</span>
+      <div className="relative z-20 w-full px-6 pb-6">
+        <div className="max-w-5xl mx-auto rounded-[2rem] bg-white/80 backdrop-blur-md border border-black/10 py-4 px-8 shadow-sm flex flex-wrap items-center justify-between gap-4 text-xs text-neutral-700 font-sf font-sf-light">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
+            <span className="text-black font-sf font-sf-bold">66 Discovered Leads</span>
             <span className="text-neutral-500">· Ready in Austin Metro</span>
           </div>
 
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-[#00FFFF]" />
+          <div className="flex items-center gap-6 sm:gap-8">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#FF751F]" />
               <span>TCPA Compliant</span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <Activity className="w-4 h-4 text-[#EFCD5E]" />
+            <div className="flex items-center gap-2">
+              <Activity className="w-4 h-4 text-[#FF751F]" />
               <span>5-Axis Radar Scoring</span>
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-2">
               <Zap className="w-4 h-4 text-[#FF751F]" />
               <span>Zero-Latency Audio</span>
             </div>

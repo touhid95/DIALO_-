@@ -76,7 +76,7 @@ export default function DialOMainPage() {
   };
 
   return (
-    <main className="w-full bg-black text-white selection:bg-[#00FFFF] selection:text-black min-h-screen font-app">
+    <main className="w-full bg-[#FAF6EE] text-black selection:bg-[#FF751F] selection:text-white min-h-screen font-app">
       {/* ══════════════════════════════════════════════════════════
           PAGE 1 (Hero Screen): LOVABLE-STYLE PROMPT & CHAT HERO
           Connected Prompt Capsule, Suggestion Chips, Ambient Mesh

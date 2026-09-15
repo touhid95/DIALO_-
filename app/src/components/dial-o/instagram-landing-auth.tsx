@@ -2,12 +2,8 @@
 
 import React, { useState } from "react";
 import {
-  Mail,
   ArrowRight,
   Zap,
-  Lock,
-  Eye,
-  EyeOff,
   CheckCircle2,
   X,
   Sparkles,
@@ -46,7 +42,7 @@ function GoogleIcon() {
 
 function GitHubIcon() {
   return (
-    <svg className="w-4 h-4 shrink-0 fill-current text-white" viewBox="0 0 24 24">
+    <svg className="w-4 h-4 shrink-0 fill-current text-black" viewBox="0 0 24 24">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -58,7 +54,7 @@ function GitHubIcon() {
 
 function AppleIcon() {
   return (
-    <svg className="w-4 h-4 shrink-0 fill-current text-white" viewBox="0 0 24 24">
+    <svg className="w-4 h-4 shrink-0 fill-current text-black" viewBox="0 0 24 24">
       <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.64-.78 1.08-1.87.96-2.96-.93.04-2.07.62-2.74 1.4-.59.68-1.11 1.79-.97 2.85 1.04.08 2.1-.51 2.75-1.29z" />
     </svg>
   );
@@ -113,13 +109,13 @@ export function LovableAuthCard({ onAuthenticated, onClose, isModal = false }: A
   };
 
   return (
-    <div className="relative w-full max-w-md bg-neutral-950/90 backdrop-blur-2xl border border-white/10 rounded-3xl p-7 sm:p-9 shadow-2xl font-app text-left">
+    <div className="relative w-full max-w-md bg-white text-black border border-black/10 rounded-[2.5rem] p-8 sm:p-10 shadow-2xl font-app text-left editorial-island-shadow">
       
       {/* Optional Close Button for modal */}
       {isModal && onClose && (
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/[0.06] hover:bg-white/15 text-neutral-400 hover:text-white flex items-center justify-center transition-all cursor-pointer"
+          className="absolute top-6 right-6 w-9 h-9 rounded-full bg-black/5 hover:bg-black/10 text-neutral-600 hover:text-black flex items-center justify-center transition-all cursor-pointer"
           aria-label="Close Auth Modal"
         >
           <X className="w-4 h-4" />
@@ -127,18 +123,18 @@ export function LovableAuthCard({ onAuthenticated, onClose, isModal = false }: A
       )}
 
       {/* Brand Header */}
-      <div className="flex flex-col items-center text-center space-y-2 mb-7">
+      <div className="flex flex-col items-center text-center space-y-2 mb-8">
         <div className="inline-flex justify-center mb-1">
           <DialOLogo size="sm" variant="hero" />
         </div>
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/[0.05] border border-white/10 text-[10px] font-sf-thin text-neutral-400 uppercase tracking-widest">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/5 border border-black/10 text-[11px] font-sf font-sf-bold text-neutral-800 uppercase tracking-widest">
           <Sparkles className="w-3 h-3 text-[#FF751F]" />
           <span>Autonomous Voice Copilot</span>
         </div>
-        <h2 className="text-2xl font-sf-bold text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-sf font-sf-bold text-black tracking-tight">
           {authMode === "login" ? "Log in to DIAL-O" : "Create your account"}
         </h2>
-        <p className="text-xs text-neutral-400 font-sf-light max-w-xs">
+        <p className="text-xs sm:text-sm text-neutral-600 font-sf font-sf-light max-w-xs">
           {authMode === "login"
             ? "Sign in to access discovered leads & launch CALL-E voice verification."
             : "Start uncovering high-conviction decision makers with AI telephony."}
@@ -146,17 +142,17 @@ export function LovableAuthCard({ onAuthenticated, onClose, isModal = false }: A
       </div>
 
       {/* Mode Switcher Tabs */}
-      <div className="grid grid-cols-2 p-1 bg-white/[0.04] rounded-xl border border-white/10 mb-6">
+      <div className="grid grid-cols-2 p-1.5 bg-black/5 rounded-full border border-black/10 mb-6">
         <button
           type="button"
           onClick={() => {
             setAuthMode("login");
             setAuthError("");
           }}
-          className={`py-2 text-xs uppercase tracking-wider rounded-lg transition-all cursor-pointer ${
+          className={`py-2 text-xs uppercase tracking-wider rounded-full transition-all cursor-pointer ${
             authMode === "login"
-              ? "bg-white text-black font-sf-bold shadow-md"
-              : "text-neutral-400 font-sf-light hover:text-white hover:font-sf-bold"
+              ? "bg-black text-white font-sf font-sf-bold shadow-md"
+              : "text-neutral-600 font-sf font-sf-light hover:text-black hover:font-sf-bold"
           }`}
         >
           Sign In
@@ -167,10 +163,10 @@ export function LovableAuthCard({ onAuthenticated, onClose, isModal = false }: A
             setAuthMode("signup");
             setAuthError("");
           }}
-          className={`py-2 text-xs uppercase tracking-wider rounded-lg transition-all cursor-pointer ${
+          className={`py-2 text-xs uppercase tracking-wider rounded-full transition-all cursor-pointer ${
             authMode === "signup"
-              ? "bg-white text-black font-sf-bold shadow-md"
-              : "text-neutral-400 font-sf-light hover:text-white hover:font-sf-bold"
+              ? "bg-black text-white font-sf font-sf-bold shadow-md"
+              : "text-neutral-600 font-sf font-sf-light hover:text-black hover:font-sf-bold"
           }`}
         >
           Sign Up
@@ -179,18 +175,18 @@ export function LovableAuthCard({ onAuthenticated, onClose, isModal = false }: A
 
       {/* Error Message */}
       {authError && (
-        <div className="p-3 mb-4 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-sf-light">
+        <div className="p-3 mb-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-sf font-sf-light">
           {authError}
         </div>
       )}
 
-      {/* ─── Social OAuth Pills (Lovable format) ─── */}
+      {/* ─── Social OAuth Pills (Rounded-Full) ─── */}
       <div className="space-y-2.5 mb-5">
         <button
           type="button"
           onClick={() => handleSocialAuth("Google")}
           disabled={isSubmitting}
-          className="w-full py-2.5 px-4 rounded-xl bg-white/[0.05] hover:bg-white/10 border border-white/10 text-white font-sf-light hover:font-sf-bold text-xs transition-all flex items-center justify-center gap-3 cursor-pointer shadow-sm active:scale-98"
+          className="w-full py-3 px-4 rounded-full bg-white hover:bg-neutral-50 border border-black/10 hover:border-black/25 text-neutral-800 font-sf font-sf-light hover:font-sf-bold text-xs transition-all flex items-center justify-center gap-3 cursor-pointer shadow-sm active:scale-98"
         >
           <GoogleIcon />
           <span>Continue with Google</span>
@@ -200,7 +196,7 @@ export function LovableAuthCard({ onAuthenticated, onClose, isModal = false }: A
           type="button"
           onClick={() => handleSocialAuth("GitHub")}
           disabled={isSubmitting}
-          className="w-full py-2.5 px-4 rounded-xl bg-white/[0.05] hover:bg-white/10 border border-white/10 text-white font-sf-light hover:font-sf-bold text-xs transition-all flex items-center justify-center gap-3 cursor-pointer shadow-sm active:scale-98"
+          className="w-full py-3 px-4 rounded-full bg-white hover:bg-neutral-50 border border-black/10 hover:border-black/25 text-neutral-800 font-sf font-sf-light hover:font-sf-bold text-xs transition-all flex items-center justify-center gap-3 cursor-pointer shadow-sm active:scale-98"
         >
           <GitHubIcon />
           <span>Continue with GitHub</span>
@@ -210,7 +206,7 @@ export function LovableAuthCard({ onAuthenticated, onClose, isModal = false }: A
           type="button"
           onClick={() => handleSocialAuth("Apple")}
           disabled={isSubmitting}
-          className="w-full py-2.5 px-4 rounded-xl bg-white/[0.05] hover:bg-white/10 border border-white/10 text-white font-sf-light hover:font-sf-bold text-xs transition-all flex items-center justify-center gap-3 cursor-pointer shadow-sm active:scale-98"
+          className="w-full py-3 px-4 rounded-full bg-white hover:bg-neutral-50 border border-black/10 hover:border-black/25 text-neutral-800 font-sf font-sf-light hover:font-sf-bold text-xs transition-all flex items-center justify-center gap-3 cursor-pointer shadow-sm active:scale-98"
         >
           <AppleIcon />
           <span>Continue with Apple</span>
@@ -218,12 +214,12 @@ export function LovableAuthCard({ onAuthenticated, onClose, isModal = false }: A
       </div>
 
       {/* High-Contrast Divider */}
-      <div className="relative flex items-center justify-center my-4">
-        <div className="border-t border-white/10 w-full" />
-        <span className="bg-neutral-950 px-3 text-[10px] text-neutral-500 font-sf-thin uppercase tracking-widest">
+      <div className="relative flex items-center justify-center my-5">
+        <div className="border-t border-black/10 w-full" />
+        <span className="bg-white px-3 text-[10px] text-neutral-500 font-sf font-sf-thin uppercase tracking-widest">
           OR WORK EMAIL
         </span>
-        <div className="border-t border-white/10 w-full" />
+        <div className="border-t border-black/10 w-full" />
       </div>
 
       {/* Email Form */}
@@ -235,7 +231,7 @@ export function LovableAuthCard({ onAuthenticated, onClose, isModal = false }: A
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="name@company.com"
-            className="w-full bg-neutral-900 border border-white/15 focus:border-[#FF751F] focus:ring-1 focus:ring-[#FF751F] rounded-xl px-4 py-3 text-sm text-white placeholder:text-neutral-500 font-sf-light focus:font-sf-bold focus:outline-none transition-all"
+            className="w-full bg-neutral-50 border border-black/15 focus:border-[#FF751F] focus:ring-2 focus:ring-[#FF751F]/20 rounded-full px-5 py-3.5 text-sm text-black placeholder:text-neutral-400 font-sf font-sf-light focus:font-sf-bold focus:outline-none transition-all"
           />
         </div>
 
@@ -243,11 +239,11 @@ export function LovableAuthCard({ onAuthenticated, onClose, isModal = false }: A
           id="btn-auth-email-submit"
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-3.5 px-4 rounded-xl bg-white hover:bg-neutral-200 text-black font-sf-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-98 disabled:opacity-60"
+          className="w-full py-3.5 px-5 rounded-full bg-black hover:bg-neutral-800 text-white font-sf font-sf-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-98 disabled:opacity-60"
         >
           {isSubmitting ? (
             <span className="inline-flex items-center gap-2">
-              <span className="w-3.5 h-3.5 border-2 border-black border-t-transparent rounded-full animate-spin" />
+              <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
               Authenticating...
             </span>
           ) : (
@@ -259,19 +255,19 @@ export function LovableAuthCard({ onAuthenticated, onClose, isModal = false }: A
         </button>
       </form>
 
-      {/* ─── 1-Click Instant Demo Launch ─── */}
-      <div className="pt-4 border-t border-white/10 mt-5">
+      {/* ─── 1-Click Instant Demo Launch (Burnt Orange) ─── */}
+      <div className="pt-5 border-t border-black/10 mt-6">
         <button
           id="btn-quick-demo-login"
           type="button"
           onClick={handleQuickDemo}
           disabled={isSubmitting}
-          className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#FF751F]/15 via-[#EFCD5E]/15 to-[#00FFFF]/15 hover:from-[#FF751F]/25 hover:via-[#EFCD5E]/25 hover:to-[#00FFFF]/25 border border-white/15 text-[#EFCD5E] hover:text-white font-sf-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-98"
+          className="w-full py-3.5 px-4 rounded-full bg-[#FF751F] hover:bg-[#ff893b] text-black font-sf font-sf-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-98"
         >
-          <Zap className="w-3.5 h-3.5 text-[#00FFFF]" />
-          <span>⚡ Instant Demo Access (founder@dial-o.ai)</span>
+          <Zap className="w-4 h-4 text-black fill-current" />
+          <span>Instant Demo Access (founder@dial-o.ai)</span>
         </button>
-        <div className="text-[10px] text-neutral-500 font-sf-thin text-center mt-2">
+        <div className="text-[11px] text-neutral-500 font-sf font-sf-thin text-center mt-2.5">
           One-click access unlocks the full 66-lead autonomous console instantly
         </div>
       </div>
@@ -295,7 +291,7 @@ export function LovableAuthModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-fade-in">
       <div className="relative z-10 w-full max-w-md">
         <LovableAuthCard
           onAuthenticated={onAuthenticated}
@@ -312,7 +308,7 @@ export function LovableAuthModal({
   );
 }
 
-// ─── Page 2 Section Component (Standalone on scroll) ────────────
+// ─── Page 3 Section Component (Standalone on scroll) ────────────
 export function InstagramLandingAuth({
   onAuthenticated,
   isAuthenticated = false,
@@ -320,37 +316,38 @@ export function InstagramLandingAuth({
   return (
     <section
       id="auth-section"
-      className="relative w-full min-h-screen bg-[#07090E] text-white flex items-center justify-center py-20 px-6 font-app overflow-hidden selection:bg-[#00FFFF] selection:text-black"
+      className="relative w-full min-h-screen bg-[#FAF6EE] text-black flex items-center justify-center py-24 sm:py-32 px-6 sm:px-10 lg:px-16 font-app overflow-hidden selection:bg-[#FF751F] selection:text-white"
     >
-      {/* Ambient Mesh Aura */}
-      <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-gradient-to-tr from-[#FF751F]/10 via-[#00FFFF]/10 to-transparent blur-[140px] pointer-events-none rounded-full" />
+      {/* Ambient Warm Luxury Glow */}
+      <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#FF751F]/10 blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#EFCD5E]/10 blur-[130px] pointer-events-none rounded-full" />
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="relative z-10 w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
-        {/* Left 6 Cols: Brand statement & trust items */}
-        <div className="lg:col-span-6 space-y-6 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-xs font-sf-thin text-neutral-400 uppercase tracking-widest">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#00FFFF]" />
+        {/* Left 6 Cols: Brand statement & trust items with generous whitespace */}
+        <div className="lg:col-span-6 space-y-7 text-left">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/5 border border-black/10 text-xs font-sf font-sf-bold text-neutral-800 uppercase tracking-widest">
+            <ShieldCheck className="w-4 h-4 text-[#FF751F]" />
             <span>Autonomous Workspace Gateway</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sf-bold text-white tracking-tight leading-[1.15]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sf font-sf-bold text-black tracking-tight leading-[1.12]">
             Access the autonomous voice intelligence platform.
           </h2>
 
-          <p className="text-base text-neutral-400 font-sf-light leading-relaxed max-w-lg">
+          <p className="text-base sm:text-lg text-neutral-600 font-sf font-sf-light leading-relaxed max-w-lg">
             Connect your criteria, explore real-time 5-axis radar qualification, and deploy CALL-E conversational telephony with complete TCPA compliance.
           </p>
 
-          <div className="space-y-3 pt-2">
+          <div className="space-y-3.5 pt-2">
             {[
               "66 Verified B2B Prospects Ready for Live Outreach",
               "Sub-500ms Conversational Voice Response Latency",
               "Autonomous Hypothesis Testing Before Phone Rings",
               "Structured JSON Opportunity & Transcript Extraction",
             ].map((feature, idx) => (
-              <div key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-neutral-300 font-sf-light">
-                <CheckCircle2 className="w-4 h-4 text-[#FF751F] shrink-0" />
+              <div key={idx} className="flex items-center gap-3.5 text-xs sm:text-sm text-neutral-800 font-sf font-sf-light">
+                <CheckCircle2 className="w-5 h-5 text-[#FF751F] shrink-0" />
                 <span>{feature}</span>
               </div>
             ))}
