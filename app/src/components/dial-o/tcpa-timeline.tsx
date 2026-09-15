@@ -137,14 +137,14 @@ export function TcpaTimeline({
 
   return (
     <div
-      className={`flex flex-col p-4 rounded-3xl transition-all duration-300 ${
+      className={`flex flex-col h-full min-h-0 p-3.5 sm:p-4 rounded-3xl transition-all duration-300 ${
         isLight
           ? "bg-white/90 border border-slate-200 shadow-sm"
           : "bg-[#0d0d0d]/80 border border-white/[0.08] backdrop-blur-xl"
       } ${className}`}
     >
       {/* Header */}
-      <div className="flex items-center justify-between mb-4 px-1">
+      <div className="shrink-0 flex items-center justify-between mb-3 px-1">
         <div>
           <h3
             className={`text-sm font-sf-bold tracking-tight ${
@@ -173,8 +173,8 @@ export function TcpaTimeline({
         </span>
       </div>
 
-      {/* Schedule Items Feed */}
-      <div className="space-y-4 overflow-y-auto max-h-[620px] pr-1 scrollbar-thin">
+      {/* Schedule Items Feed (Scrollable within column) */}
+      <div className="flex-1 min-h-0 space-y-3 overflow-y-auto overflow-x-hidden pr-1 scrollbar-thin">
         {slots.map((slot) => {
           const isSelected = selectedLeadId === slot.leadId;
 
@@ -208,33 +208,31 @@ export function TcpaTimeline({
               >
                 <div className="flex items-center justify-between mb-2">
                   {/* Overlapping Avatar Stack */}
-                  <div className="flex -space-x-2 overflow-hidden">
-                    {slot.avatars.map((imgUrl, i) => (
+                  <div className="flex -space-x-1.5 overflow-hidden">
+                    {slot.avatars.map((av, idx) => (
                       <img
-                        key={i}
-                        src={imgUrl}
-                        alt="Contact avatar"
-                        className={`inline-block h-6 w-6 rounded-full ring-2 object-cover ${
-                          isLight ? "ring-white" : "ring-neutral-900"
-                        }`}
+                        key={idx}
+                        src={av}
+                        alt="Contact"
+                        className="inline-block h-5 w-5 rounded-full ring-1 ring-white/20 object-cover"
                       />
                     ))}
                   </div>
 
-                  {/* One-Tap Phone Call Action */}
+                  {/* Trigger Call CTA Icon */}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      if (onTriggerCall) onTriggerCall(slot.leadId);
+                      onTriggerCall && onTriggerCall(slot.leadId);
                     }}
-                    title="Dispatch CALL-E Autonomous Call"
-                    className={`h-7 w-7 rounded-full flex items-center justify-center transition-all ${
+                    title="Initiate Live CALL-E Speech Verification"
+                    className={`p-1.5 rounded-xl border transition-all ${
                       isLight
-                        ? "bg-white text-slate-700 hover:bg-teal-600 hover:text-white shadow-sm border border-slate-200"
-                        : "bg-white/10 text-neutral-200 hover:bg-[#00FFFF] hover:text-black hover:shadow-lg hover:shadow-[#00FFFF]/20 border border-white/10"
+                        ? "bg-white hover:bg-slate-100 text-slate-800 border-slate-200 shadow-sm"
+                        : "bg-white/10 hover:bg-white/20 text-white border-white/20"
                     }`}
                   >
-                    <Phone className="w-3.5 h-3.5" />
+                    <Phone className="w-3 h-3 text-emerald-500" />
                   </button>
                 </div>
 
@@ -277,7 +275,7 @@ export function TcpaTimeline({
       </div>
 
       {/* Bottom Footer Note */}
-      <div className="mt-4 pt-3 border-t border-black/5 dark:border-white/10 flex items-center justify-between px-1">
+      <div className="shrink-0 mt-3 pt-2.5 border-t border-black/5 dark:border-white/10 flex items-center justify-between px-1">
         <span
           className={`text-[10px] font-sf-thin ${
             isLight ? "text-slate-500" : "text-neutral-400"

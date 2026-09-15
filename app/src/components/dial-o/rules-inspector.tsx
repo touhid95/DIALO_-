@@ -133,7 +133,7 @@ export function RulesInspector({
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-      className={`flex flex-col h-full rounded-3xl p-4 transition-all duration-300 relative ${
+      className={`flex flex-col h-full min-h-0 rounded-3xl p-3.5 sm:p-4 transition-all duration-300 relative ${
         isLight
           ? "bg-white/95 border border-slate-200 shadow-sm"
           : "bg-[#0d0d0d]/85 border border-white/[0.08] backdrop-blur-xl"
@@ -149,7 +149,7 @@ export function RulesInspector({
       />
 
       {/* 1. Top iOS Segmented Pill Header */}
-      <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-black/5 dark:border-white/10">
+      <div className="shrink-0 flex items-center justify-between gap-2 mb-2.5 pb-2.5 border-b border-black/5 dark:border-white/10">
         <div
           className={`flex p-1 rounded-full border ${
             isLight
@@ -225,7 +225,7 @@ export function RulesInspector({
       </div>
 
       {/* 2. Subtle On-Click Rules Activity Status Pill */}
-      <div className="mb-3">
+      <div className="shrink-0 mb-2.5">
         <button
           onClick={() => setIsRulesDrawerOpen(!isRulesDrawerOpen)}
           className={`w-full px-3 py-2 rounded-xl border flex items-center justify-between transition-all group interactive-weight ${
@@ -362,7 +362,7 @@ export function RulesInspector({
 
       {/* 3. Main Content Panel */}
       {tab === "rules" ? (
-        <div className="flex-1 flex flex-col justify-between overflow-y-auto pr-1 space-y-3.5 scrollbar-thin">
+        <div className="flex-1 min-h-0 flex flex-col justify-between overflow-y-auto pr-1 space-y-3 scrollbar-thin">
           {!rules || !hasActiveRules ? (
             /* Clean Empty Ingestion Workspace when not prefilled */
             <div className="flex-1 flex flex-col items-center justify-center text-center p-6 space-y-4 my-auto">
@@ -698,9 +698,9 @@ export function RulesInspector({
         </div>
       ) : (
         /* Copilot Chat View */
-        <div className="flex-1 flex flex-col h-full overflow-hidden">
+        <div className="flex-1 min-h-0 flex flex-col h-full overflow-hidden">
           {/* Chat Messages */}
-          <div className="flex-1 overflow-y-auto space-y-3 pr-1 scrollbar-thin mb-3">
+          <div className="flex-1 min-h-0 overflow-y-auto space-y-3 pr-1 scrollbar-thin mb-2.5">
             {copilotMessages.length === 0 && (
               <div className="h-full flex flex-col items-center justify-center text-center p-4 text-neutral-400 space-y-2.5 my-auto">
                 <Bot className="w-8 h-8 text-indigo-500 dark:text-[#00FFFF] opacity-80" />

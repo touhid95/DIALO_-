@@ -726,12 +726,12 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
   // Sub-Renderers for Panels
   // ──────────────────────────────────────────────────────────────────────────
 
-  // 1. Dashboard Content (Center: Stats + Radar + Search/Filter + Lead Cards)
+  // 1. Dashboard Content (Center: Stats + Radar + Search/Filter + Scrollable Lead Cards)
   const renderDashboardContent = () => (
-    <div className="space-y-6">
+    <div className="flex-1 min-h-0 h-full flex flex-col space-y-3">
       {/* Unified Compact Control Center: Radar + Stats + Queue Controls Side-by-Side */}
       <div
-        className={`p-3.5 sm:p-4 rounded-3xl border transition-all duration-300 ${
+        className={`shrink-0 p-3 sm:p-3.5 rounded-2xl sm:rounded-3xl border transition-all duration-300 ${
           isLight
             ? "bg-white/90 border-slate-200/90 shadow-sm"
             : "bg-[#0d0d0d]/80 border-white/10 backdrop-blur-xl"
@@ -942,8 +942,8 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
         </div>
       </div>
 
-      {/* Rich Lead Feed Cards (Matching the reference mockup center feed) */}
-      <div className="space-y-3.5">
+      {/* Rich Lead Feed Cards (Scrollable Lead Area within Viewport) */}
+      <div className="flex-1 min-h-0 overflow-y-auto pr-1.5 space-y-2.5 scrollbar-thin">
         {filteredLeads.length === 0 ? (
           <div
             className={`p-8 rounded-3xl border text-center space-y-4 ${
@@ -1272,17 +1272,17 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
   return (
     <section
       id="console"
-      className={`min-h-screen py-8 px-4 sm:px-6 lg:px-8 pb-24 lg:pb-12 transition-colors duration-500 ${
+      className={`min-h-screen lg:h-screen lg:max-h-screen lg:overflow-hidden py-3 px-3 sm:px-6 lg:px-8 transition-colors duration-500 flex flex-col ${
         isLight ? "bg-[#F7F8FA] text-slate-900" : "bg-black text-white"
       }`}
     >
       {/* PWA Floating Install Prompt */}
       <PwaInstallPrompt theme={theme} />
 
-      <div className="max-w-[1780px] mx-auto">
-        {/* 1. Top Navigation & Apple Control Center Header */}
+      <div className="max-w-[1780px] w-full mx-auto flex-1 flex flex-col min-h-0">
+        {/* 1. Top Navigation & Apple Control Center Header (Compact Fixed Row) */}
         <header
-          className={`flex flex-wrap items-center justify-between gap-4 p-4 mb-6 rounded-3xl border transition-all ${
+          className={`shrink-0 flex flex-wrap lg:flex-nowrap items-center justify-between gap-3 p-3 mb-3 rounded-2xl border transition-all ${
             isLight
               ? "bg-white/90 border-slate-200/80 shadow-sm backdrop-blur-lg"
               : "bg-[#0d0d0d]/80 border-white/10 backdrop-blur-xl"
@@ -1499,82 +1499,66 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
           )}
         </div>
 
-        {/* 3. DESKTOP VIEW (>= lg): Can display 3-panel command center or focused layout */}
-        <div className="hidden lg:block">
+        {/* 3. DESKTOP VIEW (>= lg): 3-Panel Compact Command Center fitting 100vh */}
+        <div className="hidden lg:flex flex-1 min-h-0 flex-col">
           {desktopLayout === "grid" ? (
-            <div className="space-y-10">
-              <div className="grid grid-cols-12 gap-6 items-start">
-                {/* Left: Call Queue (Cols 1-3) */}
-                <div className="col-span-3">
-                  <TcpaTimeline
-                    selectedLeadId={selectedLeadId}
-                    onSelectLead={(id) => {
-                      setSelectedLeadId(id);
-                      setIsDetailDrawerOpen(true);
-                    }}
-                    onHoverLead={setHoveredLeadId}
-                    onTriggerCall={(id) => {
-                      const target = leads.find((l) => l.id === id);
-                      if (target) setActiveCallModalLead(target);
-                    }}
-                    theme={theme}
-                  />
-                </div>
-
-                {/* Center: Dashboard (Cols 4-8) */}
-                <div className="col-span-6 space-y-6">
-                  {renderDashboardContent()}
-                </div>
-
-                {/* Right: Rules & Copilot (Cols 9-12) */}
-                <div className="col-span-3">
-                  <RulesInspector
-                    activeTab={inspectorTab}
-                    onTabChange={setInspectorTab}
-                    rules={dynamicRules}
-                    onRulesChange={setDynamicRules}
-                    projectName={projectName}
-                    onProjectNameChange={setProjectName}
-                    onTriggerDiscovery={handleTriggerDiscovery}
-                    copilotMessages={copilotMessages}
-                    copilotInput={copilotInput}
-                    onCopilotInputChange={setCopilotInput}
-                    onSendCopilotMessage={handleSendCopilot}
-                    isCopilotStreaming={isCopilotStreaming}
-                    theme={theme}
-                    attachedFile={attachedFile}
-                    onAttachFile={setAttachedFile}
-                    onRemoveAttachedFile={() => setAttachedFile(null)}
-                  />
-                </div>
+            <div className="grid grid-cols-12 gap-4 flex-1 min-h-0 h-full">
+              {/* Left: Call Queue (Cols 1-3) */}
+              <div className="col-span-3 h-full min-h-0 flex flex-col">
+                <TcpaTimeline
+                  selectedLeadId={selectedLeadId}
+                  onSelectLead={(id) => {
+                    setSelectedLeadId(id);
+                    setIsDetailDrawerOpen(true);
+                  }}
+                  onHoverLead={setHoveredLeadId}
+                  onTriggerCall={(id) => {
+                    const target = leads.find((l) => l.id === id);
+                    if (target) setActiveCallModalLead(target);
+                  }}
+                  theme={theme}
+                  className="h-full min-h-0 flex-1 flex flex-col"
+                />
               </div>
 
-              {/* Bottom Call Logs Table */}
-              {renderCallHistoryTable()}
+              {/* Center: Dashboard (Cols 4-9) */}
+              <div className="col-span-6 h-full min-h-0 flex flex-col">
+                {renderDashboardContent()}
+              </div>
+
+              {/* Right: Rules & Copilot (Cols 10-12) */}
+              <div className="col-span-3 h-full min-h-0 flex flex-col">
+                <RulesInspector
+                  activeTab={inspectorTab}
+                  onTabChange={setInspectorTab}
+                  rules={dynamicRules}
+                  onRulesChange={setDynamicRules}
+                  projectName={projectName}
+                  onProjectNameChange={setProjectName}
+                  onTriggerDiscovery={handleTriggerDiscovery}
+                  copilotMessages={copilotMessages}
+                  copilotInput={copilotInput}
+                  onCopilotInputChange={setCopilotInput}
+                  onSendCopilotMessage={handleSendCopilot}
+                  isCopilotStreaming={isCopilotStreaming}
+                  theme={theme}
+                  attachedFile={attachedFile}
+                  onAttachFile={setAttachedFile}
+                  onRemoveAttachedFile={() => setAttachedFile(null)}
+                  className="h-full min-h-0 flex-1 flex flex-col"
+                />
+              </div>
             </div>
           ) : desktopLayout === "call_log" ? (
-            <div className="max-w-5xl mx-auto space-y-6 animate-in fade-in duration-300">
-              <TcpaTimeline
-                selectedLeadId={selectedLeadId}
-                onSelectLead={(id) => {
-                  setSelectedLeadId(id);
-                  setIsDetailDrawerOpen(true);
-                }}
-                onHoverLead={setHoveredLeadId}
-                onTriggerCall={(id) => {
-                  const target = leads.find((l) => l.id === id);
-                  if (target) setActiveCallModalLead(target);
-                }}
-                theme={theme}
-              />
+            <div className="flex-1 min-h-0 overflow-y-auto space-y-4 p-2 animate-in fade-in duration-300">
               {renderCallHistoryTable()}
             </div>
           ) : desktopLayout === "dashboard" ? (
-            <div className="max-w-5xl mx-auto space-y-6 animate-in fade-in duration-300">
+            <div className="flex-1 min-h-0 flex flex-col animate-in fade-in duration-300">
               {renderDashboardContent()}
             </div>
           ) : (
-            <div className="max-w-3xl mx-auto space-y-6 animate-in fade-in duration-300">
+            <div className="flex-1 min-h-0 flex flex-col animate-in fade-in duration-300">
               <RulesInspector
                 activeTab={inspectorTab}
                 onTabChange={setInspectorTab}
@@ -1592,6 +1576,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                 attachedFile={attachedFile}
                 onAttachFile={setAttachedFile}
                 onRemoveAttachedFile={() => setAttachedFile(null)}
+                className="h-full min-h-0 flex-1 flex flex-col"
               />
             </div>
           )}
