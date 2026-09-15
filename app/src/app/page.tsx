@@ -58,17 +58,17 @@ export default function DialOMainPage() {
   };
 
   return (
-    <main className="w-full bg-black text-white selection:bg-[#00FFFF] selection:text-black min-h-screen">
+    <main className="w-full bg-black text-white selection:bg-[#00FFFF] selection:text-black min-h-screen font-sf">
       {/* ══════════════════════════════════════════════════════════
           PAGE 1 (First Screen): ABOUT + ARCHITECTURE SECTION
-          Split Tan (#F7EAD8) / Orange (#FF5722) System Architecture
+          Split Tan (#F7EAD8) / Orange (#FF751F) System Architecture
           ══════════════════════════════════════════════════════════ */}
       <AboutArchitectureSection onScrollToLogin={handleScrollToLogin} />
 
       {/* ══════════════════════════════════════════════════════════
-          PAGE 2 (One Scroll Down): INSTAGRAM-STYLE SPLIT LOGIN
-          50% Left: DIAL-O iPhone Showcase & Live CALL-E Waveform
-          50% Right: Instagram-Style Authentication Card
+          PAGE 2 (One Scroll Down): SPLIT SAND/ORANGE ACCESS & LOGIN
+          50% Left: Warm Sand (#F7EAD8) Access & Capability Gateway
+          50% Right: Vibrant Orange (#FF751F) Credentials Console
           ══════════════════════════════════════════════════════════ */}
       <InstagramLandingAuth
         onAuthenticated={handleAuthenticated}
@@ -83,19 +83,19 @@ export default function DialOMainPage() {
         {isAuthenticated ? (
           <ConsoleSection onSignOut={handleSignOut} userEmail={userEmail} />
         ) : (
-          <div className="w-full bg-neutral-950 py-16 px-6 text-center border-t border-neutral-900 flex flex-col items-center justify-center space-y-4">
+          <div className="w-full bg-neutral-950 py-16 px-6 text-center border-t border-neutral-900 flex flex-col items-center justify-center space-y-4 font-sf">
             <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-neutral-400">
               <span className="text-xl">🔒</span>
             </div>
-            <h3 className="text-lg font-[700] text-white">DIAL-O Console Locked</h3>
-            <p className="text-xs text-neutral-400 font-[300] max-w-sm">
+            <h3 className="text-lg font-sf font-sf-bold text-white">DIAL-O Console Locked</h3>
+            <p className="text-xs text-neutral-400 font-sf font-sf-light max-w-sm">
               Authenticate via the split login screen above or click Instant Demo Access to launch the autonomous voice copilot workspace.
             </p>
             <button
               onClick={handleScrollToLogin}
-              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FF751F] to-[#00FFFF] text-black font-[700] text-xs shadow-md active:scale-95 transition-all cursor-pointer"
+              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FF751F] to-[#00FFFF] text-black font-sf font-sf-bold text-xs shadow-md active:scale-95 transition-all cursor-pointer"
             >
-              Go to Split Login ↑
+              Go to Access & Login ↑
             </button>
           </div>
         )}

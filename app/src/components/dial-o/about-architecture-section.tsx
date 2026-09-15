@@ -80,30 +80,30 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
   };
 
   return (
-    <section id="about" className="relative w-full bg-black text-white">
+    <section id="about" className="relative w-full bg-black text-white font-sf">
       {/* ══════════════════════════════════════════════════════════
           PAGE 1 TOP NAVIGATION BAR (SF Pro 100/300/700)
           ══════════════════════════════════════════════════════════ */}
-      <header className="w-full bg-[#111111]/95 border-b border-white/10 px-6 sm:px-12 py-4 flex items-center justify-between z-30 sticky top-0 backdrop-blur-md">
+      <header className="w-full bg-[#111111]/95 border-b border-white/10 px-6 sm:px-12 py-4 flex items-center justify-between z-30 sticky top-0 backdrop-blur-md font-sf">
         <div className="flex items-center gap-4">
           <a href="#about" className="hover:opacity-90 transition-opacity">
             <DialOLogo size="md" variant="hero" />
           </a>
-          <span className="hidden md:inline-block px-2.5 py-0.5 rounded-full text-[11px] font-[100] hover:font-[300] text-neutral-400 border border-neutral-800 uppercase tracking-wider transition-all">
+          <span className="hidden md:inline-block px-2.5 py-0.5 rounded-full text-[11px] font-sf-thin hover:font-sf-light text-neutral-400 border border-neutral-800 uppercase tracking-wider transition-all">
             Architecture & Intelligence
           </span>
         </div>
         <div className="flex items-center gap-4">
           <a
             href="#about"
-            className="hidden sm:inline-block text-xs font-[300] hover:font-[700] text-neutral-300 hover:text-white transition-all uppercase tracking-wider"
+            className="hidden sm:inline-block text-xs font-sf-light hover:font-sf-bold text-neutral-300 hover:text-white transition-all uppercase tracking-wider"
           >
             System Pipeline
           </a>
           <button
             id="btn-nav-login"
             onClick={handleScrollToLogin}
-            className="px-4 py-2 rounded-full bg-[#FF751F] hover:bg-[#ff893b] text-black font-[700] text-xs transition-all flex items-center gap-1.5 shadow-md active:scale-95 cursor-pointer"
+            className="px-4 py-2 rounded-full bg-[#FF751F] hover:bg-[#ff893b] text-black font-sf-bold text-xs transition-all flex items-center gap-1.5 shadow-md active:scale-95 cursor-pointer"
           >
             <LogIn className="w-3.5 h-3.5 text-black" />
             <span>Sign In to Console</span>
@@ -118,13 +118,13 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
             LEFT COLUMN: ABOUT SECTION (Tan / Sand #F7EAD8)
             ══════════════════════════════════════════════════════════ */}
         <div
-          className="bg-[#F7EAD8] text-black flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-black"
+          className="bg-[#F7EAD8] text-black flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-black font-sf"
           style={{ padding: "64px" }}
         >
           <div>
             {/* Header — ABOUT @ 144px */}
             <h2
-              className="font-black uppercase font-modular text-[#FF751F]"
+              className="font-sf font-sf-bold uppercase text-[#FF751F]"
               style={{
                 fontSize: "clamp(72px, 9vw, 144px)",
                 letterSpacing: "0.08em",
@@ -137,7 +137,7 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
 
             {/* Core Mission — 60px */}
             <div
-              className="font-black uppercase tracking-[0.06em] leading-tight text-black"
+              className="font-sf font-sf-bold uppercase tracking-[0.04em] leading-tight text-black"
               style={{
                 fontSize: "clamp(32px, 3.5vw, 60px)",
                 marginBottom: "40px",
@@ -156,10 +156,10 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
               ].map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-4 font-bold uppercase text-neutral-800 bg-white/70 border-l-4 border-[#FF751F] shadow-sm"
+                  className="flex items-center gap-4 font-sf font-sf-bold uppercase text-neutral-800 bg-white/70 border-l-4 border-[#FF751F] shadow-sm"
                   style={{
                     fontSize: "clamp(22px, 2vw, 48px)",
-                    letterSpacing: "0.06em",
+                    letterSpacing: "0.04em",
                     padding: "16px 20px",
                     marginBottom: "12px",
                   }}
@@ -171,7 +171,7 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
             </div>
 
             <p
-              className="font-medium tracking-wide text-neutral-700 leading-relaxed"
+              className="font-sf font-sf-light tracking-wide text-neutral-700 leading-relaxed"
               style={{ fontSize: "clamp(18px, 1.4vw, 28px)", maxWidth: "100%" }}
             >
               Evidence before outreach. Reasoning before action. Verification after contact. Dial O decides which calls deserve to happen in the first place.
@@ -181,20 +181,20 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
           {/* Bottom Black Box: WHO ARE WE */}
           <div style={{ marginTop: "48px" }}>
             <div
-              className="bg-black text-white flex items-center justify-between border-2 border-black"
+              className="bg-black text-white flex items-center justify-between border-2 border-black font-sf"
               style={{
                 padding: "28px 36px",
                 boxShadow: "0 10px 0 rgba(0,0,0,0.15)",
               }}
             >
               <span
-                className="font-black uppercase tracking-[0.2em] font-modular"
+                className="font-sf font-sf-bold uppercase tracking-[0.16em]"
                 style={{ fontSize: "clamp(24px, 2vw, 48px)" }}
               >
                 WHO ARE WE
               </span>
               <span
-                className="font-mono tracking-widest text-[#00FFFF] uppercase"
+                className="font-sf font-sf-light tracking-widest text-[#00FFFF] uppercase"
                 style={{ fontSize: "clamp(12px, 1vw, 20px)" }}
               >
                 INTELLIGENCE LABS
@@ -208,13 +208,13 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
             ══════════════════════════════════════════════════════════ */}
         <div
           id="architecture"
-          className="bg-[#FF751F] text-black flex flex-col justify-between dial-grid-orange"
+          className="bg-[#FF751F] text-black flex flex-col justify-between dial-grid-orange font-sf"
           style={{ padding: "64px 28px 64px 28px" }}
         >
           <div>
             {/* Header — ARCHITECTURE on ONE line */}
             <h2
-              className="font-black uppercase font-modular text-black"
+              className="font-sf font-sf-bold uppercase text-black"
               style={{
                 fontSize: "clamp(34px, 5.1vw, 130px)",
                 letterSpacing: "0.02em",
@@ -232,7 +232,7 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
               style={{ padding: "24px 32px", marginBottom: "32px" }}
             >
               <div
-                className="font-black uppercase tracking-[0.2em] text-[#EFCD5E] font-modular"
+                className="font-sf font-sf-bold uppercase tracking-[0.16em] text-[#EFCD5E]"
                 style={{ fontSize: "clamp(24px, 2vw, 48px)" }}
               >
                 HOW ARE WE
@@ -244,13 +244,13 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
               {/* Left 5 cols */}
               <div className="col-span-5 flex flex-col gap-2">
                 <div
-                  className="bg-black text-[#00FFFF] font-black uppercase tracking-[0.12em] text-center border border-black shadow-sm font-modular"
+                  className="bg-black text-[#00FFFF] font-sf font-sf-bold uppercase tracking-[0.12em] text-center border border-black shadow-sm"
                   style={{ fontSize: "clamp(14px, 1.2vw, 24px)", padding: "12px 8px" }}
                 >
                   EVIDENCE
                 </div>
                 <div
-                  className="bg-black text-white font-black uppercase tracking-[0.12em] text-center border border-black shadow-sm font-modular"
+                  className="bg-black text-white font-sf font-sf-bold uppercase tracking-[0.12em] text-center border border-black shadow-sm"
                   style={{ fontSize: "clamp(14px, 1.2vw, 24px)", padding: "12px 8px" }}
                 >
                   REASONING
@@ -260,13 +260,13 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
               {/* Middle 5 cols */}
               <div className="col-span-5 flex flex-col gap-2">
                 <div
-                  className="bg-black text-[#EFCD5E] font-black uppercase tracking-[0.12em] text-center border border-black shadow-sm font-modular"
+                  className="bg-black text-[#EFCD5E] font-sf font-sf-bold uppercase tracking-[0.12em] text-center border border-black shadow-sm"
                   style={{ fontSize: "clamp(14px, 1.2vw, 24px)", padding: "12px 8px" }}
                 >
                   ACTION
                 </div>
                 <div
-                  className="bg-black text-white font-black uppercase tracking-[0.12em] text-center border border-black shadow-sm font-modular"
+                  className="bg-black text-white font-sf font-sf-bold uppercase tracking-[0.12em] text-center border border-black shadow-sm"
                   style={{ fontSize: "clamp(14px, 1.2vw, 24px)", padding: "12px 8px" }}
                 >
                   VERIFICATION
@@ -275,7 +275,7 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
 
               {/* Right 2 cols: Vertical RESULTS Banner */}
               <div
-                className="col-span-2 bg-black text-[#FF751F] font-black uppercase tracking-[0.15em] flex items-center justify-center border border-black shadow-sm font-modular"
+                className="col-span-2 bg-black text-[#FF751F] font-sf font-sf-bold uppercase tracking-[0.15em] flex items-center justify-center border border-black shadow-sm"
                 style={{ padding: "8px" }}
               >
                 <span style={{ transform: "rotate(90deg)", whiteSpace: "nowrap", fontSize: "clamp(11px, 0.9vw, 18px)" }}>RESULTS</span>
@@ -284,12 +284,12 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
 
             {/* Tan/Cream Flow Container matching PDF */}
             <div
-              className="bg-[#F7EAD8] text-black border-2 border-black font-bold uppercase font-modular"
+              className="bg-[#F7EAD8] text-black border-2 border-black font-sf font-sf-bold uppercase"
               style={{
                 padding: "24px 28px",
                 marginBottom: "24px",
                 fontSize: "clamp(14px, 1.2vw, 24px)",
-                letterSpacing: "0.1em",
+                letterSpacing: "0.08em",
                 lineHeight: 1.6,
               }}
             >
@@ -305,7 +305,7 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
                 <span className="rounded-full bg-[#FF751F]" style={{ width: "10px", height: "10px", flexShrink: 0, display: "inline-block" }} />
                 <span>PROSPECTS BECOME CONVERSATIONS</span>
               </div>
-              <div className="flex items-center gap-3 font-black">
+              <div className="flex items-center gap-3 font-sf-bold">
                 <span className="rounded-full bg-[#00FFFF] border border-black" style={{ width: "10px", height: "10px", flexShrink: 0, display: "inline-block" }} />
                 <span>CONVERSATIONS CONVERT INTO VERIFIED OPPORTUNITIES</span>
               </div>
@@ -314,12 +314,12 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
 
           {/* Interactive 5-Stage System Pipeline */}
           <div
-            className="bg-black/90 text-white border-2 border-black"
+            className="bg-black/90 text-white border-2 border-black font-sf"
             style={{ marginTop: "16px", padding: "20px 24px" }}
           >
             <div
-              className="text-[#EFCD5E] uppercase font-mono font-bold"
-              style={{ fontSize: "13px", letterSpacing: "0.2em", marginBottom: "14px" }}
+              className="text-[#EFCD5E] uppercase font-sf font-sf-bold"
+              style={{ fontSize: "13px", letterSpacing: "0.16em", marginBottom: "14px" }}
             >
               THE DIAL O PIPELINE · INTERACTIVE WORKFLOW
             </div>
@@ -333,13 +333,13 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
                     onClick={() => setActiveStage(idx)}
                     className={`p-2 transition-all cursor-pointer text-left border ${
                       isActive
-                        ? "bg-[#00FFFF] text-black border-[#00FFFF] font-black"
-                        : "bg-black/60 text-white/70 border-white/10 hover:border-white/40"
+                        ? "bg-[#00FFFF] text-black border-[#00FFFF] font-sf font-sf-bold"
+                        : "bg-black/60 text-white/70 border-white/10 hover:border-white/40 font-sf font-sf-light"
                     }`}
                   >
-                    <div style={{ fontSize: "10px" }} className="font-mono opacity-80">{stage.step}</div>
+                    <div style={{ fontSize: "10px" }} className="font-sf-thin opacity-80">{stage.step}</div>
                     <div
-                      className="font-black tracking-wider uppercase truncate font-modular"
+                      className="font-sf font-sf-bold tracking-wider uppercase truncate"
                       style={{ fontSize: "clamp(10px, 0.8vw, 14px)" }}
                     >
                       {stage.title}
@@ -351,22 +351,22 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
 
             {/* Active Stage Details */}
             <div
-              className="flex items-center justify-between bg-neutral-900 border border-neutral-800"
+              className="flex items-center justify-between bg-neutral-900 border border-neutral-800 font-sf"
               style={{ marginTop: "14px", padding: "12px 16px" }}
             >
               <div>
                 <span
-                  className="text-[#00FFFF] font-bold tracking-wider uppercase font-modular"
+                  className="text-[#00FFFF] font-sf font-sf-bold tracking-wider uppercase"
                   style={{ fontSize: "14px", marginRight: "8px" }}
                 >
                   {PIPELINE_STAGES[activeStage].title}:
                 </span>
-                <span className="text-neutral-300" style={{ fontSize: "13px" }}>
+                <span className="text-neutral-300 font-sf-light" style={{ fontSize: "13px" }}>
                   {PIPELINE_STAGES[activeStage].description}
                 </span>
               </div>
               <span
-                className="font-mono text-[#EFCD5E] uppercase hidden sm:inline-block"
+                className="font-sf-thin text-[#EFCD5E] uppercase hidden sm:inline-block"
                 style={{ fontSize: "11px", marginLeft: "16px", whiteSpace: "nowrap" }}
               >
                 {PIPELINE_STAGES[activeStage].metadata}
@@ -381,17 +381,17 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
           "THE BEST CALLS START BEFORE THE PHONE RINGS."
           ══════════════════════════════════════════════════════════════ */}
       <div
-        className="w-full bg-black text-white text-center border-t-2 border-b-2 border-black"
+        className="w-full bg-black text-white text-center border-t-2 border-b-2 border-black font-sf"
         style={{ padding: "64px 48px" }}
       >
         <h3
-          className="font-black uppercase tracking-[0.1em] leading-tight text-white select-none font-modular"
+          className="font-sf font-sf-bold uppercase tracking-[0.06em] leading-tight text-white select-none"
           style={{ fontSize: "clamp(32px, 4vw, 72px)" }}
         >
           THE BEST CALLS START BEFORE THE PHONE RINGS.
         </h3>
         <p
-          className="text-neutral-400 uppercase tracking-[0.25em] font-mono"
+          className="text-neutral-400 uppercase tracking-[0.2em] font-sf font-sf-thin hover:font-sf-light transition-all"
           style={{ fontSize: "clamp(13px, 1vw, 18px)", marginTop: "16px" }}
         >
           LEAD INTELLIGENCE BEFORE OUTREACH · SYSTEM ARCHITECTURE VERIFIED
@@ -402,9 +402,9 @@ export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureS
           <button
             id="btn-scroll-to-auth"
             onClick={handleScrollToLogin}
-            className="group px-6 py-3 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-neutral-300 hover:text-white font-[300] hover:font-[700] text-xs transition-all flex items-center gap-2.5 cursor-pointer shadow-lg active:scale-95"
+            className="group px-6 py-3 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-neutral-300 hover:text-white font-sf-light hover:font-sf-bold text-xs transition-all flex items-center gap-2.5 cursor-pointer shadow-lg active:scale-95"
           >
-            <span>Proceed to Instagram Split Login</span>
+            <span>Proceed to Access & Login</span>
             <ArrowRight className="w-4 h-4 text-[#00FFFF] group-hover:translate-x-1 transition-transform" />
           </button>
         </div>

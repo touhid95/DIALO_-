@@ -581,13 +581,14 @@ nextjs-portal,
   --color-surface-border: #1F1F1F;
   --color-surface-border-subtle: #141414;
 
-  --font-modular: 'HK Modular', monospace, -apple-system, sans-serif;
+  --font-modular: var(--font-sf-pro);
 }
 
-/* ═══ Typography Utilities ═══════════════════════════════════ */
+/* ═══ Typography Utilities (Enforced Apple SF Pro) ═════════════ */
 
 .font-modular {
-  font-family: var(--font-modular);
+  font-family: var(--font-sf-pro) !important;
+  font-weight: 700 !important;
 }
 
 .tracking-wider-editorial {
@@ -630,7 +631,8 @@ nextjs-portal,
 }
 
 .terminal-header-label {
-  font-family: var(--font-modular);
+  font-family: var(--font-sf-pro);
+  font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.22em;
   color: #FFFFFF;
@@ -643,7 +645,7 @@ nextjs-portal,
 .btn-dial-explore {
   background-color: var(--color-yellow);
   color: #000000;
-  font-family: var(--font-modular);
+  font-family: var(--font-sf-pro);
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -752,7 +754,7 @@ nextjs-portal,
 }
 
 .console-panel-header {
-  font-family: var(--font-modular);
+  font-family: var(--font-sf-pro);
   letter-spacing: 0.14em;
   font-weight: 700;
   text-transform: uppercase;

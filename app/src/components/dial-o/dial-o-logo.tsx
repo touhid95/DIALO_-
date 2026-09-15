@@ -23,7 +23,7 @@ export function DialOLogo({ className = "", size = "md", variant = "hero" }: Dia
   if (variant === "hero" || variant === "header") {
     return (
       <div
-        className={`relative inline-flex items-center select-none font-modular font-black ${className}`}
+        className={`relative inline-flex items-center select-none font-sf font-sf-bold ${className}`}
         style={{ lineHeight: 1 }}
       >
         {/* Layer 1: Cyan silhouette offset left */}
@@ -48,7 +48,7 @@ export function DialOLogo({ className = "", size = "md", variant = "hero" }: Dia
             fontSize: style.fontSize,
             letterSpacing: style.letterSpacing,
             position: "relative",
-            fontWeight: 900,
+            fontWeight: 700,
             textTransform: "uppercase",
             background: "linear-gradient(90deg, #EFCD5E, #FF751F, #EFCD5E)",
             WebkitBackgroundClip: "text",
@@ -63,12 +63,12 @@ export function DialOLogo({ className = "", size = "md", variant = "hero" }: Dia
   }
 
   return (
-    <div className={`relative inline-flex items-center select-none font-modular font-bold ${className}`}>
+    <div className={`relative inline-flex items-center select-none font-sf font-sf-bold ${className}`}>
       <span
         style={{
           fontSize: style.fontSize,
           letterSpacing: style.letterSpacing,
-          fontWeight: 900,
+          fontWeight: 700,
           textTransform: "uppercase",
           color: "#FFFFFF",
         }}

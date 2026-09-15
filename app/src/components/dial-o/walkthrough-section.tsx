@@ -81,7 +81,7 @@ export function WalkthroughSection() {
         {/* Section Header — VIDEO WALKTHROUGH @ 140px */}
         <div style={{ marginBottom: "48px" }}>
           <h2
-            className="font-black uppercase font-modular text-black"
+            className="font-sf font-sf-bold uppercase text-black"
             style={{
               fontSize: "clamp(60px, 9vw, 140px)",
               lineHeight: 0.9,
@@ -174,7 +174,7 @@ export function WalkthroughSection() {
             </div>
 
             <div
-              className="flex items-center justify-between font-black tracking-[0.2em] uppercase font-modular text-black/70"
+              className="flex items-center justify-between font-sf font-sf-bold tracking-[0.16em] uppercase text-black/70"
               style={{ marginTop: "16px", fontSize: "13px" }}
             >
               <span>CONSOLE DEMO PLAYBACK</span>
@@ -187,7 +187,7 @@ export function WalkthroughSection() {
             {STEP_CARDS.map((card, index) => (
               <div
                 key={card.stepNumber}
-                className="step-card-orange flex flex-col justify-between"
+                className="step-card-orange flex flex-col justify-between font-sf"
                 style={{
                   padding: "32px 36px",
                   boxShadow: "0 8px 0 #000000",
@@ -198,13 +198,13 @@ export function WalkthroughSection() {
                 {/* Step Badge — 48px title */}
                 <div className="flex items-center justify-between" style={{ marginBottom: "16px" }}>
                   <span
-                    className="step-badge font-black tracking-[0.2em] uppercase px-3 py-1 bg-black text-[#FF751F] border border-black transition-colors font-modular"
+                    className="step-badge font-sf font-sf-bold tracking-[0.16em] uppercase px-3 py-1 bg-black text-[#FF751F] border border-black transition-colors"
                     style={{ fontSize: "16px" }}
                   >
                     {card.stepNumber}
                   </span>
                   <span
-                    className="tracking-widest uppercase font-mono opacity-80"
+                    className="tracking-widest uppercase font-sf-thin opacity-80"
                     style={{ fontSize: "12px" }}
                   >
                     STAGE 0{index + 1}
@@ -213,7 +213,7 @@ export function WalkthroughSection() {
 
                 {/* Card Title — 48px */}
                 <h3
-                  className="font-black tracking-[0.04em] uppercase leading-tight font-modular"
+                  className="font-sf font-sf-bold tracking-[0.04em] uppercase leading-tight"
                   style={{ fontSize: "clamp(24px, 2.5vw, 48px)", margin: "8px 0" }}
                 >
                   {card.title}

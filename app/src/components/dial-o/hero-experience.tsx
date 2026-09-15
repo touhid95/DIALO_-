@@ -54,19 +54,19 @@ export function HeroExperience({ onOpenSignIn, onExploreConsole }: HeroExperienc
 
         {/* Navigation — bottom right corner */}
         <nav
-          className="absolute top-0 right-0 z-40 pointer-events-auto flex items-center gap-8"
+          className="absolute top-0 right-0 z-40 pointer-events-auto flex items-center gap-8 font-sf"
           style={{ padding: "48px 64px 0 0" }}
         >
           <a
             href="#about"
-            className="hover:text-[#00FFFF] transition-colors cursor-pointer hidden sm:inline-block font-black uppercase font-modular"
+            className="hover:text-[#00FFFF] transition-colors cursor-pointer hidden sm:inline-block font-sf font-sf-bold uppercase"
             style={{ fontSize: "24px", letterSpacing: "0.2em", color: "#FFFFFF" }}
           >
             ABOUT
           </a>
           <a
             href="#architecture"
-            className="hover:text-[#00FFFF] transition-colors cursor-pointer hidden sm:inline-block font-black uppercase font-modular"
+            className="hover:text-[#00FFFF] transition-colors cursor-pointer hidden sm:inline-block font-sf font-sf-bold uppercase"
             style={{ fontSize: "24px", letterSpacing: "0.2em", color: "#FFFFFF" }}
           >
             ARCHITECTURE
@@ -74,7 +74,7 @@ export function HeroExperience({ onOpenSignIn, onExploreConsole }: HeroExperienc
           <span className="text-neutral-600 hidden sm:inline-block" style={{ fontSize: "24px" }}>|</span>
           <button
             onClick={onOpenSignIn}
-            className="flex items-center gap-3 hover:text-[#EFCD5E] transition-colors cursor-pointer font-black uppercase font-modular"
+            className="flex items-center gap-3 hover:text-[#EFCD5E] transition-colors cursor-pointer font-sf font-sf-bold uppercase"
             style={{ fontSize: "24px", letterSpacing: "0.2em", color: "#FFFFFF" }}
             aria-label="Sign In"
           >
@@ -121,7 +121,7 @@ export function HeroExperience({ onOpenSignIn, onExploreConsole }: HeroExperienc
                     style={{ width: "10px", height: "10px", display: "inline-block", flexShrink: 0 }}
                   />
                   <span
-                    className="font-black uppercase font-modular"
+                    className="font-sf font-sf-bold uppercase"
                     style={{ fontSize: "44px", letterSpacing: "0.15em", color: "#FFFFFF", lineHeight: 1 }}
                   >
                     TERMINAL/IGNORE
@@ -130,7 +130,7 @@ export function HeroExperience({ onOpenSignIn, onExploreConsole }: HeroExperienc
 
                 {/* Editorial Headline — Hero Statement */}
                 <h1
-                  className="font-black uppercase font-modular select-none"
+                  className="font-sf font-sf-bold uppercase select-none"
                   style={{
                     fontSize: terminalHeadlineSize,
                     lineHeight: 0.92,
@@ -165,7 +165,7 @@ export function HeroExperience({ onOpenSignIn, onExploreConsole }: HeroExperienc
         >
           <button
             onClick={onExploreConsole}
-            className="animate-float-subtle font-black uppercase font-modular"
+            className="animate-float-subtle font-sf font-sf-bold uppercase"
             style={{
               fontSize: "64px",
               letterSpacing: "0.12em",
@@ -234,7 +234,7 @@ export function HeroExperience({ onOpenSignIn, onExploreConsole }: HeroExperienc
                     style={{ width: "10px", height: "10px", display: "inline-block", flexShrink: 0 }}
                   />
                   <span
-                    className="font-black uppercase font-modular"
+                    className="font-sf font-sf-bold uppercase"
                     style={{ fontSize: "44px", letterSpacing: "0.15em", color: "#FFFFFF", lineHeight: 1 }}
                   >
                     TERMINAL/IGNORE
@@ -243,7 +243,7 @@ export function HeroExperience({ onOpenSignIn, onExploreConsole }: HeroExperienc
 
                 {/* Statement Text */}
                 <div
-                  className="font-black uppercase font-modular select-none"
+                  className="font-sf font-sf-bold uppercase select-none"
                   style={{
                     fontSize: terminalHeadlineSize,
                     lineHeight: 0.92,
@@ -281,7 +281,7 @@ export function HeroExperience({ onOpenSignIn, onExploreConsole }: HeroExperienc
         <div className="w-full pb-6 flex items-center justify-center pointer-events-none z-30 absolute bottom-0 left-0">
           <div className="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
             <span
-              className="uppercase font-modular font-bold"
+              className="uppercase font-sf font-sf-bold"
               style={{ fontSize: "11px", letterSpacing: "0.3em", color: "rgba(255,255,255,0.7)" }}
             >
               {scrollProgress < 0.4 ? "SCROLL DOWN TO PROGRESS CAMERA" : "CONTINUE SCROLLING TO SYSTEM WALKTHROUGH"}
