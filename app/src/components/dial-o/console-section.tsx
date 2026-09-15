@@ -694,6 +694,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
 
         setLeads(generatedLeads);
         setSelectedLeadId(generatedLeads[0].id);
+        setInspectorTab("rules");
 
         setCopilotMessages((prev) => [
           ...prev,
@@ -1394,6 +1395,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                 theme={theme}
                 attachedFile={attachedFile}
                 onAttachFile={setAttachedFile}
+                onUploadAndAnalyze={handleSendCopilot}
                 onRemoveAttachedFile={() => setAttachedFile(null)}
               />
             </div>
@@ -1445,6 +1447,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                   theme={theme}
                   attachedFile={attachedFile}
                   onAttachFile={setAttachedFile}
+                  onUploadAndAnalyze={handleSendCopilot}
                   onRemoveAttachedFile={() => setAttachedFile(null)}
                   className="h-full min-h-0 flex-1 flex flex-col"
                 />
@@ -1476,6 +1479,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                 theme={theme}
                 attachedFile={attachedFile}
                 onAttachFile={setAttachedFile}
+                onUploadAndAnalyze={handleSendCopilot}
                 onRemoveAttachedFile={() => setAttachedFile(null)}
                 className="h-full min-h-0 flex-1 flex flex-col"
               />

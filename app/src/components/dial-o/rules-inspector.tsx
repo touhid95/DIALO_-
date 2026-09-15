@@ -2,14 +2,9 @@
 
 import React, { useState, useRef } from "react";
 import {
-  MessageSquarePlus,
-  Lock,
-  Copy,
-  Trash2,
   Briefcase,
   ChevronDown,
   Calendar,
-  Sparkles,
   Shield,
   Layers,
   Bot,
@@ -53,8 +48,9 @@ export interface RulesInspectorProps {
   isCopilotStreaming?: boolean;
   theme?: "dark" | "light";
   className?: string;
-  // Direct file attachment support
+  // Direct file attachment and live analysis support
   onAttachFile?: (file: File) => void;
+  onUploadAndAnalyze?: (file: File) => void;
   attachedFile?: File | null;
   onRemoveAttachedFile?: () => void;
 }
@@ -74,6 +70,7 @@ export function RulesInspector({
   theme = "dark",
   className = "",
   onAttachFile,
+  onUploadAndAnalyze,
   attachedFile = null,
   onRemoveAttachedFile,
 }: RulesInspectorProps) {
@@ -97,10 +94,18 @@ export function RulesInspector({
     if (onTabChange) onTabChange(newTab);
   };
 
+  const handleProcessFile = (file: File) => {
+    if (onUploadAndAnalyze) {
+      onUploadAndAnalyze(file);
+    } else if (onAttachFile) {
+      onAttachFile(file);
+    }
+  };
+
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file && onAttachFile) {
-      onAttachFile(file);
+    if (file) {
+      handleProcessFile(file);
     }
   };
 
@@ -121,8 +126,8 @@ export function RulesInspector({
     e.stopPropagation();
     setIsDragging(false);
     const file = e.dataTransfer.files?.[0];
-    if (file && onAttachFile) {
-      onAttachFile(file);
+    if (file) {
+      handleProcessFile(file);
     }
   };
 
@@ -148,229 +153,226 @@ export function RulesInspector({
         className="hidden"
       />
 
-      {/* 1. Top iOS Segmented Pill Header */}
-      <div className="shrink-0 flex items-center justify-between gap-2 mb-2.5 pb-2.5 border-b border-black/5 dark:border-white/10">
+      {/* 1. Ultra-Minimal iOS Capsule Segmented Toggle Header */}
+      <div className="shrink-0 mb-3">
         <div
-          className={`flex p-1 rounded-full border ${
+          className={`w-full p-1 rounded-full border relative flex items-center select-none ${
             isLight
               ? "bg-slate-100 border-slate-200"
-              : "bg-black/50 border-white/10"
+              : "bg-black/60 border-white/10"
           }`}
         >
-          <button
-            onClick={() => handleTabToggle("rules")}
-            className={`px-3 py-1 text-xs rounded-full transition-all interactive-weight ${
+          {/* Sliding active pill indicator */}
+          <div
+            className={`absolute top-1 bottom-1 rounded-full transition-all duration-300 ease-out shadow-sm ${
               tab === "rules"
-                ? isLight
-                  ? "bg-black text-white shadow-sm font-sf-bold"
-                  : "bg-[#FF751F] text-black shadow-md shadow-orange-500/20 font-sf-bold"
+                ? "left-1 w-[calc(50%-4px)]"
+                : "left-[calc(50%+2px)] w-[calc(50%-4px)]"
+            } ${
+              isLight
+                ? "bg-[#FF5722] text-white shadow-md shadow-[#FF5722]/20"
+                : "bg-[#FF5722] text-white shadow-md shadow-[#FF5722]/25"
+            }`}
+          />
+
+          {/* Tab 1: Rules */}
+          <button
+            type="button"
+            id="btn-tab-rules"
+            onClick={() => handleTabToggle("rules")}
+            className={`flex-1 py-1.5 text-xs text-center z-10 transition-all rounded-full cursor-pointer flex items-center justify-center gap-1.5 ${
+              tab === "rules"
+                ? "text-white font-sf-bold"
                 : isLight
-                ? "text-neutral-600 hover:text-black font-sf-light"
-                : "text-neutral-400 hover:text-white font-sf-light"
+                ? "text-slate-500 hover:text-slate-900 font-sf-light"
+                : "text-neutral-400 hover:text-neutral-200 font-sf-light"
             }`}
           >
-            Campaign Rules
+            <span>Campaign Rules</span>
           </button>
+
+          {/* Tab 2: AI Copilot */}
           <button
+            type="button"
+            id="btn-tab-copilot"
             onClick={() => handleTabToggle("copilot")}
-            className={`px-3 py-1 text-xs rounded-full transition-all flex items-center gap-1.5 interactive-weight ${
+            className={`flex-1 py-1.5 text-xs text-center z-10 transition-all rounded-full cursor-pointer flex items-center justify-center gap-1.5 ${
               tab === "copilot"
-                ? isLight
-                  ? "bg-black text-white shadow-sm font-sf-bold"
-                  : "bg-[#FF751F] text-black shadow-md shadow-orange-500/20 font-sf-bold"
+                ? "text-white font-sf-bold"
                 : isLight
-                ? "text-neutral-600 hover:text-black font-sf-light"
-                : "text-neutral-400 hover:text-white font-sf-light"
+                ? "text-slate-500 hover:text-slate-900 font-sf-light"
+                : "text-neutral-400 hover:text-neutral-200 font-sf-light"
             }`}
           >
             <Bot className="w-3.5 h-3.5" />
-            AI Copilot
-          </button>
-        </div>
-
-        {/* Action Toolbar */}
-        <div
-          className={`flex items-center gap-1 px-2 py-1 rounded-full border ${
-            isLight
-              ? "bg-slate-50 border-slate-200 text-slate-600"
-              : "bg-white/5 border-white/10 text-neutral-400"
-          }`}
-        >
-          <button
-            onClick={() => fileInputRef.current?.click()}
-            title="Upload Business Deck or Lead Doc"
-            className="p-1 hover:text-indigo-600 dark:hover:text-[#00FFFF] transition-colors"
-          >
-            <Paperclip className="w-3.5 h-3.5" />
-          </button>
-          <button
-            title="Lock Rules"
-            className="p-1 hover:text-indigo-600 dark:hover:text-[#00FFFF] transition-colors"
-          >
-            <Lock className="w-3.5 h-3.5" />
-          </button>
-          <button
-            title="Duplicate Campaign"
-            className="p-1 hover:text-indigo-600 dark:hover:text-[#00FFFF] transition-colors"
-          >
-            <Copy className="w-3.5 h-3.5" />
-          </button>
-          <button
-            title="Reset to Clean State"
-            className="p-1 hover:text-red-500 transition-colors"
-          >
-            <Trash2 className="w-3.5 h-3.5" />
+            <span>AI Copilot</span>
           </button>
         </div>
       </div>
 
-      {/* 2. Subtle On-Click Rules Activity Status Pill */}
-      <div className="shrink-0 mb-2.5">
-        <button
-          onClick={() => setIsRulesDrawerOpen(!isRulesDrawerOpen)}
-          className={`w-full px-3 py-2 rounded-xl border flex items-center justify-between transition-all group interactive-weight ${
-            isLight
-              ? "bg-slate-50 hover:bg-slate-100/90 border-slate-200 text-slate-700"
-              : "bg-white/[0.03] hover:bg-white/[0.06] border-white/10 text-neutral-300"
-          }`}
-        >
-          <div className="flex items-center gap-2 truncate">
-            <span
-              className={`w-2 h-2 rounded-full shrink-0 ${
-                isCopilotStreaming
-                  ? "bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(0,255,255,0.8)]"
-                  : hasActiveRules
-                  ? "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"
-                  : "bg-amber-400/80"
-              }`}
-            />
-            <span className="text-[11px] font-sf-light group-hover:font-sf-bold truncate">
-              {isCopilotStreaming
-                ? "Parsing Document & Evaluating ICP Rules..."
-                : hasActiveRules
-                ? `Rules Active: ${rules?.industry || "Custom ICP"} · ${rules?.targetMetro || "Target Metro"}`
-                : "Awaiting Business Document or Offer Prompt"}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-1.5 shrink-0 pl-2">
-            <span className="text-[10px] font-sf-thin group-hover:font-sf-light text-neutral-400">
-              {isRulesDrawerOpen ? "Hide" : "Inspect"}
-            </span>
-            <ChevronDown
-              className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                isRulesDrawerOpen ? "rotate-180" : ""
-              }`}
-            />
-          </div>
-        </button>
-
-        {/* Subtle Collapsible Glass Inspection Drawer */}
-        {isRulesDrawerOpen && (
-          <div
-            className={`mt-2 p-3.5 rounded-2xl border text-xs space-y-3 animate-in fade-in zoom-in-95 duration-200 ${
+      {/* 2. Subtle On-Click Rules Activity Status Pill (Shown only when rules are active or parsing) */}
+      {(hasActiveRules || isCopilotStreaming) && (
+        <div className="shrink-0 mb-2.5">
+          <button
+            onClick={() => setIsRulesDrawerOpen(!isRulesDrawerOpen)}
+            className={`w-full px-3 py-1.5 rounded-xl border flex items-center justify-between transition-all group interactive-weight ${
               isLight
-                ? "bg-white/95 border-slate-200 shadow-md text-slate-800"
-                : "bg-black/90 border-white/15 shadow-2xl text-neutral-200 backdrop-blur-xl"
+                ? "bg-slate-50 hover:bg-slate-100/90 border-slate-200 text-slate-700"
+                : "bg-white/[0.03] hover:bg-white/[0.06] border-white/10 text-neutral-300"
             }`}
           >
-            {/* Header / Source Info */}
-            <div className="flex items-center justify-between pb-2 border-b border-black/5 dark:border-white/10">
-              <div className="flex items-center gap-1.5">
-                <FileText className="w-3.5 h-3.5 text-indigo-500 dark:text-[#00FFFF]" />
-                <span className="font-sf-bold text-xs truncate max-w-[180px]">
-                  {rules?.documentName ? rules.documentName : "Dynamic Ingestion Source"}
-                </span>
-              </div>
-              <span className="text-[10px] font-sf-thin px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 font-sf-bold">
-                {hasActiveRules ? "Active" : "Pending"}
+            <div className="flex items-center gap-2 truncate">
+              <span
+                className={`w-2 h-2 rounded-full shrink-0 ${
+                  isCopilotStreaming
+                    ? "bg-[#00FFFF] animate-pulse shadow-[0_0_8px_rgba(0,255,255,0.8)]"
+                    : "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"
+                }`}
+              />
+              <span className="text-[11px] font-sf-light group-hover:font-sf-bold truncate">
+                {isCopilotStreaming
+                  ? "Parsing Document & Evaluating ICP Rules..."
+                  : `Rules Active: ${rules?.industry || "Custom ICP"} · ${rules?.targetMetro || "Target Metro"}`}
               </span>
             </div>
 
-            {hasActiveRules ? (
-              <div className="space-y-2 text-[11px]">
-                <div className="flex justify-between">
-                  <span className="font-sf-light text-neutral-400">Industry:</span>
-                  <span className="font-sf-bold text-right truncate max-w-[160px]">
-                    {rules?.industry || "Unspecified"}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-sf-light text-neutral-400">Target Metro:</span>
-                  <span className="font-sf-bold text-right truncate max-w-[160px]">
-                    {rules?.targetMetro || "Any Geography"}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-sf-light text-neutral-400">Headcount:</span>
-                  <span className="font-sf-bold text-right truncate max-w-[160px]">
-                    {rules?.headcount || "10+"}
-                  </span>
-                </div>
-                {rules?.primaryPitch && (
-                  <div className="pt-1 border-t border-black/5 dark:border-white/5">
-                    <span className="font-sf-light text-[10px] text-neutral-400 block mb-0.5">
-                      Core Pitch:
-                    </span>
-                    <span className="font-sf-light text-[11px] block leading-snug">
-                      {rules.primaryPitch}
-                    </span>
-                  </div>
-                )}
-                {rules?.disqualifier && (
-                  <div className="pt-1 border-t border-black/5 dark:border-white/5">
-                    <span className="font-sf-light text-[10px] text-rose-400 block mb-0.5">
-                      Disqualifier:
-                    </span>
-                    <span className="font-sf-light text-[11px] text-rose-500 block leading-snug">
-                      {rules.disqualifier}
-                    </span>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <div className="text-center py-2 space-y-2">
-                <p className="font-sf-light text-[11px] text-neutral-400">
-                  No criteria extracted yet. Upload your business deck or type your offer in Copilot to generate live rules.
-                </p>
-                <button
-                  onClick={() => fileInputRef.current?.click()}
-                  className="px-3 py-1.5 rounded-xl text-[11px] font-sf-bold bg-indigo-600 hover:bg-indigo-700 text-white dark:bg-[#00FFFF] dark:text-black transition-all"
-                >
-                  Attach Document
-                </button>
-              </div>
-            )}
+            <div className="flex items-center gap-1 shrink-0 pl-2">
+              <span className="text-[10px] font-sf-thin group-hover:font-sf-light text-neutral-400">
+                {isRulesDrawerOpen ? "Hide" : "Inspect"}
+              </span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                  isRulesDrawerOpen ? "rotate-180" : ""
+                }`}
+              />
+            </div>
+          </button>
 
-            {/* Micro Activity Audit Log */}
-            {rules?.activityLogs && rules.activityLogs.length > 0 && (
-              <div className="pt-2 border-t border-black/5 dark:border-white/10 space-y-1">
-                <span className="text-[10px] font-sf-thin uppercase tracking-wider text-neutral-400 block">
-                  Activity Audit
+          {/* Subtle Collapsible Glass Inspection Drawer */}
+          {isRulesDrawerOpen && (
+            <div
+              className={`mt-2 p-3.5 rounded-2xl border text-xs space-y-3 animate-in fade-in zoom-in-95 duration-200 ${
+                isLight
+                  ? "bg-white/95 border-slate-200 shadow-md text-slate-800"
+                  : "bg-black/90 border-white/15 shadow-2xl text-neutral-200 backdrop-blur-xl"
+              }`}
+            >
+              {/* Header / Source Info */}
+              <div className="flex items-center justify-between pb-2 border-b border-black/5 dark:border-white/10">
+                <div className="flex items-center gap-1.5">
+                  <FileText className="w-3.5 h-3.5 text-indigo-500 dark:text-[#00FFFF]" />
+                  <span className="font-sf-bold text-xs truncate max-w-[180px]">
+                    {rules?.documentName ? rules.documentName : "Dynamic Ingestion Source"}
+                  </span>
+                </div>
+                <span className="text-[10px] font-sf-thin px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 font-sf-bold">
+                  {hasActiveRules ? "Active" : "Pending"}
                 </span>
-                {rules.activityLogs.slice(-3).map((log, i) => (
-                  <p key={i} className="text-[10px] font-sf-light text-neutral-400 flex items-center gap-1 truncate">
-                    <span className="text-emerald-500 font-sf-bold">✓</span>
-                    <span>{log.text}</span>
-                  </p>
-                ))}
               </div>
-            )}
-          </div>
-        )}
-      </div>
+
+              {hasActiveRules ? (
+                <div className="space-y-2 text-[11px]">
+                  <div className="flex justify-between">
+                    <span className="font-sf-light text-neutral-400">Industry:</span>
+                    <span className="font-sf-bold text-right truncate max-w-[160px]">
+                      {rules?.industry || "Unspecified"}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-sf-light text-neutral-400">Target Metro:</span>
+                    <span className="font-sf-bold text-right truncate max-w-[160px]">
+                      {rules?.targetMetro || "Any Geography"}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-sf-light text-neutral-400">Headcount:</span>
+                    <span className="font-sf-bold text-right truncate max-w-[160px]">
+                      {rules?.headcount || "10+"}
+                    </span>
+                  </div>
+                  {rules?.primaryPitch && (
+                    <div className="pt-1 border-t border-black/5 dark:border-white/5">
+                      <span className="font-sf-light text-[10px] text-neutral-400 block mb-0.5">
+                        Core Pitch:
+                      </span>
+                      <span className="font-sf-light text-[11px] block leading-snug">
+                        {rules.primaryPitch}
+                      </span>
+                    </div>
+                  )}
+                  {rules?.disqualifier && (
+                    <div className="pt-1 border-t border-black/5 dark:border-white/5">
+                      <span className="font-sf-light text-[10px] text-rose-400 block mb-0.5">
+                        Disqualifier:
+                      </span>
+                      <span className="font-sf-light text-[11px] text-rose-500 block leading-snug">
+                        {rules.disqualifier}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="text-center py-2 space-y-2">
+                  <p className="font-sf-light text-[11px] text-neutral-400">
+                    No criteria extracted yet. Upload your business deck or type your offer in Copilot to generate live rules.
+                  </p>
+                  <button
+                    onClick={() => fileInputRef.current?.click()}
+                    className="px-3 py-1.5 rounded-xl text-[11px] font-sf-bold bg-[#FF5722] hover:bg-[#FF751F] text-white transition-all"
+                  >
+                    Attach Document
+                  </button>
+                </div>
+              )}
+
+              {/* Micro Activity Audit Log */}
+              {rules?.activityLogs && rules.activityLogs.length > 0 && (
+                <div className="pt-2 border-t border-black/5 dark:border-white/10 space-y-1">
+                  <span className="text-[10px] font-sf-thin uppercase tracking-wider text-neutral-400 block">
+                    Activity Audit
+                  </span>
+                  {rules.activityLogs.slice(-3).map((log, i) => (
+                    <p key={i} className="text-[10px] font-sf-light text-neutral-400 flex items-center gap-1 truncate">
+                      <span className="text-emerald-500 font-sf-bold">✓</span>
+                      <span>{log.text}</span>
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* 3. Main Content Panel */}
       {tab === "rules" ? (
         <div className="flex-1 min-h-0 flex flex-col justify-between overflow-y-auto pr-1 space-y-3 scrollbar-thin">
-          {!rules || !hasActiveRules ? (
+          {isCopilotStreaming ? (
+            /* Apple-style Parsing / Ingestion State */
+            <div className="flex-1 flex flex-col items-center justify-center text-center p-6 space-y-4 my-auto animate-in fade-in duration-300">
+              <div className="relative w-16 h-16 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-full bg-[#FF5722]/20 animate-ping" />
+                <div className="w-14 h-14 rounded-2xl bg-[#FF5722]/10 border border-[#FF5722]/40 flex items-center justify-center text-[#FF5722]">
+                  <Loader2 className="w-7 h-7 animate-spin text-[#FF5722]" />
+                </div>
+              </div>
+              <div className="space-y-1.5 max-w-xs">
+                <h4 className="text-sm font-sf-bold text-slate-900 dark:text-white">
+                  Synthesizing Rules & Discovering Leads
+                </h4>
+                <p className="text-xs font-sf-light text-neutral-400 leading-relaxed">
+                  Extracting ideal customer profile, enforcing constraints, and querying verified prospects...
+                </p>
+              </div>
+            </div>
+          ) : !rules || !hasActiveRules ? (
             /* Clean Empty Ingestion Workspace when not prefilled */
-            <div className="flex-1 flex flex-col items-center justify-center text-center p-6 space-y-4 my-auto">
+            <div className="flex-1 flex flex-col items-center justify-center text-center p-6 space-y-4 my-auto animate-in fade-in duration-300">
               <div
                 onClick={() => fileInputRef.current?.click()}
-                className={`w-16 h-16 rounded-3xl flex items-center justify-center cursor-pointer transition-all ${
+                className={`w-16 h-16 rounded-3xl flex items-center justify-center cursor-pointer transition-all active:scale-95 ${
                   isLight
-                    ? "bg-slate-100 hover:bg-slate-200 text-indigo-600"
+                    ? "bg-[#FF5722]/10 hover:bg-[#FF5722]/20 text-[#FF5722] border border-[#FF5722]/20"
                     : "bg-white/5 hover:bg-white/10 text-[#00FFFF] border border-white/10"
                 }`}
               >
@@ -388,19 +390,18 @@ export function RulesInspector({
 
               <div className="flex flex-col gap-2 w-full max-w-xs pt-2">
                 <button
+                  type="button"
+                  id="btn-select-business-doc"
                   onClick={() => fileInputRef.current?.click()}
-                  className={`w-full py-2.5 rounded-2xl text-xs font-sf-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
-                    isLight
-                      ? "bg-[#FF751F] hover:bg-[#ff893b] text-black shadow-md shadow-orange-500/20"
-                      : "bg-[#FF751F] hover:bg-[#ff893b] text-black shadow-md shadow-orange-500/20"
-                  }`}
+                  className="w-full py-2.5 rounded-2xl text-xs font-sf-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md shadow-[#FF5722]/20 bg-[#FF5722] hover:bg-[#FF751F] text-white active:scale-98"
                 >
                   <Paperclip className="w-3.5 h-3.5" />
                   Select Business Document
                 </button>
                 <button
+                  type="button"
                   onClick={() => handleTabToggle("copilot")}
-                  className={`w-full py-2 rounded-2xl text-xs font-sf-light transition-all ${
+                  className={`w-full py-2 rounded-2xl text-xs font-sf-light hover:font-sf-bold transition-all ${
                     isLight
                       ? "text-slate-600 hover:text-slate-900"
                       : "text-neutral-400 hover:text-white"
