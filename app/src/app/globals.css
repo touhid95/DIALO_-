@@ -111,11 +111,16 @@
   font-display: swap;
 }
 
-/* ─── Mandatory SF Pro & 100 / 300 / 700 Design System ──────────────── */
+/* ─── Dual-Platform Typography: Roboto Flex (Android & Browsers) & Apple SF Pro (iOS) ─── */
 
 :root {
+  --font-roboto-flex: var(--font-roboto-flex, 'Roboto Flex', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
   --font-sf-pro: "SF Pro Display", "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-sans: var(--font-sf-pro);
+
+  /* Default across Android and all Web Browsers: Roboto Flex is first */
+  --font-primary: var(--font-roboto-flex);
+  --font-sans: var(--font-primary);
+  --font-modular: var(--font-primary);
   
   /* Neutral palette */
   --color-bg: #ffffff;
@@ -146,6 +151,22 @@
   --color-failed: #dc2626;
 }
 
+/* iOS / Apple devices override: strictly use Apple SF Pro */
+html.platform-ios {
+  --font-primary: var(--font-sf-pro);
+  --font-sans: var(--font-sf-pro);
+  --font-modular: var(--font-sf-pro);
+}
+
+/* Android and generic web browsers explicitly prioritize Roboto Flex */
+html.platform-android,
+html.platform-browser,
+html:not(.platform-ios) {
+  --font-primary: var(--font-roboto-flex);
+  --font-sans: var(--font-roboto-flex);
+  --font-modular: var(--font-roboto-flex);
+}
+
 /* ─── Base ──────────────────────────────────────────────────── */
 
 body {
@@ -156,32 +177,72 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── Strict 3-Tier SF Pro Typography Scale & Interaction ──────── */
+/* ─── Strict 3-Tier Typography Scale with Variable Axis Tuning ──────── */
 
+.font-app,
 .font-sf {
-  font-family: var(--font-sf-pro) !important;
+  font-family: var(--font-primary) !important;
 }
 
 .font-sf-thin,
 .weight-100 {
-  font-family: var(--font-sf-pro);
+  font-family: var(--font-primary) !important;
   font-weight: 100 !important;
+  font-variation-settings: 'wght' 100, 'wdth' 100, 'opsz' 14;
 }
 
 .font-sf-light,
 .weight-300 {
-  font-family: var(--font-sf-pro);
+  font-family: var(--font-primary) !important;
   font-weight: 300 !important;
+  font-variation-settings: 'wght' 300, 'wdth' 100, 'opsz' 16;
 }
 
 .font-sf-bold,
 .weight-700 {
-  font-family: var(--font-sf-pro);
+  font-family: var(--font-primary) !important;
   font-weight: 700 !important;
+  font-variation-settings: 'wght' 700, 'wdth' 105, 'opsz' 48;
 }
 
+/* Smooth Interactive Weight & Variable Axis Transitions */
 .interactive-weight {
-  transition: font-weight 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  transition: font-weight 0.2s cubic-bezier(0.16, 1, 0.3, 1), font-variation-settings 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease, transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover transitions with variable axes */
+.hover\:font-sf-light:hover,
+.hover\:weight-300:hover {
+  font-weight: 300 !important;
+  font-variation-settings: 'wght' 300, 'wdth' 100, 'opsz' 16 !important;
+}
+
+.hover\:font-sf-bold:hover,
+.hover\:weight-700:hover {
+  font-weight: 700 !important;
+  font-variation-settings: 'wght' 700, 'wdth' 105, 'opsz' 48 !important;
+}
+
+/* Clean fallback overrides for iOS */
+html.platform-ios .font-sf-thin,
+html.platform-ios .weight-100 {
+  font-family: var(--font-sf-pro) !important;
+  font-weight: 100 !important;
+  font-variation-settings: normal;
+}
+
+html.platform-ios .font-sf-light,
+html.platform-ios .weight-300 {
+  font-family: var(--font-sf-pro) !important;
+  font-weight: 300 !important;
+  font-variation-settings: normal;
+}
+
+html.platform-ios .font-sf-bold,
+html.platform-ios .weight-700 {
+  font-family: var(--font-sf-pro) !important;
+  font-weight: 700 !important;
+  font-variation-settings: normal;
 }
 
 /* ─── Scrollbar ─────────────────────────────────────────────── */
@@ -581,13 +642,13 @@ nextjs-portal,
   --color-surface-border: #1F1F1F;
   --color-surface-border-subtle: #141414;
 
-  --font-modular: var(--font-sf-pro);
+  --font-modular: var(--font-primary);
 }
 
-/* ═══ Typography Utilities (Enforced Apple SF Pro) ═════════════ */
+/* ═══ Typography Utilities (Dual-Platform Engine) ══════════════ */
 
 .font-modular {
-  font-family: var(--font-sf-pro) !important;
+  font-family: var(--font-primary) !important;
   font-weight: 700 !important;
 }
 
@@ -631,7 +692,7 @@ nextjs-portal,
 }
 
 .terminal-header-label {
-  font-family: var(--font-sf-pro);
+  font-family: var(--font-primary);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.22em;
@@ -645,7 +706,7 @@ nextjs-portal,
 .btn-dial-explore {
   background-color: var(--color-yellow);
   color: #000000;
-  font-family: var(--font-sf-pro);
+  font-family: var(--font-primary);
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -754,7 +815,7 @@ nextjs-portal,
 }
 
 .console-panel-header {
-  font-family: var(--font-sf-pro);
+  font-family: var(--font-primary);
   letter-spacing: 0.14em;
   font-weight: 700;
   text-transform: uppercase;

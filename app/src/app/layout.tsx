@@ -1,11 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const robotoFlex = Roboto_Flex({
+  subsets: ["latin"],
+  variable: "--font-roboto-flex",
+  display: "swap",
+  axes: ["wdth", "opsz", "GRAD"],
 });
 
 export const viewport: Viewport = {
@@ -42,8 +49,34 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${robotoFlex.variable}`}>
       <head>
+        {/* Early platform detection to apply platform-ios, platform-android, or platform-browser before hydration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var ua = navigator.userAgent || "";
+                  var platform = navigator.platform || "";
+                  var isIOS = /iPad|iPhone|iPod/.test(ua) || (platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+                  var isAndroid = /Android/.test(ua);
+                  var doc = document.documentElement;
+                  if (isIOS) {
+                    doc.classList.add('platform-ios');
+                  } else if (isAndroid) {
+                    doc.classList.add('platform-android');
+                  } else {
+                    doc.classList.add('platform-browser');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap" />
         <link rel="preload" href="/fonts/sf-pro/sf-pro-display-300.woff" as="font" type="font/woff" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/sf-pro/sf-pro-display-700.woff" as="font" type="font/woff" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/sf-pro/sf-pro-display-100.woff" as="font" type="font/woff" crossOrigin="anonymous" />

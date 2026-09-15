@@ -9,15 +9,17 @@ When working in this repository:
 3. **Graph Consistency**:
    - Keep `graphify-out/` updated when significant structural code changes occur.
 
-## Mandatory SF Pro Typography & 100 / 300 / 700 Weightage Rule
+## Mandatory Dual-Platform Typography: Roboto Flex (Android & Browsers) & SF Pro (iOS)
 When implementing or modifying any UI in this repository:
-1. **Font Family**:
-   - SF Pro (`-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", sans-serif`) is the mandatory primary typography across the entire interface.
+1. **Dual-Engine Typography**:
+   - **Android & Web Browsers**: **Roboto Flex** (`'Roboto Flex', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`) is the mandatory primary font with variable axes (`wght`, `wdth`, `opsz`).
+   - **iOS / Apple Mobile Devices**: **SF Pro** (`-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", sans-serif`) is the mandatory primary font.
+   - Dynamic platform selection is driven by early execution platform tags (`platform-ios`, `platform-android`, `platform-browser`) mapping to `--font-primary`.
 2. **Strict 3-Tier Weightage Scale**:
    - Only 3 font weights are permitted for UI typography:
-     - **`100` (Thin / Ultralight)**: Ambient metadata, timestamps, secondary captions, inactive counters, and ghost indicators.
-     - **`300` (Light)**: Default reading body text, descriptions, unselected card titles, and standard interactive controls.
-     - **`700` (Bold)**: Primary emphasis, active / selected items, key metric numbers, and hero labels.
+     - **`100` (Thin / Ultralight)**: Ambient metadata, timestamps, secondary captions, inactive counters, and ghost indicators (`font-variation-settings: 'wght' 100, 'wdth' 100, 'opsz' 14`).
+     - **`300` (Light)**: Default reading body text, descriptions, unselected card titles, and standard interactive controls (`font-variation-settings: 'wght' 300, 'wdth' 100, 'opsz' 16`).
+     - **`700` (Bold)**: Primary emphasis, active / selected items, key metric numbers, and hero labels (`font-variation-settings: 'wght' 700, 'wdth' 105, 'opsz' 48`).
 3. **Interactive Weightage Transitions**:
    - Every UI interactive change (hover, active, select) must dynamically interact with this weightage scale:
      - Ambient text shifts from `100` to `300` on hover.
