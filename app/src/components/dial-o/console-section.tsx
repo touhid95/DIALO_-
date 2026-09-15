@@ -289,9 +289,21 @@ export interface ConsoleSectionProps {
 }
 
 export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {}) {
-  // Apple Theme Mode state (Defaults to Dark Glass, with instant toggle to Clean Light)
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  // Apple Theme Mode state (Defaults to Warm Sand 'light' at startup, persisted in localStorage)
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("dialo_theme");
+      if (saved === "dark" || saved === "light") return saved;
+    }
+    return "light";
+  });
   const isLight = theme === "light";
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("dialo_theme", theme);
+    }
+  }, [theme]);
 
   // PWA Navigation Tab state: 'call_log' | 'dashboard' | 'chat'
   const [pwaTab, setPwaTab] = useState<PwaTab>("dashboard");
@@ -744,7 +756,6 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
               size="sm"
               variant="ghost"
               isHovered={Boolean(hoveredLeadId)}
-              title="Intelligence Radar"
               subtitle={
                 hoveredLeadId
                   ? `${activeRadarLead?.name || "Hovered"} (${activeRadarLead?.score ?? 85}%)`
@@ -923,7 +934,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
               />
               <input
                 type="text"
-                placeholder="Filter queue by name, sector, metro..."
+                placeholder="Search leads..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className={`w-full bg-transparent text-xs focus:outline-none ${
@@ -964,14 +975,14 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                   isLight ? "text-neutral-900" : "text-white"
                 }`}
               >
-                Ready for Lead Discovery
+                Ready for Discovery
               </h4>
               <p
                 className={`text-xs font-sf-light leading-relaxed ${
                   isLight ? "text-neutral-700" : "text-neutral-400"
                 }`}
               >
-                Upload your business deck or describe your offering in the AI Copilot to extract tailored ICP rules and surface verified prospects.
+                Drop your deck or start Copilot to surface prospects.
               </p>
             </div>
             <div className="flex items-center justify-center gap-2 pt-2">
@@ -980,7 +991,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                 className="px-4 py-2 rounded-xl text-xs font-sf-bold flex items-center gap-1.5 transition-all bg-[#FF751F] hover:bg-[#FF5722] text-white shadow-md shadow-[#FF5722]/20"
               >
                 <FileText className="w-3.5 h-3.5" />
-                Upload Business Document
+                Upload Document
               </button>
               <button
                 onClick={() => {
@@ -993,7 +1004,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                     : "border-white/10 text-neutral-400 hover:text-white hover:bg-white/5"
                 }`}
               >
-                Load Sample Demo Leads
+                Sample Leads
               </button>
             </div>
           </div>
@@ -1059,33 +1070,6 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                       >
                         {lead.name}
                       </h4>
-                      {/* Badges from Mockup with dynamic weight transition */}
-                      <span
-                        className={`text-[9px] px-1.5 py-0.5 rounded border interactive-weight ${
-                          isHovered
-                            ? isLight ? "font-sf-bold text-neutral-900 border-black/20" : "font-sf-bold text-white border-white/20"
-                            : isLight ? "font-sf-light text-neutral-800 border-black/10" : "font-sf-thin text-neutral-300 border-white/10"
-                        } ${
-                          isLight
-                            ? "bg-[#F7EAD8]/70"
-                            : "bg-white/10"
-                        }`}
-                      >
-                        Discovered
-                      </span>
-                      <span
-                        className={`text-[9px] px-1.5 py-0.5 rounded border interactive-weight ${
-                          isHovered
-                            ? isLight ? "font-sf-bold text-neutral-900 border-black/20" : "font-sf-bold text-white border-white/20"
-                            : isLight ? "font-sf-light text-neutral-800 border-black/10" : "font-sf-thin text-neutral-300 border-white/10"
-                        } ${
-                          isLight
-                            ? "bg-[#F7EAD8]/70"
-                            : "bg-white/10"
-                        }`}
-                      >
-                        Multi-Domain
-                      </span>
                     </div>
 
                     {/* Right Action Buttons */}
@@ -1311,11 +1295,8 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
               onClick={() => setTheme(isLight ? "dark" : "light")}
               title={`Switch to ${isLight ? "Dark Obsidian" : "Clean Warm Sand"} Mode`}
               aria-label={`Toggle theme (Currently ${isLight ? "Warm Sand" : "Dark Obsidian"})`}
-              className="flex items-center gap-2 group cursor-pointer focus:outline-none select-none py-1"
+              className="flex items-center group cursor-pointer focus:outline-none select-none py-1"
             >
-              <span className="hidden sm:inline text-[11px] font-sf-thin group-hover:font-sf-light text-neutral-400 group-hover:text-neutral-200 transition-all">
-                {isLight ? "Sand" : "Obsidian"}
-              </span>
               <div
                 className={`w-11 h-6 rounded-full p-0.5 transition-colors duration-300 flex items-center ${
                   isLight ? "bg-[#FF5722]" : "bg-white/15 border border-white/20"

@@ -67,7 +67,7 @@ export function RulesInspector({
   onCopilotInputChange,
   onSendCopilotMessage,
   isCopilotStreaming = false,
-  theme = "dark",
+  theme = "light",
   className = "",
   onAttachFile,
   onUploadAndAnalyze,
@@ -188,7 +188,7 @@ export function RulesInspector({
                 : "text-neutral-400 hover:text-neutral-200 font-sf-light"
             }`}
           >
-            <span>Campaign Rules</span>
+            <span>Rules</span>
           </button>
 
           {/* Tab 2: AI Copilot */}
@@ -205,7 +205,7 @@ export function RulesInspector({
             }`}
           >
             <Bot className="w-3.5 h-3.5" />
-            <span>AI Copilot</span>
+            <span>Copilot</span>
           </button>
         </div>
       </div>
@@ -385,10 +385,10 @@ export function RulesInspector({
 
               <div className="space-y-1.5 max-w-xs">
                 <h4 className={`text-sm font-sf-bold ${isLight ? "text-neutral-900" : "text-white"}`}>
-                  No Rules Configured Yet
+                  No Rules Configured
                 </h4>
                 <p className={`text-xs font-sf-light leading-relaxed ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>
-                  Upload your business deck, product one-pager, or lead document. AI will extract your ICP rules and locate matching prospects.
+                  Upload your business deck to extract ICP rules and locate prospects.
                 </p>
               </div>
 
@@ -400,7 +400,7 @@ export function RulesInspector({
                   className="w-full py-2.5 rounded-2xl text-xs font-sf-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md shadow-[#FF5722]/20 bg-[#FF5722] hover:bg-[#FF751F] text-white active:scale-98"
                 >
                   <Paperclip className="w-3.5 h-3.5" />
-                  Select Business Document
+                  Select Document
                 </button>
                 <button
                   type="button"
@@ -411,7 +411,7 @@ export function RulesInspector({
                       : "text-neutral-400 hover:text-white"
                   }`}
                 >
-                  Or describe your offer in AI Copilot →
+                  Describe in Copilot →
                 </button>
               </div>
             </div>
@@ -710,10 +710,10 @@ export function RulesInspector({
               <div className="h-full flex flex-col items-center justify-center text-center p-4 space-y-2.5 my-auto">
                 <Bot className={`w-8 h-8 opacity-80 ${isLight ? "text-[#FF5722]" : "text-[#00FFFF]"}`} />
                 <h4 className={`text-xs font-sf-bold ${isLight ? "text-neutral-900" : "text-neutral-200"}`}>
-                  AI Lead Copilot Ready
+                  Copilot Ready
                 </h4>
                 <p className={`text-[11px] font-sf-light leading-relaxed max-w-xs ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>
-                  Upload your pitch deck or state what you sell. I will extract your ideal customer profile, enforce constraints, and surface matching leads.
+                  Describe your offer or product to extract ICP rules and surface leads.
                 </p>
               </div>
             )}
@@ -797,8 +797,8 @@ export function RulesInspector({
               type="text"
               placeholder={
                 attachedFile
-                  ? "Add instructions or press Enter to analyze..."
-                  : "Drop file or state your business/offering..."
+                  ? "Instructions or press Enter to analyze..."
+                  : "Message Copilot or attach file..."
               }
               value={copilotInput}
               onChange={(e) =>

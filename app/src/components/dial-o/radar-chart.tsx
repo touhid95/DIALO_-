@@ -45,7 +45,7 @@ export function RadarChart({
   subtitle,
   isHovered = false,
   size = "sm",
-  theme = "dark",
+  theme = "light",
   variant = "card",
   className = "",
 }: RadarChartProps) {
@@ -112,7 +112,7 @@ export function RadarChart({
       } ${className}`}
     >
       {(title || subtitle) && (
-        <div className="w-full flex items-center justify-between mb-1 px-1">
+        <div className={`w-full flex items-center ${title ? "justify-between" : "justify-center"} mb-1 px-1`}>
           {title && (
             <span
               className={`text-[11px] font-sf-bold tracking-wider uppercase truncate max-w-[120px] ${
@@ -300,31 +300,15 @@ export function RadarChart({
         })}
       </svg>
 
-      {/* Subtle Bottom Status Indicator */}
-      <div className="mt-1 flex items-center justify-center gap-1.5 text-[9px] select-none">
-        <span
-          className={`inline-block w-1.5 h-1.5 rounded-full transition-colors ${
-            isHovered
-              ? "bg-[#FF5722] dark:bg-[#00FFFF]"
-              : isLight
-              ? "bg-neutral-500"
-              : "bg-white/20"
-          }`}
-        />
-        <span
-          className={`interactive-weight ${
-            isHovered
-              ? isLight
-                ? "text-[#FF5722] font-sf-bold"
-                : "text-[#00FFFF] font-sf-bold"
-              : isLight
-              ? "text-neutral-700 font-sf-light"
-              : "text-neutral-400 font-sf-thin"
-          }`}
-        >
-          {isHovered ? "Live Fit Comparison" : "Hover lead to preview"}
-        </span>
-      </div>
+      {/* Subtle Bottom Status Indicator (shown only on live comparison) */}
+      {isHovered && (
+        <div className="mt-1 flex items-center justify-center gap-1.5 text-[9px] select-none animate-in fade-in duration-200">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FF5722] dark:bg-[#00FFFF]" />
+          <span className={`interactive-weight font-sf-bold ${isLight ? "text-[#FF5722]" : "text-[#00FFFF]"}`}>
+            Live Fit Comparison
+          </span>
+        </div>
+      )}
     </div>
   );
 }

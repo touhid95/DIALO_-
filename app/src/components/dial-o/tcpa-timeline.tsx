@@ -97,7 +97,7 @@ export function TcpaTimeline({
   onSelectLead,
   onHoverLead,
   onTriggerCall,
-  theme = "dark",
+  theme = "light",
   className = "",
 }: TcpaTimelineProps) {
   const isLight = theme === "light";
@@ -112,31 +112,21 @@ export function TcpaTimeline({
     >
       {/* Panel Header */}
       <div className="shrink-0 flex items-center justify-between mb-3 px-1">
-        <div>
-          <h3
-            className={`text-sm font-sf-bold tracking-tight ${
-              isLight ? "text-neutral-900" : "text-white"
-            }`}
-          >
-            Call Queue
-          </h3>
-          <p
-            className={`text-[11px] font-sf-light flex items-center gap-1 mt-0.5 ${
-              isLight ? "text-neutral-700" : "text-neutral-400"
-            }`}
-          >
-            <ShieldCheck className="w-3.5 h-3.5 text-[#FF5722]" />
-            TCPA 08:00-20:00 Window
-          </p>
-        </div>
+        <h3
+          className={`text-sm font-sf-bold tracking-tight ${
+            isLight ? "text-neutral-900" : "text-white"
+          }`}
+        >
+          Call Queue
+        </h3>
         <span
-          className={`text-[10px] px-2.5 py-0.5 rounded-full font-sf-bold ${
+          className={`text-[10px] px-2 py-0.5 rounded-full font-sf-bold ${
             isLight
               ? "bg-[#FF751F]/15 text-[#FF5722] border border-[#FF5722]/30"
               : "bg-[#FF751F]/20 text-[#FF751F] border border-[#FF751F]/40"
           }`}
         >
-          {slots.length} Ready
+          {slots.length}
         </span>
       </div>
 
@@ -176,15 +166,11 @@ export function TcpaTimeline({
                     <Clock className="w-3 h-3 text-[#FF5722] shrink-0" />
                     {slot.time}
                   </span>
-                  <span
-                    className={`text-[9px] font-sf-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 ${
-                      slot.status === "CALLING"
-                        ? "bg-[#FF5722]/15 text-[#FF5722] border border-[#FF5722]/30 animate-pulse"
-                        : "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
-                    }`}
-                  >
-                    {slot.status === "CALLING" ? "Calling" : "Open"}
-                  </span>
+                  {slot.status === "CALLING" && (
+                    <span className="text-[9px] font-sf-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 bg-[#FF5722]/15 text-[#FF5722] border border-[#FF5722]/30 animate-pulse">
+                      Calling
+                    </span>
+                  )}
                 </div>
 
                 {/* Direct Call Action Button */}
@@ -266,14 +252,7 @@ export function TcpaTimeline({
       </div>
 
       {/* Bottom Footer Note */}
-      <div className="shrink-0 mt-3 pt-2.5 border-t border-black/5 dark:border-white/10 flex items-center justify-between px-1">
-        <span
-          className={`text-[10px] font-sf-light ${
-            isLight ? "text-neutral-700" : "text-neutral-400"
-          }`}
-        >
-          Auto-pacing: 1 call / 3m
-        </span>
+      <div className="shrink-0 mt-3 pt-2.5 border-t border-black/5 dark:border-white/10 flex items-center justify-end px-1">
         <div className="flex items-center gap-1.5">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span
@@ -281,7 +260,7 @@ export function TcpaTimeline({
               isLight ? "text-neutral-900" : "text-neutral-200"
             }`}
           >
-            CALL-E Agent Live
+            CALL-E Live
           </span>
         </div>
       </div>
