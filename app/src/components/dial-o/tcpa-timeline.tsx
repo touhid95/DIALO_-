@@ -102,52 +102,15 @@ export function TcpaTimeline({
 }: TcpaTimelineProps) {
   const isLight = theme === "light";
 
-  // Editorial Sand & Orange card tints (matching the architectural reference)
-  const getCardStyle = (tint?: string, isSelected?: boolean) => {
-    if (isLight) {
-      const baseBorder = isSelected
-        ? "border-[#FF5722] ring-2 ring-[#FF5722]/25 shadow-md"
-        : "border-black/10 hover:border-[#FF5722]/50";
-      switch (tint) {
-        case "sage":
-          return `bg-[#FAF7F0] ${baseBorder} text-neutral-900`;
-        case "mint":
-          return `bg-[#F5F8F6] ${baseBorder} text-neutral-900`;
-        case "lavender":
-          return `bg-[#F8F5FA] ${baseBorder} text-neutral-900`;
-        case "peach":
-          return `bg-[#FFF5ED] ${baseBorder} text-neutral-900`;
-        default:
-          return `bg-[#FAF7F2] ${baseBorder} text-neutral-900`;
-      }
-    } else {
-      const baseBorder = isSelected
-        ? "border-[#FF751F] ring-1 ring-[#FF751F]/40 shadow-lg shadow-[#FF751F]/10"
-        : "border-white/[0.08]";
-      switch (tint) {
-        case "sage":
-          return `bg-gradient-to-br from-neutral-900 to-black/80 ${baseBorder} text-neutral-200`;
-        case "mint":
-          return `bg-gradient-to-br from-neutral-900 to-black/80 ${baseBorder} text-neutral-200`;
-        case "lavender":
-          return `bg-gradient-to-br from-neutral-900 to-black/80 ${baseBorder} text-neutral-200`;
-        case "peach":
-          return `bg-gradient-to-br from-neutral-900 to-black/80 ${baseBorder} text-neutral-200`;
-        default:
-          return `bg-black/60 ${baseBorder} text-neutral-200`;
-      }
-    }
-  };
-
   return (
     <div
-      className={`flex flex-col h-full min-h-0 p-3.5 sm:p-4 rounded-3xl transition-all duration-300 ${
+      className={`flex flex-col h-full min-h-0 p-3 sm:p-3.5 rounded-3xl transition-all duration-300 ${
         isLight
           ? "bg-[#FFFDF9] border border-black/10 shadow-sm"
-          : "bg-[#0d0d0d]/80 border border-white/[0.08] backdrop-blur-xl"
+          : "bg-[#111111]/85 border border-white/10 backdrop-blur-xl"
       } ${className}`}
     >
-      {/* Header */}
+      {/* Panel Header */}
       <div className="shrink-0 flex items-center justify-between mb-3 px-1">
         <div>
           <h3
@@ -159,7 +122,7 @@ export function TcpaTimeline({
           </h3>
           <p
             className={`text-[11px] font-sf-light flex items-center gap-1 mt-0.5 ${
-              isLight ? "text-neutral-600" : "text-neutral-400"
+              isLight ? "text-neutral-500" : "text-neutral-400"
             }`}
           >
             <ShieldCheck className="w-3.5 h-3.5 text-[#FF5722]" />
@@ -178,102 +141,120 @@ export function TcpaTimeline({
       </div>
 
       {/* Schedule Items Feed (Scrollable within column) */}
-      <div className="flex-1 min-h-0 space-y-3 overflow-y-auto overflow-x-hidden pr-1 scrollbar-thin">
+      <div className="flex-1 min-h-0 space-y-2.5 overflow-y-auto overflow-x-hidden pr-0.5 scrollbar-thin">
         {slots.map((slot) => {
           const isSelected = selectedLeadId === slot.leadId;
 
           return (
-            <div key={slot.id} className="flex items-start gap-3 group">
-              {/* Left Timestamp */}
-              <div className="w-16 shrink-0 pt-2 text-right">
-                <span
-                  className={`text-[11px] block leading-none interactive-weight ${
-                    isSelected
-                      ? "font-sf-bold text-[#FF5722] dark:text-[#FF751F]"
-                      : isLight
-                      ? "font-sf-light text-neutral-600 group-hover:font-sf-bold group-hover:text-black"
-                      : "font-sf-light text-neutral-400 group-hover:font-sf-bold group-hover:text-white"
-                  }`}
+            <div
+              key={slot.id}
+              onClick={() => onSelectLead && onSelectLead(slot.leadId)}
+              onMouseEnter={() => onHoverLead && onHoverLead(slot.leadId)}
+              onMouseLeave={() => onHoverLead && onHoverLead(null)}
+              className={`group relative p-3 rounded-2xl border transition-all duration-200 cursor-pointer ${
+                isSelected
+                  ? isLight
+                    ? "bg-white border-[#FF5722] ring-2 ring-[#FF5722]/20 shadow-md"
+                    : "bg-[#181818] border-[#FF751F] ring-1 ring-[#FF751F]/40 shadow-lg shadow-[#FF751F]/10"
+                  : isLight
+                  ? "bg-white border-black/10 hover:border-[#FF5722]/50 hover:shadow-md hover:translate-y-[-1px]"
+                  : "bg-white/[0.03] border-white/10 hover:border-[#FF751F]/40 hover:bg-white/[0.05] hover:translate-y-[-1px]"
+              }`}
+            >
+              {/* Top Row: Time Badge + Status Pill + Call Button */}
+              <div className="flex items-center justify-between gap-2 mb-1.5">
+                <div className="flex items-center gap-1.5 min-w-0">
+                  <span
+                    className={`inline-flex items-center gap-1 text-[11px] leading-none interactive-weight ${
+                      isSelected
+                        ? "font-sf-bold text-[#FF5722] dark:text-[#FF751F]"
+                        : isLight
+                        ? "font-sf-light text-neutral-700 group-hover:font-sf-bold group-hover:text-black"
+                        : "font-sf-light text-neutral-300 group-hover:font-sf-bold group-hover:text-white"
+                    }`}
+                  >
+                    <Clock className="w-3 h-3 text-[#FF5722] shrink-0" />
+                    {slot.time}
+                  </span>
+                  <span
+                    className={`text-[9px] font-sf-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 ${
+                      slot.status === "CALLING"
+                        ? "bg-[#FF5722]/15 text-[#FF5722] border border-[#FF5722]/30 animate-pulse"
+                        : "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                    }`}
+                  >
+                    {slot.status === "CALLING" ? "Calling" : "Open"}
+                  </span>
+                </div>
+
+                {/* Direct Call Action Button */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onTriggerCall && onTriggerCall(slot.leadId);
+                  }}
+                  title="Initiate Live CALL-E Speech Verification"
+                  className="w-6 h-6 rounded-lg bg-[#FF751F] hover:bg-[#FF5722] text-white flex items-center justify-center shadow-sm shadow-[#FF5722]/20 active:scale-90 transition-all shrink-0 cursor-pointer"
                 >
-                  {slot.time}
-                </span>
-                <span className="text-[9px] font-sf-bold text-emerald-600 dark:text-emerald-400 block mt-1">
-                  Open
-                </span>
+                  <Phone className="w-3 h-3 fill-white text-white" />
+                </button>
               </div>
 
-              {/* iOS Squircle Schedule Card */}
-              <div
-                onClick={() => onSelectLead && onSelectLead(slot.leadId)}
-                onMouseEnter={() => onHoverLead && onHoverLead(slot.leadId)}
-                onMouseLeave={() => onHoverLead && onHoverLead(null)}
-                className={`flex-1 p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer ${getCardStyle(
-                  slot.tintColor,
+              {/* Business Name */}
+              <h4
+                className={`text-xs tracking-tight truncate interactive-weight ${
                   isSelected
-                )} hover:scale-[1.01] active:scale-[0.99]`}
+                    ? isLight ? "font-sf-bold text-neutral-900" : "font-sf-bold text-white"
+                    : isLight
+                    ? "font-sf-light text-neutral-800 group-hover:font-sf-bold group-hover:text-black"
+                    : "font-sf-light text-neutral-200 group-hover:font-sf-bold group-hover:text-white"
+                }`}
               >
-                <div className="flex items-center justify-between mb-2">
-                  {/* Overlapping Avatar Stack */}
-                  <div className="flex -space-x-1.5 overflow-hidden">
-                    {slot.avatars.map((av, idx) => (
-                      <img
-                        key={idx}
-                        src={av}
-                        alt="Contact"
-                        className="inline-block h-5 w-5 rounded-full ring-1 ring-white/20 object-cover"
-                      />
-                    ))}
-                  </div>
+                {slot.businessName}
+              </h4>
 
-                  {/* Trigger Call CTA Icon */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onTriggerCall && onTriggerCall(slot.leadId);
-                    }}
-                    title="Initiate Live CALL-E Speech Verification"
-                    className={`p-1.5 rounded-xl border transition-all ${
-                      isLight
-                        ? "bg-[#FF751F] hover:bg-[#ff893b] text-black border-black/10 shadow-sm"
-                        : "bg-white/10 hover:bg-[#FF751F] hover:text-black border-white/20"
-                    }`}
-                  >
-                    <Phone className="w-3 h-3 text-black dark:text-white" />
-                  </button>
+              {/* Category */}
+              <p
+                className={`text-[10.5px] truncate mt-0.5 interactive-weight ${
+                  isSelected
+                    ? "font-sf-light text-neutral-600 dark:text-neutral-300"
+                    : "font-sf-thin text-neutral-500 dark:text-neutral-400 group-hover:font-sf-light"
+                }`}
+              >
+                {slot.category}
+              </p>
+
+              {/* Bottom Row: Contact Avatars + Verification / Timezone Badge */}
+              <div className="flex items-center justify-between mt-2 pt-2 border-t border-black/5 dark:border-white/5">
+                {/* Overlapping Avatar Stack */}
+                <div className="flex -space-x-1.5 overflow-hidden py-0.5">
+                  {slot.avatars.map((av, idx) => (
+                    <img
+                      key={idx}
+                      src={av}
+                      alt="Contact"
+                      className="inline-block h-4.5 w-4.5 rounded-full ring-1 ring-white dark:ring-black object-cover"
+                    />
+                  ))}
                 </div>
 
-                {/* Business Title & Details */}
-                <h4
-                  className={`text-xs tracking-tight line-clamp-1 interactive-weight ${
-                    isSelected
-                      ? isLight ? "font-sf-bold text-slate-900" : "font-sf-bold text-white"
-                      : isLight ? "font-sf-light text-slate-800 group-hover:font-sf-bold" : "font-sf-light text-neutral-200 group-hover:font-sf-bold"
-                  }`}
-                >
-                  {slot.businessName}
-                </h4>
-
-                <div className="flex items-center justify-between mt-1.5 pt-1.5 border-t border-black/5 dark:border-white/5 text-[10px]">
-                  <span
-                    className={`truncate max-w-[130px] interactive-weight ${
-                      isSelected ? "font-sf-light" : "font-sf-thin group-hover:font-sf-light"
-                    } ${
-                      isLight ? "text-slate-600" : "text-neutral-400"
-                    }`}
-                  >
-                    {slot.category}
+                {/* Status / Timezone */}
+                {slot.status === "VERIFIED" ? (
+                  <span className="inline-flex items-center gap-1 font-sf-bold text-[10px] text-emerald-600 dark:text-emerald-400">
+                    <CheckCircle2 className="w-3 h-3" />
+                    Verified
                   </span>
-                  {slot.status === "VERIFIED" ? (
-                    <span className="flex items-center gap-1 font-sf-bold text-emerald-600 dark:text-emerald-400">
-                      <CheckCircle2 className="w-3 h-3" />
-                      Verified
-                    </span>
-                  ) : (
-                    <span className="font-sf-light text-neutral-500">
-                      {slot.timezone}
-                    </span>
-                  )}
-                </div>
+                ) : (
+                  <span
+                    className={`text-[9.5px] interactive-weight ${
+                      isSelected
+                        ? "font-sf-light text-neutral-600 dark:text-neutral-300"
+                        : "font-sf-thin text-neutral-400 dark:text-neutral-500 group-hover:font-sf-light"
+                    }`}
+                  >
+                    {slot.timezone}
+                  </span>
+                )}
               </div>
             </div>
           );
@@ -283,8 +264,8 @@ export function TcpaTimeline({
       {/* Bottom Footer Note */}
       <div className="shrink-0 mt-3 pt-2.5 border-t border-black/5 dark:border-white/10 flex items-center justify-between px-1">
         <span
-          className={`text-[10px] font-sf-thin ${
-            isLight ? "text-slate-500" : "text-neutral-400"
+          className={`text-[10px] font-sf-light ${
+            isLight ? "text-neutral-500" : "text-neutral-400"
           }`}
         >
           Auto-pacing: 1 call / 3m
@@ -293,7 +274,7 @@ export function TcpaTimeline({
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span
             className={`text-[10px] font-sf-bold ${
-              isLight ? "text-slate-700" : "text-neutral-300"
+              isLight ? "text-neutral-800" : "text-neutral-200"
             }`}
           >
             CALL-E Agent Live
