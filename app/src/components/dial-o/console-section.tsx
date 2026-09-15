@@ -761,12 +761,12 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
             <div className="grid grid-cols-4 gap-2">
               <div
                 className={`p-2 rounded-2xl border text-center transition-all ${
-                  isLight ? "bg-[#F7EAD8]/60 border-black/10" : "bg-white/[0.03] border-white/[0.08]"
+                  isLight ? "bg-[#F7EAD8]/60 border-black/15 shadow-xs" : "bg-white/[0.03] border-white/[0.08]"
                 }`}
               >
                 <span
-                  className={`text-[8.5px] font-sf-light uppercase tracking-wider block ${
-                    isLight ? "text-neutral-600" : "text-neutral-400"
+                  className={`text-[8.5px] uppercase tracking-wider block ${
+                    isLight ? "text-neutral-700 font-sf-bold" : "text-neutral-400 font-sf-light"
                   }`}
                 >
                   Total
@@ -782,12 +782,12 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
 
               <div
                 className={`p-2 rounded-2xl border text-center transition-all ${
-                  isLight ? "bg-[#FF5722]/10 border-[#FF5722]/30" : "bg-[#FF5722]/15 border-[#FF5722]/30"
+                  isLight ? "bg-[#FF5722]/10 border-[#FF5722]/35 shadow-xs" : "bg-[#FF5722]/15 border-[#FF5722]/30"
                 }`}
               >
                 <span
-                  className={`text-[8.5px] font-sf-light uppercase tracking-wider block ${
-                    isLight ? "text-[#FF5722]" : "text-[#FF751F]"
+                  className={`text-[8.5px] uppercase tracking-wider block ${
+                    isLight ? "text-[#FF5722] font-sf-bold" : "text-[#FF751F] font-sf-light"
                   }`}
                 >
                   Match 70+
@@ -799,34 +799,42 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
 
               <div
                 className={`p-2 rounded-2xl border text-center transition-all ${
-                  isLight ? "bg-[#FAF7F2] border-black/10" : "bg-white/[0.03] border-white/10"
+                  isLight ? "bg-[#FFFDF9] border-black/15 shadow-xs" : "bg-white/[0.03] border-white/10"
                 }`}
               >
                 <span
-                  className={`text-[8.5px] font-sf-light uppercase tracking-wider block ${
-                    isLight ? "text-neutral-600" : "text-neutral-400"
+                  className={`text-[8.5px] uppercase tracking-wider block ${
+                    isLight ? "text-neutral-700 font-sf-bold" : "text-neutral-400 font-sf-light"
                   }`}
                 >
                   Calls
                 </span>
-                <span className="text-sm font-sf-bold block mt-0.5 text-neutral-900 dark:text-neutral-200">
+                <span
+                  className={`text-sm font-sf-bold block mt-0.5 ${
+                    isLight ? "text-neutral-900" : "text-white"
+                  }`}
+                >
                   {statCounts.callsPlaced}
                 </span>
               </div>
 
               <div
                 className={`p-2 rounded-2xl border text-center transition-all ${
-                  isLight ? "bg-emerald-500/10 border-emerald-500/30" : "bg-emerald-500/10 border-emerald-500/30"
+                  isLight ? "bg-emerald-500/15 border-emerald-600/35 shadow-xs" : "bg-emerald-500/10 border-emerald-500/30"
                 }`}
               >
                 <span
-                  className={`text-[8.5px] font-sf-light uppercase tracking-wider block ${
-                    isLight ? "text-emerald-800" : "text-emerald-400"
+                  className={`text-[8.5px] uppercase tracking-wider block ${
+                    isLight ? "text-emerald-900 font-sf-bold" : "text-emerald-400 font-sf-light"
                   }`}
                 >
                   Verified
                 </span>
-                <span className="text-sm font-sf-bold block mt-0.5 text-emerald-700 dark:text-emerald-400">
+                <span
+                  className={`text-sm font-sf-bold block mt-0.5 ${
+                    isLight ? "text-emerald-800" : "text-emerald-400"
+                  }`}
+                >
                   {statCounts.aiVerified}
                 </span>
               </div>
@@ -843,9 +851,9 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                   Lead Queue
                 </span>
                 <span
-                  className={`text-[10px] font-sf-light px-2 py-0.5 rounded-full shrink-0 ${
+                  className={`text-[10px] font-sf-bold px-2 py-0.5 rounded-full shrink-0 ${
                     isLight
-                      ? "bg-[#FF5722]/10 text-[#FF5722] border border-[#FF5722]/20"
+                      ? "bg-[#FF5722]/15 text-[#FF5722] border border-[#FF5722]/30"
                       : "bg-[#FF5722]/15 text-[#FF751F] border border-[#FF5722]/30"
                   }`}
                 >
@@ -856,7 +864,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
               {/* Segmented Filter Pills */}
               <div
                 className={`flex p-0.5 rounded-full border text-[10.5px] shrink-0 ${
-                  isLight ? "bg-[#F7EAD8]/80 border-black/10" : "bg-black/60 border-white/10"
+                  isLight ? "bg-[#F7EAD8]/80 border-black/15" : "bg-black/60 border-white/10"
                 }`}
               >
                 <button
@@ -867,7 +875,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                         ? "bg-[#111111] text-white shadow-sm font-sf-bold"
                         : "bg-white text-black font-sf-bold"
                       : isLight
-                      ? "text-neutral-600 hover:text-neutral-900 font-sf-light"
+                      ? "text-neutral-700 hover:text-black font-sf-light hover:font-sf-bold"
                       : "text-neutral-400 hover:text-white font-sf-light"
                   }`}
                 >
@@ -879,7 +887,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                     filterQual === "TIER_A"
                       ? "bg-[#FF5722] text-white shadow-sm font-sf-bold"
                       : isLight
-                      ? "text-neutral-600 hover:text-neutral-900 font-sf-light"
+                      ? "text-neutral-700 hover:text-black font-sf-light hover:font-sf-bold"
                       : "text-neutral-400 hover:text-white font-sf-light"
                   }`}
                 >
@@ -891,7 +899,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                     filterQual === "VERIFIED"
                       ? "bg-emerald-600 text-white shadow-sm font-sf-bold"
                       : isLight
-                      ? "text-neutral-600 hover:text-neutral-900 font-sf-light"
+                      ? "text-neutral-700 hover:text-black font-sf-light hover:font-sf-bold"
                       : "text-neutral-400 hover:text-white font-sf-light"
                   }`}
                 >
@@ -904,13 +912,13 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
             <div
               className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border transition-all ${
                 isLight
-                  ? "bg-[#FFFDF9] border-black/10 focus-within:border-[#FF5722] focus-within:ring-1 focus-within:ring-[#FF5722]/30 focus-within:bg-white"
+                  ? "bg-[#FFFDF9] border-black/15 focus-within:border-[#FF5722] focus-within:ring-1 focus-within:ring-[#FF5722]/30 focus-within:bg-white"
                   : "bg-black/50 border-white/10 focus-within:border-[#FF5722]/60"
               }`}
             >
               <Search
                 className={`w-3.5 h-3.5 shrink-0 ${
-                  isLight ? "text-neutral-400" : "text-neutral-500"
+                  isLight ? "text-neutral-600" : "text-neutral-500"
                 }`}
               />
               <input
@@ -920,8 +928,8 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className={`w-full bg-transparent text-xs focus:outline-none ${
                   isLight
-                    ? "text-neutral-900 placeholder:text-neutral-400"
-                    : "text-white placeholder:text-neutral-500"
+                    ? "text-neutral-900 placeholder:text-neutral-600 font-sf-light"
+                    : "text-white placeholder:text-neutral-500 font-sf-light"
                 }`}
               />
               {searchQuery && (
@@ -951,10 +959,18 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
               <Sparkles className="w-6 h-6" />
             </div>
             <div className="space-y-1 max-w-sm mx-auto">
-              <h4 className="text-sm font-sf-bold">
+              <h4
+                className={`text-sm font-sf-bold ${
+                  isLight ? "text-neutral-900" : "text-white"
+                }`}
+              >
                 Ready for Lead Discovery
               </h4>
-              <p className="text-xs font-sf-light text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              <p
+                className={`text-xs font-sf-light leading-relaxed ${
+                  isLight ? "text-neutral-700" : "text-neutral-400"
+                }`}
+              >
                 Upload your business deck or describe your offering in the AI Copilot to extract tailored ICP rules and surface verified prospects.
               </p>
             </div>
@@ -973,7 +989,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                 }}
                 className={`px-3 py-2 rounded-xl text-xs font-sf-light border transition-all ${
                   isLight
-                    ? "border-black/10 text-neutral-700 hover:bg-black/5"
+                    ? "border-black/20 text-neutral-800 hover:bg-black/5 font-sf-light"
                     : "border-white/10 text-neutral-400 hover:text-white hover:bg-white/5"
                 }`}
               >
@@ -1046,22 +1062,26 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                       {/* Badges from Mockup with dynamic weight transition */}
                       <span
                         className={`text-[9px] px-1.5 py-0.5 rounded border interactive-weight ${
-                          isHovered ? "font-sf-light" : "font-sf-thin"
+                          isHovered
+                            ? isLight ? "font-sf-bold text-neutral-900 border-black/20" : "font-sf-bold text-white border-white/20"
+                            : isLight ? "font-sf-light text-neutral-800 border-black/10" : "font-sf-thin text-neutral-300 border-white/10"
                         } ${
                           isLight
-                            ? "bg-[#F7EAD8]/70 text-neutral-700 border-black/10"
-                            : "bg-white/10 text-neutral-300 border-white/10"
+                            ? "bg-[#F7EAD8]/70"
+                            : "bg-white/10"
                         }`}
                       >
                         Discovered
                       </span>
                       <span
                         className={`text-[9px] px-1.5 py-0.5 rounded border interactive-weight ${
-                          isHovered ? "font-sf-light" : "font-sf-thin"
+                          isHovered
+                            ? isLight ? "font-sf-bold text-neutral-900 border-black/20" : "font-sf-bold text-white border-white/20"
+                            : isLight ? "font-sf-light text-neutral-800 border-black/10" : "font-sf-thin text-neutral-300 border-white/10"
                         } ${
                           isLight
-                            ? "bg-[#F7EAD8]/70 text-neutral-700 border-black/10"
-                            : "bg-white/10 text-neutral-300 border-white/10"
+                            ? "bg-[#F7EAD8]/70"
+                            : "bg-white/10"
                         }`}
                       >
                         Multi-Domain
@@ -1073,8 +1093,8 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                       <span
                         className={`text-[10px] interactive-weight ${
                           isHovered
-                            ? isLight ? "font-sf-light text-neutral-700" : "font-sf-light text-neutral-300"
-                            : isLight ? "font-sf-thin text-neutral-400" : "font-sf-thin text-neutral-500"
+                            ? isLight ? "font-sf-bold text-neutral-900" : "font-sf-light text-neutral-200"
+                            : isLight ? "font-sf-light text-neutral-700" : "font-sf-thin text-neutral-400"
                         }`}
                       >
                         {lead.lastCallTime || "2h ago"}
@@ -1084,9 +1104,9 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                           e.stopPropagation();
                           window.open(`mailto:contact@${lead.name.toLowerCase().replace(/[^a-z0-9]/g, "")}.com`, "_blank");
                         }}
-                        className={`px-2.5 py-1 rounded-full text-[11px] font-sf-light border flex items-center gap-1 transition-all ${
+                        className={`px-2.5 py-1 rounded-full text-[11px] font-sf-light hover:font-sf-bold border flex items-center gap-1 transition-all ${
                           isLight
-                            ? "bg-[#F7EAD8]/60 text-neutral-800 border-black/10 hover:bg-[#F7EAD8]"
+                            ? "bg-[#F7EAD8]/80 text-neutral-900 border-black/15 hover:bg-[#F7EAD8]"
                             : "bg-white/5 text-neutral-200 border-white/10 hover:bg-white/10"
                         }`}
                       >
@@ -1109,21 +1129,21 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                   {/* Metadata Row: Category, Location, Phone, Accuracy Chip */}
                   <div
                     className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-xs mb-2 interactive-weight ${
-                      isHovered ? "font-sf-light" : "font-sf-thin"
-                    } ${
-                      isLight ? "text-neutral-600" : "text-neutral-400"
+                      isHovered
+                        ? isLight ? "font-sf-bold text-neutral-900" : "font-sf-bold text-white"
+                        : isLight ? "font-sf-light text-neutral-800" : "font-sf-light text-neutral-300"
                     }`}
                   >
                     <span className="flex items-center gap-1">
-                      <Building className="w-3 h-3 opacity-60" />
+                      <Building className="w-3.5 h-3.5 opacity-70" />
                       {lead.category}
                     </span>
                     <span className="flex items-center gap-1">
-                      <MapPin className="w-3 h-3 opacity-60" />
+                      <MapPin className="w-3.5 h-3.5 opacity-70" />
                       {lead.location}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Phone className="w-3 h-3 opacity-60" />
+                      <Phone className="w-3.5 h-3.5 opacity-70" />
                       {lead.phone}
                     </span>
 
@@ -1131,7 +1151,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                     <span
                       className={`inline-flex items-center gap-1 text-[10px] font-sf-bold px-2 py-0.5 rounded-full border ${
                         isLight
-                          ? "bg-[#00FFFF]/10 text-[#008080] border-[#00FFFF]/30"
+                          ? "bg-[#008080]/15 text-[#006666] border-[#008080]/30"
                           : "bg-[#00FFFF]/10 text-[#00FFFF] border-[#00FFFF]/30"
                       }`}
                     >
@@ -1144,7 +1164,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                   <div
                     className={`p-2 rounded-xl text-xs font-sf-light leading-relaxed border ${
                       isLight
-                        ? "bg-[#FAF7F2] border-black/5 text-neutral-700"
+                        ? "bg-[#FAF7F2] border-black/10 text-neutral-800"
                         : "bg-white/[0.02] border-white/5 text-neutral-300"
                     }`}
                   >
@@ -1182,7 +1202,7 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
           </h3>
           <p
             className={`text-xs mt-0.5 font-sf-light ${
-              isLight ? "text-neutral-500" : "text-neutral-400"
+              isLight ? "text-neutral-700" : "text-neutral-400"
             }`}
           >
             Verbatim transcripts, B2B agreements, and hypothesis confirmation logs
@@ -1197,10 +1217,10 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
         <table className="w-full text-left text-xs">
           <thead>
             <tr
-              className={`border-b uppercase tracking-wider font-sf-light text-[10px] ${
+              className={`border-b uppercase tracking-wider font-sf-bold text-[10px] ${
                 isLight
-                  ? "border-black/10 text-neutral-500"
-                  : "border-white/10 text-neutral-400"
+                  ? "border-black/15 text-neutral-700"
+                  : "border-white/10 text-neutral-400 font-sf-light"
               }`}
             >
               <th className="py-2.5 px-3">Business</th>
@@ -1230,16 +1250,16 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
                     {c.status}
                   </span>
                 </td>
-                <td className="py-3 px-3 font-sf-light text-neutral-600 dark:text-neutral-400">
+                <td className={`py-3 px-3 font-sf-light ${isLight ? "text-neutral-800" : "text-neutral-400"}`}>
                   {c.duration}
                 </td>
-                <td className="py-3 px-3 max-w-md font-sf-light text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                <td className={`py-3 px-3 max-w-md font-sf-light leading-relaxed ${isLight ? "text-neutral-900" : "text-neutral-300"}`}>
                   {c.summary}
                 </td>
                 <td className="py-3 px-3 font-sf-bold text-[#FF5722] dark:text-[#FF751F]">
                   {c.nextAction}
                 </td>
-                <td className="py-3 px-3 text-right font-sf-thin text-neutral-500 dark:text-neutral-400">
+                <td className={`py-3 px-3 text-right font-sf-light ${isLight ? "text-neutral-700" : "font-sf-thin text-neutral-400"}`}>
                   {c.timestamp}
                 </td>
               </tr>

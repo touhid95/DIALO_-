@@ -122,7 +122,7 @@ export function TcpaTimeline({
           </h3>
           <p
             className={`text-[11px] font-sf-light flex items-center gap-1 mt-0.5 ${
-              isLight ? "text-neutral-500" : "text-neutral-400"
+              isLight ? "text-neutral-700" : "text-neutral-400"
             }`}
           >
             <ShieldCheck className="w-3.5 h-3.5 text-[#FF5722]" />
@@ -169,7 +169,7 @@ export function TcpaTimeline({
                       isSelected
                         ? "font-sf-bold text-[#FF5722] dark:text-[#FF751F]"
                         : isLight
-                        ? "font-sf-light text-neutral-700 group-hover:font-sf-bold group-hover:text-black"
+                        ? "font-sf-light text-neutral-800 group-hover:font-sf-bold group-hover:text-black"
                         : "font-sf-light text-neutral-300 group-hover:font-sf-bold group-hover:text-white"
                     }`}
                   >
@@ -206,19 +206,21 @@ export function TcpaTimeline({
                   isSelected
                     ? isLight ? "font-sf-bold text-neutral-900" : "font-sf-bold text-white"
                     : isLight
-                    ? "font-sf-light text-neutral-800 group-hover:font-sf-bold group-hover:text-black"
+                    ? "font-sf-light text-neutral-900 group-hover:font-sf-bold group-hover:text-black"
                     : "font-sf-light text-neutral-200 group-hover:font-sf-bold group-hover:text-white"
                 }`}
               >
                 {slot.businessName}
               </h4>
 
-              {/* Category */}
+              {/* Category (High-contrast clear reading font in light view) */}
               <p
-                className={`text-[10.5px] truncate mt-0.5 interactive-weight ${
+                className={`text-[11px] truncate mt-0.5 interactive-weight ${
                   isSelected
-                    ? "font-sf-light text-neutral-600 dark:text-neutral-300"
-                    : "font-sf-thin text-neutral-500 dark:text-neutral-400 group-hover:font-sf-light"
+                    ? isLight ? "font-sf-bold text-neutral-900" : "font-sf-bold text-white"
+                    : isLight
+                    ? "font-sf-light text-neutral-700 group-hover:font-sf-bold group-hover:text-black"
+                    : "font-sf-light text-neutral-300 group-hover:font-sf-bold group-hover:text-white"
                 }`}
               >
                 {slot.category}
@@ -246,10 +248,12 @@ export function TcpaTimeline({
                   </span>
                 ) : (
                   <span
-                    className={`text-[9.5px] interactive-weight ${
+                    className={`text-[10px] interactive-weight ${
                       isSelected
-                        ? "font-sf-light text-neutral-600 dark:text-neutral-300"
-                        : "font-sf-thin text-neutral-400 dark:text-neutral-500 group-hover:font-sf-light"
+                        ? isLight ? "font-sf-bold text-neutral-800" : "font-sf-bold text-neutral-200"
+                        : isLight
+                        ? "font-sf-light text-neutral-700 group-hover:font-sf-bold group-hover:text-black"
+                        : "font-sf-thin text-neutral-400 group-hover:font-sf-light group-hover:text-neutral-200"
                     }`}
                   >
                     {slot.timezone}
@@ -265,7 +269,7 @@ export function TcpaTimeline({
       <div className="shrink-0 mt-3 pt-2.5 border-t border-black/5 dark:border-white/10 flex items-center justify-between px-1">
         <span
           className={`text-[10px] font-sf-light ${
-            isLight ? "text-neutral-500" : "text-neutral-400"
+            isLight ? "text-neutral-700" : "text-neutral-400"
           }`}
         >
           Auto-pacing: 1 call / 3m
@@ -274,7 +278,7 @@ export function TcpaTimeline({
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span
             className={`text-[10px] font-sf-bold ${
-              isLight ? "text-neutral-800" : "text-neutral-200"
+              isLight ? "text-neutral-900" : "text-neutral-200"
             }`}
           >
             CALL-E Agent Live

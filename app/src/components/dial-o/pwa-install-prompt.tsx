@@ -89,8 +89,8 @@ export function PwaInstallPrompt({ theme = "dark", className = "" }: PwaInstallP
               Install DIAL-O PWA
             </h4>
             <p
-              className={`text-[10px] font-mono truncate ${
-                isLight ? "text-slate-500" : "text-neutral-400"
+              className={`text-[10px] font-sf-light truncate ${
+                isLight ? "text-neutral-700" : "text-neutral-400"
               }`}
             >
               Offline Voice & Lead Intelligence

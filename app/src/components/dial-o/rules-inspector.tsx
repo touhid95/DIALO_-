@@ -184,7 +184,7 @@ export function RulesInspector({
               tab === "rules"
                 ? "text-white font-sf-bold"
                 : isLight
-                ? "text-slate-500 hover:text-slate-900 font-sf-light"
+                ? "text-neutral-700 hover:text-black font-sf-light hover:font-sf-bold"
                 : "text-neutral-400 hover:text-neutral-200 font-sf-light"
             }`}
           >
@@ -200,7 +200,7 @@ export function RulesInspector({
               tab === "copilot"
                 ? "text-white font-sf-bold"
                 : isLight
-                ? "text-slate-500 hover:text-slate-900 font-sf-light"
+                ? "text-neutral-700 hover:text-black font-sf-light hover:font-sf-bold"
                 : "text-neutral-400 hover:text-neutral-200 font-sf-light"
             }`}
           >
@@ -237,7 +237,11 @@ export function RulesInspector({
             </div>
 
             <div className="flex items-center gap-1 shrink-0 pl-2">
-              <span className="text-[10px] font-sf-thin group-hover:font-sf-light text-neutral-400">
+              <span className={`text-[10px] interactive-weight ${
+                isLight
+                  ? "text-neutral-700 font-sf-light group-hover:font-sf-bold group-hover:text-black"
+                  : "text-neutral-400 font-sf-thin group-hover:font-sf-light"
+              }`}>
                 {isRulesDrawerOpen ? "Hide" : "Inspect"}
               </span>
               <ChevronDown
@@ -253,7 +257,7 @@ export function RulesInspector({
             <div
               className={`mt-2 p-3.5 rounded-2xl border text-xs space-y-3 animate-in fade-in zoom-in-95 duration-200 ${
                 isLight
-                  ? "bg-white/95 border-slate-200 shadow-md text-slate-800"
+                  ? "bg-white border-black/15 shadow-md text-neutral-900"
                   : "bg-black/90 border-white/15 shadow-2xl text-neutral-200 backdrop-blur-xl"
               }`}
             >
@@ -265,7 +269,7 @@ export function RulesInspector({
                     {rules?.documentName ? rules.documentName : "Dynamic Ingestion Source"}
                   </span>
                 </div>
-                <span className="text-[10px] font-sf-thin px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 font-sf-bold">
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-sf-bold">
                   {hasActiveRules ? "Active" : "Pending"}
                 </span>
               </div>
@@ -273,39 +277,39 @@ export function RulesInspector({
               {hasActiveRules ? (
                 <div className="space-y-2 text-[11px]">
                   <div className="flex justify-between">
-                    <span className="font-sf-light text-neutral-400">Industry:</span>
-                    <span className="font-sf-bold text-right truncate max-w-[160px]">
+                    <span className={`font-sf-light ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>Industry:</span>
+                    <span className={`font-sf-bold text-right truncate max-w-[160px] ${isLight ? "text-neutral-900" : "text-white"}`}>
                       {rules?.industry || "Unspecified"}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="font-sf-light text-neutral-400">Target Metro:</span>
-                    <span className="font-sf-bold text-right truncate max-w-[160px]">
+                    <span className={`font-sf-light ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>Target Metro:</span>
+                    <span className={`font-sf-bold text-right truncate max-w-[160px] ${isLight ? "text-neutral-900" : "text-white"}`}>
                       {rules?.targetMetro || "Any Geography"}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="font-sf-light text-neutral-400">Headcount:</span>
-                    <span className="font-sf-bold text-right truncate max-w-[160px]">
+                    <span className={`font-sf-light ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>Headcount:</span>
+                    <span className={`font-sf-bold text-right truncate max-w-[160px] ${isLight ? "text-neutral-900" : "text-white"}`}>
                       {rules?.headcount || "10+"}
                     </span>
                   </div>
                   {rules?.primaryPitch && (
                     <div className="pt-1 border-t border-black/5 dark:border-white/5">
-                      <span className="font-sf-light text-[10px] text-neutral-400 block mb-0.5">
+                      <span className={`font-sf-light text-[10px] block mb-0.5 ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>
                         Core Pitch:
                       </span>
-                      <span className="font-sf-light text-[11px] block leading-snug">
+                      <span className={`font-sf-light text-[11px] block leading-snug ${isLight ? "text-neutral-900" : "text-neutral-200"}`}>
                         {rules.primaryPitch}
                       </span>
                     </div>
                   )}
                   {rules?.disqualifier && (
                     <div className="pt-1 border-t border-black/5 dark:border-white/5">
-                      <span className="font-sf-light text-[10px] text-rose-400 block mb-0.5">
+                      <span className="font-sf-light text-[10px] text-rose-500 block mb-0.5">
                         Disqualifier:
                       </span>
-                      <span className="font-sf-light text-[11px] text-rose-500 block leading-snug">
+                      <span className="font-sf-light text-[11px] text-rose-600 dark:text-rose-400 block leading-snug">
                         {rules.disqualifier}
                       </span>
                     </div>
@@ -313,7 +317,7 @@ export function RulesInspector({
                 </div>
               ) : (
                 <div className="text-center py-2 space-y-2">
-                  <p className="font-sf-light text-[11px] text-neutral-400">
+                  <p className={`font-sf-light text-[11px] ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>
                     No criteria extracted yet. Upload your business deck or type your offer in Copilot to generate live rules.
                   </p>
                   <button
@@ -328,11 +332,11 @@ export function RulesInspector({
               {/* Micro Activity Audit Log */}
               {rules?.activityLogs && rules.activityLogs.length > 0 && (
                 <div className="pt-2 border-t border-black/5 dark:border-white/10 space-y-1">
-                  <span className="text-[10px] font-sf-thin uppercase tracking-wider text-neutral-400 block">
+                  <span className={`text-[10px] uppercase tracking-wider block font-sf-bold ${isLight ? "text-neutral-700" : "text-neutral-400 font-sf-thin"}`}>
                     Activity Audit
                   </span>
                   {rules.activityLogs.slice(-3).map((log, i) => (
-                    <p key={i} className="text-[10px] font-sf-light text-neutral-400 flex items-center gap-1 truncate">
+                    <p key={i} className={`text-[10px] font-sf-light flex items-center gap-1 truncate ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>
                       <span className="text-emerald-500 font-sf-bold">✓</span>
                       <span>{log.text}</span>
                     </p>
@@ -357,10 +361,10 @@ export function RulesInspector({
                 </div>
               </div>
               <div className="space-y-1.5 max-w-xs">
-                <h4 className="text-sm font-sf-bold text-slate-900 dark:text-white">
+                <h4 className={`text-sm font-sf-bold ${isLight ? "text-neutral-900" : "text-white"}`}>
                   Synthesizing Rules & Discovering Leads
                 </h4>
-                <p className="text-xs font-sf-light text-neutral-400 leading-relaxed">
+                <p className={`text-xs font-sf-light leading-relaxed ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>
                   Extracting ideal customer profile, enforcing constraints, and querying verified prospects...
                 </p>
               </div>
@@ -380,10 +384,10 @@ export function RulesInspector({
               </div>
 
               <div className="space-y-1.5 max-w-xs">
-                <h4 className="text-sm font-sf-bold">
+                <h4 className={`text-sm font-sf-bold ${isLight ? "text-neutral-900" : "text-white"}`}>
                   No Rules Configured Yet
                 </h4>
-                <p className="text-xs font-sf-light text-neutral-400 leading-relaxed">
+                <p className={`text-xs font-sf-light leading-relaxed ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>
                   Upload your business deck, product one-pager, or lead document. AI will extract your ICP rules and locate matching prospects.
                 </p>
               </div>
@@ -403,7 +407,7 @@ export function RulesInspector({
                   onClick={() => handleTabToggle("copilot")}
                   className={`w-full py-2 rounded-2xl text-xs font-sf-light hover:font-sf-bold transition-all ${
                     isLight
-                      ? "text-slate-600 hover:text-slate-900"
+                      ? "text-neutral-700 hover:text-black"
                       : "text-neutral-400 hover:text-white"
                   }`}
                 >
@@ -429,14 +433,14 @@ export function RulesInspector({
                   <div>
                     <span
                       className={`text-[10px] font-sf-light uppercase tracking-wider block ${
-                        isLight ? "text-slate-500" : "text-neutral-400"
+                        isLight ? "text-neutral-700" : "text-neutral-400"
                       }`}
                     >
                       Task Group
                     </span>
                     <span
                       className={`text-xs font-sf-bold block ${
-                        isLight ? "text-slate-800" : "text-neutral-200"
+                        isLight ? "text-neutral-900" : "text-neutral-200"
                       }`}
                     >
                       {rules.taskGroup || "Autonomous Lead Discovery"}
@@ -458,7 +462,7 @@ export function RulesInspector({
               >
                 <label
                   className={`text-[10px] font-sf-light uppercase tracking-wider block mb-1 ${
-                    isLight ? "text-slate-500" : "text-neutral-400"
+                    isLight ? "text-neutral-700" : "text-neutral-400"
                   }`}
                 >
                   Project / Campaign
@@ -470,7 +474,7 @@ export function RulesInspector({
                     onProjectNameChange && onProjectNameChange(e.target.value)
                   }
                   className={`w-full text-xs font-sf-bold bg-transparent focus:outline-none ${
-                    isLight ? "text-slate-900" : "text-white"
+                    isLight ? "text-neutral-900 placeholder:text-neutral-600" : "text-white placeholder:text-neutral-500"
                   }`}
                   placeholder="Campaign name..."
                 />
@@ -487,14 +491,14 @@ export function RulesInspector({
                 >
                   <span
                     className={`text-[10px] font-sf-light uppercase tracking-wider block mb-1.5 ${
-                      isLight ? "text-slate-500" : "text-neutral-400"
+                      isLight ? "text-neutral-700" : "text-neutral-400"
                     }`}
                   >
                     Campaign Description
                   </span>
                   <p
                     className={`text-xs font-sf-light leading-relaxed ${
-                      isLight ? "text-slate-600" : "text-neutral-300"
+                      isLight ? "text-neutral-800" : "text-neutral-300"
                     }`}
                   >
                     {rules.description}
@@ -520,7 +524,7 @@ export function RulesInspector({
                     </div>
                     <span
                       className={`text-xs font-sf-bold ${
-                        isLight ? "text-slate-800" : "text-neutral-200"
+                        isLight ? "text-neutral-900" : "text-neutral-200"
                       }`}
                     >
                       ICP Criteria
@@ -529,7 +533,7 @@ export function RulesInspector({
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${
                       isIcpOpen ? "rotate-180" : ""
-                    } ${isLight ? "text-slate-500" : "text-neutral-400"}`}
+                    } ${isLight ? "text-neutral-700" : "text-neutral-400"}`}
                   />
                 </button>
 
@@ -537,30 +541,30 @@ export function RulesInspector({
                   <div
                     className={`px-3 pb-3 pt-1 border-t text-[11px] space-y-1.5 ${
                       isLight
-                        ? "border-slate-200 text-slate-600"
+                        ? "border-slate-200 text-neutral-700"
                         : "border-white/5 text-neutral-400"
                     }`}
                   >
                     <div className="flex justify-between">
-                      <span className="font-sf-light">Target Metro:</span>
-                      <span className="font-sf-bold text-slate-900 dark:text-white">
+                      <span className={`font-sf-light ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>Target Metro:</span>
+                      <span className={`font-sf-bold ${isLight ? "text-neutral-900" : "text-white"}`}>
                         {rules.targetMetro || "National / Unrestricted"}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-sf-light">Industry:</span>
-                      <span className="font-sf-bold text-slate-900 dark:text-white">
+                      <span className={`font-sf-light ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>Industry:</span>
+                      <span className={`font-sf-bold ${isLight ? "text-neutral-900" : "text-white"}`}>
                         {rules.industry || "General"}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-sf-light">Headcount:</span>
-                      <span className="font-sf-bold text-slate-900 dark:text-white">
+                      <span className={`font-sf-light ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>Headcount:</span>
+                      <span className={`font-sf-bold ${isLight ? "text-neutral-900" : "text-white"}`}>
                         {rules.headcount || "10+ employees"}
                       </span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-sf-light">Min Phone Score:</span>
+                      <span className={`font-sf-light ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>Min Phone Score:</span>
                       <span className="font-sf-bold text-teal-600 dark:text-[#00FFFF]">
                         {rules.minPhoneScore || "> 70% NANP Verified"}
                       </span>
@@ -587,7 +591,7 @@ export function RulesInspector({
                     </div>
                     <span
                       className={`text-xs font-sf-bold ${
-                        isLight ? "text-slate-800" : "text-neutral-200"
+                        isLight ? "text-neutral-900" : "text-neutral-200"
                       }`}
                     >
                       Strategy & Constraints
@@ -596,7 +600,7 @@ export function RulesInspector({
                   <ChevronDown
                     className={`w-4 h-4 transition-transform ${
                       isRulesOpen ? "rotate-180" : ""
-                    } ${isLight ? "text-slate-500" : "text-neutral-400"}`}
+                    } ${isLight ? "text-neutral-700" : "text-neutral-400"}`}
                   />
                 </button>
 
@@ -604,27 +608,27 @@ export function RulesInspector({
                   <div
                     className={`px-3 pb-3 pt-1 border-t text-[11px] space-y-1.5 ${
                       isLight
-                        ? "border-slate-200 text-slate-600"
+                        ? "border-slate-200 text-neutral-700"
                         : "border-white/5 text-neutral-400"
                     }`}
                   >
                     <div className="flex justify-between">
-                      <span className="font-sf-light">Primary Pitch:</span>
-                      <span className="font-sf-bold text-slate-900 dark:text-white truncate max-w-[180px]">
+                      <span className={`font-sf-light ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>Primary Pitch:</span>
+                      <span className={`font-sf-bold truncate max-w-[180px] ${isLight ? "text-neutral-900" : "text-white"}`}>
                         {rules.primaryPitch || "Direct Voice Outreach"}
                       </span>
                     </div>
                     {rules.forbiddenTopic && (
                       <div className="flex justify-between">
-                        <span className="font-sf-light">Forbidden Topic:</span>
+                        <span className={`font-sf-light ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>Forbidden Topic:</span>
                         <span className="font-sf-bold text-rose-500 truncate max-w-[180px]">
                           {rules.forbiddenTopic}
                         </span>
                       </div>
                     )}
                     <div className="flex justify-between">
-                      <span className="font-sf-light">Disqualifier:</span>
-                      <span className="font-sf-bold text-slate-900 dark:text-white truncate max-w-[180px]">
+                      <span className={`font-sf-light ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>Disqualifier:</span>
+                      <span className={`font-sf-bold truncate max-w-[180px] ${isLight ? "text-neutral-900" : "text-white"}`}>
                         {rules.disqualifier || "No Direct Telephone"}
                       </span>
                     </div>
@@ -651,7 +655,7 @@ export function RulesInspector({
                       </div>
                       <span
                         className={`text-xs font-sf-bold ${
-                          isLight ? "text-slate-800" : "text-neutral-200"
+                          isLight ? "text-neutral-900" : "text-neutral-200"
                         }`}
                       >
                         Agent Audit Log
@@ -660,7 +664,7 @@ export function RulesInspector({
                     <ChevronDown
                       className={`w-4 h-4 transition-transform ${
                         isLogOpen ? "rotate-180" : ""
-                      } ${isLight ? "text-slate-500" : "text-neutral-400"}`}
+                      } ${isLight ? "text-neutral-700" : "text-neutral-400"}`}
                     />
                   </button>
 
@@ -668,7 +672,7 @@ export function RulesInspector({
                     <div
                       className={`px-3 pb-3 pt-1 border-t text-[10px] space-y-1 ${
                         isLight
-                          ? "border-slate-200 text-slate-600"
+                          ? "border-slate-200 text-neutral-700"
                           : "border-white/5 text-neutral-400"
                       }`}
                     >
@@ -703,12 +707,12 @@ export function RulesInspector({
           {/* Chat Messages */}
           <div className="flex-1 min-h-0 overflow-y-auto space-y-3 pr-1 scrollbar-thin mb-2.5">
             {copilotMessages.length === 0 && (
-              <div className="h-full flex flex-col items-center justify-center text-center p-4 text-neutral-400 space-y-2.5 my-auto">
-                <Bot className="w-8 h-8 text-indigo-500 dark:text-[#00FFFF] opacity-80" />
-                <h4 className="text-xs font-sf-bold text-slate-800 dark:text-neutral-200">
+              <div className="h-full flex flex-col items-center justify-center text-center p-4 space-y-2.5 my-auto">
+                <Bot className={`w-8 h-8 opacity-80 ${isLight ? "text-[#FF5722]" : "text-[#00FFFF]"}`} />
+                <h4 className={`text-xs font-sf-bold ${isLight ? "text-neutral-900" : "text-neutral-200"}`}>
                   AI Lead Copilot Ready
                 </h4>
-                <p className="text-[11px] font-sf-light leading-relaxed max-w-xs">
+                <p className={`text-[11px] font-sf-light leading-relaxed max-w-xs ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>
                   Upload your pitch deck or state what you sell. I will extract your ideal customer profile, enforce constraints, and surface matching leads.
                 </p>
               </div>
@@ -740,8 +744,8 @@ export function RulesInspector({
             ))}
 
             {isCopilotStreaming && (
-              <div className="flex items-center gap-2 p-3 text-xs text-neutral-400 animate-pulse font-sf-light">
-                <Loader2 className="w-3.5 h-3.5 animate-spin text-[#00FFFF]" />
+              <div className={`flex items-center gap-2 p-3 text-xs animate-pulse font-sf-light ${isLight ? "text-neutral-800" : "text-neutral-400"}`}>
+                <Loader2 className={`w-3.5 h-3.5 animate-spin ${isLight ? "text-[#FF5722]" : "text-[#00FFFF]"}`} />
                 Parsing context & discovering matching leads...
               </div>
             )}
@@ -753,7 +757,7 @@ export function RulesInspector({
               <div className="flex items-center gap-2 truncate">
                 <FileText className="w-3.5 h-3.5 text-indigo-500 dark:text-[#00FFFF]" />
                 <span className="font-sf-light text-[11px] truncate">{attachedFile.name}</span>
-                <span className="font-sf-thin text-[10px] text-neutral-400">
+                <span className={`font-sf-light text-[10px] ${isLight ? "text-neutral-700" : "text-neutral-400"}`}>
                   ({(attachedFile.size / 1024).toFixed(0)} KB)
                 </span>
               </div>
@@ -780,9 +784,9 @@ export function RulesInspector({
               title="Attach business deck or document"
               className={`p-1.5 rounded-xl transition-colors ${
                 attachedFile
-                  ? "text-[#00FFFF]"
+                  ? isLight ? "text-[#FF5722]" : "text-[#00FFFF]"
                   : isLight
-                  ? "text-slate-500 hover:text-slate-900"
+                  ? "text-neutral-600 hover:text-black"
                   : "text-neutral-400 hover:text-white"
               }`}
             >
@@ -808,7 +812,7 @@ export function RulesInspector({
               }}
               className={`flex-1 bg-transparent px-2 text-xs font-sf-light focus:outline-none ${
                 isLight
-                  ? "text-slate-900 placeholder:text-slate-400"
+                  ? "text-neutral-900 placeholder:text-neutral-600"
                   : "text-white placeholder:text-neutral-500"
               }`}
             />

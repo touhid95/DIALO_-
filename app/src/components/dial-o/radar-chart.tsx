@@ -115,8 +115,8 @@ export function RadarChart({
         <div className="w-full flex items-center justify-between mb-1 px-1">
           {title && (
             <span
-              className={`text-[11px] font-bold tracking-wider uppercase font-mono truncate max-w-[120px] ${
-                isLight ? "text-slate-700" : "text-neutral-300"
+              className={`text-[11px] font-sf-bold tracking-wider uppercase truncate max-w-[120px] ${
+                isLight ? "text-neutral-900" : "text-neutral-300"
               }`}
             >
               {title}
@@ -124,14 +124,14 @@ export function RadarChart({
           )}
           {subtitle && (
             <span
-              className={`inline-flex items-center gap-1.5 text-[9px] font-mono px-2 py-0.5 rounded-full font-semibold truncate max-w-[140px] transition-all duration-200 ${
+              className={`inline-flex items-center gap-1.5 text-[9px] px-2 py-0.5 rounded-full font-sf-bold truncate max-w-[140px] transition-all duration-200 ${
                 isHovered
                   ? isLight
-                    ? "bg-teal-100 text-teal-800 border border-teal-400 font-bold shadow-sm"
-                    : "bg-[#00FFFF]/20 text-[#00FFFF] border border-[#00FFFF] font-bold shadow-[0_0_12px_rgba(0,255,255,0.3)]"
+                    ? "bg-teal-100 text-teal-800 border border-teal-400 shadow-sm"
+                    : "bg-[#00FFFF]/20 text-[#00FFFF] border border-[#00FFFF] shadow-[0_0_12px_rgba(0,255,255,0.3)]"
                   : isLight
-                  ? "bg-teal-50 text-teal-700 border border-teal-200/60"
-                  : "bg-[#00FFFF]/10 text-[#00FFFF] border border-[#00FFFF]/30"
+                  ? "bg-teal-50 text-teal-800 border border-teal-300"
+                  : "bg-[#00FFFF]/10 text-[#00FFFF] border border-[#00FFFF]/30 font-sf-light"
               }`}
               title={subtitle}
             >
@@ -283,8 +283,8 @@ export function RadarChart({
               dy={dy}
               className={`${
                 isSm ? "text-[8.5px]" : "text-[11px]"
-              } font-sf-light select-none ${
-                isLight ? "fill-neutral-800" : "fill-neutral-200"
+              } select-none ${
+                isLight ? "fill-neutral-900 font-sf-bold" : "fill-neutral-200 font-sf-light"
               }`}
             >
               {axis.label}{" "}
@@ -307,7 +307,7 @@ export function RadarChart({
             isHovered
               ? "bg-[#FF5722] dark:bg-[#00FFFF]"
               : isLight
-              ? "bg-neutral-400"
+              ? "bg-neutral-500"
               : "bg-white/20"
           }`}
         />
@@ -318,8 +318,8 @@ export function RadarChart({
                 ? "text-[#FF5722] font-sf-bold"
                 : "text-[#00FFFF] font-sf-bold"
               : isLight
-              ? "text-neutral-500 font-sf-thin"
-              : "text-neutral-500 font-sf-thin"
+              ? "text-neutral-700 font-sf-light"
+              : "text-neutral-400 font-sf-thin"
           }`}
         >
           {isHovered ? "Live Fit Comparison" : "Hover lead to preview"}
