@@ -153,12 +153,12 @@ export function RadarChart({
       >
         <defs>
           <linearGradient id="radarFillDark" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#00FFFF" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="#00A8A8" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="#FF751F" stopOpacity="0.45" />
+            <stop offset="100%" stopColor="#EFCD5E" stopOpacity="0.15" />
           </linearGradient>
           <linearGradient id="radarFillLight" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0D9488" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.1" />
+            <stop offset="0%" stopColor="#FF5722" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#EFCD5E" stopOpacity="0.15" />
           </linearGradient>
           <filter id="radarGlow" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="2.5" result="blur" />
@@ -183,11 +183,11 @@ export function RadarChart({
               stroke={
                 isLight
                   ? lvl === 1.0
-                    ? "rgba(13, 148, 136, 0.4)"
-                    : "rgba(203, 213, 225, 0.6)"
+                    ? "rgba(255, 87, 34, 0.5)"
+                    : "rgba(0, 0, 0, 0.12)"
                   : lvl === 1.0
-                  ? "rgba(0, 255, 255, 0.4)"
-                  : "rgba(255, 255, 255, 0.08)"
+                  ? "rgba(255, 117, 31, 0.5)"
+                  : "rgba(255, 255, 255, 0.1)"
               }
               strokeWidth={lvl === 1.0 ? "1.2" : "0.8"}
               strokeDasharray={lvl < 1.0 ? "2,2" : undefined}
@@ -206,7 +206,7 @@ export function RadarChart({
               x2={x}
               y2={y}
               stroke={
-                isLight ? "rgba(203, 213, 225, 0.7)" : "rgba(255, 255, 255, 0.12)"
+                isLight ? "rgba(0, 0, 0, 0.15)" : "rgba(255, 255, 255, 0.12)"
               }
               strokeWidth="0.8"
             />
@@ -217,23 +217,23 @@ export function RadarChart({
         <polygon
           points={benchmarkPoints}
           fill="none"
-          stroke={isLight ? "rgba(100, 116, 139, 0.35)" : "rgba(255, 255, 255, 0.2)"}
+          stroke={isLight ? "rgba(0, 0, 0, 0.25)" : "rgba(255, 255, 255, 0.2)"}
           strokeWidth="1"
           strokeDasharray="2,2"
         />
 
-        {/* 4. Active Metrics Polygon (Smooth Morph on Hover) */}
+        {/* 4. Active Metrics Polygon (Vibrant Architectural Orange) */}
         <polygon
           points={metricPoints}
           fill={isLight ? "url(#radarFillLight)" : "url(#radarFillDark)"}
-          stroke={isLight ? "#0D9488" : "#00FFFF"}
-          strokeWidth={isSm ? "1.8" : "2.2"}
+          stroke={isLight ? "#FF5722" : "#FF751F"}
+          strokeWidth={isSm ? "2" : "2.4"}
           strokeLinejoin="round"
           filter={isLight ? undefined : "url(#radarGlow)"}
           className="transition-all duration-300 ease-out"
         />
 
-        {/* 5. Vertex Dots */}
+        {/* 5. Vertex Dots (Telemetry Cyan dots from screenshot) */}
         {axes.map((axis, i) => {
           const { x, y } = getCoordinates(i, axis.value);
           return (
@@ -241,9 +241,9 @@ export function RadarChart({
               key={`dot-${i}`}
               cx={x}
               cy={y}
-              r={isSm ? "3" : "4.5"}
-              fill={isLight ? "#0D9488" : "#00FFFF"}
-              stroke={isLight ? "#FFFFFF" : "#0A0A0A"}
+              r={isSm ? "3.2" : "4.5"}
+              fill="#00FFFF"
+              stroke={isLight ? "#000000" : "#FFFFFF"}
               strokeWidth="1.2"
               className="transition-all duration-300 ease-out"
             />
@@ -284,13 +284,13 @@ export function RadarChart({
               className={`${
                 isSm ? "text-[8.5px]" : "text-[11px]"
               } font-sf-light select-none ${
-                isLight ? "fill-slate-600" : "fill-neutral-300"
+                isLight ? "fill-neutral-800" : "fill-neutral-200"
               }`}
             >
               {axis.label}{" "}
               <tspan
                 className={`font-sf-bold ${
-                  isLight ? "fill-teal-700" : "fill-[#00FFFF]"
+                  isLight ? "fill-[#FF5722]" : "fill-[#00FFFF]"
                 }`}
               >
                 ({Math.round(axis.value)}%)
@@ -305,9 +305,9 @@ export function RadarChart({
         <span
           className={`inline-block w-1.5 h-1.5 rounded-full transition-colors ${
             isHovered
-              ? "bg-teal-500 dark:bg-[#00FFFF]"
+              ? "bg-[#FF5722] dark:bg-[#00FFFF]"
               : isLight
-              ? "bg-slate-300"
+              ? "bg-neutral-400"
               : "bg-white/20"
           }`}
         />
@@ -315,10 +315,10 @@ export function RadarChart({
           className={`interactive-weight ${
             isHovered
               ? isLight
-                ? "text-teal-700 font-sf-bold"
+                ? "text-[#FF5722] font-sf-bold"
                 : "text-[#00FFFF] font-sf-bold"
               : isLight
-              ? "text-slate-400 font-sf-thin"
+              ? "text-neutral-500 font-sf-thin"
               : "text-neutral-500 font-sf-thin"
           }`}
         >

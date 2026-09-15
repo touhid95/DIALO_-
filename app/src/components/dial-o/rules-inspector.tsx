@@ -162,10 +162,10 @@ export function RulesInspector({
             className={`px-3 py-1 text-xs rounded-full transition-all interactive-weight ${
               tab === "rules"
                 ? isLight
-                  ? "bg-white text-slate-900 shadow-sm font-sf-bold"
-                  : "bg-[#00FFFF] text-black shadow-md shadow-[#00FFFF]/20 font-sf-bold"
+                  ? "bg-black text-white shadow-sm font-sf-bold"
+                  : "bg-[#FF751F] text-black shadow-md shadow-orange-500/20 font-sf-bold"
                 : isLight
-                ? "text-slate-600 hover:text-slate-900 font-sf-light"
+                ? "text-neutral-600 hover:text-black font-sf-light"
                 : "text-neutral-400 hover:text-white font-sf-light"
             }`}
           >
@@ -176,10 +176,10 @@ export function RulesInspector({
             className={`px-3 py-1 text-xs rounded-full transition-all flex items-center gap-1.5 interactive-weight ${
               tab === "copilot"
                 ? isLight
-                  ? "bg-white text-slate-900 shadow-sm font-sf-bold"
-                  : "bg-[#00FFFF] text-black shadow-md shadow-[#00FFFF]/20 font-sf-bold"
+                  ? "bg-black text-white shadow-sm font-sf-bold"
+                  : "bg-[#FF751F] text-black shadow-md shadow-orange-500/20 font-sf-bold"
                 : isLight
-                ? "text-slate-600 hover:text-slate-900 font-sf-light"
+                ? "text-neutral-600 hover:text-black font-sf-light"
                 : "text-neutral-400 hover:text-white font-sf-light"
             }`}
           >
@@ -389,10 +389,10 @@ export function RulesInspector({
               <div className="flex flex-col gap-2 w-full max-w-xs pt-2">
                 <button
                   onClick={() => fileInputRef.current?.click()}
-                  className={`w-full py-2.5 rounded-2xl text-xs font-sf-bold flex items-center justify-center gap-2 transition-all ${
+                  className={`w-full py-2.5 rounded-2xl text-xs font-sf-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                     isLight
-                      ? "bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-500/20"
-                      : "bg-[#00FFFF] hover:bg-[#00FFFF]/90 text-black font-sf-bold shadow-md shadow-[#00FFFF]/20"
+                      ? "bg-[#FF751F] hover:bg-[#ff893b] text-black shadow-md shadow-orange-500/20"
+                      : "bg-[#FF751F] hover:bg-[#ff893b] text-black shadow-md shadow-orange-500/20"
                   }`}
                 >
                   <Paperclip className="w-3.5 h-3.5" />
@@ -685,10 +685,10 @@ export function RulesInspector({
               {/* Primary Action Button */}
               <button
                 onClick={() => onTriggerDiscovery && onTriggerDiscovery()}
-                className={`w-full py-3.5 rounded-2xl text-xs font-sf-bold tracking-wide uppercase transition-all shadow-lg active:scale-[0.99] ${
+                className={`w-full py-3.5 rounded-2xl text-xs font-sf-bold tracking-wide uppercase transition-all shadow-lg active:scale-[0.99] cursor-pointer ${
                   isLight
-                    ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:opacity-95 shadow-indigo-500/20"
-                    : "bg-gradient-to-r from-[#00FFFF] to-teal-400 text-black hover:opacity-95 shadow-[#00FFFF]/20"
+                    ? "bg-[#FF751F] hover:bg-[#ff893b] text-black shadow-orange-500/20"
+                    : "bg-[#FF751F] hover:bg-[#ff893b] text-black shadow-orange-500/20"
                 }`}
               >
                 Find Qualified Leads Now

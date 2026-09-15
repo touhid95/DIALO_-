@@ -102,35 +102,39 @@ export function TcpaTimeline({
 }: TcpaTimelineProps) {
   const isLight = theme === "light";
 
-  // Light mode soft pastel card tints (matching the reference image)
+  // Editorial Sand & Orange card tints (matching the architectural reference)
   const getCardStyle = (tint?: string, isSelected?: boolean) => {
     if (isLight) {
-      const baseBorder = isSelected ? "border-teal-500 ring-2 ring-teal-500/20 shadow-md" : "border-slate-200/70";
+      const baseBorder = isSelected
+        ? "border-[#FF5722] ring-2 ring-[#FF5722]/25 shadow-md"
+        : "border-black/10 hover:border-[#FF5722]/50";
       switch (tint) {
         case "sage":
-          return `bg-[#F1F5EB] ${baseBorder} text-slate-800`;
+          return `bg-[#FAF7F0] ${baseBorder} text-neutral-900`;
         case "mint":
-          return `bg-[#EAF5EE] ${baseBorder} text-slate-800`;
+          return `bg-[#F5F8F6] ${baseBorder} text-neutral-900`;
         case "lavender":
-          return `bg-[#F3EEFA] ${baseBorder} text-slate-800`;
+          return `bg-[#F8F5FA] ${baseBorder} text-neutral-900`;
         case "peach":
-          return `bg-[#F8EFEA] ${baseBorder} text-slate-800`;
+          return `bg-[#FFF5ED] ${baseBorder} text-neutral-900`;
         default:
-          return `bg-[#F4F6F8] ${baseBorder} text-slate-800`;
+          return `bg-[#FAF7F2] ${baseBorder} text-neutral-900`;
       }
     } else {
-      const baseBorder = isSelected ? "border-[#00FFFF] ring-1 ring-[#00FFFF]/40 shadow-lg shadow-[#00FFFF]/5" : "border-white/[0.08]";
+      const baseBorder = isSelected
+        ? "border-[#FF751F] ring-1 ring-[#FF751F]/40 shadow-lg shadow-[#FF751F]/10"
+        : "border-white/[0.08]";
       switch (tint) {
         case "sage":
-          return `bg-gradient-to-br from-emerald-950/30 to-black/60 ${baseBorder} text-neutral-200`;
+          return `bg-gradient-to-br from-neutral-900 to-black/80 ${baseBorder} text-neutral-200`;
         case "mint":
-          return `bg-gradient-to-br from-teal-950/30 to-black/60 ${baseBorder} text-neutral-200`;
+          return `bg-gradient-to-br from-neutral-900 to-black/80 ${baseBorder} text-neutral-200`;
         case "lavender":
-          return `bg-gradient-to-br from-purple-950/30 to-black/60 ${baseBorder} text-neutral-200`;
+          return `bg-gradient-to-br from-neutral-900 to-black/80 ${baseBorder} text-neutral-200`;
         case "peach":
-          return `bg-gradient-to-br from-amber-950/30 to-black/60 ${baseBorder} text-neutral-200`;
+          return `bg-gradient-to-br from-neutral-900 to-black/80 ${baseBorder} text-neutral-200`;
         default:
-          return `bg-black/50 ${baseBorder} text-neutral-200`;
+          return `bg-black/60 ${baseBorder} text-neutral-200`;
       }
     }
   };
@@ -139,7 +143,7 @@ export function TcpaTimeline({
     <div
       className={`flex flex-col h-full min-h-0 p-3.5 sm:p-4 rounded-3xl transition-all duration-300 ${
         isLight
-          ? "bg-white/90 border border-slate-200 shadow-sm"
+          ? "bg-[#FFFDF9] border border-black/10 shadow-sm"
           : "bg-[#0d0d0d]/80 border border-white/[0.08] backdrop-blur-xl"
       } ${className}`}
     >
@@ -148,25 +152,25 @@ export function TcpaTimeline({
         <div>
           <h3
             className={`text-sm font-sf-bold tracking-tight ${
-              isLight ? "text-slate-900" : "text-white"
+              isLight ? "text-neutral-900" : "text-white"
             }`}
           >
             Call Queue
           </h3>
           <p
             className={`text-[11px] font-sf-light flex items-center gap-1 mt-0.5 ${
-              isLight ? "text-slate-500" : "text-neutral-400"
+              isLight ? "text-neutral-600" : "text-neutral-400"
             }`}
           >
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+            <ShieldCheck className="w-3.5 h-3.5 text-[#FF5722]" />
             TCPA 08:00-20:00 Window
           </p>
         </div>
         <span
-          className={`text-[10px] px-2 py-0.5 rounded-full font-sf-bold ${
+          className={`text-[10px] px-2.5 py-0.5 rounded-full font-sf-bold ${
             isLight
-              ? "bg-teal-50 text-teal-700 border border-teal-200"
-              : "bg-[#00FFFF]/10 text-[#00FFFF] border border-[#00FFFF]/30"
+              ? "bg-[#FF751F]/15 text-[#FF5722] border border-[#FF5722]/30"
+              : "bg-[#FF751F]/20 text-[#FF751F] border border-[#FF751F]/40"
           }`}
         >
           {slots.length} Ready
@@ -185,13 +189,15 @@ export function TcpaTimeline({
                 <span
                   className={`text-[11px] block leading-none interactive-weight ${
                     isSelected
-                      ? "font-sf-bold text-teal-600 dark:text-[#00FFFF]"
-                      : "font-sf-light text-slate-500 dark:text-neutral-400 group-hover:font-sf-bold"
+                      ? "font-sf-bold text-[#FF5722] dark:text-[#FF751F]"
+                      : isLight
+                      ? "font-sf-light text-neutral-600 group-hover:font-sf-bold group-hover:text-black"
+                      : "font-sf-light text-neutral-400 group-hover:font-sf-bold group-hover:text-white"
                   }`}
                 >
                   {slot.time}
                 </span>
-                <span className="text-[9px] font-sf-bold text-emerald-500 block mt-1">
+                <span className="text-[9px] font-sf-bold text-emerald-600 dark:text-emerald-400 block mt-1">
                   Open
                 </span>
               </div>
@@ -228,11 +234,11 @@ export function TcpaTimeline({
                     title="Initiate Live CALL-E Speech Verification"
                     className={`p-1.5 rounded-xl border transition-all ${
                       isLight
-                        ? "bg-white hover:bg-slate-100 text-slate-800 border-slate-200 shadow-sm"
-                        : "bg-white/10 hover:bg-white/20 text-white border-white/20"
+                        ? "bg-[#FF751F] hover:bg-[#ff893b] text-black border-black/10 shadow-sm"
+                        : "bg-white/10 hover:bg-[#FF751F] hover:text-black border-white/20"
                     }`}
                   >
-                    <Phone className="w-3 h-3 text-emerald-500" />
+                    <Phone className="w-3 h-3 text-black dark:text-white" />
                   </button>
                 </div>
 
