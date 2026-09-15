@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import {
-  PhoneCall,
   Search,
   Filter,
   ArrowUpDown,
@@ -34,8 +33,6 @@ import {
   Activity,
   SlidersHorizontal,
   ExternalLink,
-  LayoutGrid,
-  Bot,
   LogOut,
 } from "lucide-react";
 import { DialOLogo } from "./dial-o-logo";
@@ -1263,126 +1260,89 @@ export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {
       <PwaInstallPrompt theme={theme} />
 
       <div className="max-w-[1780px] w-full mx-auto flex-1 flex flex-col min-h-0">
-        {/* 1. Top Navigation & Control Center Header (Compact Fixed Row) */}
+        {/* 1. Top Navigation & Control Center Header (Ultra-Minimal iOS 44px Bar) */}
         <header
-          className={`shrink-0 flex flex-wrap lg:flex-nowrap items-center justify-between gap-3 p-3 mb-3 rounded-2xl border transition-all ${
+          className={`shrink-0 h-11 sm:h-12 flex items-center justify-between px-3 sm:px-4 mb-2.5 rounded-2xl border transition-all duration-300 ${
             isLight
-              ? "bg-[#111111] text-white border-black/20 shadow-md"
-              : "bg-[#0d0d0d]/90 border-white/10 backdrop-blur-xl"
+              ? "bg-[#181818] text-white border-black/20 shadow-sm"
+              : "bg-[#0d0d0d]/90 border-white/10 backdrop-blur-xl text-white"
           }`}
         >
-          <div className="flex items-center gap-3">
+          {/* Brand Lockup */}
+          <div className="flex items-center gap-2.5">
             <DialOLogo size="sm" />
-            <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-base font-sf-bold tracking-tight text-white">
-                  DIAL-O Console
-                </h1>
-                <span className="text-[10px] font-sf-bold px-2 py-0.5 rounded-full bg-[#FF5722]/15 text-[#FF751F] border border-[#FF5722]/40">
-                  PWA Ready
-                </span>
-              </div>
-              <div className="flex items-center gap-2 mt-0.5">
-                <p className="text-xs font-sf-light text-[#F7EAD8]/70">
-                  Lead Intelligence • Socratic Onboarding • CALL-E Telephony
-                </p>
-                {userEmail && (
-                  <span className="text-[11px] font-sf-thin hover:font-sf-light transition-all px-2 py-0.5 rounded-full border border-[#FF5722]/30 text-[#F7EAD8] bg-black/40">
-                    👤 {userEmail}
-                  </span>
-                )}
-              </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs sm:text-sm font-sf-bold tracking-tight text-white">
+                DIAL-O
+              </span>
+              <span className="text-xs font-sf-thin text-[#FF5722]">/</span>
+              <span className="text-xs font-sf-light text-neutral-300">
+                Console
+              </span>
             </div>
           </div>
 
-          {/* Desktop View Switcher (Hidden on Mobile PWA, Visible on Desktop) */}
-          <div className="hidden lg:flex p-1 rounded-full border text-xs font-semibold bg-black/60 border-white/10 text-neutral-300">
+          {/* Right Action Tools: iPhone Capsule Toggle & Profile Lockup */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* iPhone Capsule Toggle Switch */}
             <button
-              onClick={() => setDesktopLayout("grid")}
-              className={`px-3 py-1 rounded-full transition-all interactive-weight ${
-                desktopLayout === "grid"
-                  ? "bg-[#FF5722] text-white font-sf-bold shadow-sm"
-                  : "opacity-70 hover:opacity-100 font-sf-light hover:font-sf-bold text-[#F7EAD8]"
-              }`}
-            >
-              Command Center (3-Panel)
-            </button>
-            <button
-              onClick={() => setDesktopLayout("call_log")}
-              className={`px-3 py-1 rounded-full transition-all flex items-center gap-1.5 interactive-weight ${
-                desktopLayout === "call_log"
-                  ? "bg-[#FF5722] text-white font-sf-bold shadow-sm"
-                  : "opacity-70 hover:opacity-100 font-sf-light hover:font-sf-bold text-[#F7EAD8]"
-              }`}
-            >
-              <PhoneCall className="w-3.5 h-3.5 text-[#FF751F]" />
-              Call Log
-            </button>
-            <button
-              onClick={() => setDesktopLayout("dashboard")}
-              className={`px-3 py-1 rounded-full transition-all flex items-center gap-1.5 interactive-weight ${
-                desktopLayout === "dashboard"
-                  ? "bg-[#FF5722] text-white font-sf-bold shadow-sm"
-                  : "opacity-70 hover:opacity-100 font-sf-light hover:font-sf-bold text-[#F7EAD8]"
-              }`}
-            >
-              <LayoutGrid className="w-3.5 h-3.5 text-[#00FFFF]" />
-              Dashboard
-            </button>
-            <button
-              onClick={() => setDesktopLayout("chat")}
-              className={`px-3 py-1 rounded-full transition-all flex items-center gap-1.5 interactive-weight ${
-                desktopLayout === "chat"
-                  ? "bg-[#FF5722] text-white font-sf-bold shadow-sm"
-                  : "opacity-70 hover:opacity-100 font-sf-light hover:font-sf-bold text-[#F7EAD8]"
-              }`}
-            >
-              <Bot className="w-3.5 h-3.5 text-[#00FFFF]" />
-              Chat Interface
-            </button>
-          </div>
-
-          {/* Right Action Tools: Upload & Theme Toggle */}
-          <div className="flex items-center gap-2.5">
-            <button
-              onClick={() => setIsDocModalOpen(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-sf-light hover:font-sf-bold border transition-all bg-white/10 hover:bg-white/15 border-white/15 text-[#F7EAD8]"
-            >
-              <FileText className="w-3.5 h-3.5 text-[#FF751F]" />
-              Upload PDF
-            </button>
-
-            {/* Dual Theme Toggle */}
-            <button
+              id="btn-console-theme-toggle"
               onClick={() => setTheme(isLight ? "dark" : "light")}
               title={`Switch to ${isLight ? "Dark Obsidian" : "Clean Warm Sand"} Mode`}
-              className="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-sf-bold border transition-all shadow-sm shadow-[#FF5722]/20 bg-[#FF5722] hover:bg-[#FF751F] text-white border-[#FF5722]"
+              aria-label={`Toggle theme (Currently ${isLight ? "Warm Sand" : "Dark Obsidian"})`}
+              className="flex items-center gap-2 group cursor-pointer focus:outline-none select-none py-1"
             >
-              {isLight ? (
-                <>
-                  <Moon className="w-3.5 h-3.5 text-white" />
-                  Dark Obsidian
-                </>
-              ) : (
-                <>
-                  <Sun className="w-3.5 h-3.5 text-amber-200" />
-                  Warm Sand
-                </>
-              )}
+              <span className="hidden sm:inline text-[11px] font-sf-thin group-hover:font-sf-light text-neutral-400 group-hover:text-neutral-200 transition-all">
+                {isLight ? "Sand" : "Obsidian"}
+              </span>
+              <div
+                className={`w-11 h-6 rounded-full p-0.5 transition-colors duration-300 flex items-center ${
+                  isLight ? "bg-[#FF5722]" : "bg-white/15 border border-white/20"
+                }`}
+              >
+                <div
+                  className={`w-5 h-5 rounded-full bg-white shadow-sm flex items-center justify-center transform transition-transform duration-300 ease-out ${
+                    isLight ? "translate-x-5" : "translate-x-0"
+                  }`}
+                >
+                  {isLight ? (
+                    <Sun className="w-3 h-3 text-[#FF5722]" />
+                  ) : (
+                    <Moon className="w-3 h-3 text-neutral-800" />
+                  )}
+                </div>
+              </div>
             </button>
 
-            {/* Persistent Sign Out Button to Return to Split Login */}
-            {onSignOut && (
+            {/* User Profile Pill & Integrated Sign Out */}
+            {userEmail ? (
+              <div className="flex items-center gap-1.5 pl-2.5 pr-1 py-1 rounded-full bg-white/[0.06] hover:bg-white/[0.10] border border-white/10 transition-all group">
+                <span className="text-[11px] font-sf-thin group-hover:font-sf-light text-[#F7EAD8]/90 max-w-[120px] sm:max-w-[160px] truncate">
+                  {userEmail}
+                </span>
+                {onSignOut && (
+                  <button
+                    id="btn-console-signout"
+                    onClick={onSignOut}
+                    title="Sign Out"
+                    className="w-5 h-5 rounded-full flex items-center justify-center text-rose-300 hover:text-white hover:bg-rose-500/80 active:scale-90 transition-all"
+                    aria-label="Sign Out"
+                  >
+                    <LogOut className="w-3 h-3" />
+                  </button>
+                )}
+              </div>
+            ) : onSignOut ? (
               <button
                 id="btn-console-signout"
                 onClick={onSignOut}
                 title="Sign Out & Lock Console"
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-sf-bold border transition-all cursor-pointer shadow-sm active:scale-95 bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 border-rose-500/30"
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-sf-bold border transition-all cursor-pointer shadow-sm active:scale-95 bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 border-rose-500/30"
               >
-                <LogOut className="w-3.5 h-3.5" />
-                <span>Sign Out</span>
+                <LogOut className="w-3 h-3" />
+                <span className="text-[11px] font-sf-light">Sign Out</span>
               </button>
-            )}
+            ) : null}
           </div>
         </header>
 
