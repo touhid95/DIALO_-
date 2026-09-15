@@ -36,6 +36,7 @@ import {
   ExternalLink,
   LayoutGrid,
   Bot,
+  LogOut,
 } from "lucide-react";
 import { DialOLogo } from "./dial-o-logo";
 import { CallModal, CallSimulationResult } from "./call-modal";
@@ -285,7 +286,12 @@ const INITIAL_CALL_LOGS: CallLogItem[] = [
   },
 ];
 
-export function ConsoleSection() {
+export interface ConsoleSectionProps {
+  onSignOut?: () => void;
+  userEmail?: string;
+}
+
+export function ConsoleSection({ onSignOut, userEmail }: ConsoleSectionProps = {}) {
   // Apple Theme Mode state (Defaults to Dark Glass, with instant toggle to Clean Light)
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const isLight = theme === "light";
@@ -1303,13 +1309,22 @@ export function ConsoleSection() {
                   PWA Ready
                 </span>
               </div>
-              <p
-                className={`text-xs font-mono mt-0.5 ${
-                  isLight ? "text-slate-500" : "text-neutral-400"
-                }`}
-              >
-                Lead Intelligence • Socratic Onboarding • CALL-E Telephony
-              </p>
+              <div className="flex items-center gap-2 mt-0.5">
+                <p
+                  className={`text-xs font-mono ${
+                    isLight ? "text-slate-500" : "text-neutral-400"
+                  }`}
+                >
+                  Lead Intelligence • Socratic Onboarding • CALL-E Telephony
+                </p>
+                {userEmail && (
+                  <span className={`text-[11px] font-[100] hover:font-[300] transition-all px-2 py-0.5 rounded-full border ${
+                    isLight ? "border-slate-300 text-slate-600 bg-slate-50" : "border-white/10 text-neutral-300 bg-white/[0.04]"
+                  }`}>
+                    👤 {userEmail}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
 
@@ -1410,6 +1425,23 @@ export function ConsoleSection() {
                 </>
               )}
             </button>
+
+            {/* Persistent Sign Out Button to Return to Split Login */}
+            {onSignOut && (
+              <button
+                id="btn-console-signout"
+                onClick={onSignOut}
+                title="Sign Out & Lock Console"
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-[700] border transition-all cursor-pointer shadow-sm active:scale-95 ${
+                  isLight
+                    ? "bg-rose-50 hover:bg-rose-100 text-rose-700 border-rose-200"
+                    : "bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 border-rose-500/30"
+                }`}
+              >
+                <LogOut className="w-3.5 h-3.5" />
+                <span>Sign Out</span>
+              </button>
+            )}
           </div>
         </header>
 

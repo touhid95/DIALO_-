@@ -1,41 +1,106 @@
 "use client";
 
-import React, { useState } from "react";
-import { HeroExperience } from "@/components/dial-o/hero-experience";
-import { WalkthroughSection } from "@/components/dial-o/walkthrough-section";
+import React, { useState, useEffect } from "react";
 import { AboutArchitectureSection } from "@/components/dial-o/about-architecture-section";
+import { InstagramLandingAuth } from "@/components/dial-o/instagram-landing-auth";
 import { ConsoleSection } from "@/components/dial-o/console-section";
-import { SignInModal } from "@/components/dial-o/sign-in-modal";
 
 export default function DialOMainPage() {
-  const [isSignInOpen, setIsSignInOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userEmail, setUserEmail] = useState<string>("founder@dial-o.ai");
+  const [isClient, setIsClient] = useState(false);
 
-  const handleExploreConsole = () => {
-    const consoleElem = document.getElementById("console");
-    if (consoleElem) {
-      consoleElem.scrollIntoView({ behavior: "smooth" });
+  // Restore authenticated session from localStorage
+  useEffect(() => {
+    setIsClient(true);
+    const storedAuth = localStorage.getItem("dialo_auth_user");
+    const storedEmail = localStorage.getItem("dialo_auth_email");
+    if (storedAuth === "true") {
+      setIsAuthenticated(true);
+      if (storedEmail) setUserEmail(storedEmail);
+    }
+  }, []);
+
+  const handleAuthenticated = (email: string) => {
+    setIsAuthenticated(true);
+    setUserEmail(email);
+    localStorage.setItem("dialo_auth_user", "true");
+    localStorage.setItem("dialo_auth_email", email);
+
+    // Smoothly scroll down to the Console destination
+    setTimeout(() => {
+      const consoleElem = document.getElementById("console");
+      if (consoleElem) {
+        consoleElem.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 150);
+  };
+
+  const handleSignOut = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem("dialo_auth_user");
+    localStorage.removeItem("dialo_auth_email");
+
+    // Smoothly scroll back to the split login section
+    setTimeout(() => {
+      const authElem = document.getElementById("auth-section");
+      if (authElem) {
+        authElem.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
+
+  const handleScrollToLogin = () => {
+    const authElem = document.getElementById("auth-section");
+    if (authElem) {
+      authElem.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <main className="w-full bg-black text-white selection:bg-[#00FFFF] selection:text-black">
-      {/* Sign In Modal */}
-      <SignInModal isOpen={isSignInOpen} onClose={() => setIsSignInOpen(false)} />
+    <main className="w-full bg-black text-white selection:bg-[#00FFFF] selection:text-black min-h-screen">
+      {/* ══════════════════════════════════════════════════════════
+          PAGE 1 (First Screen): ABOUT + ARCHITECTURE SECTION
+          Split Tan (#F7EAD8) / Orange (#FF5722) System Architecture
+          ══════════════════════════════════════════════════════════ */}
+      <AboutArchitectureSection onScrollToLogin={handleScrollToLogin} />
 
-      {/* Page 1 (Hero) & Page 2 (Call Reveal) — Scroll-Scrubbed Cinematic Experience */}
-      <HeroExperience
-        onOpenSignIn={() => setIsSignInOpen(true)}
-        onExploreConsole={handleExploreConsole}
+      {/* ══════════════════════════════════════════════════════════
+          PAGE 2 (One Scroll Down): INSTAGRAM-STYLE SPLIT LOGIN
+          50% Left: DIAL-O iPhone Showcase & Live CALL-E Waveform
+          50% Right: Instagram-Style Authentication Card
+          ══════════════════════════════════════════════════════════ */}
+      <InstagramLandingAuth
+        onAuthenticated={handleAuthenticated}
+        isAuthenticated={isAuthenticated}
       />
 
-      {/* Page 3 — Video Walkthrough (Cyan Visual Field & Orange Step Cards) */}
-      <WalkthroughSection />
-
-      {/* Page 4 — About + Architecture (Tan / Orange Split & System Pipeline) */}
-      <AboutArchitectureSection />
-
-      {/* Page 5 — The Console (The Destination: Call Logs, Lead Intelligence, Copilot) */}
-      <ConsoleSection />
+      {/* ══════════════════════════════════════════════════════════
+          PAGE 3 (The Destination): DIAL-O MAIN CONSOLE
+          Active upon authentication, with persistent Sign Out
+          ══════════════════════════════════════════════════════════ */}
+      <div id="console-wrapper" className="relative w-full">
+        {isAuthenticated ? (
+          <ConsoleSection onSignOut={handleSignOut} userEmail={userEmail} />
+        ) : (
+          <div className="w-full bg-neutral-950 py-16 px-6 text-center border-t border-neutral-900 flex flex-col items-center justify-center space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-neutral-400">
+              <span className="text-xl">🔒</span>
+            </div>
+            <h3 className="text-lg font-[700] text-white">DIAL-O Console Locked</h3>
+            <p className="text-xs text-neutral-400 font-[300] max-w-sm">
+              Authenticate via the split login screen above or click Instant Demo Access to launch the autonomous voice copilot workspace.
+            </p>
+            <button
+              onClick={handleScrollToLogin}
+              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FF751F] to-[#00FFFF] text-black font-[700] text-xs shadow-md active:scale-95 transition-all cursor-pointer"
+            >
+              Go to Split Login ↑
+            </button>
+          </div>
+        )}
+      </div>
     </main>
   );
 }
+

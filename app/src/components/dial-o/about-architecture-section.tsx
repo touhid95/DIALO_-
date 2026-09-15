@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { CheckCircle2, ArrowRight, ShieldCheck, Cpu, PhoneCall, Sparkles, Database } from "lucide-react";
+import { CheckCircle2, ArrowRight, ShieldCheck, Cpu, PhoneCall, Sparkles, Database, Lock, LogIn } from "lucide-react";
+import { DialOLogo } from "./dial-o-logo";
 
 interface PipelineStage {
   id: string;
@@ -10,6 +11,10 @@ interface PipelineStage {
   description: string;
   metadata: string;
   icon: React.ElementType;
+}
+
+interface AboutArchitectureSectionProps {
+  onScrollToLogin?: () => void;
 }
 
 const PIPELINE_STAGES: PipelineStage[] = [
@@ -55,7 +60,7 @@ const PIPELINE_STAGES: PipelineStage[] = [
   },
 ];
 
-export function AboutArchitectureSection() {
+export function AboutArchitectureSection({ onScrollToLogin }: AboutArchitectureSectionProps = {}) {
   const [activeStage, setActiveStage] = useState<number>(0);
 
   // Auto-progress stages slowly if user doesn't click
@@ -66,8 +71,46 @@ export function AboutArchitectureSection() {
     return () => clearInterval(timer);
   }, []);
 
+  const handleScrollToLogin = () => {
+    if (onScrollToLogin) {
+      onScrollToLogin();
+    } else {
+      document.getElementById("auth-section")?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="about" className="relative w-full">
+    <section id="about" className="relative w-full bg-black text-white">
+      {/* ══════════════════════════════════════════════════════════
+          PAGE 1 TOP NAVIGATION BAR (SF Pro 100/300/700)
+          ══════════════════════════════════════════════════════════ */}
+      <header className="w-full bg-[#111111]/95 border-b border-white/10 px-6 sm:px-12 py-4 flex items-center justify-between z-30 sticky top-0 backdrop-blur-md">
+        <div className="flex items-center gap-4">
+          <a href="#about" className="hover:opacity-90 transition-opacity">
+            <DialOLogo size="md" variant="hero" />
+          </a>
+          <span className="hidden md:inline-block px-2.5 py-0.5 rounded-full text-[11px] font-[100] hover:font-[300] text-neutral-400 border border-neutral-800 uppercase tracking-wider transition-all">
+            Architecture & Intelligence
+          </span>
+        </div>
+        <div className="flex items-center gap-4">
+          <a
+            href="#about"
+            className="hidden sm:inline-block text-xs font-[300] hover:font-[700] text-neutral-300 hover:text-white transition-all uppercase tracking-wider"
+          >
+            System Pipeline
+          </a>
+          <button
+            id="btn-nav-login"
+            onClick={handleScrollToLogin}
+            className="px-4 py-2 rounded-full bg-[#FF751F] hover:bg-[#ff893b] text-black font-[700] text-xs transition-all flex items-center gap-1.5 shadow-md active:scale-95 cursor-pointer"
+          >
+            <LogIn className="w-3.5 h-3.5 text-black" />
+            <span>Sign In to Console</span>
+          </button>
+        </div>
+      </header>
+
       {/* 2-Column Split matching PDF Page 4 */}
       <div className="grid grid-cols-1 lg:grid-cols-2">
 
@@ -353,6 +396,18 @@ export function AboutArchitectureSection() {
         >
           LEAD INTELLIGENCE BEFORE OUTREACH · SYSTEM ARCHITECTURE VERIFIED
         </p>
+
+        {/* Dynamic Scroll Cue to Split Login */}
+        <div className="mt-8 flex justify-center">
+          <button
+            id="btn-scroll-to-auth"
+            onClick={handleScrollToLogin}
+            className="group px-6 py-3 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-neutral-300 hover:text-white font-[300] hover:font-[700] text-xs transition-all flex items-center gap-2.5 cursor-pointer shadow-lg active:scale-95"
+          >
+            <span>Proceed to Instagram Split Login</span>
+            <ArrowRight className="w-4 h-4 text-[#00FFFF] group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
       </div>
     </section>
   );
